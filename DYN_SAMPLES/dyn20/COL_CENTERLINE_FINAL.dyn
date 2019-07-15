@@ -1,0 +1,254 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "COL_CENTERLINE_FINAL",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "5272c6be9d6e4f2381f2da172721b47d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "43087b36adf946b19b7bd3684c7547ee",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "4a9ff4e1b1304597a66949aa42d4bc70",
+      "Inputs": [
+        {
+          "Id": "0205b663253f4e3694ca73399c506b78",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b522c4fb4f374372b17197e9adb8a1e4",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Face.Vertices",
+      "Id": "97b4b058318b469cb0087f7bbe4b5a24",
+      "Inputs": [
+        {
+          "Id": "5ca2efb6b44b433fbb26fc223619a4c4",
+          "Name": "face",
+          "Description": "Autodesk.DesignScript.Geometry.Face",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9c842215a8fd474694ef24d1a66d3785",
+          "Name": "Vertex[]",
+          "Description": "Vertex[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "All of the Vertices around this Face in counterclockwise order\n\nFace.Vertices: Vertex[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vertex.PointGeometry",
+      "Id": "768e2a70c3d544fd832ac3b8b157f561",
+      "Inputs": [
+        {
+          "Id": "eb7f4c793bd54653ba9c22c22e771039",
+          "Name": "vertex",
+          "Description": "Autodesk.DesignScript.Geometry.Vertex",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8483d2c1a308472086fe4a441a303e04",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Point where this Vertex is located\n\nVertex.PointGeometry: Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByBestFitThroughPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "cb396b2e127a47479e664fba159fec8b",
+      "Inputs": [
+        {
+          "Id": "d321dc0de998409599dbce1bb22d7bc9",
+          "Name": "bestFitPoints",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4a93e26edca64319a64196b78caa715f",
+          "Name": "Line",
+          "Description": "Line",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Line best approximating a scatter plot of Points.\n\nLine.ByBestFitThroughPoints (bestFitPoints: Point[]): Line"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "43087b36adf946b19b7bd3684c7547ee",
+      "End": "0205b663253f4e3694ca73399c506b78",
+      "Id": "b72267cf127a4b9695c428e044244af5"
+    },
+    {
+      "Start": "b522c4fb4f374372b17197e9adb8a1e4",
+      "End": "5ca2efb6b44b433fbb26fc223619a4c4",
+      "Id": "6643f59c8b8744ffb2a97982d0ce8183"
+    },
+    {
+      "Start": "9c842215a8fd474694ef24d1a66d3785",
+      "End": "eb7f4c793bd54653ba9c22c22e771039",
+      "Id": "6739b79bfa6345d0a72dbc7c81afd229"
+    },
+    {
+      "Start": "8483d2c1a308472086fe4a441a303e04",
+      "End": "d321dc0de998409599dbce1bb22d7bc9",
+      "Id": "0d813afa3ba04959b5eaad3f9c1f7fca"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -61.472560882568359,
+      "EyeY": 16.683773040771484,
+      "EyeZ": -12.704460144042969,
+      "LookX": 5.9331116676330566,
+      "LookY": -11.125838279724121,
+      "LookZ": -14.19095516204834,
+      "UpX": 0.15381142497062683,
+      "UpY": 0.91706007719039917,
+      "UpZ": -0.36788976192474365
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "5272c6be9d6e4f2381f2da172721b47d",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 151.0,
+        "Y": 247.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Geometry",
+        "Id": "4a9ff4e1b1304597a66949aa42d4bc70",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 409.0,
+        "Y": 289.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Face.Vertices",
+        "Id": "97b4b058318b469cb0087f7bbe4b5a24",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 714.0,
+        "Y": 346.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Vertex.PointGeometry",
+        "Id": "768e2a70c3d544fd832ac3b8b157f561",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 986.0,
+        "Y": 366.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Line.ByBestFitThroughPoints",
+        "Id": "cb396b2e127a47479e664fba159fec8b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1242.0,
+        "Y": 368.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}

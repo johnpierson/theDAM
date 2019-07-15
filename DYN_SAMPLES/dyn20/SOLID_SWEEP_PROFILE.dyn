@@ -1,0 +1,385 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SOLID_SWEEP_PROFILE",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PlaneAtParameter@double",
+      "Id": "1a55b5caa7dc4450ac2bbd6c7d863213",
+      "Inputs": [
+        {
+          "Id": "783f7a8c5fa84677a41964f8f1ab9b8d",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bdf1723e16a847dbb50302fd07b46ba4",
+          "Name": "param",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c1fdcabf0e0c461fa1fa590032f0386e",
+          "Name": "Plane",
+          "Description": "Plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a Plane whose normal aligns with the tangent of the Curve. Parameters are adjusted such that 0 is always the start Point and 1 is always the end Point.\n\nCurve.PlaneAtParameter (param: double = 0): Plane"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Circle.ByCenterPointRadius@Autodesk.DesignScript.Geometry.Point,double",
+      "Id": "0de61505f63d4323b9287cfcf592b5fc",
+      "Inputs": [
+        {
+          "Id": "a53bb6d6b5ba4960ba54496fec5e742e",
+          "Name": "centerPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a316f73f12b7486c8c736fe8e6160cf0",
+          "Name": "radius",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0160c374465148b79e5415cdf6521740",
+          "Name": "Circle",
+          "Description": "Circle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Circle with input center Point and radius in the world XY plane, with world Z as normal.\n\nCircle.ByCenterPointRadius (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1): Circle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.CoordinateSystem.ByPlane@Autodesk.DesignScript.Geometry.Plane",
+      "Id": "dc4ed84d78d74ac0b79872442eb6c40a",
+      "Inputs": [
+        {
+          "Id": "f7fb6d9effb14378a000253c7ec9c9a6",
+          "Name": "plane",
+          "Description": "Plane\nDefault value : Autodesk.DesignScript.Geometry.Plane.XY()",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5e02725b4cf2448893c7bb0f42030347",
+          "Name": "CoordinateSystem",
+          "Description": "CoordinateSystem",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a CoordinateSystem with origin equal to input Plane origin, and X and Y axes lying in the Plane, aligned with Plane X and Y axes.\n\nCoordinateSystem.ByPlane (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY()): CoordinateSystem"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Transform@Autodesk.DesignScript.Geometry.CoordinateSystem",
+      "Id": "ee544d14daa84d738a059e008e5d9798",
+      "Inputs": [
+        {
+          "Id": "ae6461c5d7bb47a4aac084f8f19bad27",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5f65c2df9a1c4524bc6a4376abb822c5",
+          "Name": "cs",
+          "Description": "CoordinateSystem",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "20970f392d504b06936924e75d1198f4",
+          "Name": "Geometry",
+          "Description": "Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Transforms geometry by the given CoordinateSystem's transform\n\nGeometry.Transform (cs: CoordinateSystem): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Solid.BySweep@Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve",
+      "Id": "07c4cf021b854d06b8ba7f4b380c5011",
+      "Inputs": [
+        {
+          "Id": "cff9b4594ec2494c997fae7ec8278600",
+          "Name": "profile",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ee64ec613aef40788d655165288e16fa",
+          "Name": "path",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ec12ef4c718e45deb72fcf5b3ba6df53",
+          "Name": "Solid",
+          "Description": "Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Sweep a closed Curve along a path.\n\nSolid.BySweep (profile: Curve, path: Curve): Solid"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "b8dcb5f7e9bc4679a824b1350cf287c7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7a132406213a408b8dae4527df93c6ef",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Curves",
+      "Id": "0e851a165a57434f97d5696f1f572e86",
+      "Inputs": [
+        {
+          "Id": "0cb579db7f7b4bf0a22e1ccbb9166ece",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d950edf6f0db40189976838e2e4ed197",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Curves in this Element\n\nElement.Curves: Curve[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c1fdcabf0e0c461fa1fa590032f0386e",
+      "End": "f7fb6d9effb14378a000253c7ec9c9a6",
+      "Id": "e353a55a7ba141a0a12abf26f6d4d70b"
+    },
+    {
+      "Start": "0160c374465148b79e5415cdf6521740",
+      "End": "ae6461c5d7bb47a4aac084f8f19bad27",
+      "Id": "131c38ff0c02490391b0d473ed62c42f"
+    },
+    {
+      "Start": "5e02725b4cf2448893c7bb0f42030347",
+      "End": "5f65c2df9a1c4524bc6a4376abb822c5",
+      "Id": "3c910c3ccf484165a65032bcd67db7e4"
+    },
+    {
+      "Start": "20970f392d504b06936924e75d1198f4",
+      "End": "cff9b4594ec2494c997fae7ec8278600",
+      "Id": "4a107ab5edfe414d8cac416b3fe851a5"
+    },
+    {
+      "Start": "7a132406213a408b8dae4527df93c6ef",
+      "End": "0cb579db7f7b4bf0a22e1ccbb9166ece",
+      "Id": "ce6e6b55d29145f6a13c88acb04d7c46"
+    },
+    {
+      "Start": "d950edf6f0db40189976838e2e4ed197",
+      "End": "783f7a8c5fa84677a41964f8f1ab9b8d",
+      "Id": "6e8ad41e497f4701bf191c747630cf55"
+    },
+    {
+      "Start": "d950edf6f0db40189976838e2e4ed197",
+      "End": "ee64ec613aef40788d655165288e16fa",
+      "Id": "ffab807b0c244e5cae95e94d36879496"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -50.584945678710938,
+      "EyeY": 44.531509399414063,
+      "EyeZ": 14.941194534301758,
+      "LookX": 12.59012508392334,
+      "LookY": -7.8607664108276367,
+      "LookZ": -35.183422088623047,
+      "UpX": -0.0029401264619082212,
+      "UpY": 0.99996185302734375,
+      "UpZ": 0.0082162944599986076
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.PlaneAtParameter",
+        "Id": "1a55b5caa7dc4450ac2bbd6c7d863213",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 673.052145854035,
+        "Y": 335.973012904727
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Circle.ByCenterPointRadius",
+        "Id": "0de61505f63d4323b9287cfcf592b5fc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1212.55475848417,
+        "Y": 321.796913674773
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "CoordinateSystem.ByPlane",
+        "Id": "dc4ed84d78d74ac0b79872442eb6c40a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 906.102516671642,
+        "Y": 345.042316165487
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Transform",
+        "Id": "ee544d14daa84d738a059e008e5d9798",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1193.03690858342,
+        "Y": 438.739580796452
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Solid.BySweep",
+        "Id": "07c4cf021b854d06b8ba7f4b380c5011",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1459.55205607374,
+        "Y": 366.194649617854
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "b8dcb5f7e9bc4679a824b1350cf287c7",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 425.248292614888,
+        "Y": 309.410864547625
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Curves",
+        "Id": "0e851a165a57434f97d5696f1f572e86",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 399.651415538673,
+        "Y": 423.796908981961
+      }
+    ],
+    "Annotations": [],
+    "X": -417.510772433472,
+    "Y": -119.361037040038,
+    "Zoom": 1.19342907491027
+  }
+}

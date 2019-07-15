@@ -1,0 +1,139 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_SURFACES_FROM",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "9ff66d619eb940e182ec43f27d49521e",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "499b066eadc14f6da714097d30046613",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7fc7ad267c5345b0abdda5cf799a7b74",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Explode",
+      "Id": "f1ba237c0d3a482284dd4743ee3d183d",
+      "Inputs": [
+        {
+          "Id": "147e7276236e4967bf0d7dbc563d9313",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e3ef55ecbd9e447ca3a28687c29cb62e",
+          "Name": "Geometry[]",
+          "Description": "Geometry[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Separates compound or non-separated elements into their component parts.\n\nGeometry.Explode ( ): Geometry[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7fc7ad267c5345b0abdda5cf799a7b74",
+      "End": "147e7276236e4967bf0d7dbc563d9313",
+      "Id": "1ad1dcb15f0e46779ab40b4143ddea58"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 1.3731096982955933,
+      "EyeY": 1.9716134071350098,
+      "EyeZ": 1.5471049547195435,
+      "LookX": -5.9457550048828125,
+      "LookY": -4.6475434303283691,
+      "LookZ": -5.4845428466796875,
+      "UpX": -0.22103090584278107,
+      "UpY": 0.9537169337272644,
+      "UpZ": -0.20388554036617279
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": false,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 768.941051802985,
+        "Y": 519.059506563988
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Explode",
+        "Id": "f1ba237c0d3a482284dd4743ee3d183d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1003.68486840405,
+        "Y": 521.444205681951
+      }
+    ],
+    "Annotations": [],
+    "X": -1160.36713256214,
+    "Y": -813.988360707265,
+    "Zoom": 1.63793481743379
+  }
+}

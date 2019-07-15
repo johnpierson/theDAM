@@ -1,0 +1,326 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "TEXT_TO_UPPERCASE_PLAN_VIEW_NAMES",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetParameterByName@string,var",
+      "Id": "87db821dc9aa400695fdf2df3059ab5a",
+      "Inputs": [
+        {
+          "Id": "346e957127ea475aac6127e67c2c236d",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8ef670ca17574c879731feb27624460b",
+          "Name": "parameterName",
+          "Description": "The name of the parameter to set.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b89b3a798c284b2e98d73f6abb3a48ca",
+          "Name": "value",
+          "Description": "The value.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2448b987fe30405585905ac1dd59490a",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set one of the element's parameters.\n\nElement.SetParameterByName (parameterName: string, value: var): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.GetParameterValueByName@string",
+      "Id": "eae613b38c534152a0a3419d21e9ca9d",
+      "Inputs": [
+        {
+          "Id": "bc5287ae6f2a48efab4d52fb22e1a5b3",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c3281639c65940aeb0d5d910dda2e47b",
+          "Name": "parameterName",
+          "Description": "The name of the parameter whose value you want to obtain.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ad0fac88525249c6a1f9f67ca2c87db5",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the value of one of the element's parameters.\n\nElement.GetParameterValueByName (parameterName: string): var[]..[]"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementTypes, DSRevitNodesUI",
+      "SelectedIndex": 334,
+      "NodeType": "ExtensionNode",
+      "Id": "912001bfa108400e94b117dbcd1a448c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8ccd766740f94ebcb5e97e4d3f9e9fd4",
+          "Name": "Types",
+          "Description": "The selected Types",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All element subtypes."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "224b53e97e704767a11e1db7ebc33d17",
+      "Inputs": [
+        {
+          "Id": "9d9cf737bccd479db52fbe705bafa0e4",
+          "Name": "element type",
+          "Description": "An element type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1fee6463e66641fca25fd48797cd4708",
+          "Name": "elements",
+          "Description": "All elements in the active document of a given type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All elements in the active document of a given type."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.String.ToUpper@string",
+      "Id": "45b957f6e919424894ef41f661b26a72",
+      "Inputs": [
+        {
+          "Id": "267e331e39554c54b2704d15d3c4897d",
+          "Name": "str",
+          "Description": "String to be made uppercase.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4d95779b2ad44b1d84111ff2fae566ee",
+          "Name": "str",
+          "Description": "Uppercase string.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Converts the given string to all uppercase characters.\n\nString.ToUpper (str: string): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"View Name\";",
+      "Id": "da6734cab9c74fe79524840d336cc5c1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1abcf2aae31a49dd97d8d38b6127d7a9",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "ad0fac88525249c6a1f9f67ca2c87db5",
+      "End": "267e331e39554c54b2704d15d3c4897d",
+      "Id": "1c26f201add14816847aa2759022fd9c"
+    },
+    {
+      "Start": "8ccd766740f94ebcb5e97e4d3f9e9fd4",
+      "End": "9d9cf737bccd479db52fbe705bafa0e4",
+      "Id": "810a6cf061ec443c8305f9b6f638062e"
+    },
+    {
+      "Start": "1fee6463e66641fca25fd48797cd4708",
+      "End": "346e957127ea475aac6127e67c2c236d",
+      "Id": "7a88bd7271f8487ba4c75e25b0719b88"
+    },
+    {
+      "Start": "1fee6463e66641fca25fd48797cd4708",
+      "End": "bc5287ae6f2a48efab4d52fb22e1a5b3",
+      "Id": "5cd7ae6a95694e48836cc69131a83ae0"
+    },
+    {
+      "Start": "4d95779b2ad44b1d84111ff2fae566ee",
+      "End": "b89b3a798c284b2e98d73f6abb3a48ca",
+      "Id": "3a3ef55f119e40738609869c7fcbb446"
+    },
+    {
+      "Start": "1abcf2aae31a49dd97d8d38b6127d7a9",
+      "End": "c3281639c65940aeb0d5d910dda2e47b",
+      "Id": "8466893919834fcfb8ef861eba243ded"
+    },
+    {
+      "Start": "1abcf2aae31a49dd97d8d38b6127d7a9",
+      "End": "8ef670ca17574c879731feb27624460b",
+      "Id": "1c3f0d1260944c719af8ef93643f1926"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Element.SetParameterByName",
+        "Id": "87db821dc9aa400695fdf2df3059ab5a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1060.64141950628,
+        "Y": 558.261110053611
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.GetParameterValueByName",
+        "Id": "eae613b38c534152a0a3419d21e9ca9d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 652.12692256652,
+        "Y": 566.133943718044
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element Types",
+        "Id": "912001bfa108400e94b117dbcd1a448c",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 112.0,
+        "Y": 590.5
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Type",
+        "Id": "224b53e97e704767a11e1db7ebc33d17",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 303.581040072296,
+        "Y": 599.611311117985
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String.ToUpper",
+        "Id": "45b957f6e919424894ef41f661b26a72",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 918.518961580259,
+        "Y": 680.185556048672
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "da6734cab9c74fe79524840d336cc5c1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 509.324160289185,
+        "Y": 691.688981982932
+      }
+    ],
+    "Annotations": [],
+    "X": -16.7641023959546,
+    "Y": -370.067997284304,
+    "Zoom": 0.959788699581265
+  }
+}

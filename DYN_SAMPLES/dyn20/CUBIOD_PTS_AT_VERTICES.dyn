@@ -1,0 +1,184 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_PTS_AT_VERTICES",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "080cd579e9bd4d8c97f4435d5787bdbe",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c0533e734b6f49f08787bcc37ff5d378",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "50ea9e6968cf4986afaac54e5c416edd",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Face.Vertices",
+      "Id": "3016d5bba0ed4024bd3ed514a423be06",
+      "Inputs": [
+        {
+          "Id": "1566d04af2c640bbacd7447e450d2386",
+          "Name": "face",
+          "Description": "Autodesk.DesignScript.Geometry.Face",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "34ec3d9283414a64af6e32f56a2b2050",
+          "Name": "Vertex[]",
+          "Description": "Vertex[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "All of the Vertices around this Face in counterclockwise order\n\nFace.Vertices: Vertex[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vertex.PointGeometry",
+      "Id": "a3ae7251fee8494a89091aa7e3808066",
+      "Inputs": [
+        {
+          "Id": "14e1edfecbcb44c89182fb9d596e4055",
+          "Name": "vertex",
+          "Description": "Autodesk.DesignScript.Geometry.Vertex",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "11d4885fdeea44a68f659c016741f30e",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Point where this Vertex is located\n\nVertex.PointGeometry: Point"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "50ea9e6968cf4986afaac54e5c416edd",
+      "End": "1566d04af2c640bbacd7447e450d2386",
+      "Id": "315f5799870b49928b029f87604f08c1"
+    },
+    {
+      "Start": "34ec3d9283414a64af6e32f56a2b2050",
+      "End": "14e1edfecbcb44c89182fb9d596e4055",
+      "Id": "263cd7187c9343d59f87fa24c8e2b070"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 1.3731096982955933,
+      "EyeY": 1.9716134071350098,
+      "EyeZ": 1.5471049547195435,
+      "LookX": -5.9457550048828125,
+      "LookY": -4.6475434303283691,
+      "LookZ": -5.4845428466796875,
+      "UpX": -0.22103090584278107,
+      "UpY": 0.9537169337272644,
+      "UpZ": -0.20388554036617279
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 768.941051802985,
+        "Y": 519.059506563988
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Face.Vertices",
+        "Id": "3016d5bba0ed4024bd3ed514a423be06",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1009.17959255559,
+        "Y": 519.612630964771
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Vertex.PointGeometry",
+        "Id": "a3ae7251fee8494a89091aa7e3808066",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1225.30540918279,
+        "Y": 521.444205681951
+      }
+    ],
+    "Annotations": [],
+    "X": -1160.36713256214,
+    "Y": -813.988360707265,
+    "Zoom": 1.63793481743379
+  }
+}

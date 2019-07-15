@@ -1,0 +1,296 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "BEAM_ORIENTATION",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSFaceSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "7ea4d3cc54a14b8f9088f5896b5e7862",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4e017a09822f4f339e943acf9fe5f9a2",
+          "Name": "Surface",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "NodeType": "ExtensionNode",
+      "Id": "ebb23a171d8040c585e033ef39ef6941",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9afafb7e257448c39223029d763be926",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.AdaptiveComponent.ByParametersOnFace@Autodesk.DesignScript.Geometry.UV[],Autodesk.DesignScript.Geometry.Surface,Revit.Elements.FamilyType",
+      "Id": "330ed3561fff44cca68db8932ac027ee",
+      "Inputs": [
+        {
+          "Id": "03a0a154a9db40cf891c83ac1389c2fa",
+          "Name": "uvs",
+          "Description": "An array of UV pairs\n\nUV[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "58df267b2abe40a186b5d0a82d20ec76",
+          "Name": "surface",
+          "Description": "The surface on which to place the AdaptiveComponent\n\nSurface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7fadbb87be6f4ca8a4e470ba21c64a0f",
+          "Name": "familyType",
+          "Description": "FamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "db26ecf821bc43cf8048d2b28a266242",
+          "Name": "AdaptiveComponent",
+          "Description": "AdaptiveComponent",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "CrossProduct",
+      "Description": "Create an adaptive component by uv points on a face.\n\nAdaptiveComponent.ByParametersOnFace (uvs: UV[], surface: Surface, familyType: FamilyType): AdaptiveComponent"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0..50..#10;",
+      "Id": "f9f3f34dcef040cbb47c7b97b5c64711",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "93e9f6c75924432da7b9861a7ba54ff4",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[0,45];",
+      "Id": "7bc31d3f18344ab3aa840280ba4ab53b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "62ce2b18eeb84130aead10c2c636b06c",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.UV.ByCoordinates@double,double",
+      "Id": "31a9f737232b4c1eb33c31b6e7dc3ded",
+      "Inputs": [
+        {
+          "Id": "10542e3c7e0547938beaa3412676895d",
+          "Name": "u",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "128fbf78eb6f4a9f8fcff68cbe787873",
+          "Name": "v",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 1,
+          "UseLevels": true,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d13eca88dc9b4f3bbffeae9f4d980e79",
+          "Name": "UV",
+          "Description": "UV",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a UV from two doubles.\n\nUV.ByCoordinates (u: double = 0, v: double = 0): UV"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4e017a09822f4f339e943acf9fe5f9a2",
+      "End": "58df267b2abe40a186b5d0a82d20ec76",
+      "Id": "52af529a6c3b4433be2a54501daa86bf"
+    },
+    {
+      "Start": "9afafb7e257448c39223029d763be926",
+      "End": "7fadbb87be6f4ca8a4e470ba21c64a0f",
+      "Id": "1c1aed2777b54101a5853628cf5d4427"
+    },
+    {
+      "Start": "93e9f6c75924432da7b9861a7ba54ff4",
+      "End": "128fbf78eb6f4a9f8fcff68cbe787873",
+      "Id": "925a9b979e29493e93f7093c5aebd592"
+    },
+    {
+      "Start": "62ce2b18eeb84130aead10c2c636b06c",
+      "End": "10542e3c7e0547938beaa3412676895d",
+      "Id": "082065e43812414fa42cf4ed3b9014f2"
+    },
+    {
+      "Start": "d13eca88dc9b4f3bbffeae9f4d980e79",
+      "End": "03a0a154a9db40cf891c83ac1389c2fa",
+      "Id": "daa3b79b7aa048d9b3bf4634f11d2c54"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -80.398788452148438,
+      "EyeY": 76.717025756835938,
+      "EyeZ": 98.567863464355469,
+      "LookX": -46.405784606933594,
+      "LookY": -40.831539154052734,
+      "LookZ": -33.950679779052734,
+      "UpX": -0.3153473436832428,
+      "UpY": 0.9205048680305481,
+      "UpZ": -0.23070952296257019
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Face",
+        "Id": "7ea4d3cc54a14b8f9088f5896b5e7862",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 55.9824663963182,
+        "Y": 278.606013273954
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "ebb23a171d8040c585e033ef39ef6941",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 257.762788210529,
+        "Y": 406.701337509004
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "AdaptiveComponent.ByParametersOnFace",
+        "Id": "330ed3561fff44cca68db8932ac027ee",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 552.645710513967,
+        "Y": 213.270980949653
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "f9f3f34dcef040cbb47c7b97b5c64711",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 187.862319026871,
+        "Y": 107.739324007765
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "7bc31d3f18344ab3aa840280ba4ab53b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 67.1394658753709,
+        "Y": 45.566765578635
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "UV.ByCoordinates",
+        "Id": "31a9f737232b4c1eb33c31b6e7dc3ded",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 385.718271186503,
+        "Y": 45.1276291707744
+      }
+    ],
+    "Annotations": [],
+    "X": 43.4622276315015,
+    "Y": 39.3787760584967,
+    "Zoom": 1.47618023926361
+  }
+}

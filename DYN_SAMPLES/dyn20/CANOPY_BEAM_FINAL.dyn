@@ -1,0 +1,384 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CANOPY_BEAM_FINAL",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "ea68c0dd6a9842da92f2164cf2376999",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "635f927962fb40ecbb38a6ef53168bb1",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Grid.Curve",
+      "Id": "b75e54d9c41a4c1eae19f35ecdcefd86",
+      "Inputs": [
+        {
+          "Id": "87305facad104074948309075e6840a3",
+          "Name": "grid",
+          "Description": "Revit.Elements.Grid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ebd95e9e1c924905a19e9b6ca9275199",
+          "Name": "Curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the underlying Curve geometry from this Element\n\nGrid.Curve: Curve"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSFaceSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "981c382649864c6b930d07080492d495",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b5b62fe7562f47e19a473fc728764789",
+          "Name": "Surface",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ProjectInputOnto@Autodesk.DesignScript.Geometry.Geometry,Autodesk.DesignScript.Geometry.Vector",
+      "Id": "d03944486c234929bc04526ecd6ccc05",
+      "Inputs": [
+        {
+          "Id": "3973787742654fc3a6a91c585aaf6c3b",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4e64152754914fe3a868ecc5550af203",
+          "Name": "geometryToProject",
+          "Description": "Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ce0b0d7874d549779de74d74f15b8b4a",
+          "Name": "projectionDirection",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b79a17dc4b294703b955c78bb9dca30d",
+          "Name": "Geometry[]",
+          "Description": "Geometry[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Longest",
+      "Description": "Projects the input Geometry onto this Surface in the input Vector direction\n\nSurface.ProjectInputOnto (geometryToProject: Geometry, projectionDirection: Vector): Geometry[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
+      "Id": "eb8acb75229d4ec1ad59c3d8c8d5fa38",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1ef549f55e64ac58d240e7ccb4f4ed5",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical Z axis Vector (0,0,1)\n\nVector.ZAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.StructuralFraming.BeamByCurve@Autodesk.DesignScript.Geometry.Curve,Revit.Elements.Level,Revit.Elements.FamilyType",
+      "Id": "45674337ea474a97a5429fa302e56961",
+      "Inputs": [
+        {
+          "Id": "913106f35348496583cb966df76ce91f",
+          "Name": "curve",
+          "Description": "The curve which defines the center line of the beam.\n\nCurve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "35eadfbbc037466ab2ff43acb53bb336",
+          "Name": "level",
+          "Description": "The level with which you'd like the beam to be associated.\n\nLevel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "37b29fb2b53b49d0bd07b012ded4541a",
+          "Name": "structuralFramingType",
+          "Description": "The structural framing type representing the beam.\n\nFamilyType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fd9c0d6bb06446a8a272208d9c01ccaf",
+          "Name": "StructuralFraming",
+          "Description": "StructuralFraming",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a beam.\n\nStructuralFraming.BeamByCurve (curve: Curve, level: Level, structuralFramingType: FamilyType): StructuralFraming"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.StructuralFramingTypes, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "NodeType": "ExtensionNode",
+      "Id": "3f67a0449bf14c73a1c1ab0f797b31ed",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3752480b013f47368bf342fcfc25dac3",
+          "Name": "Framing Types",
+          "Description": "The selected Framing Types",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a structural framing type in the active document"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": 4,
+      "NodeType": "ExtensionNode",
+      "Id": "be6da7035f8e47eebf9b4b56cbbe270f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "da0e430fe91b4d2c8b3b9d308cd4c487",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "635f927962fb40ecbb38a6ef53168bb1",
+      "End": "87305facad104074948309075e6840a3",
+      "Id": "70c28478be37487fac541f7fc72524cb"
+    },
+    {
+      "Start": "ebd95e9e1c924905a19e9b6ca9275199",
+      "End": "4e64152754914fe3a868ecc5550af203",
+      "Id": "f6dd3c4924e7454d924699a65ff8b864"
+    },
+    {
+      "Start": "b5b62fe7562f47e19a473fc728764789",
+      "End": "3973787742654fc3a6a91c585aaf6c3b",
+      "Id": "6bd7c86cfe43442dbcd0c896a0bfebee"
+    },
+    {
+      "Start": "b79a17dc4b294703b955c78bb9dca30d",
+      "End": "913106f35348496583cb966df76ce91f",
+      "Id": "5597f9dbf4134f47888cf9bbe47809c9"
+    },
+    {
+      "Start": "f1ef549f55e64ac58d240e7ccb4f4ed5",
+      "End": "ce0b0d7874d549779de74d74f15b8b4a",
+      "Id": "c07adfe3a15b46079e4e9493854b875e"
+    },
+    {
+      "Start": "3752480b013f47368bf342fcfc25dac3",
+      "End": "37b29fb2b53b49d0bd07b012ded4541a",
+      "Id": "8da295064dc34fdaa31877a3f8ec2357"
+    },
+    {
+      "Start": "da0e430fe91b4d2c8b3b9d308cd4c487",
+      "End": "35eadfbbc037466ab2ff43acb53bb336",
+      "Id": "5c334c5879d945b9820863a26cdb8ef9"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -8.6835403442382812,
+      "EyeY": 56.006782531738281,
+      "EyeZ": 17.127063751220703,
+      "LookX": -26.160030364990234,
+      "LookY": -23.087400436401367,
+      "LookZ": -49.5946044921875,
+      "UpX": -0.0810156911611557,
+      "UpY": 0.98480772972106934,
+      "UpZ": -0.1535908430814743
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "ea68c0dd6a9842da92f2164cf2376999",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 50.0,
+        "Y": 300.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Grid.Curve",
+        "Id": "b75e54d9c41a4c1eae19f35ecdcefd86",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 348.0,
+        "Y": 302.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Face",
+        "Id": "981c382649864c6b930d07080492d495",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 47.0,
+        "Y": 166.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.ProjectInputOnto",
+        "Id": "d03944486c234929bc04526ecd6ccc05",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 567.0,
+        "Y": 173.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Vector.ZAxis",
+        "Id": "eb8acb75229d4ec1ad59c3d8c8d5fa38",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 570.0,
+        "Y": 310.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "StructuralFraming.BeamByCurve",
+        "Id": "45674337ea474a97a5429fa302e56961",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1186.0,
+        "Y": 193.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Structural Framing Types",
+        "Id": "3f67a0449bf14c73a1c1ab0f797b31ed",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 892.0,
+        "Y": 323.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Levels",
+        "Id": "be6da7035f8e47eebf9b4b56cbbe270f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 895.0,
+        "Y": 225.0
+      }
+    ],
+    "Annotations": [],
+    "X": -808.0,
+    "Y": 121.0,
+    "Zoom": 1.0
+  }
+}

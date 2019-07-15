@@ -1,0 +1,263 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SURFACE_AREA_ROBOT",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "7b06d92b54d7418eacbf9b16ca91555f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9fb63be99d93428ab2a1f4f9bb177f4f",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "48ebebceeb76412dbbc0010390dd0e1e",
+      "Inputs": [
+        {
+          "Id": "b0a6ddc2a160465ca802d4a0d5ef46f3",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "89e8c1ac4e504af4949ee97bf4bcf607",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Area",
+      "Id": "6831695fa7b9468d9f549041957037bb",
+      "Inputs": [
+        {
+          "Id": "32d03d99e8c44331a9a0e896a7dbe2a7",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9cd3ff95d67c465cbfdaa0f1c793dd2d",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the total surface area.\n\nSurface.Area: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "95996920b4784c1692585b002a912962",
+      "Inputs": [
+        {
+          "Id": "849af4abc7dc4550b09b51e5a397a5f4",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "41e30cdfdaba447bb9d208eb09ce711a",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9d79cc9cb44c407d8738f695b29b141c",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.Math.Sum@double[]",
+      "Id": "13dd8cabbea74f1c84d089ff2fb52f80",
+      "Inputs": [
+        {
+          "Id": "1bfd3bcdee594b68814ea0cfe4fbe47d",
+          "Name": "values",
+          "Description": "The numbers to sum\n\ndouble[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1737d7bd57444b2f9e42df3fedf142c2",
+          "Name": "sum",
+          "Description": "The sum of the values",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Find the sum of a series of numbers\n\nMath.Sum (values: double[]): double"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9fb63be99d93428ab2a1f4f9bb177f4f",
+      "End": "b0a6ddc2a160465ca802d4a0d5ef46f3",
+      "Id": "25821a53380c424cba8273b5d715f9bd"
+    },
+    {
+      "Start": "89e8c1ac4e504af4949ee97bf4bcf607",
+      "End": "849af4abc7dc4550b09b51e5a397a5f4",
+      "Id": "af1faee5f0bb44fda9bd2a47056c0922"
+    },
+    {
+      "Start": "9cd3ff95d67c465cbfdaa0f1c793dd2d",
+      "End": "1bfd3bcdee594b68814ea0cfe4fbe47d",
+      "Id": "2df0d1b4b9014418bcf0f4cd4926c398"
+    },
+    {
+      "Start": "9d79cc9cb44c407d8738f695b29b141c",
+      "End": "32d03d99e8c44331a9a0e896a7dbe2a7",
+      "Id": "636ee409fd2d4e26ab37c76cd1e9f05b"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 3699.3896484375,
+      "EyeY": 7936.6484375,
+      "EyeZ": 9936.5927734375,
+      "LookX": -5188.048828125,
+      "LookY": -3157.243896484375,
+      "LookZ": -7324.4619140625,
+      "UpX": -0.0704415887594223,
+      "UpY": 0.99254614114761353,
+      "UpZ": -0.099449083209037781
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "7b06d92b54d7418eacbf9b16ca91555f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -58.0063150263535,
+        "Y": 75.1863912765516
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "48ebebceeb76412dbbc0010390dd0e1e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 53.7415725261232,
+        "Y": 230.420267966861
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Area",
+        "Id": "6831695fa7b9468d9f549041957037bb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 58.3638157968367,
+        "Y": 422.50069247899
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "95996920b4784c1692585b002a912962",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 88.8833838526937,
+        "Y": 327.857623750873
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Math.Sum",
+        "Id": "13dd8cabbea74f1c84d089ff2fb52f80",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 78.4500693678511,
+        "Y": 518.318101424953
+      }
+    ],
+    "Annotations": [],
+    "X": 179.085041024425,
+    "Y": 10.8829919815859,
+    "Zoom": 0.81809919567548
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SURFACE_BY_CURVE_OFFSET_DEFAULT_DIR",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "32f7af03377940db9b9eff065528c53a",
+      "Inputs": [
+        {
+          "Id": "34e473d9acb044449baf08cb573039db",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "64092ea6f988484f9617198192d68192",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "243adb65b0274c48b806f007cb544729",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e12c054799ac439a94edf3ca986810f7",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "1;",
+      "Id": "ef3577e9f89e482f8b8ca9849dfbbe09",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "0b4a1ede051a4c7b8d83e928a8c676ec",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "f3e5db5f18a54d2692b3a2b03f154d18",
+      "Inputs": [
+        {
+          "Id": "cfe9a025a03942c08202ba96258eaff0",
+          "Name": "startPoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "da67a3a1887642c7a1b40649210e758e",
+          "Name": "endPoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "11382beeaf384dbdb8b7aa5b33982267",
+          "Name": "Line",
+          "Description": "Line",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a straight Line between two input Points.\n\nLine.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "bc7312386a6a46fb8e6043f546843245",
+      "Inputs": [
+        {
+          "Id": "a8c8a4e0966f4c8fba5f3d6fb94e2391",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "465c0965c1bb43328eebd4c4e3a34136",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d3406a7c9ef94b6fbcb77942790c05cf",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2bc8a4e6d20742ac96d818f860de5245",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.Extrude@double",
+      "Id": "3a70a1ff25c549129af70c176b69ae1d",
+      "Inputs": [
+        {
+          "Id": "4d5b5f82216e48e7bbc61fd2eb9cd011",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2014b362b582467288719a48c2741995",
+          "Name": "distance",
+          "Description": "The distance to extrude the curve\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e1b81f2f5c554d0a8b483604396dbefa",
+          "Name": "Surface",
+          "Description": "The extruded Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Extrudes a Curve in the normal Vector direction\n\nCurve.Extrude (distance: double = 1): Surface"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "e12c054799ac439a94edf3ca986810f7",
+      "End": "cfe9a025a03942c08202ba96258eaff0",
+      "Id": "7b3235dddb6f4043b18dc8d588ad9220"
+    },
+    {
+      "Start": "0b4a1ede051a4c7b8d83e928a8c676ec",
+      "End": "34e473d9acb044449baf08cb573039db",
+      "Id": "d828e61902bd4abea8617ac1571cdbe2"
+    },
+    {
+      "Start": "11382beeaf384dbdb8b7aa5b33982267",
+      "End": "4d5b5f82216e48e7bbc61fd2eb9cd011",
+      "Id": "65580786747841d393b663ac3b540b62"
+    },
+    {
+      "Start": "2bc8a4e6d20742ac96d818f860de5245",
+      "End": "da67a3a1887642c7a1b40649210e758e",
+      "Id": "e40bcd98cc6c4aa4990c93073ee69d69"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.6391220092773438,
+      "EyeY": 2.7473375797271729,
+      "EyeZ": 6.4564681053161621,
+      "LookX": -10.663468360900879,
+      "LookY": -0.88483309745788574,
+      "LookZ": -7.5192866325378418,
+      "UpX": 0.12079751491546631,
+      "UpY": 0.98901587724685669,
+      "UpZ": 0.085179708898067474
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "32f7af03377940db9b9eff065528c53a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 279.367007290406,
+        "Y": 405.901385691001
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "ef3577e9f89e482f8b8ca9849dfbbe09",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 450.736275027205,
+        "Y": 594.802976877127
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Line.ByStartPointEndPoint",
+        "Id": "f3e5db5f18a54d2692b3a2b03f154d18",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 450.340482072885,
+        "Y": 483.098819804126
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "bc7312386a6a46fb8e6043f546843245",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 279.52031599546,
+        "Y": 543.967676550671
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.Extrude",
+        "Id": "3a70a1ff25c549129af70c176b69ae1d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 687.220318797666,
+        "Y": 478.61528977148
+      }
+    ],
+    "Annotations": [],
+    "X": -36.0712687499999,
+    "Y": -514.4095,
+    "Zoom": 1.33823125
+  }
+}

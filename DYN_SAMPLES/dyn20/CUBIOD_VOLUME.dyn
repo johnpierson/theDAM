@@ -1,0 +1,139 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_VOLUME",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "cbce0e49d0fd4331969a67281ae49964",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fd4469d97bef4e1fae2b8ed70311304f",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c7003b8b1f8449f0a5247abb031df36f",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Solid.Volume",
+      "Id": "9e9c6bb692234f63b4a82baf95120d96",
+      "Inputs": [
+        {
+          "Id": "5344a0976b07446dbfe82870c64187ee",
+          "Name": "solid",
+          "Description": "Autodesk.DesignScript.Geometry.Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "33fd26ea0ca64e249a75910b709d17ce",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The total volume of the Solid\n\nSolid.Volume: double"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c7003b8b1f8449f0a5247abb031df36f",
+      "End": "5344a0976b07446dbfe82870c64187ee",
+      "Id": "3edaf63745be43728eeb67084acd7196"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.5873048305511475,
+      "EyeY": 2.698979377746582,
+      "EyeZ": 1.518670916557312,
+      "LookX": -6.659245491027832,
+      "LookY": -5.2052488327026367,
+      "LookZ": -6.1426877975463867,
+      "UpX": -0.22103090584278107,
+      "UpY": 0.9537169337272644,
+      "UpZ": -0.20388554036617279
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 875.316699929864,
+        "Y": 522.764131125621
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Solid.Volume",
+        "Id": "9e9c6bb692234f63b4a82baf95120d96",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1137.11851790043,
+        "Y": 523.096659858553
+      }
+    ],
+    "Annotations": [],
+    "X": -1386.59629411971,
+    "Y": -950.883448044176,
+    "Zoom": 1.88953020300527
+  }
+}

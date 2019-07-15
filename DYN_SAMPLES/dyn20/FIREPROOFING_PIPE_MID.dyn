@@ -1,0 +1,394 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "FIREPROOFING_PIPE_MID",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "a1298ca06c654f17adca9e9bc4bab51b",
+      "Name": "Boolean",
+      "Type": "boolean",
+      "Value": "false",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.FamilyTypes, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "NodeType": "ExtensionNode",
+      "Id": "f65919d86fbb4075a18a3bbfed7493db",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "552ade04485e46858f3a9ada03142619",
+          "Name": "Family Type",
+          "Description": "The selected Family Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All family types available in the document."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfFamilyType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "b0c78493d3c74f989a90502b5ad81d03",
+      "Inputs": [
+        {
+          "Id": "c8908fbda2914b5b95abd9c7a906d1fa",
+          "Name": "Family Type",
+          "Description": "The Family Type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a31b32ed8c5a46f5b57b632acb090f7f",
+          "Name": "Elements",
+          "Description": "The list of elements matching the query.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified family type from the model."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "7510f65138664b71afb87ef003ba8580",
+      "Inputs": [
+        {
+          "Id": "c2a692f95efb4f26aae89dd9f1e8e073",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d1bd60727ef54568b9e610ac3f9d01b1",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "0933ec8c983d4b1bb11faa37fd7d02f6",
+      "Inputs": [
+        {
+          "Id": "b67aa123be9e4f1cb9e0eeee541ec4ea",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "28a0988fa1ae4d05b792a02533d0bf07",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1b95292dfbe04700b1ca974bbb06aee9",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[1,2];",
+      "Id": "39cc67ef72a5486a9f0d5bffdc64fe66",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "11b71abdf6464bc9be54ec0e463c525f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "2/12;",
+      "Id": "77c75ed34b8b4f9ca20ccdf5068d89e6",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "24cd9b43de994184878478ded5b7b54e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Thicken@double,bool",
+      "Id": "ba380300c0e649769e55138962d87ac1",
+      "Inputs": [
+        {
+          "Id": "1bf9124a40fe45379b150d1a714dd570",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "36cbe228d32846f59923ea73710b766f",
+          "Name": "thickness",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8cc2b3eafb434427af7060d3a604c787",
+          "Name": "both_sides",
+          "Description": "bool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f3d44c200e2b4a308d550e5b3c896305",
+          "Name": "Solid",
+          "Description": "Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Thicken Surface into a Solid, extruding in the direction of Surface normals. If both_sides parameter is true, surface is thickened on both sides.\n\nSurface.Thicken (thickness: double = 1, both_sides: bool = true): Solid"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.BoolSelector, CoreNodeModels",
+      "NodeType": "BooleanInputNode",
+      "InputValue": false,
+      "Id": "a1298ca06c654f17adca9e9bc4bab51b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "020a45a9a8464ca1bb419cd1c3e0a2a1",
+          "Name": "",
+          "Description": "Boolean",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Selection between a true and false."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "552ade04485e46858f3a9ada03142619",
+      "End": "c8908fbda2914b5b95abd9c7a906d1fa",
+      "Id": "d9bfcb1540c0490a8aff4c1e26e4a691"
+    },
+    {
+      "Start": "a31b32ed8c5a46f5b57b632acb090f7f",
+      "End": "c2a692f95efb4f26aae89dd9f1e8e073",
+      "Id": "b5a1bef98ab2468ea1b984f2fc2a4506"
+    },
+    {
+      "Start": "d1bd60727ef54568b9e610ac3f9d01b1",
+      "End": "b67aa123be9e4f1cb9e0eeee541ec4ea",
+      "Id": "056780a6c763490a9357e9fc41ed5252"
+    },
+    {
+      "Start": "1b95292dfbe04700b1ca974bbb06aee9",
+      "End": "1bf9124a40fe45379b150d1a714dd570",
+      "Id": "0cf2c8473dd74adea4916bd3327fb1b5"
+    },
+    {
+      "Start": "11b71abdf6464bc9be54ec0e463c525f",
+      "End": "28a0988fa1ae4d05b792a02533d0bf07",
+      "Id": "a055ef5179bd4af380a9f0d192107e7b"
+    },
+    {
+      "Start": "24cd9b43de994184878478ded5b7b54e",
+      "End": "36cbe228d32846f59923ea73710b766f",
+      "Id": "39069cd4b24f423daf4c4ea02ae32c38"
+    },
+    {
+      "Start": "020a45a9a8464ca1bb419cd1c3e0a2a1",
+      "End": "8cc2b3eafb434427af7060d3a604c787",
+      "Id": "62adcea6fb24407dabf439b8b8f316d9"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -72.88555908203125,
+      "EyeY": 3.5365109443664551,
+      "EyeZ": -54.218849182128906,
+      "LookX": 13.35808277130127,
+      "LookY": -23.032749176025391,
+      "LookZ": 11.689740180969238,
+      "UpX": 0.483721524477005,
+      "UpY": 0.76604443788528442,
+      "UpZ": 0.42330768704414368
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Family Types",
+        "Id": "f65919d86fbb4075a18a3bbfed7493db",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 46.5,
+        "Y": 50.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Family Type",
+        "Id": "b0c78493d3c74f989a90502b5ad81d03",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 183.5,
+        "Y": 175.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "7510f65138664b71afb87ef003ba8580",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 118.0,
+        "Y": 293.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.GetItemAtIndex",
+        "Id": "0933ec8c983d4b1bb11faa37fd7d02f6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 579.08640061676,
+        "Y": 148.806701002602
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "39cc67ef72a5486a9f0d5bffdc64fe66",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 371.514437008565,
+        "Y": 408.979502236123
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "77c75ed34b8b4f9ca20ccdf5068d89e6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 802.394974248049,
+        "Y": 254.481817734064
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Thicken",
+        "Id": "ba380300c0e649769e55138962d87ac1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 985.082212490134,
+        "Y": 194.107119815265
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boolean",
+        "Id": "a1298ca06c654f17adca9e9bc4bab51b",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 801.307683274154,
+        "Y": 402.664814668478
+      }
+    ],
+    "Annotations": [],
+    "X": 243.483360054016,
+    "Y": 135.545769507918,
+    "Zoom": 0.747692817123325
+  }
+}

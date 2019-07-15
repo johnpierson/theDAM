@@ -1,0 +1,138 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "importeddwgfamilylist",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "02725396-8278-4c8f-8f7c-a79c9c100660",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "d7d5153a476d43ffb1e6e189cbec0975",
+      "Inputs": [
+        {
+          "Id": "b51ee6d2023b4ff384316aa9398dcd12",
+          "Name": "element",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e35fa2c5de8d40e1bf3449277ef46780",
+          "Name": "members",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets a list of all members (properties and methods) of a selected element"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "11a6d7bb-9efe-42f3-9b3b-700b4d61467c",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "7604965ac5a340a8b9cbdf3827692e27",
+      "Inputs": [
+        {
+          "Id": "7486706725114c599279fb7c0ba37811",
+          "Name": "document",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "716aa36e238f46a6ab622cc21db6ad8c",
+          "Name": "element type",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1f484b48cf814499ba4fd54938b3d72c",
+          "Name": "elements",
+          "Description": "Output #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "All elements of given type in specified document. This works for unopened files and for linked documents."
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [
+    "02725396-8278-4c8f-8f7c-a79c9c100660",
+    "11a6d7bb-9efe-42f3-9b3b-700b4d61467c"
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Object.Members",
+        "Id": "d7d5153a476d43ffb1e6e189cbec0975",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 597.0,
+        "Y": 257.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Type in Document",
+        "Id": "7604965ac5a340a8b9cbdf3827692e27",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 206.0,
+        "Y": 263.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "PROPERTYLINES_3D_START",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "b34e0607-e2ef-4e43-8d24-3f79407b545e",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "c85c800671b94d009df185f34b9b0f0b",
+      "Inputs": [
+        {
+          "Id": "3ff283aae42a49ae8e140fa129adb52f",
+          "Name": "topography",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "abfc0424ef1343e2a71467a9a386745a",
+          "Name": "polysurface",
+          "Description": "Output #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Optimized algorithm for converting topographies into polysurfaces. Tested with topographies containing up to 40 000 points. \r\nWarning conversions of such mangitudes consume a lot of resources and are sub-optimal. Ensure that you have plenty at least 8GB of ram and patience before attempting such a conversion, otherwise your Dynamo and Revit instances may crash."
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "abbcebe0d5304d97a8e3d774ffd842b0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b94f83776ff6495085a88f5dd7514fa6",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b94f83776ff6495085a88f5dd7514fa6",
+      "End": "3ff283aae42a49ae8e140fa129adb52f",
+      "Id": "21358cacf92b44fe9531e6dee0fb8e15"
+    }
+  ],
+  "Dependencies": [
+    "b34e0607-e2ef-4e43-8d24-3f79407b545e"
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 198.56826782226562,
+      "EyeY": 1037.2972412109375,
+      "EyeZ": 1115.07080078125,
+      "LookX": -185.71304321289062,
+      "LookY": -1066.559814453125,
+      "LookZ": -1073.975830078125,
+      "UpX": -0.09029417484998703,
+      "UpY": 0.84804815053939819,
+      "UpZ": -0.52216988801956177
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Topography.ToPolySurface",
+        "Id": "c85c800671b94d009df185f34b9b0f0b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1109.92551845607,
+        "Y": -251.422002539176
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "abbcebe0d5304d97a8e3d774ffd842b0",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 905.636718844574,
+        "Y": -250.127701862674
+      }
+    ],
+    "Annotations": [],
+    "X": -1007.03770210394,
+    "Y": 473.547542738885,
+    "Zoom": 1.40210270027359
+  }
+}

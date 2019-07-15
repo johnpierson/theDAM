@@ -1,0 +1,565 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CANOPY_BEAMS_TO_REVIT_FINAL",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "04eec014bda446c987cb171bc642e282",
+      "Name": "File Path",
+      "Type": "string",
+      "Value": ".\\Generic Model.rft",
+      "Description": "Allows you to select a file on the system to get its filename"
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSEdgeSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "d835ebac15114c479fce9222dd591dae",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7c50cb911d0b4b11923973310a039c20",
+          "Name": "Curve",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.PlaneAtParameter@double",
+      "Id": "1a55b5caa7dc4450ac2bbd6c7d863213",
+      "Inputs": [
+        {
+          "Id": "43f252f0509c4b56a2730d439e23c89f",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "02aa5d6736be4cb182a77de8d0048224",
+          "Name": "param",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "005271a84a814ba6b0e2d362db0b672b",
+          "Name": "Plane",
+          "Description": "Plane",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a Plane whose normal aligns with the tangent of the Curve. Parameters are adjusted such that 0 is always the start Point and 1 is always the end Point.\n\nCurve.PlaneAtParameter (param: double = 0): Plane"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Circle.ByCenterPointRadius@Autodesk.DesignScript.Geometry.Point,double",
+      "Id": "0de61505f63d4323b9287cfcf592b5fc",
+      "Inputs": [
+        {
+          "Id": "edb389898fbf4454ab5bc236cd818f25",
+          "Name": "centerPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4a5b5309393c4780875186c6faf20240",
+          "Name": "radius",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e9f8fd791b844de6943b8d714ff474d7",
+          "Name": "Circle",
+          "Description": "Circle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Circle with input center Point and radius in the world XY plane, with world Z as normal.\n\nCircle.ByCenterPointRadius (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1): Circle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.CoordinateSystem.ByPlane@Autodesk.DesignScript.Geometry.Plane",
+      "Id": "dc4ed84d78d74ac0b79872442eb6c40a",
+      "Inputs": [
+        {
+          "Id": "720ce61ea5e04a1eb6f654fa25171b5b",
+          "Name": "plane",
+          "Description": "Plane\nDefault value : Autodesk.DesignScript.Geometry.Plane.XY()",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "26ef236198a04726af01bd91f25c1c62",
+          "Name": "CoordinateSystem",
+          "Description": "CoordinateSystem",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a CoordinateSystem with origin equal to input Plane origin, and X and Y axes lying in the Plane, aligned with Plane X and Y axes.\n\nCoordinateSystem.ByPlane (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY()): CoordinateSystem"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Transform@Autodesk.DesignScript.Geometry.CoordinateSystem",
+      "Id": "ee544d14daa84d738a059e008e5d9798",
+      "Inputs": [
+        {
+          "Id": "9baf522cfb294a30b6f9f1be674ab5e6",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7c7cc6835808454d82d17ab8864c7645",
+          "Name": "cs",
+          "Description": "CoordinateSystem",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "482e9a486ec14fb99679497b2bbc24fd",
+          "Name": "Geometry",
+          "Description": "Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Transforms geometry by the given CoordinateSystem's transform\n\nGeometry.Transform (cs: CoordinateSystem): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Solid.BySweep@Autodesk.DesignScript.Geometry.Curve,Autodesk.DesignScript.Geometry.Curve",
+      "Id": "07c4cf021b854d06b8ba7f4b380c5011",
+      "Inputs": [
+        {
+          "Id": "aeb9dca4af844ae3993f9dbfb3df4b9c",
+          "Name": "profile",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a7b4eba708644351a7594d1437db20f2",
+          "Name": "path",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0be06d9b379d4fbebc16b293ddda5f3e",
+          "Name": "Solid",
+          "Description": "Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Sweep a closed Curve along a path.\n\nSolid.BySweep (profile: Curve, path: Curve): Solid"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 535,
+      "NodeType": "ExtensionNode",
+      "Id": "21f5e76110034d4da4227595cc7599c4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9ae10b4c2de44b16bd543863adfb26d3",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "D:\\working personal folder\\Dynamo_Cheat_Sheets\\REVIT\\CANOPY_BEAMS_TO_REVIT\\Generic Model.rft",
+      "InputValue": ".\\Generic Model.rft",
+      "NodeType": "ExtensionNode",
+      "Id": "04eec014bda446c987cb171bc642e282",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4297558996ae420b8756bd9c6acf10d0",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its filename"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "ecdb3729-0de2-4c50-bdca-28fe881027a2",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "c53f0e8c963d404d9e5c55cba8ed1ceb",
+      "Inputs": [
+        {
+          "Id": "09668a9b672549f7a894d15594aeb067",
+          "Name": "geometry",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "067d6d170730459887700441a94a76eb",
+          "Name": "familyTemplatePath",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ef5384c4f9664f5485a4fdce32b9f799",
+          "Name": "familyName",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5db0050a1e5b40718b70da98280ef090",
+          "Name": "category",
+          "Description": "var[]\nDefault value : Revit.Elements.Category.ByName(\"OST_GenericModel\")",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a97d96033920473581b1d9c40a2ac9d0",
+          "Name": "materialName",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3257a36a34664988a16cdafc3a2439f7",
+          "Name": "isVoid",
+          "Description": "var[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4b94b20e424445d89670e16db883d5bb",
+          "Name": "subcategoryName",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "97ea85d915884f5c963c4410643d0f35",
+          "Name": "instance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c2da3e8dbfad410fb68010398a3eb507",
+          "Name": "family",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "You must provide a valid family template path that will be used for all input geometry objects. The project units(and not the templates) will be used to determine the size of the output geometry.\r\nThe provided category will be used only if the family template supports it. If not, the default template category will be used instead.\r\nLikewise, the family material(provided as a string) will be set only if a material with that name exists in the template. If not, the default material will be used instead (\"By Category\").\r\nFor void cuts, the material settings will be ignored.\r\nThe Subcategory name is an optional input. If you'd like to skip assigning a Subcategory to any new instance, simply use null.\r\nThe node expects a unique family name for each geometry object. The rest of the input lists will be processed as if the node lacing is set to longest."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"EDGE_BEAM\";",
+      "Id": "243ce49e18b1493682a81d7bf1d91f33",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9230effe45d740af97e187a7c98eda88",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7c50cb911d0b4b11923973310a039c20",
+      "End": "43f252f0509c4b56a2730d439e23c89f",
+      "Id": "04e292bce0f14eee91f89942778378e8"
+    },
+    {
+      "Start": "7c50cb911d0b4b11923973310a039c20",
+      "End": "a7b4eba708644351a7594d1437db20f2",
+      "Id": "b0f124158595481e98ad0d908d24371b"
+    },
+    {
+      "Start": "005271a84a814ba6b0e2d362db0b672b",
+      "End": "720ce61ea5e04a1eb6f654fa25171b5b",
+      "Id": "698f4d89cadf457799ae6213351d9c9f"
+    },
+    {
+      "Start": "e9f8fd791b844de6943b8d714ff474d7",
+      "End": "9baf522cfb294a30b6f9f1be674ab5e6",
+      "Id": "8ecc7db5f9cf4d3fa329c9b10d5c8409"
+    },
+    {
+      "Start": "26ef236198a04726af01bd91f25c1c62",
+      "End": "7c7cc6835808454d82d17ab8864c7645",
+      "Id": "d66da64d2bf34e648cd5bc7b98dd0fb2"
+    },
+    {
+      "Start": "482e9a486ec14fb99679497b2bbc24fd",
+      "End": "aeb9dca4af844ae3993f9dbfb3df4b9c",
+      "Id": "664ccf1f5dfc433f84ebbe1172518281"
+    },
+    {
+      "Start": "0be06d9b379d4fbebc16b293ddda5f3e",
+      "End": "09668a9b672549f7a894d15594aeb067",
+      "Id": "78def2a82b0041b699341e2329fae757"
+    },
+    {
+      "Start": "9ae10b4c2de44b16bd543863adfb26d3",
+      "End": "5db0050a1e5b40718b70da98280ef090",
+      "Id": "38400a217c3a43a4aed5cc7add5a6371"
+    },
+    {
+      "Start": "4297558996ae420b8756bd9c6acf10d0",
+      "End": "067d6d170730459887700441a94a76eb",
+      "Id": "a6b58212284d43ae96d49692cee3b9d7"
+    },
+    {
+      "Start": "9230effe45d740af97e187a7c98eda88",
+      "End": "ef5384c4f9664f5485a4fdce32b9f799",
+      "Id": "bf86a8435e0c4ec783904a3fa081df2a"
+    }
+  ],
+  "Dependencies": [
+    "ecdb3729-0de2-4c50-bdca-28fe881027a2"
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -36.1463737487793,
+      "EyeY": 16.47602653503418,
+      "EyeZ": -66.23602294921875,
+      "LookX": -32.062973022460937,
+      "LookY": -1.8973182439804077,
+      "LookZ": -2.0674459934234619,
+      "UpX": 0.15611022710800171,
+      "UpY": 0.98768830299377441,
+      "UpZ": 0.010066099464893341
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Edge",
+        "Id": "d835ebac15114c479fce9222dd591dae",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 803.112194006877,
+        "Y": 315.035383308457
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.PlaneAtParameter",
+        "Id": "1a55b5caa7dc4450ac2bbd6c7d863213",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1049.70649699273,
+        "Y": 315.035383308457
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Circle.ByCenterPointRadius",
+        "Id": "0de61505f63d4323b9287cfcf592b5fc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 803.693000634512,
+        "Y": 491.6435221474
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "CoordinateSystem.ByPlane",
+        "Id": "dc4ed84d78d74ac0b79872442eb6c40a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1266.47075111667,
+        "Y": 315.035383308457
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Transform",
+        "Id": "ee544d14daa84d738a059e008e5d9798",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1052.73803993127,
+        "Y": 491.6435221474
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Solid.BySweep",
+        "Id": "07c4cf021b854d06b8ba7f4b380c5011",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1318.64245039118,
+        "Y": 491.6435221474
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Categories",
+        "Id": "21f5e76110034d4da4227595cc7599c4",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 807.338348648277,
+        "Y": 853.470135593637
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File Path",
+        "Id": "04eec014bda446c987cb171bc642e282",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 806.938801412599,
+        "Y": 670.449034475491
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FamilyInstance.ByGeometry",
+        "Id": "c53f0e8c963d404d9e5c55cba8ed1ceb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1184.80164497743,
+        "Y": 681.885779194763
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "243ce49e18b1493682a81d7bf1d91f33",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 806.358974296786,
+        "Y": 762.483653937518
+      }
+    ],
+    "Annotations": [],
+    "X": -470.247439786595,
+    "Y": -97.30658621129,
+    "Zoom": 0.834297137940223
+  }
+}

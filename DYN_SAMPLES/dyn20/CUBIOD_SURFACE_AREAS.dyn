@@ -1,0 +1,184 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_SURFACE_AREAS",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "3557a1a6c99b410f9d5b4a9a4f474550",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "99ccfa3d982544c3b27a84dcb07f7e96",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0c999e5d4db6422db551cbb1982126c0",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Explode",
+      "Id": "f1ba237c0d3a482284dd4743ee3d183d",
+      "Inputs": [
+        {
+          "Id": "842f575fcffc4667a38a8c20ff28e228",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "545628a34c124006942ec3405fdf586f",
+          "Name": "Geometry[]",
+          "Description": "Geometry[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Separates compound or non-separated elements into their component parts.\n\nGeometry.Explode ( ): Geometry[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Area",
+      "Id": "1181307e8e224135b9740cbc574b3111",
+      "Inputs": [
+        {
+          "Id": "aef0d265e17445dab424dd9654df1870",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3f44eb66eb7c49939a15b333bfb25231",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the total surface area.\n\nSurface.Area: double"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "0c999e5d4db6422db551cbb1982126c0",
+      "End": "842f575fcffc4667a38a8c20ff28e228",
+      "Id": "21e2cd9f79724277bea3c1d7274fb57a"
+    },
+    {
+      "Start": "545628a34c124006942ec3405fdf586f",
+      "End": "aef0d265e17445dab424dd9654df1870",
+      "Id": "aa948a026f4b4e77b18a2006e6ac6ecc"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.5873048305511475,
+      "EyeY": 2.698979377746582,
+      "EyeZ": 1.518670916557312,
+      "LookX": -6.659245491027832,
+      "LookY": -5.2052488327026367,
+      "LookZ": -6.1426877975463867,
+      "UpX": -0.22103090584278107,
+      "UpY": 0.9537169337272644,
+      "UpZ": -0.20388554036617279
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": false,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 768.941051802985,
+        "Y": 519.059506563988
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Explode",
+        "Id": "f1ba237c0d3a482284dd4743ee3d183d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1003.68486840405,
+        "Y": 521.444205681951
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Area",
+        "Id": "1181307e8e224135b9740cbc574b3111",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1279.1373857679,
+        "Y": 520.075833981523
+      }
+    ],
+    "Annotations": [],
+    "X": -1386.59629411971,
+    "Y": -950.883448044176,
+    "Zoom": 1.88953020300527
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "RAMP_AREA_START",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "33f8a9f08d3640f092b8a1a3b4f8a7cf",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "02090b1c2be149689c3d39a8bb26de77",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "2f57dfe52638417caa9e178d4b248c6d",
+      "Inputs": [
+        {
+          "Id": "20a1e0f29f524091a95bf80dd622bc04",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a1c384306eb7429c93e90c93101117c3",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[3];",
+      "Id": "1ba7cf23ee2546c0b9f1a2f2813792e0",
+      "Inputs": [
+        {
+          "Id": "2a50bbe96a554ead8897e609ae377ab6",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5a08db96e989408394aa1e50b6eef333",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Area",
+      "Id": "a49a71989b9449109675f973c2c965ab",
+      "Inputs": [
+        {
+          "Id": "cee8969269d64afcac8dfde589fd5b73",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3660ce1a5a194cd3938a0f021de9a026",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the total surface area.\n\nSurface.Area: double"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "02090b1c2be149689c3d39a8bb26de77",
+      "End": "20a1e0f29f524091a95bf80dd622bc04",
+      "Id": "ff7b23ac61024ba391bdf5d0f29840da"
+    },
+    {
+      "Start": "a1c384306eb7429c93e90c93101117c3",
+      "End": "2a50bbe96a554ead8897e609ae377ab6",
+      "Id": "b9137232e7be430d9fd6117a3aa46cd3"
+    },
+    {
+      "Start": "5a08db96e989408394aa1e50b6eef333",
+      "End": "cee8969269d64afcac8dfde589fd5b73",
+      "Id": "00d8ef5fbf5d484ea0a200575e4fe856"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "100"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "33f8a9f08d3640f092b8a1a3b4f8a7cf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 387.5,
+        "Y": 384.5
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "2f57dfe52638417caa9e178d4b248c6d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 614.5,
+        "Y": 385.5
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "1ba7cf23ee2546c0b9f1a2f2813792e0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 841.128014412838,
+        "Y": 387.869416271559
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Area",
+        "Id": "a49a71989b9449109675f973c2c965ab",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1004.10567949908,
+        "Y": 384.716497629356
+      }
+    ],
+    "Annotations": [],
+    "X": -292.283049892423,
+    "Y": 49.9441964415095,
+    "Zoom": 1.27771698410772
+  }
+}

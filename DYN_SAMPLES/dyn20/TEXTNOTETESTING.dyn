@@ -1,0 +1,1103 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "TEXTNOTETESTING",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Dimension.ByElements@Revit.Elements.Views.View,Revit.Elements.Element[],Autodesk.DesignScript.Geometry.Line,string,string",
+      "Id": "4ede38b395094131b7380e9d8bdd1586",
+      "Inputs": [
+        {
+          "Id": "3b9460af55ac439fa725424d0ec3a975",
+          "Name": "view",
+          "Description": "View to place dimension in\n\nView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "24c2ad056bb3474c87e74ef3d3cd1203",
+          "Name": "referenceElements",
+          "Description": "Elements to dimension\n\nElement[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5dba66b560e74a0fbda482376fe61262",
+          "Name": "line",
+          "Description": "location of the dimension\n\nLine\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "03fe8e38301a47adb5b7595f46520dda",
+          "Name": "suffix",
+          "Description": "Suffix\n\nstring\nDefault value : \"\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3f1ca9cd286c490893e453338f1be174",
+          "Name": "prefix",
+          "Description": "Prefix\n\nstring\nDefault value : \"\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "09200481909a45a9b845bc4d94aaa293",
+          "Name": "Dimension",
+          "Description": "Dimension",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Construct a Revit Dimension from at least two elements\n\nDimension.ByElements (view: View, referenceElements: Element[], line: Line = null, suffix: string = \"\", prefix: string = \"\"): Dimension"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.HorizontalAlignment, DSRevitNodesUI",
+      "SelectedIndex": 1,
+      "NodeType": "ExtensionNode",
+      "Id": "ae7048554834464a84c567109ef1e2fc",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9b798f5bad214e4089bdc58c786f18af",
+          "Name": "Horizontal Alignment",
+          "Description": "The selected Horizontal Alignment",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select the horizontal text alignment style."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.VerticalAlignment, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "67eba15c9939405491c4053c75c872a4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "aef8a37d75b94b3b9c692418a7486d19",
+          "Name": "Vertical Alignment",
+          "Description": "The selected Vertical Alignment",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select the vertical text alignment style."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.ByLocation@Revit.Elements.Views.View,Autodesk.DesignScript.Geometry.Point,string,string,Revit.Elements.TextNoteType,bool,double",
+      "Id": "e4ce459d95b145c7a6d1d10e50455f23",
+      "Inputs": [
+        {
+          "Id": "59b0ae35401f4d38b01a5eb37b47677b",
+          "Name": "view",
+          "Description": "View to place text element on\n\nView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "071777ad4c6e43ef90958cc0b97b7f11",
+          "Name": "location",
+          "Description": "Location in view\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8e7ccd59ffd74bcfb23cd26135ee5afe",
+          "Name": "text",
+          "Description": "Text\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "098ff7b228b649ccbcc15c1bd28c3a08",
+          "Name": "alignment",
+          "Description": "Text alignment\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "72468f90a4a34f92997e5c55d46c0ec4",
+          "Name": "type",
+          "Description": "Revit TextNote Type\n\nTextNoteType\nDefault value : Revit.Elements.TextNoteType.Default()",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c691f8f8e92b4a2eac2ed1975b5100f5",
+          "Name": "keepRotatedTextReadable",
+          "Description": "Keep text horizontal\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e27e2fee10bd48ea86018add4bf728c9",
+          "Name": "rotation",
+          "Description": "Rotation in degrees\n\ndouble\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "93781f08d5b848c4a51577148f6d1fc4",
+          "Name": "TextNote",
+          "Description": "TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Construct a new Revit TextNote by Location\n\nTextNote.ByLocation (view: View, location: Point, text: string, alignment: string, type: TextNoteType = Revit.Elements.TextNoteType.Default(), keepRotatedTextReadable: bool = true, rotation: double = 0): TextNote"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 17,
+      "NodeType": "ExtensionNode",
+      "Id": "4201858835134821a44c059157948e96",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8ed6bc77f6054c8aaf3edfc7ff72089d",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.Origin",
+      "Id": "c00f8884f47946b58fc7432c41f74750",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7b045069833a42febec065b8f30b4bc5",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the Origin point (0,0,0)\n\nPoint.Origin ( ): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"TEXT_FROM_OOTB_DYNAMO_NODES\";",
+      "Id": "cc099c91ba2e44d5bac123139cb35639",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fc03749d4d4147a8863926c776879330",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.HorizontalAlignment",
+      "Id": "df293c3a679e429da49ef262d36cffda",
+      "Inputs": [
+        {
+          "Id": "ec17c581e07d4ccfbc4d8b88663e1516",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cda4ff4e0712420784a623d2810523c6",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Horizontal Alignment\n\nTextNote.HorizontalAlignment: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.SetText@string",
+      "Id": "18d5553b101d4f61bf4e062ce7e63647",
+      "Inputs": [
+        {
+          "Id": "d369a973f885487fa201d2e6e72d9c5b",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "20597011f10d4f8cb6cd93136332dc22",
+          "Name": "value",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e5a450f4f6464087869fb9814623ce47",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Text\n\nTextNote.SetText (value: string): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.Text",
+      "Id": "9abb15d5fae6412c89397957fc31c481",
+      "Inputs": [
+        {
+          "Id": "629b9deb8ee44014b935fba47bca81ec",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "74aefcf7fc6e43b189421b0554c6cf73",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Text\n\nTextNote.Text: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "39ed0e04394d4083aa1798a0185badb1",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5d0860a85ad14477b2ed91db29fdfc62",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 585,
+      "NodeType": "ExtensionNode",
+      "Id": "749b1bc53bb649c19cb5fef507da4cd7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "05d7e02ad23946c59ee622376315edc0",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "00e490556cdc43c68aff6786530afff5",
+      "Inputs": [
+        {
+          "Id": "1a1ef948c10442379e886cfb00dc44a3",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ec60a748d2984a1e832a77b73361c07a",
+          "Name": "Elements",
+          "Description": "An element type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementTypes, DSRevitNodesUI",
+      "SelectedIndex": 317,
+      "NodeType": "ExtensionNode",
+      "Id": "ab59acfcebcc4fb78570cd76a6dd9f98",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3168c86a1762491aa68d898be9193890",
+          "Name": "Types",
+          "Description": "The selected Types",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All element subtypes."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfType, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "b6d8137da1ca4728b59e6268540ae269",
+      "Inputs": [
+        {
+          "Id": "12263d13c6264845aec34234dba059e6",
+          "Name": "element type",
+          "Description": "An element type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ccd47fed7a12475293db3fceb805af0d",
+          "Name": "elements",
+          "Description": "All elements in the active document of a given type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All elements in the active document of a given type."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.SetText@string",
+      "Id": "925aaec0f8d64b019607bedcbf4f5870",
+      "Inputs": [
+        {
+          "Id": "0b5ea277b1ee40ad8577c71ca16eabf6",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b59e43d0d077480dbee7c0c0dd7de195",
+          "Name": "value",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5cb9e1bc29a74dd1a27a7f53232dc4ef",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Text\n\nTextNote.SetText (value: string): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.SetHorizontalAlignment@string",
+      "Id": "5ab127dbf71943a08db80268350a0c45",
+      "Inputs": [
+        {
+          "Id": "e9b7ad4d6ec5480fa3986d8c962cad5c",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bee97af7522941e2906a2420d8784f3f",
+          "Name": "value",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "462b431ce5c349618ae682b79750555e",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Horizontal Text Alignment\n\nTextNote.SetHorizontalAlignment (value: string): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.Height",
+      "Id": "820b5164831c4ae790a84a596725cbf4",
+      "Inputs": [
+        {
+          "Id": "27eaf57b807b464ab0bb28f91c19ad4b",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "df99bcc9f7e949ea9ef31dec8eca96ab",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Height\n\nTextNote.Height: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.HorizontalAlignment",
+      "Id": "706788d9cc8c4f808bdb1f07433f2bff",
+      "Inputs": [
+        {
+          "Id": "09596ea227da4dc0854427eec4c9a346",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7b5c08cb70434eccae8f4946973dc57a",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Horizontal Alignment\n\nTextNote.HorizontalAlignment: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.Text",
+      "Id": "fac7ba8482a3457b9debc8512709762f",
+      "Inputs": [
+        {
+          "Id": "7b761d2900aa43a58751c87a828aeadb",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "97e14eb511f84c87ba2fed1df8e89412",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Text\n\nTextNote.Text: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.Typename",
+      "Id": "da82dcf99a9b46a3b915866f45d3d905",
+      "Inputs": [
+        {
+          "Id": "57fd724cf9294e82a80cc14a5da54852",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4fe02bffccfc476492f5d78aef7b3bff",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Typename\n\nTextNote.Typename: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.TextNote.VerticalAlignment",
+      "Id": "79af4940f4f54b2ebb6128f0052a8126",
+      "Inputs": [
+        {
+          "Id": "82de10ec4cc14b6b87ad57a3e5a4821e",
+          "Name": "textNote",
+          "Description": "Revit.Elements.TextNote",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "634db3524bca428f8e7208e9126b8f86",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get Vertical Alignment\n\nTextNote.VerticalAlignment: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"new text\";",
+      "Id": "f25a9972dc4544a388ec19840d1f3f63",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "eebf0492d7354b05ac326b58747bcf4e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "d7c73d0e084943e395a8784cb26bb3a5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "df4a5da770504bda8e107b40cf5b08ca",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "93781f08d5b848c4a51577148f6d1fc4",
+      "End": "09596ea227da4dc0854427eec4c9a346",
+      "Id": "4ef754bf4ac14825a9334688c5f6a477"
+    },
+    {
+      "Start": "93781f08d5b848c4a51577148f6d1fc4",
+      "End": "82de10ec4cc14b6b87ad57a3e5a4821e",
+      "Id": "38dcc4418cca49aab978f349590ad5ae"
+    },
+    {
+      "Start": "93781f08d5b848c4a51577148f6d1fc4",
+      "End": "27eaf57b807b464ab0bb28f91c19ad4b",
+      "Id": "780f17d4ac5f48169f082266347462dd"
+    },
+    {
+      "Start": "93781f08d5b848c4a51577148f6d1fc4",
+      "End": "57fd724cf9294e82a80cc14a5da54852",
+      "Id": "6fc88e8244a340c8881453e2af59ea86"
+    },
+    {
+      "Start": "93781f08d5b848c4a51577148f6d1fc4",
+      "End": "7b761d2900aa43a58751c87a828aeadb",
+      "Id": "d6fda9daceff49e0b0df359a812dcfe0"
+    },
+    {
+      "Start": "93781f08d5b848c4a51577148f6d1fc4",
+      "End": "0b5ea277b1ee40ad8577c71ca16eabf6",
+      "Id": "086e3066572149689c75ab03740cb46e"
+    },
+    {
+      "Start": "8ed6bc77f6054c8aaf3edfc7ff72089d",
+      "End": "59b0ae35401f4d38b01a5eb37b47677b",
+      "Id": "856d3f114a634cd4b46b7a2baa08156a"
+    },
+    {
+      "Start": "7b045069833a42febec065b8f30b4bc5",
+      "End": "071777ad4c6e43ef90958cc0b97b7f11",
+      "Id": "3fad23c0ec534e3cb83bb809a9ca0531"
+    },
+    {
+      "Start": "fc03749d4d4147a8863926c776879330",
+      "End": "8e7ccd59ffd74bcfb23cd26135ee5afe",
+      "Id": "969a1d9fcbc248349646fec638a3e070"
+    },
+    {
+      "Start": "b748a1fda3fb4e3cb1f5d8f47f005c5c",
+      "End": "098ff7b228b649ccbcc15c1bd28c3a08",
+      "Id": "77cdf5aa133e446b9975fde5b1fe841f"
+    },
+    {
+      "Start": "05d7e02ad23946c59ee622376315edc0",
+      "End": "1a1ef948c10442379e886cfb00dc44a3",
+      "Id": "40d6b2281ef5414194c3846b1247ec29"
+    },
+    {
+      "Start": "3168c86a1762491aa68d898be9193890",
+      "End": "12263d13c6264845aec34234dba059e6",
+      "Id": "eeac4b9f3519476b86d1590596d690f7"
+    },
+    {
+      "Start": "ccd47fed7a12475293db3fceb805af0d",
+      "End": "629b9deb8ee44014b935fba47bca81ec",
+      "Id": "96e42cdb7cde4d0496f9ad4c5cca7a2e"
+    },
+    {
+      "Start": "eebf0492d7354b05ac326b58747bcf4e",
+      "End": "b59e43d0d077480dbee7c0c0dd7de195",
+      "Id": "0c0d0f19f6754311a85d3f159adad712"
+    },
+    {
+      "Start": "df4a5da770504bda8e107b40cf5b08ca",
+      "End": "24c2ad056bb3474c87e74ef3d3cd1203",
+      "Id": "8fea797705bd4d8cb1387400b4188272"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Dimension.ByElements",
+        "Id": "4ede38b395094131b7380e9d8bdd1586",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 62.1100052774884,
+        "Y": 0.769009466786855
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Horizontal Text Alignment",
+        "Id": "ae7048554834464a84c567109ef1e2fc",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 161.0,
+        "Y": 942.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Vertical Text Alignment",
+        "Id": "67eba15c9939405491c4053c75c872a4",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 219.0,
+        "Y": 377.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.ByLocation",
+        "Id": "e4ce459d95b145c7a6d1d10e50455f23",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 622.63282937365,
+        "Y": 513.809935205184
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Views",
+        "Id": "4201858835134821a44c059157948e96",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 124.0,
+        "Y": 633.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.Origin",
+        "Id": "c00f8884f47946b58fc7432c41f74750",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 146.0,
+        "Y": 740.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "cc099c91ba2e44d5bac123139cb35639",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 83.0,
+        "Y": 850.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.HorizontalAlignment",
+        "Id": "df293c3a679e429da49ef262d36cffda",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 178.0,
+        "Y": 501.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.SetText",
+        "Id": "18d5553b101d4f61bf4e062ce7e63647",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 393.0,
+        "Y": 210.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "HorizontalTextAlignment.Left",
+        "Id": "c7f8600016924bfe873926a21121f15c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 209.0,
+        "Y": 1074.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.Text",
+        "Id": "9abb15d5fae6412c89397957fc31c481",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 580.0,
+        "Y": 1000.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "39ed0e04394d4083aa1798a0185badb1",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 538.0,
+        "Y": 877.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Categories",
+        "Id": "749b1bc53bb649c19cb5fef507da4cd7",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 638.183585313175,
+        "Y": 785.237580993521
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Category",
+        "Id": "00e490556cdc43c68aff6786530afff5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 839.481641468682,
+        "Y": 894.933045356371
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element Types",
+        "Id": "ab59acfcebcc4fb78570cd76a6dd9f98",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 801.4686825054,
+        "Y": 964.911447084233
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "All Elements of Type",
+        "Id": "b6d8137da1ca4728b59e6268540ae269",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 984.622030237581,
+        "Y": 1015.01943844492
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.SetText",
+        "Id": "925aaec0f8d64b019607bedcbf4f5870",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1444.23326133909,
+        "Y": 829.274298056155
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.SetHorizontalAlignment",
+        "Id": "5ab127dbf71943a08db80268350a0c45",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1215.29157667387,
+        "Y": 912.211663066954
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.Height",
+        "Id": "820b5164831c4ae790a84a596725cbf4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1265.39956803456,
+        "Y": 501.844492440605
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.HorizontalAlignment",
+        "Id": "706788d9cc8c4f808bdb1f07433f2bff",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 985.48596112311,
+        "Y": 385.213822894168
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.Text",
+        "Id": "fac7ba8482a3457b9debc8512709762f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1285.26997840173,
+        "Y": 736.833693304536
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.Typename",
+        "Id": "da82dcf99a9b46a3b915866f45d3d905",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1293.04535637149,
+        "Y": 633.161987041037
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "TextNote.VerticalAlignment",
+        "Id": "79af4940f4f54b2ebb6128f0052a8126",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1283.54211663067,
+        "Y": 391.261339092873
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "f25a9972dc4544a388ec19840d1f3f63",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1014.50323974082,
+        "Y": 802.408207343413
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "d7c73d0e084943e395a8784cb26bb3a5",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -215.460939579762,
+        "Y": -65.124441310125
+      }
+    ],
+    "Annotations": [],
+    "X": 251.813965936291,
+    "Y": 206.269864005715,
+    "Zoom": 0.335418808740583
+  }
+}

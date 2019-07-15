@@ -1,0 +1,356 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "true beam curve location",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "0467dc50d87441d38d7bd86aa58e41ba",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7c2b77bb16a84eeb9ba9759c021c7651",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.StructuralFraming.Location",
+      "Id": "eb40d384354a4fe7a2c356d82a510732",
+      "Inputs": [
+        {
+          "Id": "254eef48fa5a462ea3aa4e8f00ee31f6",
+          "Name": "structuralFraming",
+          "Description": "Revit.Elements.StructuralFraming",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9c387bb46c6849239f0528704f983c10",
+          "Name": "Curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Gets curve geometry from location of the specified structural element\n\nStructuralFraming.Location: Curve"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Translate@Autodesk.DesignScript.Geometry.Vector,double",
+      "Id": "db0976e76f10429e83de5b84c8018e2a",
+      "Inputs": [
+        {
+          "Id": "82bf025fb849403f959c488a140f0f46",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e045c5a557c4475c86603b8dff9e4843",
+          "Name": "direction",
+          "Description": "Displacement direction.\n\nVector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "aa8459f35c43466fa32096155a185431",
+          "Name": "distance",
+          "Description": "Displacement distance along given direction.\n\ndouble",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "97e30eeaca1949728d6800a7d4fe42de",
+          "Name": "Geometry",
+          "Description": "Transformed Geometry.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Translates any geometry type by the given distance in the given direction.\n\nGeometry.Translate (direction: Vector, distance: double): Geometry"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.GetParameterValueByName@string",
+      "Id": "8ff451437645453ca2d1b82dc25d6f44",
+      "Inputs": [
+        {
+          "Id": "d23d164a09f4473e9cc66fbe8f380a1e",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "47709f7cedc94c638db16a488e389972",
+          "Name": "parameterName",
+          "Description": "The name of the parameter whose value you want to obtain.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6f516f96730b4910bc1a42124e21c79b",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the value of one of the element's parameters.\n\nElement.GetParameterValueByName (parameterName: string): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"z Offset Value\";",
+      "Id": "bb1873ddb0c646d2a6fcbacefbbe642c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "879007935fdc4ebdb787af4ab3b6790c",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vector.ZAxis",
+      "Id": "985e9c8233f648859ba1bd87836a4a56",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "bf04a69b770944b29ec112ad57b07931",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the canonical Z axis Vector (0,0,1)\n\nVector.ZAxis ( ): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "4c9162009d1a4b8db44cce6a6e9fb040",
+      "Inputs": [
+        {
+          "Id": "b58047d401a24b0980bf792307dcb959",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8a857fa567064c669f1bc51d45739fd1",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7c2b77bb16a84eeb9ba9759c021c7651",
+      "End": "254eef48fa5a462ea3aa4e8f00ee31f6",
+      "Id": "1e1d81448e634078bd5c87877618d227"
+    },
+    {
+      "Start": "7c2b77bb16a84eeb9ba9759c021c7651",
+      "End": "d23d164a09f4473e9cc66fbe8f380a1e",
+      "Id": "e822e7aff9904cbba8c52427a1d846c9"
+    },
+    {
+      "Start": "7c2b77bb16a84eeb9ba9759c021c7651",
+      "End": "b58047d401a24b0980bf792307dcb959",
+      "Id": "ed01bdd657044c828038a1f411cf470d"
+    },
+    {
+      "Start": "9c387bb46c6849239f0528704f983c10",
+      "End": "82bf025fb849403f959c488a140f0f46",
+      "Id": "e8a91892162a4c9593d36d07c019d66b"
+    },
+    {
+      "Start": "6f516f96730b4910bc1a42124e21c79b",
+      "End": "aa8459f35c43466fa32096155a185431",
+      "Id": "dc89123bb9c34b9f8d88dbfef359e68a"
+    },
+    {
+      "Start": "879007935fdc4ebdb787af4ab3b6790c",
+      "End": "47709f7cedc94c638db16a488e389972",
+      "Id": "73c3281e625d4024964ecaf7112c4385"
+    },
+    {
+      "Start": "bf04a69b770944b29ec112ad57b07931",
+      "End": "e045c5a557c4475c86603b8dff9e4843",
+      "Id": "7466190c816644f597e8e17effa75d4e"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -247.24006652832031,
+      "EyeY": 0.15178041160106659,
+      "EyeZ": 101.70094299316406,
+      "LookX": 30.5218505859375,
+      "LookY": 10.050835609436035,
+      "LookZ": -8.3559207916259766,
+      "UpX": -0.48225420713424683,
+      "UpY": 0.86602538824081421,
+      "UpZ": 0.13202600181102753
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "0467dc50d87441d38d7bd86aa58e41ba",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 69.5,
+        "Y": 87.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "StructuralFraming.Location",
+        "Id": "eb40d384354a4fe7a2c356d82a510732",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 269.5,
+        "Y": 92.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Translate",
+        "Id": "db0976e76f10429e83de5b84c8018e2a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 943.5,
+        "Y": 81.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.GetParameterValueByName",
+        "Id": "8ff451437645453ca2d1b82dc25d6f44",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 573.5,
+        "Y": 93.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "bb1873ddb0c646d2a6fcbacefbbe642c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 605.0,
+        "Y": 219.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Vector.ZAxis",
+        "Id": "985e9c8233f648859ba1bd87836a4a56",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 831.5,
+        "Y": 105.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Geometry",
+        "Id": "4c9162009d1a4b8db44cce6a6e9fb040",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 28.5,
+        "Y": -51.0
+      }
+    ],
+    "Annotations": [],
+    "X": 7.0,
+    "Y": 243.0,
+    "Zoom": 1.0
+  }
+}

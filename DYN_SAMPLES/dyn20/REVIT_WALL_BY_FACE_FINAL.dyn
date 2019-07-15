@@ -1,0 +1,207 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "REVIT_WALL_BY_FACE_FINAL",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.WallTypes, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "NodeType": "ExtensionNode",
+      "Id": "5161203005ee4cf9bf3cd5375a6c779e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "03443ca7291641aaba558b780dd27c58",
+          "Name": "Wall Type",
+          "Description": "The selected Wall Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All wall types available in the document."
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSFaceSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "0f92a6fda60745158bb42c50716002a8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1d30e96b399845938a6bb8ad63ae98ac",
+          "Name": "Surface",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Wall.ByFace@string,Revit.Elements.WallType,Autodesk.DesignScript.Geometry.Surface",
+      "Id": "632611645c6a4ef69b5f20765862667b",
+      "Inputs": [
+        {
+          "Id": "c8ab0d03e4464815af980aaf2348e164",
+          "Name": "locationLine",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "48d3c6e7819340f3934e05e59400bd1a",
+          "Name": "wallType",
+          "Description": "WallType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b504460568ec4722a62e2ed5e5e274d1",
+          "Name": "surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3190b3154ecc43cfa368a2102990ac2b",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Wall following the geometry of a surface. Walls by Faces cannot be updated, any geometry change will create a new wall and delete the old one.\n\nWall.ByFace (locationLine: string, wallType: WallType, surface: Surface): Element"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.WallLocation, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "NodeType": "ExtensionNode",
+      "Id": "06afcf912c9e453d932a11164dc3712e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "1c1fb9e3e2f742dc943aa802366e6a69",
+          "Name": "Wall Location",
+          "Description": "The selected Wall Location",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Wall locations."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "03443ca7291641aaba558b780dd27c58",
+      "End": "48d3c6e7819340f3934e05e59400bd1a",
+      "Id": "c663ffad4a18493ebb28a4ab6a2638ac"
+    },
+    {
+      "Start": "1d30e96b399845938a6bb8ad63ae98ac",
+      "End": "b504460568ec4722a62e2ed5e5e274d1",
+      "Id": "506682ea487541348f3768e215b02088"
+    },
+    {
+      "Start": "1c1fb9e3e2f742dc943aa802366e6a69",
+      "End": "c8ab0d03e4464815af980aaf2348e164",
+      "Id": "27ef816255704be8a294dd75a7d2b63f"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 137.54847717285156,
+      "EyeY": 95.314300537109375,
+      "EyeZ": 260.8870849609375,
+      "LookX": -103.83708190917969,
+      "LookY": -33.984790802001953,
+      "LookZ": -240.98390197753906,
+      "UpX": 0.034488912671804428,
+      "UpY": 0.99619466066360474,
+      "UpZ": 0.080041468143463135
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Wall Types",
+        "Id": "5161203005ee4cf9bf3cd5375a6c779e",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 289.421607270406,
+        "Y": 570.605211965701
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Face",
+        "Id": "0f92a6fda60745158bb42c50716002a8",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 349.639517324694,
+        "Y": 676.660042688184
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Wall.ByFace",
+        "Id": "632611645c6a4ef69b5f20765862667b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 769.37798031765,
+        "Y": 495.483870185365
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Wall Location",
+        "Id": "06afcf912c9e453d932a11164dc3712e",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 187.318783589137,
+        "Y": 397.107667921391
+      }
+    ],
+    "Annotations": [],
+    "X": 103.016838673236,
+    "Y": -122.385153277206,
+    "Zoom": 1.2198072017255
+  }
+}

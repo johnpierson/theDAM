@@ -1,0 +1,93 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "0a7dfb5c34ae4bc1add132ca732f65f3",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7c34ef49c61644cc80116d2e70fcd889",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d01265073035460caad35c737aa8d5f9",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.2815992832183838,
+      "EyeY": 2.2112925052642822,
+      "EyeZ": 0.71569454669952393,
+      "LookX": -7.0120434761047363,
+      "LookY": -4.4165630340576172,
+      "LookZ": -4.8534445762634277,
+      "UpX": -0.21281386911869049,
+      "UpY": 0.96592581272125244,
+      "UpZ": -0.14730089902877808
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 823.808711686873,
+        "Y": 530.922784376721
+      }
+    ],
+    "Annotations": [],
+    "X": -966.012129775188,
+    "Y": -1027.30196819647,
+    "Zoom": 2.02304964773238
+  }
+}

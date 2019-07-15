@@ -1,0 +1,139 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_CENTEROFMASS",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "28347da0f6244a08945e6d1a261c5fe4",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6ff1f2cf982e467a8fd9b828c5ce65df",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9a478116c7e646b1ae9d54af011125ba",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Solid.Centroid",
+      "Id": "196816e275654e8f9872395dcbec0340",
+      "Inputs": [
+        {
+          "Id": "5594206891b04ce196a23ef90a1e415f",
+          "Name": "solid",
+          "Description": "Autodesk.DesignScript.Geometry.Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "566423da4e4c48788b6e716ba804c5cc",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The centroid of the Solid\n\nSolid.Centroid ( ): Point"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "9a478116c7e646b1ae9d54af011125ba",
+      "End": "5594206891b04ce196a23ef90a1e415f",
+      "Id": "cb2e688827fa423aad09db308607f6ae"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.3695964813232422,
+      "EyeY": 3.1866002082824707,
+      "EyeZ": 1.2473361492156982,
+      "LookX": -6.2895622253417969,
+      "LookY": -6.2705492973327637,
+      "LookZ": -5.5040345191955566,
+      "UpX": -0.3120720386505127,
+      "UpY": 0.9099612832069397,
+      "UpZ": -0.27309617400169373
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 875.316699929864,
+        "Y": 522.764131125621
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Solid.Centroid",
+        "Id": "196816e275654e8f9872395dcbec0340",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1160.40472943069,
+        "Y": 522.567427778321
+      }
+    ],
+    "Annotations": [],
+    "X": -1386.59629411971,
+    "Y": -950.883448044176,
+    "Zoom": 1.88953020300527
+  }
+}

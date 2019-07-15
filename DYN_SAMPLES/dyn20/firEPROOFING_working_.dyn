@@ -1,0 +1,500 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "firEPROOFING_working_",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "fe81f1ffa203466ba355b924006e9f1c",
+      "Inputs": [
+        {
+          "Id": "ed87e7eab34741a9ace9b311c6856803",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3949a207ed364132b47bae7343c98496",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "7dad8e760812446091e41ca8fa473cd6",
+      "Inputs": [
+        {
+          "Id": "1be69470604542ec9ef54e542b153931",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "57efcd60c08d48b598255bc634ead9e1",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c9ed2c99bcc1436cba6a04f276205931",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Thicken@double",
+      "Id": "ceeeb75655b945c0ac6be0e37fe3d1ef",
+      "Inputs": [
+        {
+          "Id": "52856b5f35144e559ffc9c5ecfe83bac",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "93f7fbe4ce614470838082027e166911",
+          "Name": "thickness",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3331620ca68f40f889c2e898fe9800b9",
+          "Name": "Solid",
+          "Description": "Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Thicken Surface into a Solid, extruding in the direction of Surface normals on both sides of the Surface.\n\nSurface.Thicken (thickness: double = 1): Solid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.1666666;",
+      "Id": "9a137043612d4504bf075dce855d2b41",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3976c2ebaf4a4ab7ab723d115628abe7",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "x[2..13..1];",
+      "Id": "68f97e804c9e4308bc94cdefe25c16a7",
+      "Inputs": [
+        {
+          "Id": "3d3ebd5e73d440f2870f302ceeed2acd",
+          "Name": "x",
+          "Description": "x",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2a36621a09eb453ab51a80d38341bd2d",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.Explode",
+      "Id": "6d278a2e19694fc3b0495abf14d779c0",
+      "Inputs": [
+        {
+          "Id": "4e9a734159634335859a54cc78d0c5cc",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "300da2d977ae4a34bf3cfd63b9b0291c",
+          "Name": "Geometry[]",
+          "Description": "Geometry[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Separates compound or non-separated elements into their component parts.\n\nGeometry.Explode ( ): Geometry[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.GetItemAtIndex@var[]..[],int",
+      "Id": "385b4fa1a9dd4175beca0f5e43f6eb84",
+      "Inputs": [
+        {
+          "Id": "2c46759f357e4c81ad39990e9caa1f1e",
+          "Name": "list",
+          "Description": "List to fetch an item from.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "caad9032910745bb96114a38d0cbfda2",
+          "Name": "index",
+          "Description": "Index of the item to be fetched.\n\nint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "51c7c438a8544417bf1fce323296e918",
+          "Name": "item",
+          "Description": "Item in the list at the given index.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "CrossProduct",
+      "Description": "Returns an item from the given list that's located at the specified index.\n\nList.GetItemAtIndex (list: var[]..[], index: int): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[3,5];",
+      "Id": "c77036fd0fad47eea96830b9a276d64c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "79bfaf0a36d246ad95f7c3a20164ae2e",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.Thicken@double",
+      "Id": "7381181379d049529f7fa5a6e9f85ff4",
+      "Inputs": [
+        {
+          "Id": "dd9a441906d447b59eb9d22ac8a107db",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "94b2a8002dac4bd9adc517f5af805873",
+          "Name": "thickness",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "43b410be7d1046d8958de2b82a8364d4",
+          "Name": "Solid",
+          "Description": "Solid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Thicken Surface into a Solid, extruding in the direction of Surface normals on both sides of the Surface.\n\nSurface.Thicken (thickness: double = 1): Solid"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "7113bfb9dc2b48feb7ac44dc45fcee2b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "17798e2c65ee4a82a0eb6e443443e1c9",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3949a207ed364132b47bae7343c98496",
+      "End": "1be69470604542ec9ef54e542b153931",
+      "Id": "a8fbeb7a521a457abcf1dccc53739953"
+    },
+    {
+      "Start": "c9ed2c99bcc1436cba6a04f276205931",
+      "End": "3d3ebd5e73d440f2870f302ceeed2acd",
+      "Id": "1b2998337eaf4380b4944b1b193c277a"
+    },
+    {
+      "Start": "3331620ca68f40f889c2e898fe9800b9",
+      "End": "4e9a734159634335859a54cc78d0c5cc",
+      "Id": "c1119a155a544ae9bc9652967bdc3248"
+    },
+    {
+      "Start": "3976c2ebaf4a4ab7ab723d115628abe7",
+      "End": "93f7fbe4ce614470838082027e166911",
+      "Id": "d4a742d89cbf441c824701bb057a8079"
+    },
+    {
+      "Start": "3976c2ebaf4a4ab7ab723d115628abe7",
+      "End": "94b2a8002dac4bd9adc517f5af805873",
+      "Id": "36004bd87ee14b768332b0bc2a9085e5"
+    },
+    {
+      "Start": "2a36621a09eb453ab51a80d38341bd2d",
+      "End": "52856b5f35144e559ffc9c5ecfe83bac",
+      "Id": "c0a10ef86dea4f85b8a983f4bd79433f"
+    },
+    {
+      "Start": "300da2d977ae4a34bf3cfd63b9b0291c",
+      "End": "2c46759f357e4c81ad39990e9caa1f1e",
+      "Id": "48770d7bfd6347b6889f3bc229b80827"
+    },
+    {
+      "Start": "51c7c438a8544417bf1fce323296e918",
+      "End": "dd9a441906d447b59eb9d22ac8a107db",
+      "Id": "20b6e8b06804489ca5b4a6cda854fb1d"
+    },
+    {
+      "Start": "79bfaf0a36d246ad95f7c3a20164ae2e",
+      "End": "caad9032910745bb96114a38d0cbfda2",
+      "Id": "7f06db606cd64b269b7193dc6dfc9125"
+    },
+    {
+      "Start": "17798e2c65ee4a82a0eb6e443443e1c9",
+      "End": "ed87e7eab34741a9ace9b311c6856803",
+      "Id": "ba71f32eb4844332a316ec427fc8bc8c"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -24.004901885986328,
+      "EyeY": 16.955873489379883,
+      "EyeZ": -56.982864379882813,
+      "LookX": -0.38513517379760742,
+      "LookY": -32.634731292724609,
+      "LookZ": 18.550548553466797,
+      "UpX": -0.015425396151840687,
+      "UpY": 0.66913062334060669,
+      "UpZ": 0.74298471212387085
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "fe81f1ffa203466ba355b924006e9f1c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 654.17308229182,
+        "Y": 282.767234159277
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "7dad8e760812446091e41ca8fa473cd6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 895.017905064671,
+        "Y": 236.465531681446
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Thicken",
+        "Id": "ceeeb75655b945c0ac6be0e37fe3d1ef",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1139.37120974924,
+        "Y": 439.736844519543
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "9a137043612d4504bf075dce855d2b41",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 881.017905064671,
+        "Y": 429.065651903794
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "68f97e804c9e4308bc94cdefe25c16a7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1080.74336073972,
+        "Y": 244.244702550504
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.Explode",
+        "Id": "6d278a2e19694fc3b0495abf14d779c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1353.08801344781,
+        "Y": 263.793243335132
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.GetItemAtIndex",
+        "Id": "385b4fa1a9dd4175beca0f5e43f6eb84",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1710.93940568729,
+        "Y": 538.1459773854
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "c77036fd0fad47eea96830b9a276d64c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1555.07758861357,
+        "Y": 588.486721479431
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.Thicken",
+        "Id": "7381181379d049529f7fa5a6e9f85ff4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1784.46462091764,
+        "Y": 371.208344555879
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "7113bfb9dc2b48feb7ac44dc45fcee2b",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 341.163798726172,
+        "Y": 213.097629434537
+      }
+    ],
+    "Annotations": [],
+    "X": -359.086429605147,
+    "Y": -51.1308942937096,
+    "Zoom": 0.847618571998231
+  }
+}

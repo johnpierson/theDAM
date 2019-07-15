@@ -1,0 +1,251 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SURFACE_NORMAL_AT_PARAMETER55",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Rectangle.ByWidthLength@double,double",
+      "Id": "9655317d0f2541959234a3b64b4dca84",
+      "Inputs": [
+        {
+          "Id": "014a6430179747feaf8cb6ebe28ee1a2",
+          "Name": "width",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "40769742f6aa43f58380b9b06424c497",
+          "Name": "length",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "aada4832281347698c6017477c0b3e5b",
+          "Name": "Rectangle",
+          "Description": "Rectangle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Rectangle centered at the WCS origin in the WCS XY Plane, with specified width (X Axis length), and length (Y Axis length).\n\nRectangle.ByWidthLength (width: double = 1, length: double = 1): Rectangle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ByPatch@Autodesk.DesignScript.Geometry.Curve",
+      "Id": "f9c311c1add643b1a6ec85202972744e",
+      "Inputs": [
+        {
+          "Id": "94e9288e4dfa4e1fb3811a46520aefd7",
+          "Name": "closedCurve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8406347b7edb4264a986190d8ffc86ce",
+          "Name": "Surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Surface by filling in the interior of a closed boundary defined by input Curves.\n\nSurface.ByPatch (closedCurve: Curve): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.NormalAtParameter@double,double",
+      "Id": "174bcc2d80a04aab95a79f08c7c13743",
+      "Inputs": [
+        {
+          "Id": "fc83243bfd0e4e3eb1a4299250a875ed",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7e5cffaca78144cf9b8bbc9080301170",
+          "Name": "u",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "21cced7e33d942168b67f861f8f2baca",
+          "Name": "v",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "257b4b5672144d8da767fe39b1a91c14",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return the normal Vector at specified U and V parameters.\n\nSurface.NormalAtParameter (u: double = 0, v: double = 0): Vector"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.5;\n0.5;",
+      "Id": "34ddf00a14c340258a398ab877572b50",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "fa494109928046589ec33d3cc8151f7f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9d2c570d45b84ea58c659d78e6b41dee",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "aada4832281347698c6017477c0b3e5b",
+      "End": "94e9288e4dfa4e1fb3811a46520aefd7",
+      "Id": "01d6d0c377ad4a8f91696f068c461000"
+    },
+    {
+      "Start": "8406347b7edb4264a986190d8ffc86ce",
+      "End": "fc83243bfd0e4e3eb1a4299250a875ed",
+      "Id": "ebadea63cee54d67aed864e3ecc00eaa"
+    },
+    {
+      "Start": "fa494109928046589ec33d3cc8151f7f",
+      "End": "7e5cffaca78144cf9b8bbc9080301170",
+      "Id": "f15be46789ca411b8c8928eee073efde"
+    },
+    {
+      "Start": "9d2c570d45b84ea58c659d78e6b41dee",
+      "End": "21cced7e33d942168b67f861f8f2baca",
+      "Id": "e617146909004784960c374f1afab722"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -2.4110186100006104,
+      "EyeY": 1.2240904569625854,
+      "EyeZ": 5.0828204154968262,
+      "LookX": -4.1649289131164551,
+      "LookY": -4.6574187278747559,
+      "LookZ": -2.4719088077545166,
+      "UpX": -0.44932106137275696,
+      "UpY": 0.85264015197753906,
+      "UpZ": -0.26667457818984985
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": false,
+        "Name": "Rectangle.ByWidthLength",
+        "Id": "9655317d0f2541959234a3b64b4dca84",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 263.771137145181,
+        "Y": 575.696333485576
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.ByPatch",
+        "Id": "f9c311c1add643b1a6ec85202972744e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 257.182396527235,
+        "Y": 495.808057236932
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.NormalAtParameter",
+        "Id": "174bcc2d80a04aab95a79f08c7c13743",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 629.74777900607,
+        "Y": 493.625154562954
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "34ddf00a14c340258a398ab877572b50",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 519.887007615143,
+        "Y": 539.983392583006
+      }
+    ],
+    "Annotations": [],
+    "X": -434.661743201287,
+    "Y": -996.428175840462,
+    "Zoom": 2.1772647537941
+  }
+}

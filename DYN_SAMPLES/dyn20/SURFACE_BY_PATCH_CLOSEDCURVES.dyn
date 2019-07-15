@@ -1,0 +1,139 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SURFACE_BY_PATCH_CLOSEDCURVES",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Rectangle.ByWidthLength@double,double",
+      "Id": "9655317d0f2541959234a3b64b4dca84",
+      "Inputs": [
+        {
+          "Id": "8316d68b62324cd4963f257f3dea10a9",
+          "Name": "width",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b0c3ec86bb4344778130fd050f618fc0",
+          "Name": "length",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "45e347fa429b42ed84e7ede1eaff47a7",
+          "Name": "Rectangle",
+          "Description": "Rectangle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Rectangle centered at the WCS origin in the WCS XY Plane, with specified width (X Axis length), and length (Y Axis length).\n\nRectangle.ByWidthLength (width: double = 1, length: double = 1): Rectangle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ByPatch@Autodesk.DesignScript.Geometry.Curve",
+      "Id": "f9c311c1add643b1a6ec85202972744e",
+      "Inputs": [
+        {
+          "Id": "94df4b9fa43e485ebbb1e971493d3e3b",
+          "Name": "closedCurve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "840abf5ec5b840aca4f83195750d2465",
+          "Name": "Surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Surface by filling in the interior of a closed boundary defined by input Curves.\n\nSurface.ByPatch (closedCurve: Curve): Surface"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "45e347fa429b42ed84e7ede1eaff47a7",
+      "End": "94df4b9fa43e485ebbb1e971493d3e3b",
+      "Id": "841dddca36fc4792bf2e7375cab80f29"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 3.5998363494873047,
+      "EyeY": 2.9104855060577393,
+      "EyeZ": 0.65764176845550537,
+      "LookX": -7.405146598815918,
+      "LookY": -5.0480031967163086,
+      "LookZ": -4.394996166229248,
+      "UpX": -0.26573824882507324,
+      "UpY": 0.95105654001235962,
+      "UpZ": -0.15771713852882385
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Rectangle.ByWidthLength",
+        "Id": "9655317d0f2541959234a3b64b4dca84",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 259.043200680002,
+        "Y": 518.967060065291
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.ByPatch",
+        "Id": "f9c311c1add643b1a6ec85202972744e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 519.087942573453,
+        "Y": 518.967060065291
+      }
+    ],
+    "Annotations": [],
+    "X": -264.731026946239,
+    "Y": -784.782266662611,
+    "Zoom": 1.78359936238281
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "LEVELS_FINAL",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Level.ByElevation@double",
+      "Id": "7d952e67bfb84072a0b40ec28d6317b3",
+      "Inputs": [
+        {
+          "Id": "1b465a7b41d74a63990f997e9e67d841",
+          "Name": "elevation",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "655a14cb663345be88cef74485b31e7c",
+          "Name": "Level",
+          "Description": "Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Level given it's elevation. The name will be whatever Revit gives it.\n\nLevel.ByElevation (elevation: double): Level"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0..100..10;",
+      "Id": "a87db29e5aed45bb8e6979ada6974aca",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a84b74d4dfed42d1966a801d1678751f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a84b74d4dfed42d1966a801d1678751f",
+      "End": "1b465a7b41d74a63990f997e9e67d841",
+      "Id": "4456f486542a4fa58d81bc18f9fa141f"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Level.ByElevation",
+        "Id": "7d952e67bfb84072a0b40ec28d6317b3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 510.0,
+        "Y": 260.5
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "a87db29e5aed45bb8e6979ada6974aca",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 261.0,
+        "Y": 259.0
+      }
+    ],
+    "Annotations": [],
+    "X": -82.0,
+    "Y": -2.0,
+    "Zoom": 1.0
+  }
+}

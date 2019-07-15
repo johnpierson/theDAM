@@ -1,0 +1,102 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_2_0",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByLengths@double,double,double",
+      "Id": "cf42af33529345469d4ef065d5d1854d",
+      "Inputs": [
+        {
+          "Id": "0a820c56e8e64679ac9b99ba6673b31f",
+          "Name": "width",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "111a5b72203d445eb59e6f7b7990f5f4",
+          "Name": "length",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f797367b45cc4d9d9dca06470f0108c8",
+          "Name": "height",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "20ca0748664c4c3f8bb0bab30bb6ead8",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Cuboid centered at WCS origin, with width, length, and height.\n\nCuboid.ByLengths (width: double = 1, length: double = 1, height: double = 1): Cuboid"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 9.0639374290706467,
+      "EyeY": 5.7089564730540667,
+      "EyeZ": 6.2736801482514029,
+      "LookX": -9.0639374290706467,
+      "LookY": -5.7089564730540667,
+      "LookZ": -6.2736801482514029,
+      "UpX": -0.21281386911869049,
+      "UpY": 0.96592581272125244,
+      "UpZ": -0.14730089902877808
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByLengths",
+        "Id": "cf42af33529345469d4ef065d5d1854d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 569.08565125833331,
+        "Y": 624.25765724299686
+      }
+    ],
+    "Annotations": [],
+    "X": -519.2507691353569,
+    "Y": -644.84612058256016,
+    "Zoom": 1.4517389755498056
+  }
+}

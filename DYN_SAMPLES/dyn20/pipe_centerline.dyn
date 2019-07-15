@@ -1,0 +1,379 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "pipe_centerline",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Faces",
+      "Id": "a3a60c75bdef4597b44c0541c72c4ef8",
+      "Inputs": [
+        {
+          "Id": "d6e5bb32be3c44c1841de4ecf3e22e00",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "919ba857c980481c983391cc6f94d925",
+          "Name": "Surface[]",
+          "Description": "Surface[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Faces in this Element\n\nElement.Faces: Surface[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Face.Vertices",
+      "Id": "c536fdda7e76449ca438eb54f7cd2015",
+      "Inputs": [
+        {
+          "Id": "e037d6074a1441a48d216b6f777a6f8c",
+          "Name": "face",
+          "Description": "Autodesk.DesignScript.Geometry.Face",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3ac99c6cd01142aab759b94e8172bd6c",
+          "Name": "Vertex[]",
+          "Description": "Vertex[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "All of the Vertices around this Face in counterclockwise order\n\nFace.Vertices: Vertex[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vertex.PointGeometry",
+      "Id": "83303f7db65f428c98bde78d7e6591f1",
+      "Inputs": [
+        {
+          "Id": "56870cc86216411e92d615b909344ef4",
+          "Name": "vertex",
+          "Description": "Autodesk.DesignScript.Geometry.Vertex",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "206c749839d14ccd9010122693703c83",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Point where this Vertex is located\n\nVertex.PointGeometry: Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Line.ByBestFitThroughPoints@Autodesk.DesignScript.Geometry.Point[]",
+      "Id": "f3f7667bba4d4e53b0c7e7c657167965",
+      "Inputs": [
+        {
+          "Id": "0470069542bb4840a673ec7d40662d2c",
+          "Name": "bestFitPoints",
+          "Description": "Point[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "425316f1dd754b35a9f9fed576b53f89",
+          "Name": "Line",
+          "Description": "Line",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Line best approximating a scatter plot of Points.\n\nLine.ByBestFitThroughPoints (bestFitPoints: Point[]): Line"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "654a7b1683f64879a94d586ed81375f8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "9b37f7c047e643e0b7c95fb5d45b07d2",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.Flatten@var[]..[],int",
+      "Id": "1954ffc700e74b339ace824eb374a6f7",
+      "Inputs": [
+        {
+          "Id": "89b27b985c0b4161908747b7d2575a83",
+          "Name": "list",
+          "Description": "List to flatten.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ba0114b5ffb0445583bfd7d1eec51564",
+          "Name": "amt",
+          "Description": "Layers of nesting to remove.\n\nint\nDefault value : -1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e9bac38337364a90b93a17f4d7a60bd7",
+          "Name": "var[]..[]",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Flattens a nested list of lists by a certain amount.\n\nList.Flatten (list: var[]..[], amt: int = -1): var[]..[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "919ba857c980481c983391cc6f94d925",
+      "End": "e037d6074a1441a48d216b6f777a6f8c",
+      "Id": "47afa828258b46738375b1ab5bfa21b7"
+    },
+    {
+      "Start": "3ac99c6cd01142aab759b94e8172bd6c",
+      "End": "89b27b985c0b4161908747b7d2575a83",
+      "Id": "eab8500a41ac451ab5a1197903eacd55"
+    },
+    {
+      "Start": "3ac99c6cd01142aab759b94e8172bd6c",
+      "End": "56870cc86216411e92d615b909344ef4",
+      "Id": "17667431276c4b97bbdf98d91e3d2f0c"
+    },
+    {
+      "Start": "206c749839d14ccd9010122693703c83",
+      "End": "0470069542bb4840a673ec7d40662d2c",
+      "Id": "87f28b764eb341918a1ff8b6ec1eac50"
+    },
+    {
+      "Start": "9b37f7c047e643e0b7c95fb5d45b07d2",
+      "End": "d6e5bb32be3c44c1841de4ecf3e22e00",
+      "Id": "80c3ed0c4ad449fd861db706999aa3a6"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "100"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.6577985286712646,
+      "EyeY": 34.527561187744141,
+      "EyeZ": -27.197902679443359,
+      "LookX": 4.0808296203613281,
+      "LookY": -11.792078018188477,
+      "LookZ": -3.9148287773132324,
+      "UpX": 0.5686536431312561,
+      "UpY": 0.61566150188446045,
+      "UpZ": -0.54552179574966431
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Faces",
+        "Id": "a3a60c75bdef4597b44c0541c72c4ef8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 13.021896034844,
+        "Y": -284.351783491671
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Face.Vertices",
+        "Id": "c536fdda7e76449ca438eb54f7cd2015",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 174.656738279255,
+        "Y": -127.466296036592
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Vertex.PointGeometry",
+        "Id": "83303f7db65f428c98bde78d7e6591f1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 364.87317591789,
+        "Y": -141.480823965706
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Line.ByBestFitThroughPoints",
+        "Id": "f3f7667bba4d4e53b0c7e7c657167965",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 577.208875107904,
+        "Y": -18.3455098235523
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "654a7b1683f64879a94d586ed81375f8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -313.257182148868,
+        "Y": -399.168432926597
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.Flatten",
+        "Id": "1954ffc700e74b339ace824eb374a6f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 341.560378474616,
+        "Y": 46.3894804050805
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "a4edc3b3c79843f2a785fe78212f625c",
+        "Title": "Multiple creation methods exist for most Solids.  These examples show Closed Profiles as the base, but polysurfaces can be stitched, many primitives are available (Surfaces, Cuboid, Cone, etc)",
+        "Nodes": [],
+        "Left": -23371.7848897669,
+        "Top": -19616.0024997915,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "61e0fa10b92f4da2b57652595527d0fd",
+        "Title": "Geometric Boolean operations (Intersect, Difference, Union, Etc) are available in the Geometry Category.",
+        "Nodes": [],
+        "Left": -21755.327872524,
+        "Top": -19487.4576925417,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1fdd24443bae4820aa26c3bbceb97757",
+        "Title": "Tip:  Turn off \"Preview\" in Node Right Click menus to exclude elements from Showing",
+        "Nodes": [],
+        "Left": -22582.6567837286,
+        "Top": -19573.2738069245,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "d5b1a9e46344441a8e8bc93006c7ebdb",
+        "Title": "Tip:  Turn off \"Preview\" in Node Right Click menus to exclude elements from Showing",
+        "Nodes": [],
+        "Left": -23426.3112170555,
+        "Top": -19374.5268630841,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "1009c3db5de94ff7954e3836f7087763",
+        "Title": "Geometry is not the same as a Revit Element:\r\nUse ImportInstance To create Revit Imports from Surfaces and Solids in any Revit Environment, use Points and Curves to place Family Instances, or create Form in Mass and Generic Model By Point (Adaptive Component) Families",
+        "Nodes": [],
+        "Left": -22637.5984814944,
+        "Top": -20031.9682183164,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 436.277864995048,
+    "Y": 451.044449155761,
+    "Zoom": 1.21935864757274
+  }
+}

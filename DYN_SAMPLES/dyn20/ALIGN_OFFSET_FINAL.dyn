@@ -1,0 +1,267 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "ALIGN_OFFSET_FINAL",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "4fef2d41eb92468484c08b0f6378c2fa",
+      "Name": "Integer Slider",
+      "Type": "number",
+      "Value": "1",
+      "MaximumValue": 1.0,
+      "MinimumValue": -1.0,
+      "StepValue": 2.0,
+      "NumberType": "Integer",
+      "Description": "A slider that produces integer values."
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "b2c16887afb245d88644b32dc9f95b24",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7239b957e43149a3a668232b5d729284",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSEdgeSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "5d8973ed6be0492c87bb52aa20689f46",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "33846fb1ec5e4909b7c58c951736b4a9",
+          "Name": "Curve",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.SetLocation@Autodesk.DesignScript.Geometry.Geometry",
+      "Id": "63bae32089144fe88021c348e0dd5e1b",
+      "Inputs": [
+        {
+          "Id": "ba488a2a20974fc0a61a33a50f53fce7",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b0ca115b1fc445c0afaf64ded82f7b37",
+          "Name": "geometry",
+          "Description": "New Location Point or Curve\n\nGeometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "47ab3ad2ead44fa886fb724f51f2f36d",
+          "Name": "void",
+          "Description": "void",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Update an existing element's location\n\nElement.SetLocation (geometry: Geometry): void"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.Offset@double",
+      "Id": "3741b7b618264ed6b93ced6f0348a577",
+      "Inputs": [
+        {
+          "Id": "127f5cbd5abf4939b064d0fb1cbe4b8b",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5c5d4a62a2244a50a43a416a5194ad28",
+          "Name": "distance",
+          "Description": "A positive or negative distance to offset\n\ndouble\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4c9efef0082f4d2fabd7ae6c029b91ec",
+          "Name": "Curve",
+          "Description": "new offsetted curves",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Offset a Curve by a specified amount. Curve must be planar, and, if a BSplineCurve/NurbsCurve, must have degree > 1.\n\nCurve.Offset (distance: double = 1): Curve"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.IntegerSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Integer",
+      "InputValue": 1,
+      "MaximumValue": 1,
+      "MinimumValue": -1,
+      "StepValue": 2,
+      "Id": "4fef2d41eb92468484c08b0f6378c2fa",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "40edbdf5514b46e98457955de38f8545",
+          "Name": "",
+          "Description": "Int32",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces integer values."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7239b957e43149a3a668232b5d729284",
+      "End": "ba488a2a20974fc0a61a33a50f53fce7",
+      "Id": "a5d897c99ac54a46b2028e5591a92f45"
+    },
+    {
+      "Start": "33846fb1ec5e4909b7c58c951736b4a9",
+      "End": "127f5cbd5abf4939b064d0fb1cbe4b8b",
+      "Id": "c3a6907bf4cd487cb588e742e01a493a"
+    },
+    {
+      "Start": "4c9efef0082f4d2fabd7ae6c029b91ec",
+      "End": "b0ca115b1fc445c0afaf64ded82f7b37",
+      "Id": "62f084ade9c145f8a5c7388de0d85d99"
+    },
+    {
+      "Start": "40edbdf5514b46e98457955de38f8545",
+      "End": "5c5d4a62a2244a50a43a416a5194ad28",
+      "Id": "978d4f29cefa42fbbd276ed0504a90b6"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -180.84725952148437,
+      "EyeY": 22.300403594970703,
+      "EyeZ": 15.056262016296387,
+      "LookX": 4.8926811218261719,
+      "LookY": -5.3004045486450195,
+      "LookZ": -23.647958755493164,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "b2c16887afb245d88644b32dc9f95b24",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 57.2190752074605,
+        "Y": -3.61156068464851
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Edge",
+        "Id": "5d8973ed6be0492c87bb52aa20689f46",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 314.538535035484,
+        "Y": 50.8885550220056
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.SetLocation",
+        "Id": "63bae32089144fe88021c348e0dd5e1b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 617.5,
+        "Y": 5.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.Offset",
+        "Id": "3741b7b618264ed6b93ced6f0348a577",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 611.527430858735,
+        "Y": 216.339897552627
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Integer Slider",
+        "Id": "4fef2d41eb92468484c08b0f6378c2fa",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 61.6223402593247,
+        "Y": 220.64498333261
+      }
+    ],
+    "Annotations": [],
+    "X": -7.61047055343931,
+    "Y": 92.9110748284327,
+    "Zoom": 1.96524455617686
+  }
+}

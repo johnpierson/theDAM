@@ -1,0 +1,256 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SURFACE_NORMAL_AT_POINT00",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Rectangle.ByWidthLength@double,double",
+      "Id": "9655317d0f2541959234a3b64b4dca84",
+      "Inputs": [
+        {
+          "Id": "86a9866dbf9b4ba7a1f1b579804c1722",
+          "Name": "width",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "93123de97c504f5bb1c0f972f257a2df",
+          "Name": "length",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4a79cf40c0c74934ae4696b74ecf128e",
+          "Name": "Rectangle",
+          "Description": "Rectangle",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Rectangle centered at the WCS origin in the WCS XY Plane, with specified width (X Axis length), and length (Y Axis length).\n\nRectangle.ByWidthLength (width: double = 1, length: double = 1): Rectangle"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.ByPatch@Autodesk.DesignScript.Geometry.Curve",
+      "Id": "f9c311c1add643b1a6ec85202972744e",
+      "Inputs": [
+        {
+          "Id": "278e54ef15704ba482bc3a3008755b6b",
+          "Name": "closedCurve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "77eac88fd620441aa7b0fb252e8d8c56",
+          "Name": "Surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Surface by filling in the interior of a closed boundary defined by input Curves.\n\nSurface.ByPatch (closedCurve: Curve): Surface"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Point.ByCoordinates@double,double,double",
+      "Id": "1223ab66c3e94c319ab2a53bd5abdab1",
+      "Inputs": [
+        {
+          "Id": "b37f3e29ff0041cf80ab03f7c892b06c",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5805603c575b41fd9ba89fe06eb7aa4c",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "1c24f5f4e4c147f3922339b8d9ebc57d",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2cc2097ae2bd41639a1f4b73579e994d",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Form a Point given 3 cartesian coordinates\n\nPoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Surface.NormalAtPoint@Autodesk.DesignScript.Geometry.Point",
+      "Id": "452180f19c264abf855d253a6ffb0c53",
+      "Inputs": [
+        {
+          "Id": "dcc56e893a674ff8b0e240dddc703380",
+          "Name": "surface",
+          "Description": "Autodesk.DesignScript.Geometry.Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "270033ad3ba14476aac232260dfa17fc",
+          "Name": "point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e813c91a1c824323af94a7688eb680b5",
+          "Name": "Vector",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Return the surface normal at the input Point on the Surface.\n\nSurface.NormalAtPoint (point: Point): Vector"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "4a79cf40c0c74934ae4696b74ecf128e",
+      "End": "278e54ef15704ba482bc3a3008755b6b",
+      "Id": "b376c2dec1974231a971b761ca0945e7"
+    },
+    {
+      "Start": "77eac88fd620441aa7b0fb252e8d8c56",
+      "End": "dcc56e893a674ff8b0e240dddc703380",
+      "Id": "03cbf5b1b4114a99913851ab39fe74af"
+    },
+    {
+      "Start": "2cc2097ae2bd41639a1f4b73579e994d",
+      "End": "270033ad3ba14476aac232260dfa17fc",
+      "Id": "8f2f784fad3f41a3968fdf2d4c9a3a62"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -2.4110186100006104,
+      "EyeY": 1.2240904569625854,
+      "EyeZ": 5.0828204154968262,
+      "LookX": -4.1649289131164551,
+      "LookY": -4.6574187278747559,
+      "LookZ": -2.4719088077545166,
+      "UpX": -0.44932106137275696,
+      "UpY": 0.85264015197753906,
+      "UpZ": -0.26667457818984985
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": false,
+        "Name": "Rectangle.ByWidthLength",
+        "Id": "9655317d0f2541959234a3b64b4dca84",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 263.771137145181,
+        "Y": 577.99279283499
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.ByPatch",
+        "Id": "f9c311c1add643b1a6ec85202972744e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 257.182396527235,
+        "Y": 498.104516586346
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Point.ByCoordinates",
+        "Id": "1223ab66c3e94c319ab2a53bd5abdab1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 559.432214569174,
+        "Y": 545.976528116989
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Surface.NormalAtPoint",
+        "Id": "452180f19c264abf855d253a6ffb0c53",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 740.719507127126,
+        "Y": 498.466833051863
+      }
+    ],
+    "Annotations": [],
+    "X": -375.919187742104,
+    "Y": -855.880467013838,
+    "Zoom": 1.88868388130205
+  }
+}

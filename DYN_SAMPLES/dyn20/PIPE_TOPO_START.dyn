@@ -1,0 +1,196 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "PIPE_TOPO_START",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "d07bcb40aa3d44e7bebb3aa88d306ffc",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f1d0748ce2cf4b23b8f52a76e6e0d107",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "b34e0607-e2ef-4e43-8d24-3f79407b545e",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "c032150496fd452182d8b3d9e52baf54",
+      "Inputs": [
+        {
+          "Id": "c24b9b7fb4ec4a48b3d7db89f1c264d7",
+          "Name": "topography",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a428192e208441dab6013f3409075670",
+          "Name": "polysurface",
+          "Description": "Output #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Optimized algorithm for converting topographies into polysurfaces. Tested with topographies containing up to 40 000 points. \r\nWarning conversions of such mangitudes consume a lot of resources and are sub-optimal. Ensure that you have plenty at least 8GB of ram and patience before attempting such a conversion, otherwise your Dynamo and Revit instances may crash."
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "ca124bbd0d4447f9addb52d83902b559",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "053ab802a1874b44b8a60ef5ae6c26db",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Curves",
+      "Id": "b2a6977e30294117a1f7a352fae212f8",
+      "Inputs": [
+        {
+          "Id": "3fa903643fa74097956fb819b53645db",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b12dd3d97bf64464b49086f9ed129001",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Curves in this Element\n\nElement.Curves: Curve[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f1d0748ce2cf4b23b8f52a76e6e0d107",
+      "End": "c24b9b7fb4ec4a48b3d7db89f1c264d7",
+      "Id": "2cf313e0eade49959d3f00e3b97b858c"
+    },
+    {
+      "Start": "053ab802a1874b44b8a60ef5ae6c26db",
+      "End": "3fa903643fa74097956fb819b53645db",
+      "Id": "2f075c92ebe3423a96d8109e250b6dfe"
+    }
+  ],
+  "Dependencies": [
+    "b34e0607-e2ef-4e43-8d24-3f79407b545e"
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 503.07559204101562,
+      "EyeY": 709.9185791015625,
+      "EyeZ": 907.45458984375,
+      "LookX": -548.1011962890625,
+      "LookY": -443.6376953125,
+      "LookZ": -952.76806640625,
+      "UpX": -0.083158999681472778,
+      "UpY": 0.98599600791931152,
+      "UpZ": -0.14455585181713104
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "d07bcb40aa3d44e7bebb3aa88d306ffc",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 134.0,
+        "Y": 64.4
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Topography.ToPolySurface",
+        "Id": "c032150496fd452182d8b3d9e52baf54",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 439.6,
+        "Y": 56.3999999999999
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "ca124bbd0d4447f9addb52d83902b559",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 129.2,
+        "Y": 199.6
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Curves",
+        "Id": "b2a6977e30294117a1f7a352fae212f8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 466.0,
+        "Y": 229.2
+      }
+    ],
+    "Annotations": [],
+    "X": -130.4,
+    "Y": 21.6,
+    "Zoom": 1.0
+  }
+}

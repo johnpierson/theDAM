@@ -1,0 +1,268 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "dwggrid",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [],
+      "Id": "9235a6930f3b47c09307623eccb5235f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "00ba986522da48c09c21801350cdeaa7",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Curves",
+      "Id": "e2cf962239744df6adfd36e183544032",
+      "Inputs": [
+        {
+          "Id": "52a4a3d16588471da8e981b9475159f9",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eb9a83d82049464fad43d8ea7b3d1637",
+          "Name": "Curve[]",
+          "Description": "Curve[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Curves in this Element\n\nElement.Curves: Curve[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.StartPoint",
+      "Id": "1f3d9e222c79427c8950aa5fc48b269f",
+      "Inputs": [
+        {
+          "Id": "9ec335bb3e52440c840b5ca7dc29c9fc",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0a7d2da335094aa8ab007d76438d9b37",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the start Point along the Curve\n\nCurve.StartPoint: Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Curve.EndPoint",
+      "Id": "7b576e6eef6245f88d701f8004d1a072",
+      "Inputs": [
+        {
+          "Id": "9b528e04195149b8b0cbbbf822303393",
+          "Name": "curve",
+          "Description": "Autodesk.DesignScript.Geometry.Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6ac5309963ab4df3b23e45a365a135f4",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the end Point along the Curve\n\nCurve.EndPoint: Point"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Grid.ByStartPointEndPoint@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "0e1792d7ac144afb84e9a8da139f1f45",
+      "Inputs": [
+        {
+          "Id": "82b1783da92448d69950d0cf8f77926a",
+          "Name": "start",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "979d2cfb29704a3bb89decc612261348",
+          "Name": "end",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d54f3d85cda24ef687adee54f64a0c81",
+          "Name": "Grid",
+          "Description": "Grid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Grid Element in a project between two end points\n\nGrid.ByStartPointEndPoint (start: Point, end: Point): Grid"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "00ba986522da48c09c21801350cdeaa7",
+      "End": "52a4a3d16588471da8e981b9475159f9",
+      "Id": "c29b7d1e98be479f96b98136a6362247"
+    },
+    {
+      "Start": "eb9a83d82049464fad43d8ea7b3d1637",
+      "End": "9b528e04195149b8b0cbbbf822303393",
+      "Id": "f2d4d9f936ca4bedabbc9abf4c4d74a2"
+    },
+    {
+      "Start": "eb9a83d82049464fad43d8ea7b3d1637",
+      "End": "9ec335bb3e52440c840b5ca7dc29c9fc",
+      "Id": "b8ce4c74faff4ac1b6e5eccf61032e8f"
+    },
+    {
+      "Start": "0a7d2da335094aa8ab007d76438d9b37",
+      "End": "979d2cfb29704a3bb89decc612261348",
+      "Id": "0ff2a5c5a23d4f5cbea56e85d519ac08"
+    },
+    {
+      "Start": "6ac5309963ab4df3b23e45a365a135f4",
+      "End": "82b1783da92448d69950d0cf8f77926a",
+      "Id": "14703ffc32ce40f8857010d3dc55871b"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 65.995124816894531,
+      "EyeY": 453.62820434570312,
+      "EyeZ": 42.419242858886719,
+      "LookX": -0.17363494634628296,
+      "LookY": -439.78488159179687,
+      "LookZ": 14.430685043334961,
+      "UpX": 0.011830003932118416,
+      "UpY": 0.18223552405834198,
+      "UpZ": -0.983183741569519
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Element",
+        "Id": "9235a6930f3b47c09307623eccb5235f",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -8.83206737944579,
+        "Y": 216.984441083506
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Element.Curves",
+        "Id": "e2cf962239744df6adfd36e183544032",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 223.137172489216,
+        "Y": 218.287992118396
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.StartPoint",
+        "Id": "1f3d9e222c79427c8950aa5fc48b269f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 568.631293117807,
+        "Y": 249.849705162122
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Curve.EndPoint",
+        "Id": "7b576e6eef6245f88d701f8004d1a072",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 425.230590688326,
+        "Y": 167.5888371018
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Grid.ByStartPointEndPoint",
+        "Id": "0e1792d7ac144afb84e9a8da139f1f45",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 841.338694586796,
+        "Y": 120.895536141308
+      }
+    ],
+    "Annotations": [],
+    "X": 92.5145445531298,
+    "Y": 356.783187590329,
+    "Zoom": 0.899577183476056
+  }
+}

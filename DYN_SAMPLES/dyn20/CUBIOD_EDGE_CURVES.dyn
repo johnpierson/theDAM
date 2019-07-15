@@ -1,0 +1,224 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "CUBIOD_EDGE_CURVES",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByCorners@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "13216c1ffce84733b929786b1fd27a10",
+      "Inputs": [
+        {
+          "Id": "3ed194436b6149d085571658c3dde221",
+          "Name": "lowPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9aeb3bc95da44973b9695709fa6cf592",
+          "Name": "highPoint",
+          "Description": "Point\nDefault value : Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b3900fb46c874e55b3eaba37f314bef8",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Cuboid spanning from low Point to high Point.\n\nCuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Face.Edges",
+      "Id": "d8a1bb5fa4c14224afaf4ab0810c0033",
+      "Inputs": [
+        {
+          "Id": "cb9beef85ea4477fb2f98a17954c5ce8",
+          "Name": "face",
+          "Description": "Autodesk.DesignScript.Geometry.Face",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "201ca36cd1974585b1b2476190396c69",
+          "Name": "Edge[]",
+          "Description": "Edge[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "All of the Edges around this Face in counterclockwise order\n\nFace.Edges: Edge[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Edge.CurveGeometry",
+      "Id": "7dc5323f982e43de90d00b71155aa396",
+      "Inputs": [
+        {
+          "Id": "4744919542414b4cae64cffd234edab3",
+          "Name": "edge",
+          "Description": "Autodesk.DesignScript.Geometry.Edge",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "61313e667c5145d99a331432d3897751",
+          "Name": "Curve",
+          "Description": "Curve",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The underlying Curve making up the Edge\n\nEdge.CurveGeometry: Curve"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Vertex.PointGeometry",
+      "Id": "62df40665b304ce9a6df6926fe2f6faa",
+      "Inputs": [
+        {
+          "Id": "77210518a2e041f09324252ba8434e93",
+          "Name": "vertex",
+          "Description": "Autodesk.DesignScript.Geometry.Vertex",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "0f464bd93f1d41bb86a347c3cf085143",
+          "Name": "Point",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The Point where this Vertex is located\n\nVertex.PointGeometry: Point"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "b3900fb46c874e55b3eaba37f314bef8",
+      "End": "cb9beef85ea4477fb2f98a17954c5ce8",
+      "Id": "d9ff971c84314007916f2213df86721a"
+    },
+    {
+      "Start": "201ca36cd1974585b1b2476190396c69",
+      "End": "4744919542414b4cae64cffd234edab3",
+      "Id": "f9e8da8169cf4c21878aedff3bddce92"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.0.2.6826",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 1.587821364402771,
+      "EyeY": 2.0083622932434082,
+      "EyeZ": 1.9026979207992554,
+      "LookX": -7.0120434761047363,
+      "LookY": -4.4165630340576172,
+      "LookZ": -4.8534445762634277,
+      "UpX": -0.21281386911869049,
+      "UpY": 0.96592581272125244,
+      "UpZ": -0.14730089902877808
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByCorners",
+        "Id": "13216c1ffce84733b929786b1fd27a10",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 768.941051802985,
+        "Y": 519.059506563988
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Face.Edges",
+        "Id": "d8a1bb5fa4c14224afaf4ab0810c0033",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1016.4299427253,
+        "Y": 520.945154803695
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Edge.CurveGeometry",
+        "Id": "7dc5323f982e43de90d00b71155aa396",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1216.87920040937,
+        "Y": 521.633983867901
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Vertex.PointGeometry",
+        "Id": "62df40665b304ce9a6df6926fe2f6faa",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1032.96184026625,
+        "Y": 716.572609038326
+      }
+    ],
+    "Annotations": [],
+    "X": -1003.67791254766,
+    "Y": -638.863334129841,
+    "Zoom": 1.45173897554981
+  }
+}
