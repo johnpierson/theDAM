@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using Dynamo.Controls;
+using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
+using SampleViewExtension;
 
 namespace theDAM
 {
@@ -20,42 +24,31 @@ namespace theDAM
     /// </summary>
     public class theDAM : IViewExtension
     {
-        private MenuItem sampleMenuItem;
+        private MenuItem _theDAMMenuItem;
 
         public void Dispose()
         {
         }
-
+        public static DynamoView view;
         public void Startup(ViewStartupParams p)
         {
         }
 
         public void Loaded(ViewLoadedParams p)
         {
+
             // Save a reference to your loaded parameters.
             // You'll need these later when you want to use
             // the supplied workspaces
+            // Save a reference to your loaded parameters.
+            // You'll need these later when you want to use
+            // the supplied workspaces
+            view = p.DynamoWindow as DynamoView;
 
-            sampleMenuItem = new MenuItem { Header = "Show View Extension Sample Window" };
-            sampleMenuItem.Click += (sender, args) =>
-            {
-                //var viewModel = new SampleWindowViewModel(p);
-                //var window = new SampleWindow
-                //{
-                //    // Set the data context for the main grid in the window.
-                //    MainGrid = { DataContext = viewModel },
+            _theDAMMenuItem = new MenuItem { Header = "theDAM" };
 
-                //    // Set the owner of the window to the Dynamo window.
-                //    Owner = p.DynamoWindow
-                //};
-
-                //window.Left = window.Owner.Left + 400;
-                //window.Top = window.Owner.Top + 200;
-
-                //// Show a modeless window.
-                //window.Show();
-            };
-            p.AddMenuItem(MenuBarType.View, sampleMenuItem);
+            //change the menu font color and add it to the dynamo ribbon
+            p.dynamoMenu.Items.Add(_theDAMMenuItem);
         }
 
         public void Shutdown()
@@ -77,6 +70,9 @@ namespace theDAM
                 return "theDAM View Extension";
             }
         }
-
+        public static DynamoViewModel dynView
+        {
+            get { return view.DataContext as DynamoViewModel; }
+        }
     }
 }

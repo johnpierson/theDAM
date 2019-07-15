@@ -1,0 +1,4 @@
+﻿<ViewExtensionDefinition>
+  <AssemblyPath>..\bin\theDam.dll</AssemblyPath>
+  <TypeName>theDAM.theDAM</TypeName>
+</ViewExtensionDefinition>
