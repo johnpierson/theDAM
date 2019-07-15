@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
 using Dynamo.Wpf.Extensions;
 
-namespace SampleViewExtension
+namespace theDAM
 {
     /// <summary>
     /// The View Extension framework for Dynamo allows you to extend
@@ -19,7 +18,7 @@ namespace SampleViewExtension
     /// The Window created tracks the number of nodes in the current workspace, 
     /// by handling the workspace's NodeAdded and NodeRemoved events.
     /// </summary>
-    public class SampleViewExtension : IViewExtension
+    public class theDAM : IViewExtension
     {
         private MenuItem sampleMenuItem;
 
