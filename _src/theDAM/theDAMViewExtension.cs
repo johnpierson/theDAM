@@ -40,21 +40,21 @@ namespace SampleViewExtension
             sampleMenuItem = new MenuItem { Header = "Show View Extension Sample Window" };
             sampleMenuItem.Click += (sender, args) =>
             {
-                var viewModel = new SampleWindowViewModel(p);
-                var window = new SampleWindow
-                {
-                    // Set the data context for the main grid in the window.
-                    MainGrid = { DataContext = viewModel },
+                //var viewModel = new SampleWindowViewModel(p);
+                //var window = new SampleWindow
+                //{
+                //    // Set the data context for the main grid in the window.
+                //    MainGrid = { DataContext = viewModel },
 
-                    // Set the owner of the window to the Dynamo window.
-                    Owner = p.DynamoWindow
-                };
+                //    // Set the owner of the window to the Dynamo window.
+                //    Owner = p.DynamoWindow
+                //};
 
-                window.Left = window.Owner.Left + 400;
-                window.Top = window.Owner.Top + 200;
+                //window.Left = window.Owner.Left + 400;
+                //window.Top = window.Owner.Top + 200;
 
-                // Show a modeless window.
-                window.Show();
+                //// Show a modeless window.
+                //window.Show();
             };
             p.AddMenuItem(MenuBarType.View, sampleMenuItem);
         }
