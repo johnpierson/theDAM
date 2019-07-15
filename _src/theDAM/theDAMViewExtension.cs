@@ -75,7 +75,7 @@ namespace SampleViewExtension
         {
             get
             {
-                return "Sample View Extension";
+                return "theDAM View Extension";
             }
         }
 
