@@ -134,6 +134,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NodeDescriptions\nodedesc.cs" />
     <Compile Include="SampleWindow.xaml.cs" />
     <Compile Include="SampleWindowViewModel.cs" />
     <Compile Include="theDAMViewExtension.cs" />
@@ -147,9 +148,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NodeDescriptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Page Include="SampleWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

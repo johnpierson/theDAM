@@ -45,7 +45,17 @@ namespace theDAM
             // the supplied workspaces
             view = p.DynamoWindow as DynamoView;
 
+
             _theDAMMenuItem = new MenuItem { Header = "theDAM" };
+            _theDAMMenuItem.Click += (sender, args) =>
+            {
+
+                MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+
+
+            };
+            
+
 
             //change the menu font color and add it to the dynamo ribbon
             p.dynamoMenu.Items.Add(_theDAMMenuItem);
@@ -53,6 +63,11 @@ namespace theDAM
 
         public void Shutdown()
         {
+        }
+
+        internal static void dynView()
+        {
+            throw new NotImplementedException();
         }
 
         public string UniqueId
@@ -70,7 +85,7 @@ namespace theDAM
                 return "theDAM View Extension";
             }
         }
-        public static DynamoViewModel dynView
+        public static DynamoViewModel DynView
         {
             get { return view.DataContext as DynamoViewModel; }
         }
