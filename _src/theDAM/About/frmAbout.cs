@@ -18,8 +18,8 @@ namespace theDAM.About
         {
             Version version = Assembly.GetEntryAssembly().GetName().Version;
             this.labVersion.Text = "Version " + version;
+
             InitializeComponent();
         }
-
     }
 }

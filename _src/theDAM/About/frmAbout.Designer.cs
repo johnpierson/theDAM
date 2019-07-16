@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labVersion = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Myriad Pro", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Myriad Pro", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(151, 488);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(499, 69);
@@ -89,12 +90,23 @@
             this.labVersion.TabIndex = 5;
             this.labVersion.Text = "Version";
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Myriad Pro", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(151, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(499, 35);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Organize and search existing Dynamo graphs.\r\n";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmAbout
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.labVersion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,5 +128,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labVersion;
+        private System.Windows.Forms.Label label3;
     }
 }
