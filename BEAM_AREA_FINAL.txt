@@ -1,6 +1,0 @@
-Element.Solids
-Solid.Area
-All Elements of Family Type
-Family Types
-Math.Sum
-List.Flatten
