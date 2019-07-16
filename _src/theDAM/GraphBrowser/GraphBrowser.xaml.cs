@@ -91,13 +91,13 @@ namespace theDAM.GraphBrowser
             foreach (string file in _filePaths)
             {
                 WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
-                
+
                 SimpleGraph sGraph = new SimpleGraph();
                 sGraph.WorkspaceModel = workspaceModel;
                 sGraph.GraphName = workspaceModel.Name;
                 sGraph.FilePath = file;
                 sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name));
-                sGraph.Description = " " + workspaceModel.Description;
+                sGraph.Description = workspaceModel.Description + " ";
 
                 graphList.Add(sGraph);
             }
@@ -120,57 +120,10 @@ namespace theDAM.GraphBrowser
             var simpleGraph = (SimpleGraph)item;
 
 
-            switch (check)
-            {
-                case 1:
-                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-
-                case 3:
-                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 5:
-                    return simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 6:
-                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 8:
-                    return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 9:
-                    return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())||
-                        simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                default:
-                    return true;
-            }
+            return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
+                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase));
 
         }
 
-        private void CheckBoxGraphName_Checked(object sender, RoutedEventArgs e)
-        {
-            check += 1;
-        }
-        private void CheckBoxGraphName_UnChecked(object sender, RoutedEventArgs e)
-        {
-            check += 1;
-        }
-
-        private void CheckBoxGraphPurpose_Checked(object sender, RoutedEventArgs e)
-        {
-            check += 3;
-        }
-        private void CheckBoxGraphPurpose_UnChecked(object sender, RoutedEventArgs e)
-        {
-            check -= 3;
-        }
-
-        private void CheckBoxNodes_Checked(object sender, RoutedEventArgs e)
-        {
-            check += 5;
-        }
-        private void CheckBoxNodes_UnChecked(object sender, RoutedEventArgs e)
-        {
-            check -= 5;
-        }
     }
 }
