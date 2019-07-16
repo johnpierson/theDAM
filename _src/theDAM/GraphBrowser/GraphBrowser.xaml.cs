@@ -23,6 +23,7 @@ namespace theDAM.GraphBrowser
         }
 
         private List<string> _filePaths;
+        private List<SimpleGraph> graphList = new List<SimpleGraph>();
         public GraphBrowser()
         {
             InitializeComponent();
@@ -47,6 +48,7 @@ namespace theDAM.GraphBrowser
                     _filePaths = Directory.EnumerateFiles(fbd.SelectedPath, "*.*", searchOption)
                         .Where(s => s.EndsWith(".dyn")).ToList();
                     PackLists();
+
                 }
             }
         }
@@ -72,20 +74,39 @@ namespace theDAM.GraphBrowser
 
             //bind the list view to the grid
             this.ListViewDynamoInfo.View = grid;
-
+            graphList.Clear();
             //iterate through the file paths to get the info
             foreach (string file in _filePaths)
             {
                 WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
+                
+                SimpleGraph sGraph = new SimpleGraph();
+                sGraph.WorkspaceModel = workspaceModel;
+                sGraph.GraphName = workspaceModel.Name;
 
-                this.ListViewDynamoInfo.Items.Add(new SimpleGraph()
-                {
-                    WorkspaceModel = workspaceModel,
-                    GraphName = workspaceModel.Name,
-                    Description = workspaceModel.Description
-                });
+                sGraph.Description = " " + workspaceModel.Description;
+
+                graphList.Add(sGraph);
                 //TODO: Figure out how to filter on the fly.
             }
+            this.ListViewDynamoInfo.ItemsSource = graphList;
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
+
+        }
+
+        private void TextBoxSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+        }
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(TextBoxSearchBar.Text))
+                return true;
+
+            var simpleGraph = (SimpleGraph)item;
+
+            return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
+                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase));
         }
 
     }

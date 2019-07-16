@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using Dynamo.Controls;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
+using theDAM.About;
 
 namespace theDAM
 {
@@ -51,10 +52,19 @@ namespace theDAM
             //this is our main menu item
             _theDamMenuItem = new MenuItem { Header = "theDAM" };
 
+
+            MenuItem about = new MenuItem { Header = "About" };
+            about.Click += (sender, args) =>
+            {
+                frmAbout ad = new frmAbout();
+                ad.Show();
+            };
+            _theDamMenuItem.Items.Add(about);
+
             #region graph Analysis
             MenuItem analyzeGraphs = new MenuItem { Header = "Analyze Graphs" };
             _theDamMenuItem.Items.Add(analyzeGraphs);
-            MenuItem analyzegraphPurpose = new MenuItem { Header = "01 | Set Graph Purpose" };
+            MenuItem analyzegraphPurpose = new MenuItem { Header = "00 | Set Graph Purpose" };
             analyzegraphPurpose.Click += (sender, args) =>
             {
                 AnalyzeGraphs.AnalyzeGraphs aGraphs = new AnalyzeGraphs.AnalyzeGraphs();
@@ -62,7 +72,7 @@ namespace theDAM
             };
             analyzeGraphs.Items.Add(analyzegraphPurpose);
 
-            MenuItem graphBrowser = new MenuItem { Header = "02 | Browse Graphs" };
+            MenuItem graphBrowser = new MenuItem { Header = "01 | Browse Graphs" };
             graphBrowser.Click += (sender, args) =>
             {
                 GraphBrowser.GraphBrowser graphBrowserWindow = new GraphBrowser.GraphBrowser();

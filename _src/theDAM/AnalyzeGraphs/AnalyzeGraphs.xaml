@@ -19,7 +19,7 @@
         <Button x:Name="ButtonSetPurpose" Content="Set Purpose!" Margin="0,0,47.2,20.6" Background="White" Click="ButtonSetPurpose_Click" HorizontalAlignment="Right" Width="150" Height="27" VerticalAlignment="Bottom"/>
         <Image HorizontalAlignment="Left" Height="106" Margin="40,22,0,0" VerticalAlignment="Top" Width="177" Source="DAM-Logo _Small.png"/>
         <Label Content="ASSIGN GRAPH PURPOSE" HorizontalAlignment="Left" Margin="222,38,0,0" VerticalAlignment="Top" FontSize="24" Foreground="SteelBlue" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="238,73,0,0" TextWrapping="Wrap" Text="This module will assign graph purpose to the DYN description based on training data (DYNs) in the extra folder." VerticalAlignment="Top" Width="267" FontStyle="Italic" BorderBrush="{x:Null}"/>
+        <TextBox HorizontalAlignment="Left" Height="55" Margin="238,73,0,0" TextWrapping="Wrap" Text="This module will assign graph purpose to the DYN description based on training data (DYNs) in the extra folder." VerticalAlignment="Top" Width="358" FontStyle="Italic" BorderBrush="{x:Null}"/>
 
     </Grid>
 </Window>
