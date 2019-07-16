@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:theDAM.GraphBrowser"
-             mc:Ignorable="d" Width="650" Height="585.8" MinWidth="650" MinHeight="515">
+             mc:Ignorable="d" d:DesignWidth="650" Height="515" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
     <Grid>
         <Button x:Name="ButtonDirectory" Content="Choose Directory" HorizontalAlignment="Left" Height="27" Margin="445,136,0,0" VerticalAlignment="Top" Width="150" Background="White" Click="ButtonDirectory_Click"/>
         <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="27" Margin="40,136,0,0" TextWrapping="Wrap" Text="please select a directory" VerticalAlignment="Top" Width="400" VerticalContentAlignment="Center" />
@@ -12,7 +12,7 @@
         <Image HorizontalAlignment="Left" Height="106" Margin="40,22,0,0" VerticalAlignment="Top" Width="177" Source="/theDAM;component/AnalyzeGraphs/DAM-Logo _Small.png"/>
         <Label Content="GRAPH BROWSER" HorizontalAlignment="Left" Margin="222,38,0,0" VerticalAlignment="Top" FontSize="24" Foreground="SteelBlue" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="55" Margin="238,73,0,0" TextWrapping="Wrap" Text="This module will allow you to search your library by graph purpose or nodes within." VerticalAlignment="Top" Width="357" FontStyle="Italic" BorderBrush="{x:Null}"/>
-        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Margin="40,252,0,34" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible" >
+        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Margin="40,241,0,33.6" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -20,10 +20,5 @@
             </ListView.View>
         </ListView>
         <TextBox x:Name="TextBoxSearchBar" HorizontalAlignment="Left" Height="35" Margin="40,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" VerticalContentAlignment="Center" TextChanged="TextBoxSearchBar_TextChanged"/>
-        <CheckBox x:Name="CheckBoxGraphName" Content="Graph Name" HorizontalAlignment="Left" Height="17" Margin="135,231,0,0" VerticalAlignment="Top" Width="99" IsChecked="True" Checked="CheckBoxGraphName_Checked" Unchecked="CheckBoxGraphName_UnChecked"/>
-        <CheckBox x:Name="CheckBoxGraphPurpose" Content="Graph Purpose" HorizontalAlignment="Left" Height="17" Margin="233,231,0,0" VerticalAlignment="Top" Width="118" Checked="CheckBoxGraphPurpose_Checked" Unchecked="CheckBoxGraphPurpose_UnChecked"/>
-        <CheckBox x:Name="CheckBoxNodes" Content="Nodes" HorizontalAlignment="Left" Height="17" Margin="346,231,0,0" VerticalAlignment="Top" Width="118" Checked="CheckBoxNodes_Checked" Unchecked="CheckBoxNodes_UnChecked"/>
-        <Label Content="Search Scope:" HorizontalAlignment="Left" Height="27" Margin="40,225,0,0" VerticalAlignment="Top" Width="113" VerticalContentAlignment="Center"/>
 
     </Grid>
-</Window>
