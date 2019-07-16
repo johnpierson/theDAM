@@ -52,14 +52,15 @@ namespace theDAM
             //this is our main menu item
             _theDamMenuItem = new MenuItem { Header = "theDAM" };
 
-
+            #region About
             MenuItem about = new MenuItem { Header = "About" };
+            _theDamMenuItem.Items.Add(about);
             about.Click += (sender, args) =>
             {
-                frmAbout ad = new frmAbout();
-                ad.Show();
+                About.About aboutDam = new About.About();
+                aboutDam.Show();
             };
-            _theDamMenuItem.Items.Add(about);
+            #endregion
 
             #region graph Analysis
             MenuItem analyzeGraphs = new MenuItem { Header = "Analyze Graphs" };

@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:theDAM.GraphBrowser"
-             mc:Ignorable="d" d:DesignWidth="650" Height="515">
+             mc:Ignorable="d" d:DesignWidth="650" Height="515" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
     <Grid>
         <Button x:Name="ButtonDirectory" Content="Choose Directory" HorizontalAlignment="Left" Height="27" Margin="445,136,0,0" VerticalAlignment="Top" Width="150" Background="White" Click="ButtonDirectory_Click"/>
         <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="27" Margin="40,136,0,0" TextWrapping="Wrap" Text="please select a directory" VerticalAlignment="Top" Width="400" VerticalContentAlignment="Center" />
