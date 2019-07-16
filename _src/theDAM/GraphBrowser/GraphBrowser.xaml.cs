@@ -47,6 +47,7 @@ namespace theDAM.GraphBrowser
                     _filePaths = Directory.EnumerateFiles(fbd.SelectedPath, "*.*", searchOption)
                         .Where(s => s.EndsWith(".dyn")).ToList();
                     PackLists();
+   
                 }
             }
         }
@@ -85,12 +86,24 @@ namespace theDAM.GraphBrowser
                     Description = workspaceModel.Description
                 });
                 //TODO: Figure out how to filter on the fly.
+                CollectionViewSource.GetDefaultView(ListViewDynamoInfo).Filter = UserFilter;
             }
         }
 
         private void TextBoxSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo).Refresh();
         }
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(TextBoxSearchBar.Text))
+                return true;
+
+            var simpleGraph = (SimpleGraph)item;
+
+            return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
+                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase));
+        }
+
     }
 }
