@@ -132,7 +132,7 @@ namespace theDAM.AnalyzeGraphs
         private Dictionary<string, string> LoadCategorizationGraphs()
         {
             _categoryDictionary.Clear();
-            string extraPath = theDAM._executingPath.Replace("bin\\theDAM.dll", "extra\\Categorization\\");
+            string extraPath = theDAM.ExecutingPath.Replace("bin\\theDAM.dll", "extra\\Categorization\\");
 
             foreach (var dyn in Directory.GetFiles(extraPath))
             {

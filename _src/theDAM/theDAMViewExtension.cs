@@ -24,8 +24,8 @@ namespace theDAM
     /// </summary>
     public class theDAM : IViewExtension
     {
-        private MenuItem _theDAMMenuItem;
-        public static string _executingPath;
+        private MenuItem _theDamMenuItem;
+        public static string ExecutingPath;
         public void Dispose()
         {
         }
@@ -38,7 +38,8 @@ namespace theDAM
 
         public void Loaded(ViewLoadedParams p)
         {
-            _executingPath = Assembly.GetExecutingAssembly().Location;
+            //get our executing path for usage throughout
+            ExecutingPath = Assembly.GetExecutingAssembly().Location;
            
             // Save a reference to your loaded parameters.
             // You'll need these later when you want to use
@@ -47,27 +48,35 @@ namespace theDAM
             // You'll need these later when you want to use
             // the supplied workspaces
             view = p.DynamoWindow as DynamoView;
-            _theDAMMenuItem = new MenuItem { Header = "theDAM" };
+            //this is our main menu item
+            _theDamMenuItem = new MenuItem { Header = "theDAM" };
 
-
-            MenuItem AnalyzeGraphs = new MenuItem { Header = "Analyze Graphs" };
-            AnalyzeGraphs.Click += (sender, args) =>
+            #region graph Analysis
+            MenuItem analyzeGraphs = new MenuItem { Header = "Analyze Graphs" };
+            _theDamMenuItem.Items.Add(analyzeGraphs);
+            MenuItem analyzegraphPurpose = new MenuItem { Header = "01 | Set Graph Purpose" };
+            analyzegraphPurpose.Click += (sender, args) =>
             {
                 AnalyzeGraphs.AnalyzeGraphs aGraphs = new AnalyzeGraphs.AnalyzeGraphs();
                 aGraphs.Show();
             };
-            _theDAMMenuItem.Items.Add(AnalyzeGraphs);
+            analyzeGraphs.Items.Add(analyzegraphPurpose);
+
+            #endregion
+
 
 
             #region MarcelloPrototyping
+            //this menu now allows a flyout
+            MenuItem prototyping = new MenuItem { Header = "Prototyping" };
+            _theDamMenuItem.Items.Add(prototyping);
 
             MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
             nodeCount.Click += (sender, args) =>
             {
                 MessageBox.Show(NodeDescriptions.nodedesc.GetNODECOUNT().ToString());
             };
-            _theDAMMenuItem.Items.Add(nodeCount);
-
+            prototyping.Items.Add(nodeCount);
 
             MenuItem nodeDesciption = new MenuItem { Header = "Node Description" };
             nodeDesciption.Click += (sender, args) =>
@@ -76,7 +85,7 @@ namespace theDAM
                 string[] my_local_arraydesc = NodeDescriptions.nodedesc.GetNODEdesc();
                 System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Descriptions.txt", my_local_arraydesc);
             };
-            _theDAMMenuItem.Items.Add(nodeDesciption);
+            prototyping.Items.Add(nodeDesciption);
 
 
             MenuItem nodeName = new MenuItem { Header = "Node Name" };
@@ -86,11 +95,11 @@ namespace theDAM
                 string[] my_local_arrayName = NodeDescriptions.nodedesc.GetNODEName();
                 System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Names.txt", my_local_arrayName);
             };
-            _theDAMMenuItem.Items.Add(nodeName);
+            prototyping.Items.Add(nodeName);
             #endregion
 
             //change the menu font color and add it to the dynamo ribbon
-            p.dynamoMenu.Items.Add(_theDAMMenuItem);
+            p.dynamoMenu.Items.Add(_theDamMenuItem);
         }
 
         public void Shutdown()
