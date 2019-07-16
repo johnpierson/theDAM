@@ -62,6 +62,13 @@ namespace theDAM
             };
             analyzeGraphs.Items.Add(analyzegraphPurpose);
 
+            MenuItem graphBrowser = new MenuItem { Header = "02 | Browse Graphs" };
+            graphBrowser.Click += (sender, args) =>
+            {
+                GraphBrowser.GraphBrowser graphBrowserWindow = new GraphBrowser.GraphBrowser();
+                graphBrowserWindow.Show();
+            };
+            analyzeGraphs.Items.Add(graphBrowser);
             #endregion
 
 

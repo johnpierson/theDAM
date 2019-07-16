@@ -4,22 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:theDAM.AnalyzeGraphs"
-             mc:Ignorable="d" Height="516.8" Width="648.8">
+             mc:Ignorable="d" Height="515" Width="650" MinHeight="515" MinWidth="650">
     <Grid>
-        <Button x:Name="ButtonDirectory" Content="Choose Directory" HorizontalAlignment="Left" Height="27" Margin="445,124,0,0" VerticalAlignment="Top" Width="150" Background="White" Click="ButtonDirectory_Click"/>
-        <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="27" Margin="40,124,0,0" TextWrapping="Wrap" Text="please select a directory" VerticalAlignment="Top" Width="400" VerticalContentAlignment="Center"/>
-        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Margin="40,188,0,64.6" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <Button x:Name="ButtonDirectory" Content="Choose Directory" HorizontalAlignment="Left" Height="27" Margin="445,136,0,0" VerticalAlignment="Top" Width="150" Background="White" Click="ButtonDirectory_Click"/>
+        <TextBox x:Name="TextBox" HorizontalAlignment="Left" Height="27" Margin="40,136,0,0" TextWrapping="Wrap" Text="please select a directory" VerticalAlignment="Top" Width="400" VerticalContentAlignment="Center"/>
+        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Margin="40,200,0,52.6" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <CheckBox x:Name="CheckBoxSubdirectories" Content="Include Subdirectories" HorizontalAlignment="Left" Margin="445,151,0,0" VerticalAlignment="Top" Height="27" Width="150" VerticalContentAlignment="Center" IsChecked="True"/>
-        <Button x:Name="ButtonSetPurpose" Content="Set Purpose!" Margin="0,0,47.4,32.6" Background="White" Click="ButtonSetPurpose_Click" HorizontalAlignment="Right" Width="150" Height="27" VerticalAlignment="Bottom"/>
-        <Image HorizontalAlignment="Left" Height="106" Margin="40,10,0,0" VerticalAlignment="Top" Width="177" Source="DAM-Logo _Small.png"/>
-        <Label Content="ASSIGN GRAPH PURPOSE" HorizontalAlignment="Left" Margin="222,26,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <TextBox HorizontalAlignment="Left" Height="55" Margin="238,61,0,0" TextWrapping="Wrap" Text="This module will assign graph purpose to the DYN description based on training data (DYNs) in the extra folder." VerticalAlignment="Top" Width="267" FontStyle="Italic" BorderBrush="{x:Null}"/>
+        <CheckBox x:Name="CheckBoxSubdirectories" Content="Include Subdirectories" HorizontalAlignment="Left" Margin="445,163,0,0" VerticalAlignment="Top" Height="27" Width="150" VerticalContentAlignment="Center" IsChecked="True"/>
+        <Button x:Name="ButtonSetPurpose" Content="Set Purpose!" Margin="0,0,47.2,20.6" Background="White" Click="ButtonSetPurpose_Click" HorizontalAlignment="Right" Width="150" Height="27" VerticalAlignment="Bottom"/>
+        <Image HorizontalAlignment="Left" Height="106" Margin="40,22,0,0" VerticalAlignment="Top" Width="177" Source="DAM-Logo _Small.png"/>
+        <Label Content="ASSIGN GRAPH PURPOSE" HorizontalAlignment="Left" Margin="222,38,0,0" VerticalAlignment="Top" FontSize="24" Foreground="SteelBlue" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="55" Margin="238,73,0,0" TextWrapping="Wrap" Text="This module will assign graph purpose to the DYN description based on training data (DYNs) in the extra folder." VerticalAlignment="Top" Width="267" FontStyle="Italic" BorderBrush="{x:Null}"/>
 
     </Grid>
 </Window>

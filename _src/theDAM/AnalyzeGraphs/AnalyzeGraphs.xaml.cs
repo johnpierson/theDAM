@@ -88,7 +88,7 @@ namespace theDAM.AnalyzeGraphs
             //iterate through the file paths to get the info
             foreach (string file in _filePaths)
             {
-                WorkspaceModel workspaceModel = WorkspaceFromJSON(file);
+                WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
 
                 List<string> graphType = new List<string>();
                 foreach (NodeModel node in workspaceModel.Nodes)
@@ -112,20 +112,7 @@ namespace theDAM.AnalyzeGraphs
             }
         }
 
-        private WorkspaceModel WorkspaceFromJSON(string file)
-        {
-            string json = File.ReadAllText(file);
-            //this amazing little portion constructs a DYN from JSON.
-            var wm = WorkspaceModel.FromJson(json, theDAM.DynView.Model.LibraryServices,
-                null,
-                null,
-                theDAM.DynView.Model.NodeFactory,
-                true,
-                true,
-                theDAM.DynView.Model.CustomNodeManager);
 
-            return wm;
-        }
 
 
         // this method loads the "training data" from the extra folder
@@ -136,7 +123,7 @@ namespace theDAM.AnalyzeGraphs
 
             foreach (var dyn in Directory.GetFiles(extraPath))
             {
-                var ws = WorkspaceFromJSON(dyn);
+                var ws = Utilities.Utilities.WorkspaceFromJSON(dyn);
                 foreach (NodeModel node in ws.Nodes)
                 {
                     try
