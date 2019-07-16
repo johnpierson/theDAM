@@ -88,5 +88,9 @@ namespace theDAM.GraphBrowser
             }
         }
 
+        private void TextBoxSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+        }
     }
 }
