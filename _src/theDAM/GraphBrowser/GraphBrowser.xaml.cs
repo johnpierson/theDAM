@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Forms;
-using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
 
 namespace theDAM.GraphBrowser
@@ -83,8 +84,9 @@ namespace theDAM.GraphBrowser
                     GraphName = workspaceModel.Name,
                     Description = workspaceModel.Description
                 });
-
+                //TODO: Figure out how to filter on the fly.
             }
         }
+
     }
 }

@@ -19,6 +19,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox x:Name="TextBoxSearchBar" HorizontalAlignment="Left" Height="35" Margin="40,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>
