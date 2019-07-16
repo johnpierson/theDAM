@@ -19,6 +19,7 @@ using Dynamo.Engine;
 using Dynamo.Graph.Workspaces;
 using Dynamo.UI;
 using Dynamo.ViewModels;
+using Dynamo.Wpf.ViewModels.Core;
 using Newtonsoft.Json;
 
 namespace theDAM.AnalyzeGraphs
@@ -92,18 +93,12 @@ namespace theDAM.AnalyzeGraphs
 
         private int CountNodes(string file)
         {
+
             string alltext = File.ReadAllText(file);
-            try
-            {
-                var dynJson = JsonConvert.DeserializeObject<WorkspaceViewModel>(alltext);
-                return dynJson.Nodes.Count;
-            }
-            catch (Exception e)
-            {
-                string messageNotes = e.Message;
-                return 0;
-            }
-            
+            theDAM.DynView.OpenCommand.Execute(file);
+            int nodeCount = theDAM.DynView.HomeSpace.Nodes.Count();
+            theDAM.DynView.CloseHomeWorkspaceCommand.Execute(file);
+            return nodeCount;  
         }
 
     }
