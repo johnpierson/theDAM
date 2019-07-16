@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -93,13 +94,18 @@ namespace theDAM.AnalyzeGraphs
 
         private int CountNodes(string file)
         {
-
-            string alltext = File.ReadAllText(file);
-            theDAM.DynView.OpenCommand.Execute(file);
-            int nodeCount = theDAM.DynView.HomeSpace.Nodes.Count();
-            theDAM.DynView.CloseHomeWorkspaceCommand.Execute(file);
-            return nodeCount;  
+            string json = File.ReadAllText(file);
+            //this amazing little portion constructs a DYN from JSON.
+            var wm = WorkspaceModel.FromJson(json, theDAM.DynView.Model.LibraryServices,
+                null,
+                null,
+                theDAM.DynView.Model.NodeFactory,
+                true,
+                true,
+                theDAM.DynView.Model.CustomNodeManager);
+            
+            return wm.Nodes.Count();  
         }
-
+        
     }
 }
