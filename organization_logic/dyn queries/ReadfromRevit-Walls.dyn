@@ -1,0 +1,164 @@
+{
+  "Uuid": "d1c30ed6-42b3-4bf7-9bdb-ce19e5305d5a",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "ReadfromRevit-Walls",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Wall.ByFace@string,Revit.Elements.WallType,Autodesk.DesignScript.Geometry.Surface",
+      "Id": "dccad69fbfbb478c865dd123c0b3cb59",
+      "Inputs": [
+        {
+          "Id": "c1bd03be563341ce84cb7d3301a9782f",
+          "Name": "locationLine",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0d14afe95fb74d04891a288aeca68080",
+          "Name": "wallType",
+          "Description": "WallType",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b266252cda5244f5abfbbd596cf35f76",
+          "Name": "surface",
+          "Description": "Surface",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bed91bd0943a4adbb6e186146fec7c78",
+          "Name": "Element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Wall following the geometry of a surface. Walls by Faces cannot be updated, any geometry change will create a new wall and delete the old one.\n\nWall.ByFace (locationLine: string, wallType: WallType, surface: Surface): Element"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.WallLocation, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "SelectedString": "",
+      "NodeType": "ExtensionNode",
+      "Id": "5668fc486f034b35a628fff40fd383fd",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "767beb6c7a0641cfb8aa33a6ce95e166",
+          "Name": "Wall Location",
+          "Description": "The selected Wall Location",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Wall locations."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.WallTypes, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "SelectedString": "",
+      "NodeType": "ExtensionNode",
+      "Id": "42a117ee18c2451a989c60f1acdb4a4b",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "af82114ef31047ac93982f6be3a4ce62",
+          "Name": "Wall Type",
+          "Description": "The selected Wall Type",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All wall types available in the document."
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Wall.ByFace",
+        "Id": "dccad69fbfbb478c865dd123c0b3cb59",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1926.3884129936109,
+        "Y": 295.55484424617566
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Wall Location",
+        "Id": "5668fc486f034b35a628fff40fd383fd",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1940.2757783556517,
+        "Y": 195.32416638697612
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Wall Types",
+        "Id": "42a117ee18c2451a989c60f1acdb4a4b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1976.0179530434575,
+        "Y": 451.65045604450029
+      }
+    ],
+    "Annotations": [],
+    "X": -3592.04373091382,
+    "Y": -380.13096799571809,
+    "Zoom": 2.0997451343689182
+  }
+}
