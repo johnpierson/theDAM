@@ -1,0 +1,10 @@
+Room.Area
+Room.CenterBoundary
+Room.CoreBoundary
+Room.CoreCenterBoundary
+Room.FinishBoundary
+Room.Height
+Room.Location
+Room.Name
+Room.Number
+Room.Volume
