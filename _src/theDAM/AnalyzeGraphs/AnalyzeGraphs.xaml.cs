@@ -2,27 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Dynamo.Controls;
-using Dynamo.Engine;
 using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
-using Dynamo.UI;
-using Dynamo.ViewModels;
-using Dynamo.Wpf.ViewModels.Core;
-using Newtonsoft.Json;
+using TextBox = System.Windows.Controls.TextBox;
 
 namespace theDAM.AnalyzeGraphs
 {
@@ -33,9 +18,11 @@ namespace theDAM.AnalyzeGraphs
     {
         public class TheDamGraph
         {
+            public WorkspaceModel WorkspaceModel { get; set; }
             public string GraphName { get; set; }
             public string GraphPurpose { get; set; }
             public int NodeCount { get; set; }
+            public string FilePath { get; set;}
         }
 
         private List<string> _filePaths;
@@ -60,7 +47,7 @@ namespace theDAM.AnalyzeGraphs
                         searchOption = SearchOption.AllDirectories;
                     }
 
-                    TextBoxDirectory.Text = fbd.SelectedPath;
+                    TextBox.Text = fbd.SelectedPath;
 
                     _filePaths = Directory.EnumerateFiles(fbd.SelectedPath, "*.*", searchOption)
                         .Where(s => s.EndsWith(".dyn")).ToList();
@@ -71,6 +58,8 @@ namespace theDAM.AnalyzeGraphs
 
         private void PackLists()
         {
+           // System.Windows.DataTemplate celltemplate = new DataTemplate(typeof(TextBox));
+
             //grid view to add the dynamo info to the list
             GridView grid = new GridView();
             //column to contain graph names
@@ -82,6 +71,7 @@ namespace theDAM.AnalyzeGraphs
             //column to add node counts to
             GridViewColumn col1 = new GridViewColumn();
             col1.Width = 200;
+            //col1.CellTemplate = celltemplate;
             col1.Header = "Graph Purpose";
             col1.DisplayMemberBinding = new System.Windows.Data.Binding("GraphPurpose");
             grid.Columns.Add(col1);
@@ -94,24 +84,29 @@ namespace theDAM.AnalyzeGraphs
 
             //bind the list view to the grid
             this.ListViewDynamoInfo.View = grid;
+
             //iterate through the file paths to get the info
             foreach (string file in _filePaths)
             {
                 WorkspaceModel workspaceModel = WorkspaceFromJSON(file);
 
-                string graphType = string.Empty;
+                List<string> graphType = new List<string>();
                 foreach (NodeModel node in workspaceModel.Nodes)
                 {
-                    string returnValue;
-                    _categoryDictionary.TryGetValue(node.Name, out returnValue);
-                    graphType = returnValue;
+                    _categoryDictionary.TryGetValue(node.Name, out var returnValue);
+                    if (returnValue != null)
+                    {
+                        graphType.Add(returnValue);
+                    }
                 }
 
                 this.ListViewDynamoInfo.Items.Add(new TheDamGraph()
                 {
+                    WorkspaceModel = workspaceModel,
                     GraphName = workspaceModel.Name,
-                    GraphPurpose = graphType,
+                    GraphPurpose = string.Join(", ", graphType.Distinct()),//we join the unique graph purposes in one string
                     NodeCount = workspaceModel.Nodes.Count(),
+                    FilePath = file,
                 });
                 
             }
@@ -132,11 +127,8 @@ namespace theDAM.AnalyzeGraphs
             return wm;
         }
 
-        //private string GraphPurpose(List<NodeModel> nodes)
-        //{
 
-        //}
-
+        // this method loads the "training data" from the extra folder
         private Dictionary<string, string> LoadCategorizationGraphs()
         {
             _categoryDictionary.Clear();
@@ -149,7 +141,7 @@ namespace theDAM.AnalyzeGraphs
                 {
                     try
                     {
-                        _categoryDictionary.Add(node.Name, ws.FileName);
+                        _categoryDictionary.Add(node.Name, ws.Name);
                     }
                     catch (Exception)
                     {
@@ -161,6 +153,16 @@ namespace theDAM.AnalyzeGraphs
             }
             
             return _categoryDictionary;
+        }
+
+        private void ButtonSetPurpose_Click(object sender, RoutedEventArgs e)
+        {
+            //set the description of the graphs based on our dataz
+            foreach (TheDamGraph damGraph in this.ListViewDynamoInfo.Items)
+            {
+                damGraph.WorkspaceModel.Description = damGraph.GraphPurpose;
+                damGraph.WorkspaceModel.Save(damGraph.FilePath);
+            }
         }
     }
 }

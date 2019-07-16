@@ -58,7 +58,8 @@ namespace theDAM
             };
             _theDAMMenuItem.Items.Add(AnalyzeGraphs);
 
-            
+
+            #region MarcelloPrototyping
 
             MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
             nodeCount.Click += (sender, args) =>
@@ -86,7 +87,7 @@ namespace theDAM
                 System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Names.txt", my_local_arrayName);
             };
             _theDAMMenuItem.Items.Add(nodeName);
-
+            #endregion
 
             //change the menu font color and add it to the dynamo ribbon
             p.dynamoMenu.Items.Add(_theDAMMenuItem);

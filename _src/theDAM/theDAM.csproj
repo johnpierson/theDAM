@@ -157,6 +157,7 @@
   <ItemGroup>
     <Content Include="About\DAM-Logo _Small.png" />
     <Content Include="About\theD.ico" />
+    <Resource Include="AnalyzeGraphs\DAM-Logo _Small.png" />
     <Content Include="theDAM_ViewExtensionDefinition.xml">
       <SubType>Designer</SubType>
     </Content>
