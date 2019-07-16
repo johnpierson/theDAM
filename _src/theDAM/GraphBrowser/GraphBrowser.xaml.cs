@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Dynamo.Graph.Workspaces;
+using theDAM.Utilities;
 using CheckBox = System.Windows.Controls.CheckBox;
 
 namespace theDAM.GraphBrowser
@@ -83,7 +84,13 @@ namespace theDAM.GraphBrowser
             col1.Header = "Graph Purpose";
             col1.DisplayMemberBinding = new System.Windows.Data.Binding("Description");
             grid.Columns.Add(col1);
-
+            //column to add node counts to
+            GridViewColumn col2= new GridViewColumn();
+            col2.Width = 200;
+            //col1.CellTemplate = celltemplate;
+            col2.Header = "Node List";
+            col2.DisplayMemberBinding = new System.Windows.Data.Binding("Nodes");
+            grid.Columns.Add(col2);
             //bind the list view to the grid
             this.ListViewDynamoInfo.View = grid;
             graphList.Clear();
@@ -91,13 +98,13 @@ namespace theDAM.GraphBrowser
             foreach (string file in _filePaths)
             {
                 WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
-                
+
                 SimpleGraph sGraph = new SimpleGraph();
                 sGraph.WorkspaceModel = workspaceModel;
                 sGraph.GraphName = workspaceModel.Name;
                 sGraph.FilePath = file;
-                sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name));
-                sGraph.Description = " " + workspaceModel.Description;
+                sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name).Where(n => n != "").Distinct());
+                sGraph.Description = workspaceModel.Description + " ";
 
                 graphList.Add(sGraph);
             }
@@ -120,57 +127,11 @@ namespace theDAM.GraphBrowser
             var simpleGraph = (SimpleGraph)item;
 
 
-            switch (check)
-            {
-                case 1:
-                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-
-                case 3:
-                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 5:
-                    return simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 6:
-                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 8:
-                    return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                case 9:
-                    return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())||
-                        simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
-                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
-                default:
-                    return true;
-            }
+            return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
+                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase))
+                   || simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text);
 
         }
 
-        private void CheckBoxGraphName_Checked(object sender, RoutedEventArgs e)
-        {
-            check += 1;
-        }
-        private void CheckBoxGraphName_UnChecked(object sender, RoutedEventArgs e)
-        {
-            check += 1;
-        }
-
-        private void CheckBoxGraphPurpose_Checked(object sender, RoutedEventArgs e)
-        {
-            check += 3;
-        }
-        private void CheckBoxGraphPurpose_UnChecked(object sender, RoutedEventArgs e)
-        {
-            check -= 3;
-        }
-
-        private void CheckBoxNodes_Checked(object sender, RoutedEventArgs e)
-        {
-            check += 5;
-        }
-        private void CheckBoxNodes_UnChecked(object sender, RoutedEventArgs e)
-        {
-            check -= 5;
-        }
     }
 }

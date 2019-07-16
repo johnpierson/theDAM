@@ -8,7 +8,7 @@ using Dynamo.Graph.Workspaces;
 
 namespace theDAM.Utilities
 {
-    public class Utilities
+    public static class Utilities
     {
         public static WorkspaceModel WorkspaceFromJSON(string file)
         {
@@ -23,6 +23,11 @@ namespace theDAM.Utilities
                 theDAM.DynView.Model.CustomNodeManager);
 
             return wm;
+        }
+        public static bool CaseInsensitiveContains(this string text, string value,
+            StringComparison stringComparison = StringComparison.OrdinalIgnoreCase)
+        {
+            return text.IndexOf(value, stringComparison) >= 0;
         }
     }
 }
