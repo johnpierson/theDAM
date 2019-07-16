@@ -12,24 +12,37 @@ namespace theDAM.NodeDescriptions
         public static int GetNODECOUNT()
         {
            return theDAM.DynView.HomeSpace.Nodes.Count();
+        }
 
+        public static string[] GetNODEdesc()
+        {
 
+           int myNodeCount =  theDAM.DynView.HomeSpace.Nodes.Count();
+
+           string[] stringArraydesc = new string[myNodeCount];
+            //create loop herenthru all count
+            //start..end..step
+            for (int i = 0; i < myNodeCount; i = i + 1)
+            {
+                stringArraydesc[i] = theDAM.DynView.HomeSpace.Nodes.ElementAt(i).Description;            
+            }
+            return stringArraydesc;                
 
         }
 
-        public static string GetNODEdesc()
+        public static string[] GetNODEName()
         {
+            int myNodeCount = theDAM.DynView.HomeSpace.Nodes.Count();
+
+            string[] stringArrayName = new string[myNodeCount];
+            //create loop herenthru all count
+            //start..end..step
+            for (int i = 0; i < myNodeCount; i = i + 1)
+            {
+                stringArrayName[i] = theDAM.DynView.HomeSpace.Nodes.ElementAt(i).Name;
+            }
+            return stringArrayName;
             
-
-           return theDAM.DynView.HomeSpace.Nodes.First().Description;
-
-        }
-
-        public static string GetNODEName()
-        {
-
-
-           return theDAM.DynView.HomeSpace.Nodes.First().Name;
 
         }
     }

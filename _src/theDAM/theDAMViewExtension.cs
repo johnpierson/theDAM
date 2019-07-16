@@ -30,6 +30,8 @@ namespace theDAM
         {
         }
         public static DynamoView view;
+
+
         public void Startup(ViewStartupParams p)
         {
         }
@@ -59,7 +61,9 @@ namespace theDAM
             MenuItem nodeDesciption = new MenuItem { Header = "Node Description" };
             nodeDesciption.Click += (sender, args) =>
             {
-                MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+                //MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+                string[] my_local_arraydesc = NodeDescriptions.nodedesc.GetNODEdesc();
+                System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Descriptions.txt", my_local_arraydesc);
             };
             _theDAMMenuItem.Items.Add(nodeDesciption);
 
@@ -67,7 +71,9 @@ namespace theDAM
             MenuItem nodeName = new MenuItem { Header = "Node Name" };
             nodeName.Click += (sender, args) =>
             {
-                MessageBox.Show(NodeDescriptions.nodedesc.GetNODEName());
+                //MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+                string[] my_local_arrayName = NodeDescriptions.nodedesc.GetNODEName();
+                System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Names.txt", my_local_arrayName);
             };
             _theDAMMenuItem.Items.Add(nodeName);
 
@@ -104,5 +110,7 @@ namespace theDAM
         {
             get { return view.DataContext as DynamoViewModel; }
         }
+
+        public string[] ListDesc { get; private set; }
     }
 }

@@ -1,0 +1,3116 @@
+Produces a Dictionary with the supplied keys and values. The number of entries is the shorter of keys or values.
+
+Dictionary.ByKeysValues (keys: string[], values: var[]..[]): Dictionary
+Produces the components of a Dictionary. The reverse of Dictionary.ByKeysValues.
+
+Dictionary.Components ( ): var[]..[]
+Produce a new Dictionary with the given keys removed.
+
+Dictionary.RemoveKeys (keys: string[]): Dictionary
+Produce a new Dictionary with a list of keys set to the new values, possibly overwriting existing key-value pairs. These two lists are expected to be of the same length. If not, the shorter of the two bounds the number of insertions.
+
+Dictionary.SetValueAtKeys (keys: string[], values: var[]..[]): Dictionary
+Obtain the value at a specified key
+
+Dictionary.ValueAtKey (key: string): var[]..[]
+The number of key value pairs in a Dictionary.
+
+Dictionary.Count: int
+Produces the keys in a Dictionary.
+
+Dictionary.Keys: string[]
+Produces the values in a Dictionary.
+
+Dictionary.Values: var[]..[]
+Construct a Color by combining two input Colors.
+
+Color.Add (c1: Color, c2: Color): Color
+Construct a color by alpha, red, green, and blue components.
+
+Color.ByARGB (a: int = 255, r: int = 0, g: int = 0, b: int = 0): Color
+Select a Color from the palette
+Divide an input color with a number divider to produce a brighter color and remove color tint
+
+Color.Divide (c1: Color, div: double): Color
+Multiply an input color with a number multiplier to produce a darker color. Input color must have an alpha less than 255.
+
+Color.Multiply (c1: Color, div: double): Color
+Returns the brightness value for this color.
+
+Color.Brightness (c: Color): double
+Lists the components for the color in the order: alpha, red, green, blue.
+
+Color.Components (c: Color): var[]..[]
+Returns the hue value for this color.
+
+Color.Hue (c: Color): double
+Returns the saturation value for this color.
+
+Color.Saturation (c: Color): double
+Find the alpha component of a color, 0 to 255.
+
+Color.Alpha: int
+Find the blue component of a color, 0 to 255.
+
+Color.Blue: int
+Find the green component of a color, 0 to 255.
+
+Color.Green: int
+Find the red component of a color, 0 to 255.
+
+Color.Red: int
+Create a ColorRange by supplying lists of colors and UVs.
+
+ColorRange.ByColorsAndParameters (colors: Color[], parameters: UV[]): ColorRange
+Get a color given a color range.
+Returns the color in this color range at the specified parameter.
+
+ColorRange.GetColorAtParameter (parameter: UV): Color
+Visualize the output of node.
+Shows a dynamic preview of geometry.
+Previews an image
+Creates the an axis-aligned BoundingBox spanning between the minimum Point and the maximum Point.
+
+BoundingBox.ByCorners (min: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), max: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): BoundingBox
+Create an axis-aligned BoundingBox around input Geometry.
+
+BoundingBox.ByGeometry (geom: Geometry[]): BoundingBox
+Determine if a point is inside of the BoundingBox
+
+BoundingBox.Contains (point: Point): bool
+Get the intersection of two BoundingBoxes
+
+BoundingBox.Intersection (other: BoundingBox): BoundingBox
+Determine whether two BoundingBoxes intersect
+
+BoundingBox.Intersects (other: BoundingBox): bool
+Determine if the BoundingBox is empty
+
+BoundingBox.IsEmpty ( ): bool
+Get the BoundingBox as a Solid Cuboid
+
+BoundingBox.ToCuboid ( ): Cuboid
+Get the BoundingBox as a collection of Surfaces
+
+BoundingBox.ToPolySurface ( ): PolySurface
+The maximum point
+
+BoundingBox.MaxPoint: Point
+The minimum point
+
+BoundingBox.MinPoint: Point
+Creates a CoordinateSystem at the specified cylindrical coordinate parameters with respect to the specified coordinate system
+
+CoordinateSystem.ByCylindricalCoordinates (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), radius: double = 0, theta: double = 0, height: double = 0): CoordinateSystem
+Deprecated -- DO NOT USE
+
+CoordinateSystem.ByMatrix (matrix: double[]): CoordinateSystem
+Create a CoordinateSystem with origin at X, Y, and Z locations, with X and Y Axes set as WCS X and Y Axes.
+
+CoordinateSystem.ByOrigin (x: double = 0, y: double = 0, z: double = 0): CoordinateSystem
+Create a CoordinateSystem with origin at input Point, with X and Y Axes set as WCS X and Y Axes.
+
+CoordinateSystem.ByOrigin (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0)): CoordinateSystem
+Create a CoordinateSystem with origin at X and Y locations, with X and Y Axes set as WCS X and Y Axes. Z defaults to 0.
+
+CoordinateSystem.ByOrigin (x: double = 0, y: double = 0): CoordinateSystem
+Create a CoordinateSystem at the origin with X and Y axis, with Z axis ignored completely. Input Vectors are normalized before creating the CoordinateSystem.
+
+CoordinateSystem.ByOriginVectors (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), xAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), yAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 1, 0), zAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): CoordinateSystem
+Create a CoordinateSystem at the origin with X and Y axis. Input Vectors are normalized before creating the CoordinateSystem.
+
+CoordinateSystem.ByOriginVectors (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), xAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), yAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 1, 0)): CoordinateSystem
+Create a CoordinateSystem with origin equal to input Plane origin, and X and Y axes lying in the Plane, aligned with Plane X and Y axes.
+
+CoordinateSystem.ByPlane (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY()): CoordinateSystem
+Creates a CoordinateSystem at the specified spherical coordinate parameters with respect to the specified coordinate system
+
+CoordinateSystem.BySphericalCoordinates (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), radius: double = 0, theta: double = 0, phi: double = 0): CoordinateSystem
+Creates a CoordinateSystem as the World Coordinate System: origin at 0, 0, 0; x axis at 1, 0, 0; y axis at 0, 1, 0; z axis at 0, 0, 1
+
+CoordinateSystem.Identity ( ): CoordinateSystem
+Get the inverse of this CoordinateSystem - applying this CoordinateSystem to a piece of Geometry reverses the original.
+
+CoordinateSystem.Inverse ( ): CoordinateSystem
+Determine if two CoordinateSystems are equal
+
+CoordinateSystem.IsEqualTo (other: CoordinateSystem): bool
+Mirror the object across the input Plane
+
+CoordinateSystem.Mirror (mirrorPlane: Plane): CoordinateSystem
+Apply the argument CoordinateSystem after this one - Result = this * other
+
+CoordinateSystem.PostMultiplyBy (other: CoordinateSystem): CoordinateSystem
+Apply the argument CoordinateSystem before this one - Result = other * this
+
+CoordinateSystem.PreMultiplyBy (other: CoordinateSystem): CoordinateSystem
+///
+
+CoordinateSystem.Rotate (plane: Plane, degrees: double = 0): CoordinateSystem
+Rotates an object around an origin and an axis by a specified degree
+
+CoordinateSystem.Rotate (origin: Point, axis: Vector, degrees: double = 0): CoordinateSystem
+Scale uniformly around a given point, using
+
+CoordinateSystem.Scale (basePoint: Point, from: Point, to: Point): CoordinateSystem
+Scale non-uniformly around the origin
+
+CoordinateSystem.Scale (xamount: double = 1, yamount: double = 1, zamount: double = 1): CoordinateSystem
+Scale uniformly around the origin
+
+CoordinateSystem.Scale (amount: double = 1): CoordinateSystem
+Scale non-uniformly around a given Plane
+
+CoordinateSystem.Scale (plane: Plane, xamount: double = 1, yamount: double = 1, zamount: double = 1): CoordinateSystem
+Scale in one dimension by base and 2 pick points. The scaling axis is defined by the line between base and pick0.
+
+CoordinateSystem.Scale1D (basePoint: Point, from: Point, to: Point): CoordinateSystem
+Scale in two dimension by base and 2 pick points The two pick points are projected onto the base plane in order to determine the 2d scale factors
+
+CoordinateSystem.Scale2D (basePlane: Plane, from: Point, to: Point): CoordinateSystem
+Returns a Vector containing the X, Y, and Z scale factors
+
+CoordinateSystem.ScaleFactor ( ): Vector
+Transform the object by the input CoordinateSystem matrix.
+
+CoordinateSystem.Transform (cs: CoordinateSystem): CoordinateSystem
+Translate the object in the direction and magnitude of input Vector.
+
+CoordinateSystem.Translate (direction: Vector): CoordinateSystem
+Translates any given CoordinateSystem by the given displacements in the x, y, and z directions defined in WCS respectively.
+
+CoordinateSystem.Translate (xTranslation: double = 0, yTranslation: double = 0, zTranslation: double = 0): CoordinateSystem
+Translates any CoordinateSystem type by the given distance in the given direction.
+
+CoordinateSystem.Translate (direction: Vector, distance: double = 0): CoordinateSystem
+Obtain the Determinant of this CoordinateSystem
+
+CoordinateSystem.Determinant: double
+Tests if the scaling orthogonal, i.e. does it have a shear component.
+
+CoordinateSystem.IsScaledOrtho: bool
+Determine whether it is possible to get the Inverse of this CoordinateSystem
+
+CoordinateSystem.IsSingular: bool
+Tests if the scaling orthogonal and are all the vectors normalized.
+
+CoordinateSystem.IsUniscaledOrtho: bool
+Creates a Point representing the CoordinateSystem origin.
+
+CoordinateSystem.Origin: Point
+Returns X Axis of CoordinateSystem.
+
+CoordinateSystem.XAxis: Vector
+Returns the X Axis scaling of the CoordinateSystem: the length of the X Axis vector.
+
+CoordinateSystem.XScaleFactor: double
+Returns the Plane the X and Y axes lie in, with root at the origin.
+
+CoordinateSystem.XYPlane: Plane
+Returns Y Axis of CoordinateSystem.
+
+CoordinateSystem.YAxis: Vector
+Returns the Y Axis scaling of the CoordinateSystem: the length of the Y Axis vector.
+
+CoordinateSystem.YScaleFactor: double
+Returns the Plane the Y and Z axes lie in, with root at the origin.
+
+CoordinateSystem.YZPlane: Plane
+Returns Z Axis of CoordinateSystem.
+
+CoordinateSystem.ZAxis: Vector
+Returns the Z Axis scaling of the CoordinateSystem: the length of the Z Axis vector.
+
+CoordinateSystem.ZScaleFactor: double
+Returns the Plane the Z and X axes lie in, with root at the origin.
+
+CoordinateSystem.ZXPlane: Plane
+The Faces adjacent to this Edge
+
+Edge.AdjacentFaces: Face[]
+The underlying Curve making up the Edge
+
+Edge.CurveGeometry: Curve
+The Vertex at which this Edge ends
+
+Edge.EndVertex: Vertex
+The Vertex at which this Edge starts
+
+Edge.StartVertex: Vertex
+The underlying Surface making up the Face
+
+Face.SurfaceGeometry ( ): Surface
+All of the Edges around this Face in counterclockwise order
+
+Face.Edges: Edge[]
+All of the Vertices around this Face in counterclockwise order
+
+Face.Vertices: Vertex[]
+Fits a Plane to the input Points; basically a 3D scatterplot fit.
+
+Plane.ByBestFitThroughPoints (points: Point[]): Plane
+Create the Plane containing the input Line and external Point. Point cannot lie on the Line or in the Line axis.
+
+Plane.ByLineAndPoint (line: Line, point: Point): Plane
+Create a Plane centered at root Point, with input normal Vector.
+
+Plane.ByOriginNormal (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Plane
+Create an "oriented" Plane, positioned at Point origin with Vector normal, but with a specific X axis orientation. This has no impact to splitting, intersect, project, etc oporations, it only specifies the orientation of the input CoordinateSystem.
+
+Plane.ByOriginNormalXAxis (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1), xAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0)): Plane
+The X and Y axis lie in the plane. The Z axis is the cross product of the two Vectors.
+
+Plane.ByOriginXAxisYAxis (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), xAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), yAxis: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 1, 0)): Plane
+Create a the Plane containing the three input Points.
+
+Plane.ByThreePoints (origin: Point, planePoint: Point, xAxisPoint: Point): Plane
+Creates a plane in the world XY
+
+Plane.XY ( ): Plane
+Creates a plane in the world XZ plane
+
+Plane.XZ ( ): Plane
+Creates a plane in the world YZ
+
+Plane.YZ ( ): Plane
+Create a new Plane offset by this Plane in the normal direction by the specified distance.
+
+Plane.Offset (dist: double = 1): Plane
+Produces a new CoordinateSystem representing this plane. It is based on the origin, and X and Y axis basis.
+
+Plane.ToCoordinateSystem ( ): CoordinateSystem
+Returns the normal direction of the Plane.
+
+Plane.Normal: Vector
+Returns the origin of the Plane.
+
+Plane.Origin: Point
+The X basis of the Plane
+
+Plane.XAxis: Vector
+The Y basis of the Plane
+
+Plane.YAxis: Vector
+The Edges of the Topology
+
+Topology.Edges: Edge[]
+The Faces of the Topology
+
+Topology.Faces: Face[]
+The Vertices of the Topology
+
+Topology.Vertices: Vertex[]
+Form a Vector by 3 Euclidean coordinates
+
+Vector.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Vector
+Form a Vector by 3 Euclidean coordinates and normalize the Vector
+
+Vector.ByCoordinates (x: double = 0, y: double = 0, z: double = 0, normalized: bool = false): Vector
+Form a Vector by two end points. The result is a vector from the start to the end point.
+
+Vector.ByTwoPoints (start: Point, end: Point): Vector
+Get the canonical X axis Vector (1,0,0)
+
+Vector.XAxis ( ): Vector
+Get the canonical Y axis Vector (0,1,0)
+
+Vector.YAxis ( ): Vector
+Get the canonical Z axis Vector (0,0,1)
+
+Vector.ZAxis ( ): Vector
+Add a vector
+
+Vector.Add (vectorToAdd: Vector): Vector
+Returns the angle between the two Vectors, in the range [0, 360] degrees. It uses axis of rotation to determine the direction of the angle.
+
+Vector.AngleAboutAxis (otherVector: Vector, rotationAxis: Vector): double
+Returns the angle between the two Vectors, in the range [0, 180] degrees.
+
+Vector.AngleWithVector (otherVector: Vector): double
+Get the Point with the same X, Y, and Z component
+
+Vector.AsPoint ( ): Point
+Form the cross product of two vectors
+
+Vector.Cross (cross: Vector): Vector
+Form the dot product of two vectors
+
+Vector.Dot (vec: Vector): double
+Determine whether two vectors ae almost equal
+
+Vector.IsAlmostEqualTo (other: Vector): bool
+Determine whether two vectors are parallel or not
+
+Vector.IsParallel (other: Vector): bool
+Get the normalized version of a vector
+
+Vector.Normalized ( ): Vector
+Get the reverse of the vector. Essentially this negates the X, Y, and Z components of the Vector.
+
+Vector.Reverse ( ): Vector
+Rotates a Vector around an axis by a specified number of degrees
+
+Vector.Rotate (axis: Vector, degrees: double = 0): Vector
+Rotates a vector around the Plane origin and normal by a specified degree
+
+Vector.Rotate (plane: Plane, degrees: double = 0): Vector
+Scale Vector uniformly around the origin
+
+Vector.Scale (scale_factor: double = 1): Vector
+Scale Vector non-uniformly around the origin
+
+Vector.Scale (xScaleFactor: double = 1, yScaleFactor: double = 1, zScaleFactor: double = 1): Vector
+Subtract a vector
+
+Vector.Subtract (vectorToSubtract: Vector): Vector
+Transform this Vector by input CoordinateSystem matrix.
+
+Vector.Transform (cs: CoordinateSystem): Vector
+Get the length of the vector - otherwise known as the Euclidean norm
+
+Vector.Length: double
+Get the X component of a Vector
+
+Vector.X: double
+Get the Y component of a Vector
+
+Vector.Y: double
+Get the Z component of a Vector
+
+Vector.Z: double
+The Edges emanating from this Vertex
+
+Vertex.AdjacentEdges: Edge[]
+The Faces adjacent to this Vertex
+
+Vertex.AdjacentFaces: Face[]
+The Point where this Vertex is located
+
+Vertex.PointGeometry: Point
+Create an arc that best approximates a collection of points
+
+Arc.ByBestFitThroughPoints (points: Point[]): Arc
+Create an arc by providing it's center point, radius, angle sweep, and normal vector
+
+Arc.ByCenterPointRadiusAngle (center: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1, startAngle: double = 0, endAngle: double = 90, normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Arc
+Create an arc by providing it's center point, start point, and end point
+
+Arc.ByCenterPointStartPointEndPoint (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), startPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 0, 0), endPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 1, 0)): Arc
+Create an arc by providing it's center point, start point, sweep point, and normal
+
+Arc.ByCenterPointStartPointSweepAngle (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), startPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 0, 0), sweepAngle: double = 90, normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Arc
+Create an arc by filleting two curves with given radius
+
+Arc.ByFillet (curve1: Curve, curve2: Curve, radius: double): Arc
+Create an arc by filleting two curves tangent to given curve at internal point
+
+Arc.ByFilletTangentToCurve (curve1: Curve, curveTangentTo: Curve, curve2: Curve): Arc
+Create an Arc from start Point to end Point with start tangent to Vector
+
+Arc.ByStartPointEndPointStartTangent (startPoint: Point, endPoint: Point, startTangent: Vector): Arc
+Create an arc by providing three sequential points along its circumference.
+
+Arc.ByThreePoints (firstPoint: Point, secondPoint: Point, thirdPoint: Point): Arc
+Create an arc or tangent bi arc by start and end points and tangencies at start and end
+
+Arc.ByStartEndAndTangencies (point1: Point, vector1: Vector, point2: Point, vector2: Vector): Arc[]
+The center point of the arc
+
+Arc.CenterPoint: Point
+The radius of the arc
+
+Arc.Radius: double
+The start angle in degrees
+
+Arc.StartAngle: double
+The total sweep angle in degrees
+
+Arc.SweepAngle: double
+Best fit Circle through Points
+
+Circle.ByBestFitThroughPoints (points: Point[]): Circle
+Creates a Circle with input center Point and radius in the world XY plane, with world Z as normal.
+
+Circle.ByCenterPointRadius (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1): Circle
+Creates a Circle with specified center Point, radius, and normal direction.
+
+Circle.ByCenterPointRadiusNormal (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1, normal: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Circle
+Create a Circle centered at the input Plane origin (root), lying in the input Plane, with given radius.
+
+Circle.ByPlaneRadius (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY(), radius: double = 1): Circle
+Create a Circle passing through three input Points.
+
+Circle.ByThreePoints (p1: Point, p2: Point, p3: Point): Circle
+The center of the circle
+
+Circle.CenterPoint: Point
+The radius of the circle
+
+Circle.Radius: double
+Create a curve that blends between two curves
+
+Curve.ByBlendBetweenCurves (curve1: Curve, curve2: Curve, endOrStart1: bool = true, endOrStart2: bool = false, isG2Continuous: bool = false): Curve
+Create a curve by isoline of surface
+
+Curve.ByIsoCurveOnSurface (baseSurface: Surface, direction: int = 0, parameter: double = 0): Curve
+Create a curve by line of surface in uv space
+
+Curve.ByParameterLineOnSurface (baseSurface: Surface, startParams: UV, endParams: UV): Curve
+Approximate a Curve with a collection of Arcs and Lines
+
+Curve.ApproximateWithArcAndLineSegments ( ): Curve[]
+Get a CoordinateSystem with origin at the point at the given parameter. The XAxis is aligned with the curve normal, the YAxis is aligned with the curve tangent at this point, and the ZAxis is aligned with the up-vector or binormal at this point
+
+Curve.CoordinateSystemAtParameter (param: double = 0): CoordinateSystem
+Returns a CoordinateSystem at specified distance from Curve start Point. Y Axis lies tangent to the Curve, X Axis is the curvature.
+
+Curve.CoordinateSystemAtSegmentLength (segmentLength: double = 0): CoordinateSystem
+Get the end of the domain in which the curve can be evaluated
+
+Curve.EndParameter ( ): double
+Extend a Curve by a given distance at a particular end determined by a pick Point. The picked side will be extended. Closed curves like Circles and Ellipses cannot be extended.
+
+Curve.Extend (distance: double, pickSide: Point): Curve
+Extend a Curve by a given distance on its end. Closed curves like Circles and Ellipses cannot be extended.
+
+Curve.ExtendEnd (distance: double = 1): Curve
+Extend a Curve by a given distance on its start side. Closed curves like Circles and Ellipses cannot be extended.
+
+Curve.ExtendStart (distance: double = 1): Curve
+Extrudes a Curve in the specified direction, by the length of the input Vector
+
+Curve.Extrude (direction: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Surface
+Extrudes a Curve in the specified direction, by the specified distance
+
+Curve.Extrude (direction: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1), distance: double = 1): Surface
+Extrudes a Curve in the normal Vector direction
+
+Curve.Extrude (distance: double = 1): Surface
+Extrudes a Curve in the Normal direction by the specified distance. Curve must be closed.
+
+Curve.ExtrudeAsSolid (distance: double = 1): Solid
+Extrudes a Curve in the specified direction, by the length of the input Vector. Curve must be closed.
+
+Curve.ExtrudeAsSolid (direction: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1)): Solid
+Extrudes a Curve in the specified direction, by the specified distance. Curve must be closed.
+
+Curve.ExtrudeAsSolid (direction: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1), distance: double = 1): Solid
+Get a CoordinateSystem with origin at the point at the given parameter
+
+Curve.HorizontalFrameAtParameter (param: double = 0): CoordinateSystem
+Join this curve and the input curve into a new PolyCurve, maintaining the original curves exactly.
+
+Curve.Join (curves: Curve[]): PolyCurve
+Get a Vector perpendicular to the curve at a specified parameter between StartParameter() and EndParameter()
+
+Curve.NormalAtParameter (param: double = 0): Vector
+Offset a Curve by a specified amount. Curve must be planar, and, if a BSplineCurve/NurbsCurve, must have degree > 1.
+
+Curve.Offset (distance: double = 1): Curve
+Get the parameter at a particular chord length along the curve from given location.
+
+Curve.ParameterAtChordLength (chordLength: double = 0.5, parameter: double = 0, forward: bool = true): double
+Get the parameter at a particular point along the Curve
+
+Curve.ParameterAtPoint (point: Point): double
+Get the parameter at a particular arc length along the curve.
+
+Curve.ParameterAtSegmentLength (segmentLength: double = 0): double
+Patch a closed Curve
+
+Curve.Patch ( ): Surface
+Returns a Plane whose normal aligns with the tangent of the Curve. Parameters are adjusted such that 0 is always the start Point and 1 is always the end Point.
+
+Curve.PlaneAtParameter (param: double = 0): Plane
+Returns a Plane at the specified distance along the Curve from the start Point. The normal of the Plane aligns with the tangent of the Curve.
+
+Curve.PlaneAtSegmentLength (segmentLength: double = 0): Plane
+Get the point at a particular chord length of the curve from given parameter location.
+
+Curve.PointAtChordLength (chordLength: double = 1, parameterLocation: double = 0, forward: bool = true): Point
+Get a Point on the Curve at a specified parameter between StartParameter() and EndParameter()
+
+Curve.PointAtParameter (param: double = 0): Point
+Get a Point at a particular arc length along the curve
+
+Curve.PointAtSegmentLength (segmentLength: double = 0): Point
+Returns points spaced on the curve at given chord length starting from the given point
+
+Curve.PointsAtChordLengthFromPoint (point: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), chordLength: double = 1): Point[]
+Returns points spaced along curve at equal chord length based on the input number of divisions
+
+Curve.PointsAtEqualChordLength (divisions: int = 10): Point[]
+Returns points spaced equally along the curve length based on the input number of divisions
+
+Curve.PointsAtEqualSegmentLength (divisions: int = 10): Point[]
+Returns points spaced equally along the curve at given segment length and starting from the given point
+
+Curve.PointsAtSegmentLengthFromPoint (point: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), segmentLength: double = 1): Point[]
+Project another piece of Geometry onto this along a given direction Vector
+
+Curve.Project (baseGeometry: Geometry, projectionDirection: Vector): Geometry[]
+Create a curve by pulling onto plane
+
+Curve.PullOntoPlane (plane: Plane): Curve
+Pull this Curve onto the input Surface, in the direction of the Surface normals.
+
+Curve.PullOntoSurface (surface: Surface): Curve
+Reverse the direction of the curve
+
+Curve.Reverse ( ): Curve
+Get the arc length along the Curve at the particular parameter.
+
+Curve.SegmentLengthAtParameter (param: double = 0): double
+Get the arc length between two parameter points on the curve
+
+Curve.SegmentLengthBetweenParameters (startParam: double = 0, endParam: double = 1): double
+Returns a new Curve approximated with the supplied tolerance
+
+Curve.Simplify (tolerance: double): Curve
+Split a Curve into two pieces at the given parameter
+
+Curve.SplitByParameter (parameters: double[]): Curve[]
+Split a Curve into multiple pieces at the given points
+
+Curve.SplitByPoints (points: Point[]): Curve[]
+Get the start of the domain in which the curve can be evaluated
+
+Curve.StartParameter ( ): double
+Sweeps this closed Curve along the path Curve, creating a Solid
+
+Curve.SweepAsSolid (path: Curve): Solid
+Sweeps this Curve along the path Curve, creating a Surface
+
+Curve.SweepAsSurface (path: Curve): Surface
+Get a Vector tangent to the curve at a specified parameter between StartParameter() and EndParameter()
+
+Curve.TangentAtParameter (param: double = 0): Vector
+Converts the Curve to a NurbsCurve approximation
+
+Curve.ToNurbsCurve ( ): NurbsCurve
+Removes the end of the Curve at the specified parameter
+
+Curve.TrimByEndParameter (endParameter: double = 1): Curve
+Removes the beginning and end of the Curve at the specified parameters.
+
+Curve.TrimByParameter (startParameter: double = 0, endParameter: double = 1): Curve
+Removes the start of the Curve at the specified parameter
+
+Curve.TrimByStartParameter (startParameter: double = 0): Curve
+Removes the interior portion of a Curve at the specified parameters
+
+Curve.TrimInteriorByParameter (startParameter: double = 0, endParameter: double = 1): Curve[]
+Removes several segments of the curve, discarding the 1st, 3rd, 5th ... segments
+
+Curve.TrimSegmentsByParameter (parameters: double[], discardEvenSegments: bool = false): Curve[]
+Removes several segments of the curve, discarding the 1st, 3rd, 5th ... segments
+
+Curve.TrimSegmentsByParameter (parameters: double[]): Curve[]
+Get the end Point along the Curve
+
+Curve.EndPoint: Point
+Determine if the Curve is closed or not
+
+Curve.IsClosed: bool
+Determine whether a Curve is planar or not
+
+Curve.IsPlanar: bool
+The total arc length of the curve
+
+Curve.Length: double
+The normal to the plane where the curve is contained. Only valid for planar curves.
+
+Curve.Normal: Vector
+Get the start Point along the Curve
+
+Curve.StartPoint: Point
+Create an Ellipse centered and aligned with input CoordinateSystem, with a x_radius radius in the CS X direction, and y_radius radius in the CS Y direction.
+
+Ellipse.ByCoordinateSystemRadii (origin: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), xAxisRadius: double = 1, yAxisRadius: double = 1): Ellipse
+Create an Ellipse centered at input Point, aligned with WCS XY Plane, with specified X and Y axis radii.
+
+Ellipse.ByOriginRadii (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), xAxisRadius: double = 1, yAxisRadius: double = 1): Ellipse
+Create an Ellipse centered at input Point, with two specified axes. Axes should be be at 90 degrees to each other.
+
+Ellipse.ByOriginVectors (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), xAxisRadius: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(1, 0, 0), yAxisRadius: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 2, 0)): Ellipse
+Create an Ellipse centered and aligned with input Plane, with a x_radius radius in the Plane X axis direction, and y_radius radius in the Plane Y axis direction.
+
+Ellipse.ByPlaneRadii (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY(), xAxisRadius: double = 1, yAxisRadius: double = 1): Ellipse
+The center of the Ellipse
+
+Ellipse.CenterPoint: Point
+The major axis of the Ellipse. This is the longer axis. The length of the Vector is the Major radius.
+
+Ellipse.MajorAxis: Vector
+The minor axis of the Ellipse. This is the shorter axis. The length of the Vector is the Minor radius.
+
+Ellipse.MinorAxis: Vector
+Create an EllipseArc in a plane with the given the radii along the X and Y axes and the angles to sweep through
+
+EllipseArc.ByPlaneRadiiAngles (plane: Plane = Autodesk.DesignScript.Geometry.Plane.XY(), xRadius: double = 1, yRadius: double = 1, startAngle: double = 0, sweepAngle: double = 180): EllipseArc
+The center of the Ellipse
+
+EllipseArc.CenterPoint: Point
+The major axis of the Ellipse. This is the longer axis. The length of the Vector is the Major radius.
+
+EllipseArc.MajorAxis: Vector
+The minor axis of the Ellipse. This is the shorter axis. The length of the Vector is the Minor radius.
+
+EllipseArc.MinorAxis: Vector
+The plane in which the ellipse lies
+
+EllipseArc.Plane: Plane
+The start angle in degrees
+
+EllipseArc.StartAngle: double
+The total sweep angle in degrees
+
+EllipseArc.SweepAngle: double
+Create a Helix. The helix always rotates clockwise about the supplied axis direction. If viewing along the axis direction, the viewer will see the point turning clockwise around the axis as it moves along the curve in the direction of increasing parameter. Pitch is Distance the helix moves in the axis direction per turn. This can be positive or negative.
+
+Helix.ByAxis (axisPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), axisDirection: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1), startPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 0, 0), pitch: double = 1, angleTurns: double = 360): Helix
+The angle in degrees through which the Helix turns over its length
+
+Helix.Angle: double
+The direction of the axis of the Helix
+
+Helix.AxisDirection: Vector
+The base point of the Helix axis
+
+Helix.AxisPoint: Point
+The pitch of the helix
+
+Helix.Pitch: double
+The radius of the arc
+
+Helix.Radius: double
+Creates a Line best approximating a scatter plot of Points.
+
+Line.ByBestFitThroughPoints (bestFitPoints: Point[]): Line
+Create a straight Line starting at start Point, extending in Vector direction by specified length.
+
+Line.ByStartPointDirectionLength (startPoint: Point, direction: Vector, length: double = 1): Line
+Creates a straight Line between two input Points.
+
+Line.ByStartPointEndPoint (startPoint: Point, endPoint: Point): Line
+Create a Line tangent to the input Curve, positioned at the parameter Point of the input Curve.
+
+Line.ByTangency (curve: Curve, parameter: double = 0): Line
+The direction of the Curve
+
+Line.Direction: Vector
+Create a BSplineCurve by using explicit control points. NOTE 1: BSplineCurves with deg=1 have G1 discontinuities, which cause problems for extrusion, sweep, and other operations. They should be avoided. Use a PolyCurve instead. NOTE 2: If the curve is periodic (closed), then the first and last points MUST be the same.
+
+NurbsCurve.ByControlPoints (points: Point[], degree: int = 3, closeCurve: bool = false): NurbsCurve
+Create a BSplineCurve by using explicit control points. NOTE 1: BSplineCurves with deg=1 have G1 discontinuities, which cause problems for extrusion, sweep, and other operations. They should be avoided. Use a PolyCurve instead. NOTE 2: If the curve is periodic (closed), then the first and last points MUST be the same.
+
+NurbsCurve.ByControlPoints (points: Point[]): NurbsCurve
+Create a BSplineCurve by using explicit control points. NOTE 1: BSplineCurves with deg=1 have G1 discontinuities, which cause problems for extrusion, sweep, and other operations. They should be avoided. Use a PolyCurve instead. NOTE 2: If the curve is periodic (closed), then the first and last points MUST be the same.
+
+NurbsCurve.ByControlPoints (points: Point[], degree: int = 3): NurbsCurve
+Create a BSplineCurve by from control vertices, weights, and knots. FROM ASM DOCS: Degree: Should be greater than 1 (piecewise-linear spline) and less than 26 (the maximum B-spline basis degree supported by ASM). Weights: All weight values (if supplied) should be strictly positive. Weights smaller than 1e-11 will be rejected and the function will fail. Knots: The knot vector should be a non-decreasing sequence. Interior knot multiplicity should be no larger than degree + 1 at the start/end knot and degree at an internal knot (this allows curves with G1 discontinuities to be represented). Note that non-clamped knot vectors are supported, but will be converted to clamped ones, with the corresponding changes applied to the control point/weight data. knot array: the array size must be num_control_points + degree + 1
+
+NurbsCurve.ByControlPointsWeightsKnots (points: Point[], weights: double[], knots: double[], degree: int = 3): NurbsCurve
+Create a BSplineCurve by interpolating between points.
+
+NurbsCurve.ByPoints (points: Point[]): NurbsCurve
+Create a BSplineCurve by interpolating between points.
+
+NurbsCurve.ByPoints (points: Point[], degree: int = 3): NurbsCurve
+Create a BSplineCurve by interpolating between points.
+
+NurbsCurve.ByPoints (points: Point[], closeCurve: bool = false): NurbsCurve
+Returns a BSplineCurve through the points, with tangent directions.
+
+NurbsCurve.ByPointsTangents (points: Point[], startTangent: Vector, endTangent: Vector): NurbsCurve
+Get the control points of the NurbsCurve. These are the points that the curve interpolates.
+
+NurbsCurve.ControlPoints ( ): Point[]
+The knots of the Curve. These, along with the Degree, define the domain of the Curve where a particular control vertex acts.
+
+NurbsCurve.Knots ( ): double[]
+The weights of the control vertices of the curve. These define the magnitude of influence of the control vertices.
+
+NurbsCurve.Weights ( ): double[]
+The degree of the curve
+
+NurbsCurve.Degree: int
+Whether the NurbsCurve is periodic or not
+
+NurbsCurve.IsPeriodic: bool
+Whether the NurbsCurve is rational or not. This defines whether any of the weights are not 1.0.
+
+NurbsCurve.IsRational: bool
+Make PolyCurve by joining curves. Flips curve as needed for connectivity. Choose a preferred join tolerance between 1e-6 and 1e-3 units.
+
+PolyCurve.ByJoinedCurves (curves: Curve[], joinTolerance: double = 0.001): PolyCurve
+Make PolyCurve by connecting points. Set the 'connectLastToFirst' input to true to close the PolyCurve.
+
+PolyCurve.ByPoints (points: Point[], connectLastToFirst: bool = false): PolyCurve
+Make PolyCurve by thickening a curve.
+
+PolyCurve.ByThickeningCurve (curve: Curve, thickness: double, nor: Vector): PolyCurve
+Returns plane of planar polycurve
+
+PolyCurve.BasePlane ( ): Plane
+Close polycurve by line connecting start and end points
+
+PolyCurve.CloseWithLine ( ): PolyCurve
+Close polycurve by tangent chain of arc, line, and arc
+
+PolyCurve.CloseWithLineAndTangentArcs (radiusAtStart: double = 1, radiusAtEnd: double = 1): PolyCurve
+Returns curve of the polycurve by index
+
+PolyCurve.CurveAtIndex (index: int = 0, endOrStart: bool = false): Curve
+Returns curves of the polycurve
+
+PolyCurve.Curves ( ): Curve[]
+Extends polycurve by tangent arc
+
+PolyCurve.ExtendWithArc (length: double, radius: double, endOrStart: bool): PolyCurve
+Extends polycurve by tangent ellipse
+
+PolyCurve.ExtendWithEllipse (length: double, radius1: double, radius2: double, endEllipseParameter: double, endOrStart: bool): PolyCurve
+Fillet polycurve in its plane.
+
+PolyCurve.Fillet (radius: double = 1, rightSide: bool = true): PolyCurve
+Offset polycurve in its plane.
+
+PolyCurve.Offset (signedDistance: double, extendCircular: bool): Curve
+Number of curves of the polycurve
+
+PolyCurve.NumberOfCurves: int
+Construct a Polygon Curve by connecting Points.
+
+Polygon.ByPoints (points: Point[]): Polygon
+Construct an inscribed Polygon Curve within a circle.
+
+Polygon.RegularPolygon (circle: Circle, numberSides: int = 5): Polygon
+Returns average point of corners of polygon
+
+Polygon.Center ( ): Point
+Checks if point is inside planar polygon without self intersections.
+
+Polygon.ContainmentTest (point: Point): bool
+Returns corners of polygon
+
+Polygon.Corners ( ): Point[]
+Returns self intersections between sides of the polygon.
+
+Polygon.SelfIntersections ( ): Point[]
+Returns maximum deviation from average plane of polygon.
+
+Polygon.PlaneDeviation: double
+Returns all the segment start / end points.
+
+Polygon.Points: Point[]
+Create a Rectangle by four corner Points.
+
+Rectangle.ByCornerPoints (p1: Point, p2: Point, p3: Point, p4: Point): Rectangle
+Create a Rectangle by four corner Points.
+
+Rectangle.ByCornerPoints (points: Point[]): Rectangle
+Create a Rectangle centered at the input origin in the CoordinateSystem XY Plane, with specified width (X Axis length), and length (Y Axis length).
+
+Rectangle.ByWidthLength (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), width: double = 1, length: double = 1): Rectangle
+Create a Rectangle centered at input Plane root, with input width (Plane X axis length), and length (Plane Y axis length).
+
+Rectangle.ByWidthLength (plane: Plane, width: double = 1, length: double = 1): Rectangle
+Create a Rectangle centered at the WCS origin in the WCS XY Plane, with specified width (X Axis length), and length (Y Axis length).
+
+Rectangle.ByWidthLength (width: double = 1, length: double = 1): Rectangle
+The height of the Rectangle
+
+Rectangle.Height: double
+The width of the Rectangle
+
+Rectangle.Width: double
+Create an IndexGroup storing four indices
+
+IndexGroup.ByIndices (a: int, b: int, c: int, d: int): IndexGroup
+Create an IndexGroup storing four indices
+
+IndexGroup.ByIndices (a: int, b: int, c: int): IndexGroup
+The first index
+
+IndexGroup.A: int
+The second index
+
+IndexGroup.B: int
+The third index
+
+IndexGroup.C: int
+Either 3 or 4, depending if it represents a triangle or a quad
+
+IndexGroup.Count: int
+The fourth index
+
+IndexGroup.D: int
+Create a mesh from a collection of Points and a collection of IndexGroups referencing the Point collection
+
+Mesh.ByPointsFaceIndices (vertexPositions: Point[], indices: IndexGroup[]): Mesh
+The vertex indices that make up each face in a counterclockwise fashion
+
+Mesh.FaceIndices: IndexGroup[]
+The normal vector at this vertex
+
+Mesh.VertexNormals: Vector[]
+The positions of the vertices
+
+Mesh.VertexPositions: Point[]
+Obtain the closest Point on this Geometry to the other
+
+Geometry.ClosestPointTo (other: Geometry): Point
+Deserializes the specified Standard ACIS Binary(SAB) format data and returns a list of geometry
+
+Geometry.DeserializeFromSAB (buffer: int[]): Geometry[]..[]
+Obtain the distance from this Geometry to another
+
+Geometry.DistanceTo (other: Geometry): double
+Determine if another Geometry object intersects with this one
+
+Geometry.DoesIntersect (other: Geometry): bool
+Separates compound or non-separated elements into their component parts.
+
+Geometry.Explode ( ): Geometry[]
+Exports the specified geometry to the given SAT file path
+
+Geometry.ExportToSAT (geometry: Geometry[], filePath: string): string
+Exports the specified geometry to the given SAT  file path.
+Imports a JSON string and returns an array of imported geometries
+
+Geometry.FromSolidDef (solidDefJson: string): Geometry[]..[]
+Imports a SAT file and returns an array of imported geometries
+
+Geometry.ImportFromSAT (filePath: string): Geometry[]..[]
+Imports a SAT file and returns an array of imported geometries
+
+Geometry.ImportFromSAT (file: var): Geometry[]..[]
+Get the intersection Geometry for this object and another
+
+Geometry.Intersect (other: Geometry): Geometry[]
+Get the intersection of Geometry for this object and a collection of other Geometries. Finds common geometry of all participants.
+
+Geometry.IntersectAll (others: Geometry[]): Geometry[]
+Check if the two objects have the same representational geometry or numerical values
+
+Geometry.IsAlmostEqualTo (other: Geometry): bool
+Mirror the object across the input Plane
+
+Geometry.Mirror (mirrorPlane: Plane): Geometry
+Rotates an object around the Plane origin and normal by a specified degree
+
+Geometry.Rotate (basePlane: Plane, degrees: double = 0): Geometry
+Rotates an object around an origin and an axis by a specified degree
+
+Geometry.Rotate (origin: Point, axis: Vector, degrees: double = 0): Geometry
+Scale non-uniformly around a given Plane
+
+Geometry.Scale (plane: Plane, xamount: double = 1, yamount: double = 1, zamount: double = 1): Geometry
+Scale non-uniformly around the origin
+
+Geometry.Scale (xamount: double = 1, yamount: double = 1, zamount: double = 1): Geometry
+Scale uniformly around a given point, using two pick points as scalars
+
+Geometry.Scale (basePoint: Point, from: Point, to: Point): Geometry
+Scale uniformly around the origin
+
+Geometry.Scale (amount: double = 1): Geometry
+Scale in one dimension by base and 2 pick points. The scaling axis is defined by the line between base and pick0.
+
+Geometry.Scale1D (basePoint: Point, from: Point, to: Point): Geometry
+Scale in two dimension by base and 2 pick points The two pick points are projected onto the base plane in order to determine the 2d scale factors
+
+Geometry.Scale2D (basePlane: Plane, from: Point, to: Point): Geometry
+Serializes the specified geometry into Standard ACIS Binary(SAB) format and returns serialized binary stream data
+
+Geometry.SerializeAsSAB (geometry: Geometry[]): int[]
+Split this Geometry using another Geometry as a cutting "tool"
+
+Geometry.Split (other: Geometry): Geometry[]
+Convert geometry to Solid Def json
+
+Geometry.ToSolidDef ( ): string
+Transforms geometry by the given CoordinateSystem's transform
+
+Geometry.Transform (cs: CoordinateSystem): Geometry
+Transforms this geometry from source CoordinateSystem to a new context CoordinateSystem.
+
+Geometry.Transform (fromCoordinateSystem: CoordinateSystem, contextCoordinateSystem: CoordinateSystem): Geometry
+Translate geometry in the given direction by the vector length
+
+Geometry.Translate (direction: Vector): Geometry
+Translates any given geometry by the given displacements in the x, y, and z directions defined in WCS respectively.
+
+Geometry.Translate (xTranslation: double = 0, yTranslation: double = 0, zTranslation: double = 0): Geometry
+Translates any geometry type by the given distance in the given direction.
+
+Geometry.Translate (direction: Vector, distance: double): Geometry
+Removes elements of the entity closest to the pick point
+
+Geometry.Trim (other: Geometry, pick: Point): Geometry[]
+Get the BoundingBox containing the given piece of Geometry
+
+Geometry.BoundingBox: BoundingBox
+Get the context/reference coordinate system that was used to create this geometry.
+
+Geometry.ContextCoordinateSystem: CoordinateSystem
+GeometryColor.ByGeometryColor (geometry: Geometry, color: Color): GeometryColor
+GeometryColor.BySurfaceColors (surface: Surface, colors: Color[][] = [[DSCore.Color.ByARGB(255, 255, 0, 0), DSCore.Color.ByARGB(255, 255, 255, 0)], [DSCore.Color.ByARGB(255, 0, 255, 255), DSCore.Color.ByARGB(255, 0, 0, 255)]]): GeometryColor
+Form a Point in the given coordinate system with 3 cartesian coordinates
+
+Point.ByCartesianCoordinates (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), x: double = 0, y: double = 0, z: double = 0): Point
+Form a Point in the XY plane given two 2 cartesian coordinates. The Z component is 0.
+
+Point.ByCoordinates (x: double = 0, y: double = 0): Point
+Form a Point given 3 cartesian coordinates
+
+Point.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): Point
+Form a Point in the given coordinate system given its position in cylindrical coordinates.
+
+Point.ByCylindricalCoordinates (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), angle: double = 0, elevation: double = 0, radius: double = 1): Point
+Form a Point in the given coordinate system given its position in spherical coordinates.
+
+Point.BySphericalCoordinates (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), phi: double = 0, theta: double = 0, radius: double = 1): Point
+Get the Origin point (0,0,0)
+
+Point.Origin ( ): Point
+Add a vector to a point. The same as Translate(Vector).
+
+Point.Add (vectorToAdd: Vector): Point
+Get the Vector with the same X, Y, and Z component
+
+Point.AsVector ( ): Vector
+Project another piece of Geometry onto this along a given direction Vector
+
+Point.Project (baseGeometry: Geometry, projectionDirection: Vector): Geometry[]
+Prune points to exclude duplicates within tolerance of included points
+
+Point.PruneDuplicates (points: Point[], tolerance: double = 0.001): Point[]
+Subtract a vector from a point. The same as Translate(-Vector).
+
+Point.Subtract (vectorToSubtract: Vector): Point
+Get the X component of a Point
+
+Point.X: double
+Get the Y component of a Point
+
+Point.Y: double
+Get the Z component of a Point
+
+Point.Z: double
+Create a UV from two doubles.
+
+UV.ByCoordinates (u: double = 0, v: double = 0): UV
+Get the U component of a UV
+
+UV.U: double
+Get the V component of a V
+
+UV.V: double
+Creates a Cone with base Point at CoordinateSystem origin, extending in the CoordinateSystem Z axis deriction length amount, with a circular bases in the CoordinateSystem XY Plane.
+
+Cone.ByCoordinateSystemHeightRadii (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), height: double = 1, startRadius: double = 1, endRadius: double = 1): Cone
+Creates a Cone with base Point at CoordinateSystem origin, extending in the CoordinateSystem Z axis deriction length amount, with a circular base in the CoordinateSystem XY Plane.
+
+Cone.ByCoordinateSystemHeightRadius (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), height: double = 1, startRadius: double = 1): Cone
+Create a Cone with axis from start Point to end Point, with given radiuses at start and end. This object does not have an apex, and can be thought of as a trimmed Cone.
+
+Cone.ByPointsRadii (startPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), endPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 1), startRadius: double = 1, endRadius: double = 1): Cone
+Create a Cone with given base radius at start Point, extending to a apex at end Point.
+
+Cone.ByPointsRadius (startPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), endPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 1), startRadius: double = 1): Cone
+The end point
+
+Cone.EndPoint: Point
+The radius at the bottom
+
+Cone.EndRadius: double
+The total height
+
+Cone.Height: double
+Ratio between the top and bottom radius
+
+Cone.RadiusRatio: double
+The start point
+
+Cone.StartPoint: Point
+The radius at the base
+
+Cone.StartRadius: double
+Create an Cuboid spanning from low Point to high Point.
+
+Cuboid.ByCorners (lowPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), highPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(1, 1, 1)): Cuboid
+Create a Cuboid centered at input Point, with specified width, length, and height.
+
+Cuboid.ByLengths (origin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), width: double = 1, length: double = 1, height: double = 1): Cuboid
+Create a Cuboid centered at WCS origin, with width, length, and height.
+
+Cuboid.ByLengths (width: double = 1, length: double = 1, height: double = 1): Cuboid
+Create a Cuboid centered and oriented to input CoordinateSystem, with specified width, length, and height.
+
+Cuboid.ByLengths (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), width: double = 1, length: double = 1, height: double = 1): Cuboid
+Returns height distance. Note: This return the input dimensions of the Cuboid, NOT the actual world space dimensions. In other words, if you create a Cuboid width (X-axis) length 10, and transform it to a CoordinateSystem with 2 times scaling in X, the width will still be 10. ASM does not allow you to extract the Vertices of a body in any predictable order, so it impossible to determine the dimensions after a transform.
+
+Cuboid.Height: double
+Returns length distance. Note: This return the input dimensions of the Cuboid, NOT the actual world space dimensions. In other words, if you create a Cuboid width (X-axis) length 10, and transform it to a CoordinateSystem with 2 times scaling in X, the width will still be 10. ASM does not allow you to extract the Vertices of a body in any predictable order, so it impossible to determine the dimensions after a transform.
+
+Cuboid.Length: double
+Returns width distance. Note: This return the input dimensions of the Cuboid, NOT the actual world space dimensions. In other words, if you create a Cuboid width (X-axis) length 10, and transform it to a CoordinateSystem with 2 times scaling in X, the width will still be 10. ASM does not allow you to extract the Vertices of a body in any predictable order, so it impossible to determine the dimensions after a transform.
+
+Cuboid.Width: double
+Construct a Solid Cylinder given the bottom and top center point of the Cylinder.
+
+Cylinder.ByPointsRadius (startPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), endPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 1), radius: double = 1): Cylinder
+Construct a Solid Cylinder defined by a parent CoordinateSystem, the radius, and the height of the cylinder
+
+Cylinder.ByRadiusHeight (cs: CoordinateSystem = Autodesk.DesignScript.Geometry.CoordinateSystem.ByOrigin(0, 0, 0), radius: double = 1, height: double = 1): Cylinder
+Axis of the cylinder
+
+Cylinder.Axis: Vector
+The total height
+
+Cylinder.Height: double
+The radius of the Cylinder
+
+Cylinder.Radius: double
+Create a solid by specifying it's component faces as Surfaces.
+
+Solid.ByJoinedSurfaces (facesOfSolid: Surface[]): Solid
+Create a Solid by lofting between input cross section closed Curves.
+
+Solid.ByLoft (crossSections: Curve[], guideCurves: Curve[]): Solid
+Create a Solid by lofting between input cross section closed Curves.
+
+Solid.ByLoft (crossSections: Curve[]): Solid
+Create a Surface of revolution, sweeping the profile Curve around the axis Ray formed by the origin and the axis Vector, from the start angle in degrees to the sweep angle in degrees.
+
+Solid.ByRevolve (profile: Curve, axisOrigin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), axisDirection: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1), startAngle: double = 0, sweepAngle: double = 180): Solid
+Sweep a closed Curve along a path.
+
+Solid.BySweep (profile: Curve, path: Curve): Solid
+Sweep a closed profile Curve along two rail Curves.
+
+Solid.BySweep2Rails (path: Curve, guideRail: Curve, profile: Curve): Solid
+Union a collection of solids into one solid
+
+Solid.ByUnion (solids: Solid[]): Solid
+The centroid of the Solid
+
+Solid.Centroid ( ): Point
+Chamfers a Solid along input Edges with a given offset from the edge corner.
+
+Solid.Chamfer (edges: Edge[], offset: double): Solid
+The boolean difference of this Solid with another
+
+Solid.Difference (other: Solid): Solid
+The boolean difference of this Solid and the union of input Solids
+
+Solid.DifferenceAll (others: Solid[]): Solid
+Fillets a Solid along input Edges with a given radius.
+
+Solid.Fillet (edges: Edge[], radius: double): Solid
+Projects the input Geometry onto this Solid, in the direction of the input Vector
+
+Solid.ProjectInputOnto (geometryToProject: Geometry, projectDirection: Vector): Geometry[]
+Obtain a solid Shell from the Faces of this Solid
+
+Solid.ThinShell (internalFaceThickness: double = 1, externalFaceThickness: double = 1): Solid
+The boolean union of this Solid and another.
+
+Solid.Union (solid: Solid): Solid
+Returns the surface area -- sum of all the areas of all faces
+
+Solid.Area: double
+The total volume of the Solid
+
+Solid.Volume: double
+Fit a Sphere as close as possible to the input Points.
+
+Sphere.ByBestFit (points: Point[]): Sphere
+Create a Solid Sphere cetered at the input Point, with given radius.
+
+Sphere.ByCenterPointRadius (centerPoint: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), radius: double = 1): Sphere
+Create a Solid Sphere containing four input Points on the surface.
+
+Sphere.ByFourPoints (points: Point[]): Sphere
+Return the center Point of the Sphere.
+
+Sphere.CenterPoint: Point
+Return the radius of the Sphere.
+
+Sphere.Radius: double
+Create a NurbsSurface by using explicit control Points, with specified U and V degrees.
+
+NurbsSurface.ByControlPoints (controlVertices: Point[][], uDegree: int = 3, vDegree: int = 3): NurbsSurface
+Creates a NurbsSurface with specified control vertices, knots, weights, and U V degrees. There are several restrictions on the data which, if broken, will cause the function to fail and will throw an exception. Degree: Both u- and v- degree should be >= 1 (piecewise-linear spline) and less than 26 (the maximum B-spline basis degree supported by ASM). Weights: All weight values (if supplied) should be strictly positive. Weights smaller than 1e-11 will be rejected and the function will fail. Knots: Both knot vectors should be non-decreasing sequences. Interior knot multiplicity should be no larger than degree + 1 at the start/end knot and degree at an internal knot (this allows surfaces with G1 discontinuities to be represented). Note that non-clamped knot vectors are supported, but will be converted to clamped ones, with the corresponding changes applied to the control point/weight data.
+
+NurbsSurface.ByControlPointsWeightsKnots (controlVertices: Point[][], weights: double[][], knotsU: double[], knotsV: double[], uDegree: int = 3, vDegree: int = 3): NurbsSurface
+Creates a NurbsSurface with specified interpolated points and U and V degrees. The resultant surface will pass through all of the points.
+
+NurbsSurface.ByPoints (points: Point[][], uDegree: int = 3, vDegree: int = 3): NurbsSurface
+Creates a NurbsSurface with specified interpolated points and U and V degrees. The resultant surface will pass through all of the points. The number of tangents must match the number of points in the corresponding direction. The resultant surface will be degree 3 in both the U and V direction.
+
+NurbsSurface.ByPointsTangents (points: Point[][], startUTangents: Vector[], endUTangents: Vector[], startVTangents: Vector[], endVTangents: Vector[]): NurbsSurface
+Creates a NurbsSurface satisfying a collection of different surface characteristics. This is the most advanced surface fitting method. The resultant surface will pass through all of the points. The number of tangents must match the number of points in the corresponding direction. The resultant surface will be degree 3 in both the U and V direction. The corner derivatives should be second order (dP/dUdV) and should be supplied in this order [ lowU, lowV ], [ highU, lowV ], [ lowU, highV ], [ highU, highV ].
+
+NurbsSurface.ByPointsTangentsKnotsDerivatives (points: Point[][], startUTangents: Vector[], endUTangents: Vector[], startVTangents: Vector[], endVTangents: Vector[], uKnots: double[], vKnots: double[], cornerTwistDerivatives: Vector[]): NurbsSurface
+Returns NurbsSurface control points (poles).
+
+NurbsSurface.ControlPoints ( ): Point[][]
+Surface knots in U direction.
+
+NurbsSurface.UKnots ( ): double[]
+Surface knots in V direction.
+
+NurbsSurface.VKnots ( ): double[]
+Returns NurbsSurface control point weights.
+
+NurbsSurface.Weights ( ): double[][]
+Surface degree in the U direction.
+
+NurbsSurface.DegreeU: int
+Surface degree in the V direction.
+
+NurbsSurface.DegreeV: int
+Returns true if the Surface is periodic in the U direction.
+
+NurbsSurface.IsPeriodicInU: bool
+Returns true if the Surface is periodic in the V direction.
+
+NurbsSurface.IsPeriodicInV: bool
+Returns true if the Surface is rational.
+
+NurbsSurface.IsRational: bool
+Number of control Points in the U direction.
+
+NurbsSurface.NumControlPointsU: int
+Number of control Points in the V direction.
+
+NurbsSurface.NumControlPointsV: int
+Make Polysurface by joining surfaces.
+
+PolySurface.ByJoinedSurfaces (surfaces: Surface[]): PolySurface
+Makes PolySurface by Loft through Curves.
+
+PolySurface.ByLoft (crossSections: Curve[]): PolySurface
+Makes PolySurface by Loft through Curves.
+
+PolySurface.ByLoft (crossSections: Curve[], guideCurve: Curve): PolySurface
+Makes PolySurface by Loft through PolyCurves.
+
+PolySurface.ByLoftGuides (crossSections: Curve[], guideCurves: Curve[]): PolySurface
+Make Polysurface by surfaces of Solid.
+
+PolySurface.BySolid (solid: Solid): PolySurface
+Make Polysurface by sweeping curves along rail.
+
+PolySurface.BySweep (rail: Curve, crossSection: Curve[]): PolySurface
+Chamfers a PolySurface along input Edges with a given offset from the edge corner.
+
+PolySurface.Chamfer (edges: Edge[], offset: double): PolySurface
+number of edges of Polysurface
+
+PolySurface.EdgeCount ( ): int
+Extract Solids from Polysurface defined by subset of surfaces
+
+PolySurface.ExtractSolids ( ): Solid[]
+Fillets a PolySurface along input Edges with a given radius.
+
+PolySurface.Fillet (edges: Edge[], radius: double): PolySurface
+Locate Surfaces by Line. Takes all surfaces hit by line.
+
+PolySurface.LocateSurfacesByLine (line: Line): Surface[]
+Locate Surfaces by point. Takes first intersection in forward direction. Returns one surface if hit surface interior, two if hit edge interior, and many if hit vertex
+
+PolySurface.LocateSurfacesByPoint (point: Point, direction: Vector): Surface[]
+number of surfaces of Polysurface
+
+PolySurface.SurfaceCount ( ): int
+Return new Surfaces representing the underlying Surfaces.
+
+PolySurface.Surfaces ( ): Surface[]
+Compute 2d cell boundaries which are not connected to other Surfaces
+
+PolySurface.UnconnectedBoundaries ( ): PolyCurve[]
+number of vertices of Polysurface
+
+PolySurface.VertexCount ( ): int
+Create a Surface by lofting between input cross section Curves.
+
+Surface.ByLoft (crossSections: Curve[]): Surface
+Create a Surface by lofting between input cross section Curves.
+
+Surface.ByLoft (crossSections: Curve[], guideCurves: Curve[]): Surface
+Create a Surface by filling in the interior of a closed boundary defined by input Curves.
+
+Surface.ByPatch (closedCurve: Curve): Surface
+Create a Polygon Surface connecting input Points in a closed Polygon and patching it.
+
+Surface.ByPerimeterPoints (points: Point[]): Surface
+Create a Surface by sweeping the profile Curve around the axis ray formed by origin Point in the direction of the axis Vector, starting at start_angle in degrees, sweeping sweep_angle in degrees.
+
+Surface.ByRevolve (profile: Curve, axisOrigin: Point = Autodesk.DesignScript.Geometry.Point.ByCoordinates(0, 0, 0), axisDirection: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 1), startAngle: double = 0, sweepAngle: double = 180): Surface
+Create a Surface by lofting between input cross section Lines. This is slightly faster and produces a less smooth result than Surface.ByLoft.
+
+Surface.ByRuledLoft (crossSections: Line[]): Surface
+Create a Surface by sweeping a cross section Curve along a path.
+
+Surface.BySweep (profile: Curve, path: Curve): Surface
+Sweep the cross section curve along a path guided by a two rails
+
+Surface.BySweep2Rails (path: Curve, guideRail: Curve, profile: Curve): Surface
+Gets a Nurbs representation of the Surface within a specified tolerance. This method may approximate Surface in certain circumstances.
+
+Surface.ApproximateWithTolerance (tolerance: double = 0.001): NurbsSurface
+Return a CoordinateSystem aligned with principal curvature directions.
+
+Surface.CoordinateSystemAtParameter (u: double = 0, v: double = 0): CoordinateSystem
+The returned coordination system use xAxis, yAxis and zAxis to represent the uDir, vDir and normal. The length of xAxis, yAxis represents the curvatures.
+
+Surface.CurvatureAtParameter (u: double = 0, v: double = 0): CoordinateSystem
+Return the derivatives at input U and V coordinates.
+
+Surface.DerivativesAtParameter (u: double = 0, v: double = 0): Vector[]
+Returns a new Surface with the Normal flipped. Leaves this surface unchanged.
+
+Surface.FlipNormalDirection ( ): Surface
+Returns the Gaussian curvature at U and V parameters.
+
+Surface.GaussianCurvatureAtParameter (u: double = 0, v: double = 0): double
+Create a parameter line curve on the given surface. Create a Curve that represents a u or v parameter line on the Surface. A parameter line runs in the direction of increasing u or v parameter at a constant opposite u or v parameter. The resulting Curve will match the Surface parameterisation and its range will be bounded by the Surface parameter range. The type of Curve returned will depend on the Surface type.
+
+Surface.GetIsoline (isoDirection: int = 0, parameter: double = 0): Curve
+Return the normal Vector at specified U and V parameters.
+
+Surface.NormalAtParameter (u: double = 0, v: double = 0): Vector
+Return the surface normal at the input Point on the Surface.
+
+Surface.NormalAtPoint (point: Point): Vector
+Offset Surface in direction of Surface normal by specified distance.
+
+Surface.Offset (distance: double = 1): Surface
+Return all the boundary Curves of the Surface.
+
+Surface.PerimeterCurves ( ): Curve[]
+Return the Point at specified U and V parameters.
+
+Surface.PointAtParameter (u: double = 0, v: double = 0): Point
+Returns the principal curvatures at the U and V parameters.
+
+Surface.PrincipalCurvaturesAtParameter (u: double = 0, v: double = 0): double[]
+Returns principal direction vectors at U and V parameters.
+
+Surface.PrincipalDirectionsAtParameter (u: double = 0, v: double = 0): Vector[]
+Projects the input Geometry onto this Surface in the input Vector direction
+
+Surface.ProjectInputOnto (geometryToProject: Geometry, projectionDirection: Vector): Geometry[]
+Subtract the input tools from this Surface.
+
+Surface.SubtractFrom (trimmingEntity: Solid): Geometry[]
+Return the U tangent Vector at specified U and V parameters.
+
+Surface.TangentAtUParameter (u: double = 0, v: double = 0): Vector
+Return the V tangent Vector at specified U and V parameters.
+
+Surface.TangentAtVParameter (u: double = 0, v: double = 0): Vector
+Thicken Surface into a Solid, extruding in the direction of Surface normals on both sides of the Surface.
+
+Surface.Thicken (thickness: double = 1): Solid
+Thicken Surface into a Solid, extruding in the direction of Surface normals. If both_sides parameter is true, surface is thickened on both sides.
+
+Surface.Thicken (thickness: double = 1, both_sides: bool = true): Solid
+Gets a Nurbs representation of the Surface. This method may approximate Surface in certain circumstances.
+
+Surface.ToNurbsSurface ( ): NurbsSurface
+Trim the surface with a collection of loops within the surface
+
+Surface.TrimWithEdgeLoops (loops: PolyCurve[]): Surface
+Return the UV parameter pair at the input Point. This is the inverse of Point at parameter.
+
+Surface.UVParameterAtPoint (point: Point): UV
+Returns the total surface area.
+
+Surface.Area: double
+Returns true if the Surface is closed in U or V directions
+
+Surface.Closed: bool
+Returns true if the Surface is closed in U direction.
+
+Surface.ClosedInU: bool
+Returns true if the Surface is closed in V direction
+
+Surface.ClosedInV: bool
+Returns the sum of all edges of the Surface.
+
+Surface.Perimeter: double
+Creates a convex hull of a set of points.
+
+ConvexHull.ByPoints (points: Point[]): Curve[]
+Creates a Delaunay triangulation of a surface with a given set of UV parameters.
+
+Delaunay.ByParametersOnSurface (uvs: UV[], face: Surface): Curve[]
+Creates a Delaunay triangulation of a set of points.
+
+Delaunay.ByPoints (points: Point[]): Curve[]
+Creates a Voronoi tessellation of a surface with a given set of UV parameters.
+
+Voronoi.ByParametersOnSurface (uvs: UV[], face: Surface): Curve[]
+Write a list of lists into a file using a comma-separated values format. Outer list represents rows, inner lists represent columns.
+
+Data.ExportCSV (filePath: string, data: var[][]): void
+Write data to a Microsoft Excel spreadsheet. Data is written by row with sublists to be written in successive rows. Rows and columns are zero-indexed; for example, the value in the data list at [0,0] will be written to cell A1. Null values and empty lists are written to Excel as empty cells. This node requires Microsoft Excel to be installed.
+
+Data.ExportExcel (filePath: string, sheetName: string, startRow: int, startCol: int, data: var[][], overWrite: bool = false): var[][]
+Imports data from a CSV (comma separated values) file, put the items into a list and transpose it if needed.
+
+Data.ImportCSV (filePath: string, transpose: bool = false): var[]..[]
+Read data from a Microsoft Excel spreadsheet. Data is read by row and returned in a series of lists by row. Rows and columns are zero-indexed; for example, the value in cell A1 will appear in the data list at [0,0]. This node requires Microsoft Excel to be installed.
+
+Data.ImportExcel (file: var, sheetName: string, readAsStrings: bool = false, showExcel: bool = true): var[][]
+Node of type 'Unresolved' (C:\Program Files\Dynamo\Dynamo Core\2\DynamoCore.dll) cannot be resolved
+Node of type 'Unresolved' (C:\Program Files\Dynamo\Dynamo Core\2\DynamoCore.dll) cannot be resolved
+Append the text content to a file specified by the path
+
+FileSystem.AppendText (filePath: string, text: string): void
+Changes the extension of a file path.
+
+FileSystem.ChangePathExtension (path: string, newExtension: string): string
+Combines multiple strings into a single file path.
+
+FileSystem.CombinePath (paths: string[]): string
+Copies a directory to a destination location.
+
+FileSystem.CopyDirectory (directory: var, destinationPath: string, overwriteFiles: bool = false): void
+Copies a file.
+
+FileSystem.CopyFile (file: var, destinationPath: string, overwrite: bool = false): void
+Deletes a directory.
+
+FileSystem.DeleteDirectory (path: string, recursive: bool = false): void
+Deletes the specified file.
+
+FileSystem.DeleteFile (path: string): void
+Creates a directory object from a path
+Allows you to select a directory on the system to get its path
+Determines if a directory exists at the given path.
+
+FileSystem.DirectoryExists (path: string): bool
+Returns the directory name of a file path.
+
+FileSystem.DirectoryName (path: string): string
+Creates a file object from a path.
+Allows you to select a file on the system to get its filename
+Determines if a file exists at the given path.
+
+FileSystem.FileExists (path: string): bool
+Returns the extension from a file path.
+
+FileSystem.FileExtension (path: string): string
+Determines whether or not a file path contains an extension.
+
+FileSystem.FileHasExtension (path: string): bool
+Returns the file name of a file path.
+
+FileSystem.FileName (path: string, withExtension: bool = true): string
+FileSystem.GetDirectoryContents (directory: var, searchString: string = "*.*", includeSubdirectories: bool = false): var[]..[]
+Moves a directory to a new location.
+
+FileSystem.MoveDirectory (path: string, newPath: string, overwriteFiles: bool = false): void
+Moves a specified file to a new location
+
+FileSystem.MoveFile (path: string, newPath: string, overwrite: bool = false): void
+Reads a text file and returns the contents as a string.
+
+FileSystem.ReadText (file: var): string
+Write the text content to a file specified by the path
+
+FileSystem.WriteText (filePath: string, text: string): void
+Returns the width and height of an image.
+
+Image.Dimensions (image: var): var[]..[]
+Constructs an image from a flat list of pixels, a width, and a height.
+
+Image.FromPixels (colors: Color[], width: int, height: int): var
+Constructs an image from a 2d list of pixels.
+
+Image.FromPixels (colors: Color[][]): var
+Reads an image file and returns the color values at the specified grid locations.
+
+Image.Pixels (image: var, xSamples: int, ySamples: int): Color[][]
+Loads the file as a bitmap.
+
+Image.ReadFromFile (file: var): var
+Write the image to a path, given the specified file name.
+
+Image.WriteToFile (path: string, image: var): void
+Make a web request given a url.
+Selection between a true and false.
+A function parameter, use with custom nodes.
+
+You can specify the type and default value for parameter. E.g.,
+
+input : var[]..[]
+value : bool = false
+A slider that produces integer values.
+Creates a number.
+A slider that produces numeric values.
+A function output, use with custom nodes
+Creates a string.
+Adds a TimeSpan to a DateTime, yielding a new DateTime.
+
+DateTime.AddTimeSpan (dateTime: var, timeSpan: var): var
+Creates a new DateTime at an exact date.
+
+DateTime.ByDate (year: int, month: int, day: int): var
+Creates a new DateTime at an exact date and time.
+
+DateTime.ByDateAndTime (year: int, month: int, day: int, hour: int = 0, minute: int = 0, second: int = 0, millisecond: int = 0): var
+Extracts the individual components of a DateTime.
+
+DateTime.Components (dateTime: var): var[]..[]
+Extracts only the date from a DateTime. Time components are set to 0.
+
+DateTime.Date (dateTime: var): var
+Create a DateTime object from a formatted date and time string. Date and time must be of the format "April 12, 1977 12:00 PM"
+Returns the Day of the Week from a given DateTime.
+
+DateTime.DayOfWeek (dateTime: var): DayOfWeek
+Returns the day of the year (0-366)
+
+DateTime.DayOfYear (dateTime: var): int
+Calculates how many days are in the given month of the given year.
+
+DateTime.DaysInMonth (year: int, month: int): int
+Return a specified date and time as a string, in the specified format.
+
+DateTime.Format (dateTime: var, format: string = "F"): string
+Attempts to parse a DateTime from a string.
+
+DateTime.FromString (str: string): var
+Determines if it is Daylight Savings Time at the given DateTime.
+
+DateTime.IsDaylightSavingsTime (dateTime: var): bool
+Determines if the given year is a leap year.
+
+DateTime.IsLeapYear (year: int): bool
+Subtracts a TimeSpan from a DateTime, yielding a new DateTime.
+
+DateTime.SubtractTimeSpan (dateTime: var, timeSpan: var): var
+Yields a new TimeSpan representing the amount of time passed since midnight of the given DateTime.
+
+DateTime.TimeOfDay (dateTime: var): var
+The latest date and time that can be represented.
+
+DateTime.MaxValue: var
+The earliest date and time that can be represented.
+
+DateTime.MinValue: var
+The current system date and time.
+
+DateTime.Now: var
+The current system date, with time set at midnight.
+
+DateTime.Today: var
+Location.ByLatitudeAndLongitude (latitude: double, longitude: double, name: string): Location
+Location.Latitude: double
+Location.Longitude: double
+Location.Name: string
+Returns what is passed in, doing nothing.
+
+Object.Identity (obj: var): var[]..[]
+Determines the if the given object is null.
+
+Object.IsNull (obj: var): bool
+Returns the type of object represented as string.
+
+Object.Type (obj: var): string
+Adds two TimeSpans.
+
+TimeSpan.Add (timeSpan1: var, timeSpan2: var): var
+Yields a new TimeSpan calculated from the time difference between two DateTimes.
+
+TimeSpan.ByDateDifference (date1: var, date2: var): var
+Extracts the individual components of a TimeSpan.
+
+TimeSpan.Components (timeSpan: var): var[]..[]
+Creates a new TimeSpan from a span of time.
+
+TimeSpan.Create (days: double = 0, hours: double = 0, minutes: double = 0, seconds: double = 0, milliseconds: double = 0): var
+Attempts to parse a TimeSpan from a string.
+
+TimeSpan.FromString (str: string): var
+Negates a TimeSpan.
+
+TimeSpan.Negate (timeSpan: var): var
+Multiplies a TimeSpan by a scaling factor.
+
+TimeSpan.Scale (timeSpan: var, scaleFactor: double): var
+Subtracts two TimeSpans.
+
+TimeSpan.Subtract (timeSpan1: var, timeSpan2: var): var
+Converts the total amount of time represented by a TimeSpan to an inexact number of days.
+
+TimeSpan.TotalDays (timeSpan: var): double
+Converts the total amount of time represented by a TimeSpan to an inexact number of hours.
+
+TimeSpan.TotalHours (timeSpan: var): double
+Converts the total amount of time represented by a TimeSpan to an inexact number of milliseconds.
+
+TimeSpan.TotalMilliseconds (timeSpan: var): double
+Converts the total amount of time represented by a TimeSpan to an inexact number of minutes.
+
+TimeSpan.TotalMinutes (timeSpan: var): double
+Converts the total amount of time represented by a TimeSpan to an inexact number of seconds.
+
+TimeSpan.TotalSeconds (timeSpan: var): double
+The largest TimeSpan that can be represented.
+
+TimeSpan.MaxValue: var
+The smallest TimeSpan that can be represented.
+
+TimeSpan.MinValue: var
+A TimeSpan representing an elapsed time of Zero.
+
+TimeSpan.Zero: var
+Makes a new list out of the given inputs
+Creates a sequence of numbers or letters in the specified range.
+Creates a sequence of numbers.
+Produces all combinations of the given length of a given list.
+
+List.Combinations (list: var[]..[], length: int, replace: bool = false): var[]..[]
+Creates a new list by concatenining copies of a given list.
+
+List.Cycle (list: var[]..[], amount: int): var[]..[]
+Concatenates all given lists into a single list.
+
+List.Join (lists: var[]..[]): var[]..[]
+Creates a list containing the given item the given number of times.
+
+List.OfRepeatedItem (item: var[]..[], amount: int): var[]..[]
+Produces all permutations of the given length of a given list.
+
+List.Permutations (list: var[]..[], length: int): var[]..[]
+Returns an Empty List.
+
+List.Empty: var[]..[]
+Determines if all items in the given list is a boolean and has a false value.
+
+List.AllFalse (list: var[]..[]): bool
+Given an item, returns the zero-based indices of all its occurrences in the list. If the item cannot be found, an empty list is returned.
+
+List.AllIndicesOf (list: var[]..[], item: var): var[]..[]
+Determines if all items in the given list is a boolean and has a true value.
+
+List.AllTrue (list: var[]..[]): bool
+Determines if the given list contains the given item. This function searches through the sublists contained in it.
+
+List.Contains (list: var[]..[], item: var[]..[]): bool
+Returns the number of items stored in the given list.
+
+List.Count (list: var[]..[]): int
+Returns the number of false boolean values in the given list.
+
+List.CountFalse (list: var[]..[]): int
+Returns the number of true boolean values in the given list.
+
+List.CountTrue (list: var[]..[]): int
+List elements along each diagonal in the matrix from the top right to the lower left.
+
+List.DiagonalLeft (list: var[]..[], rowLength: int): var[]..[]
+List elements along each diagonal in the matrix from the top left to the lower right.
+
+List.DiagonalRight (list: var[]..[], subLength: int): var[]..[]
+Determines whether two object instances are equal.
+
+List.Equals (objectA: var[]..[], objectB: var[]..[]): bool
+Given an item, returns the zero-based index of its first occurrence in the list. If the item cannot be found in the list, -1 is returned.
+
+List.FirstIndexOf (list: var[]..[], item: var): int
+Returns the first item in a list.
+
+List.FirstItem (list: var[]..[]): var[]..[]
+Returns an item from the given list that's located at the specified index.
+
+List.GetItemAtIndex (list: var[]..[], index: int): var[]..[]
+Returns the index of the element in the given list.
+
+List.IndexOf (list: var[]..[], element: var): int
+Determines if the given list is empty.
+
+List.IsEmpty (list: var[]..[]): bool
+Check if the items in the list are of the same type.
+
+List.IsHomogeneous (list: var[]..[]): bool
+Check if the number of items in all rows of the list are the same.
+
+List.IsRectangular (list: var[]..[]): bool
+Check if the items in the list have the same depth.
+
+List.IsUniformDepth (list: var[]..[]): bool
+Retrieves the last item in a list.
+
+List.LastItem (list: var[]..[]): var[]..[]
+Returns the maximum value from a list.
+
+List.MaximumItem (list: var[]): var[]..[]
+Returns the minimum value from a list.
+
+List.MinimumItem (list: var[]): var[]..[]
+Returns the deepest depth of the list
+
+List.Rank (list: var[]..[]): int
+Returns a new list that includes objects in List1 but excludes objects in List2.
+
+List.SetDifference (list1: var[], list2: var[]): var[]..[]
+Returns a new list that includes objects that are present in both List1 and List2.
+
+List.SetIntersection (list1: var[], list2: var[]): var[]..[]
+Returns a new list that includes objects that are present in either List1 or List2.
+
+List.SetUnion (list1: var[], list2: var[]): var[]..[]
+Returns true if all items in the list evaluate to true with the given predicate.
+
+List.TrueForAll (list: var[]..[], predicate: Function): bool
+Returns true if one or more items in the list evaluate to true with the given predicate.
+
+List.TrueForAny (list: var[]..[], predicate: Function): bool
+Creates a new list containing all unique items in the given list.
+
+List.UniqueItems (list: var[]..[]): var[]..[]
+Applies a combinator to each pair in the cartesian product of two sequences
+Applies a combinator to each element in two sequences
+Applies a combinator to each pair resulting from a longest lacing of the input lists. All lists have their last element repeated to match the length of the longest input.
+Applies a combinator to each pair resulting from a shortest lacing of the input lists. All lists are truncated to the length of the shortest input.
+Applies a function over all elements of a list, generating a new list from the results.
+Adds an item to the end of a list.
+
+List.AddItemToEnd (item: var[]..[], list: var[]..[]): var[]..[]
+Adds an item to the beginning of a list.
+
+List.AddItemToFront (item: var[]..[], list: var[]..[]): var[]..[]
+Chop a list into a set of consecutive sublists with the specified lengths. List division begins at the top of the list.
+
+List.Chop (list: var[]..[], lengths: int[]): var[]..[]
+Cleans data of nulls and empty lists from a given list of arbitrary dimension
+
+List.Clean (list: var[]..[], preserveIndices: bool = true): var[]..[]
+Given a list, produces the first item in the list, and a new list containing all items except the first.
+
+List.Deconstruct (list: var[]..[]): var[]..[]
+Removes items from the given list at indices that are multiples of the given value, after the given offset.
+
+List.DropEveryNthItem (list: var[]..[], n: int, offset: int = 0): var[]..[]
+Removes an amount of items from the start of the list. If the amount is a negative value, items are removed from the end of the list.
+
+List.DropItems (list: var[]..[], amount: int): var[]..[]
+Filters a sequence by a given condition such that for an arbitrary element "x," condition(x) = True or False.
+Filters a sequence by looking up corresponding indices in a separate list of booleans.
+
+List.FilterByBoolMask (list: var[]..[], mask: var[]..[]): var[]..[]
+Flattens a nested list of lists by a certain amount.
+
+List.Flatten (list: var[]..[], amt: int = -1): var[]..[]
+Inserts an element into a list at specified index.
+
+List.Insert (list: var[]..[], element: var[]..[], index: int): var[]..[]
+Reduces a list into a new value by combining each element with an accumulated result.
+Removes the members of the list which are not members of the specified type.
+
+List.RemoveIfNot (list: var[]..[], type: string): var[]..[]
+Removes an item from the given list at the specified index.
+
+List.RemoveItemAtIndex (list: var[]..[], indices: int[]): var[]..[]
+Replaces an object with a given substitute if the original object satisfies a given condition.
+Replace an item from the given list that's located at the specified index.
+
+List.ReplaceItemAtIndex (list: var[]..[], index: int, item: var[]..[]): var[]..[]
+Removes the first item from the given list.
+
+List.RestOfItems (list: var[]..[]): var[]..[]
+Reduces a list into a new value by combining each element with an accumulated result, produces a list of successive reduced values.
+Returns a single sub-list from the given list, based on starting index, ending index, and a step amount.
+
+List.Slice (list: var[]..[], start: int, end: int, step: int = 1): var[]..[]
+Build sublists from a list using DesignScript range syntax.
+
+List.Sublists (list: var[]..[], ranges: var[]..[], offset: int): var[]..[]
+Fetches items from the given list at indices that are multiples of the given value, after the given offset.
+
+List.TakeEveryNthItem (list: var[]..[], n: int, offset: int = 0): var[]..[]
+Fetches an amount of items from the start of the list.
+
+List.TakeItems (list: var[]..[], amount: int): var[]..[]
+Use a function to determine how list items should be grouped.
+
+List.GroupByFunction (list: var[]..[], func: Function): var[]..[]
+Group items into sub-lists based on their like key values
+
+List.GroupByKey (list: var[]..[], keys: var[]..[]): var[]..[]
+Returns the items from the list that generate the maximum values for the function supplied as the key projector
+
+List.MaximumItemByKey (list: var[]..[], keyProjector: Function): var[]..[]
+Returns the items from the list that generate the minimum values for the function supplied as the key projector
+
+List.MinimumItemByKey (list: var[]..[], keyProjector: Function): var[]..[]
+Returns multidimensional list according the rank given.
+
+List.NormalizeDepth (list: var[]..[], rank: int = 1): var[]..[]
+Reorders the input list based on the given list of indices.
+
+List.Reorder (list: var[]..[], indices: var[]..[]): var[]..[]
+Creates a new list containing the items of the given list but in reverse order.
+
+List.Reverse (list: var[]..[]): var[]..[]
+Shifts indices in the list to the right by the given amount.
+
+List.ShiftIndices (list: var[]..[], amount: int): var[]..[]
+Shuffles a list, randomizing the order of its items.
+
+List.Shuffle (list: var[]..[]): var[]..[]
+Sorts a list by the items and return their indices.
+
+List.Sort (list: var[]): var[]..[]
+Use a function to determine how list items should be sorted.
+
+List.SortByFunction (list: var[]..[], func: Function): var[]..[]
+Sort list based on its keys
+
+List.SortByKey (list: var[]..[], keys: var[]..[]): var[]..[]
+Sorts a list by the items and return their indices.
+
+List.SortIndexByValue (list: double[]): var[]..[]
+Swaps rows and columns in a list of lists. If there are some rows that are shorter than others, null values are inserted as place holders in the resultant array such that it is always rectangular.
+
+List.Transpose (lists: var[]..[]): var[]..[]
+Finds the absolute value of a number.
+
+Math.Abs (integer: int): int
+Finds the absolute value of a number.
+
+Math.Abs (number: double): double
+Finds the inverse cosine, the angle whose cosine is the given ratio.
+
+Math.Acos (ratio: double): double
+Finds the inverse sine, the angle whose sine is the given ratio.
+
+Math.Asin (ratio: double): double
+Finds the inverse tangent, the angle whose tangent is the given ratio.
+
+Math.Atan (ratio: double): double
+Finds the inverse tangent of quotient of two numbers. Returns the angle whose tangent is the ratio: numerator/denominator.
+
+Math.Atan2 (numerator: double, denominator: double): double
+Averages a list of numbers.
+
+Math.Average (numbers: double[]): double
+Returns the first integer greater than the number
+
+Math.Ceiling (number: double): int
+Finds the cosine of an angle.
+
+Math.Cos (angle: double): double
+Finds the hyperbolic cosine of an angle (radians).
+
+Math.Cosh (angle: double): double
+Finds the remainder of dividend/divisor.
+
+Math.DivRem (dividend: int, divisor: int): int
+Evaluates an NCalc formula with given parameter mappings.
+
+Math.EvaluateFormula (formulaString: string, parameters: string[], args: var[]): var[]..[]
+Returns the exponential of the number, the constant e raised to the value number.
+
+Math.Exp (number: double): double
+Finds the factorial result of a positive integer.
+
+Math.Factorial (number: int): int
+Returns the first integer smaller than the number.
+
+Math.Floor (number: double): int
+Evaluates mathematical formulas. Uses NCalc: http://ncalc.codeplex.com/
+Finds the natural logarithm of a number in the range (0, ∞).
+
+Math.Log (number: double): double
+Finds the logarithm of a number with the specified base.
+
+Math.Log (number: double, logBase: double): double
+Finds the base-10 logarithm of a number.
+
+Math.Log10 (number: double): double
+Maps the input value to a number between 0 and 1 based on the input range.
+
+Math.Map (rangeMin: double, rangeMax: double, inputValue: double): double
+Maps the input value to a number between targetRangeMin and targetRangeMax.
+
+Math.MapTo (rangeMin: double, rangeMax: double, inputValue: double, targetRangeMin: double, targetRangeMax: double): double
+Returns the greater of two numbers.
+
+Math.Max (value1: double, value2: double): double
+Returns the greater of two numbers.
+
+Math.Max (int1: int, int2: int): int
+Returns the lesser of two numbers.
+
+Math.Min (int1: int, int2: int): int
+Returns the lesser of two numbers.
+
+Math.Min (value1: double, value2: double): double
+Raises a number to the specified power.
+
+Math.Pow (number: double, power: double): double
+Produce a random number in the range [0, 1).
+
+Math.Rand ( ): double
+Produce a random number in the range [lower_number, higher_number).
+
+Math.Random (value1: double, value2: double): double
+Generates a random double in the range of [0, 1).
+
+Math.Random (seed: int): double
+Produces a list containing the given amount of random doubles in the range of [0, 1).
+
+Math.RandomList (amount: int): var[]..[]
+Adjusts the range of a list of numbers while preserving the distribution ratio.
+
+Math.RemapRange (numbers: double[], newMin: double = 0, newMax: double = 1): var[]..[]
+Rounds a number to the closest integral value. Note that this method returns a double-precision floating-point number instead of an integral type.
+
+Math.Round (number: double): double
+Rounds a number to a specified number of fractional digits.
+
+Math.Round (number: double, digits: int): double
+Returns the sign of the number: -1, 0, or 1.
+
+Math.Sign (integer: int): int
+Returns the sign of the number: -1, 0, or 1.
+
+Math.Sign (number: double): int
+Finds the sine of an angle.
+
+Math.Sin (angle: double): double
+Finds the hyperbolic sine of an angle (radians).
+
+Math.Sinh (angle: double): double
+Finds the positive square root of a number in the range [0, ∞).
+
+Math.Sqrt (number: double): double
+Find the sum of a series of numbers
+
+Math.Sum (values: double[]): double
+Finds the tangent of an angle.
+
+Math.Tan (angle: double): double
+Finds the hyperbolic tangent of an angle (radians).
+
+Math.Tanh (angle: double): double
+The mathematical constant e, 2.71828...
+
+Math.E: double
+The golden ratio, (1 + sqrt(5))/2 = 1.61803...
+
+Math.GoldenRatio: double
+The mathematical constant Pi, 3.14159...
+
+Math.PI: double
+Pi Constant Multiplied by 2
+
+Math.PiTimes2: double
+Boolean AND: Returns true only if both of the inputs are true. If either is false, returns false.
+Boolean OR: Returns true if either of the inputs are true. If neither are true, returns false.
+Boolean XOR: Returns true if and only if exactly one of the inputs is true.
+
+Math.Xor (a: bool, b: bool): bool
+x subtract y.
+
+- (x: var[]..[], y: var[]..[]): var[]..[]
+x doesn't equal y.
+
+!= (x: var[]..[], y: var[]..[]): var[]..[]
+Multiplies x by y.
+
+* (x: var[]..[], y: var[]..[]): var[]..[]
+Divides x by y.
+
+/ (x: var[]..[], y: var[]..[]): var[]..[]
+x and y?
+
+&& (x: var[]..[], y: var[]..[]): var[]..[]
+Finds the remainder of x/y
+
+% (x: var[]..[], y: var[]..[]): var[]..[]
+Adds x to y.
+
++ (x: var[]..[], y: var[]..[]): var[]..[]
+x less y?
+
+< (x: var[]..[], y: var[]..[]): var[]..[]
+x less or equals y?
+
+<= (x: var[]..[], y: var[]..[]): var[]..[]
+Equal x to y?
+
+== (x: var[]..[], y: var[]..[]): var[]..[]
+x greater y?
+
+> (x: var[]..[], y: var[]..[]): var[]..[]
+x greater or equals y?
+
+>= (x: var[]..[], y: var[]..[]): var[]..[]
+x || y?
+
+|| (x: var[]..[], y: var[]..[]): var[]..[]
+!x
+
+Not (x: var[]..[]): var[]..[]
+Convert between units of measure.
+Converts an angle in degrees to an angle in radians.
+
+Math.DegreesToRadians (degrees: double): double
+Enter a length.
+Converts an angle in radians to an angle in degrees.
+
+Math.RadiansToDegrees (radians: double): double
+Select a unit of measurement.
+Conditional statement
+Constructs a while loop node given an initial value, a condition and a loop body.
+
+LoopWhile (init: var[]..[], continueWhile: Function, loopBody: Function): var[]..[]
+Pauses the current evaluation thread for a given amount of time.
+
+Thread.Pause (x: var, msTimeout: int): var[]..[]
+Scoped If statement
+Allows for DesignScript code to be authored directly
+Runs an embedded IronPython script.
+Runs a IronPython script from a string.
+Applies a function to arguments.
+Compose multiple functions.
+Concatenates multiple strings into a single string.
+
+String.Concat (strings: string[]): string
+Concatenates multiple strings into a single string, inserting the given separator between each joined string.
+
+String.Join (separator: string, strings: string[]): string
+Convert an array to a string representation.
+Convert an object to a string representation.
+String.AllIndicesOf (str: string, searchFor: string, ignoreCase: bool = false): int[]
+Determines if the given string contains the given substring.
+
+String.Contains (str: string, searchFor: string, ignoreCase: bool = false): bool
+Counts the number of non-overlapping occurrences of a substring inside a given string.
+
+String.CountOccurrences (str: string, searchFor: string, ignoreCase: bool = false): int
+Determines if the given string ends with the given substring.
+
+String.EndsWith (str: string, searchFor: string, ignoreCase: bool = false): bool
+Finds the zero-based index of the first occurrence of a sub-string inside a string. Returns -1 if no index could be found.
+
+String.IndexOf (str: string, searchFor: string, ignoreCase: bool = false): int
+Finds the zero-based index of the last occurrence of a sub-string inside a string. Returns -1 if no index could be found.
+
+String.LastIndexOf (str: string, searchFor: string, ignoreCase: bool = false): int
+Returns the number of characters contained in the given string.
+
+String.Length (str: string): int
+Determines if the given string starts with the given substring.
+
+String.StartsWith (str: string, searchFor: string, ignoreCase: bool = false): bool
+Increases the width of a string by encasing the original characters with spaces on either side.
+
+String.Center (str: string, newWidth: int, padChars: string = " "): string
+Converts the given string to all uppercase characters or all lowercase characters based on a boolean parameter.
+
+String.ChangeCase (str: string, upper: bool): string
+Inserts a string into another string at a given index.
+
+String.Insert (str: string, index: int, toInsert: string): string
+Right-aligns the characters in the given string by padding them with spaces on the left, for a specified total length.
+
+String.PadLeft (str: string, newWidth: int, padChars: string = " "): string
+Left-aligns the characters in the given string by padding them with spaces on the right, for a specified total length.
+
+String.PadRight (str: string, newWidth: int, padChars: string = " "): string
+Removes characters from a string.
+
+String.Remove (str: string, startIndex: int, count: int): string
+Replaces all occurrances of text in a string with other text.
+
+String.Replace (str: string, searchFor: string, replaceWith: string): string
+Divides a single string into a list of strings, with divisions determined by the given separater strings.
+
+String.Split (str: string, separaters: string[]): string[]
+Retrieves a substring from the given string. The substring starts at the given character position and has the given length.
+
+String.Substring (str: string, startIndex: int, length: int): string
+Converts the given string to all lowercase characters.
+
+String.ToLower (str: string): string
+Converts a string to an integer or a double.
+
+String.ToNumber (str: string): var[]..[]
+Converts the given string to all uppercase characters.
+
+String.ToUpper (str: string): string
+Removes all whitespace from the start of the given string.
+
+String.TrimLeadingWhitespace (str: string): string
+Removes all whitespace from the end of the given string.
+
+String.TrimTrailingWhitespace (str: string): string
+Removes all whitespace from the start and end of the given string.
+
+String.TrimWhitespace (str: string): string
+Show a colored Face Analysis Display in the Revit view.
+
+FaceAnalysisDisplay.ByViewAndFaceAnalysisData (view: View, data: SurfaceData, name: string = "", description: string = "", unitType: var): FaceAnalysisDisplay
+Show a colored Face Analysis Display in the Revit view.
+
+FaceAnalysisDisplay.ByViewFacePointsAndValues (view: View, surface: Surface, sampleLocations: UV[], samples: double[], name: string = "", description: string = "", unitType: var): FaceAnalysisDisplay
+Show a colored Point Analysis Display in the Revit view.
+
+PointAnalysisDisplay.ByViewAndPointAnalysisData (view: View, data: PointData, name: string = "", description: string = "", unitType: var): PointAnalysisDisplay
+Show a colored Point Analysis Display in the Revit view.
+
+PointAnalysisDisplay.ByViewPointsAndValues (view: View, sampleLocations: Point[], samples: double[], name: string = "", description: string = "", unitType: var): PointAnalysisDisplay
+Returns the current Revit site location.
+Show a Vector Analysis Display in the Revit view.
+
+VectorAnalysisDisplay.ByViewAndVectorAnalysisData (view: View, data: VectorData, name: string = "", description: string = "", unitType: var): VectorAnalysisDisplay
+Show a Vector Analysis Display in the Revit view.
+
+VectorAnalysisDisplay.ByViewPointsAndVectorValues (view: View, sampleLocations: Point[], samples: Vector[], name: string = "", description: string = "", unitType: var): VectorAnalysisDisplay
+Get the active view for the document
+
+Document.ActiveView: View
+Get the current document
+
+Document.Current: Document
+The full path of the Document.
+
+Document.FilePath: string
+Is the Document a Family?
+
+Document.IsFamilyDocument: bool
+Extracts Latitude and Longitude from Revit
+
+Document.Location: Location
+Create an adaptive component referencing the parameters on a Curve reference
+
+AdaptiveComponent.ByParametersOnCurveReference (parameters: double[], curve: Curve, familyType: FamilyType): AdaptiveComponent
+Create an adaptive component by uv points on a face.
+
+AdaptiveComponent.ByParametersOnFace (uvs: UV[], surface: Surface, familyType: FamilyType): AdaptiveComponent
+Create a list of adaptive components from two-dimensional array of points
+
+AdaptiveComponent.ByPoints (points: Point[][], familyType: FamilyType): AdaptiveComponent[]..[]
+AdaptiveComponent.Locations: Point[]
+AdaptiveComponent.Type: FamilyType
+Gets a Revit category by the built-in category name.
+
+Category.ByName (name: string): Category
+The Id of the category.
+
+Category.Id: int
+The name of the Category.
+
+Category.Name: string
+Get Project Base Point
+
+Coordinates.BasePoint ( ): Point
+Get Project Rotation
+
+Coordinates.ProjectRotation ( ): double
+Get Survey Point
+
+Coordinates.SurveyPoint ( ): Point
+Gets family instance from curtain Panel
+
+CurtainPanel.AsFamilyInstance ( ): FamilyInstance
+get all panels of curtain wall, system or slope glazing roof
+
+CurtainPanel.ByElement (hostingElement: Element): CurtainPanel[]
+Gets Mullions hosting the specified curtain panel
+
+CurtainPanel.SupportingMullions ( ): Mullion[]
+Gets curtain panel boundaries
+
+CurtainPanel.Boundaries: PolyCurve[]
+Checks if the specific curtain panel is planar
+
+CurtainPanel.HasPlane: bool
+Gets the height of the specific curtain panel, if it's rectangular
+
+CurtainPanel.Height: double
+Checks whether the specific curtain panel is rectangular. Returns true if the curtain panel is rectangular. Otherwise returns false
+
+CurtainPanel.IsRectangular: bool
+Gets the length of the specific curtain panel boundaries
+
+CurtainPanel.Length: double
+Gets a plane of the given curtain panel, if it is planar
+
+CurtainPanel.PanelPlane: Plane
+Gets the width of the specific curtain panel, if it's rectangular
+
+CurtainPanel.Width: double
+Create Curtain System from face references
+
+CurtainSystem.ByFace (face: Surface, curtainSystemType: CurtainSystemType): CurtainSystem
+Add Curtain Grid
+
+CurtainSystem.AddCurtainGrid (face: Surface): void
+Remove Curtain Grid
+
+CurtainSystem.RemoveCurtainGrid (face: Surface): void
+Get CurtainSystemType
+
+CurtainSystem.CurtainSystemType: CurtainSystemType
+Select a CurtainSystemType from the document given
+
+CurtainSystemType.ByName (name: string): CurtainSystemType
+The name of the CurtainSystemType
+
+CurtainSystemType.Name: string
+Construct a Revit CurveByPoints Element (a CurveElement) from a collection of ReferencePoint's
+
+CurveByPoints.ByReferencePoints (points: ReferencePoint[], isReferenceLine: bool = false): CurveByPoints
+Obtain the geometry curve for this geometry curve
+
+CurveElement.Curve: Curve
+Obtain the reference curve for this ModelCurve
+
+CurveElement.ElementCurveReference: ElementCurveReference
+Construct a Revit DetailCurve element from a curve
+
+DetailCurve.ByCurve (view: View, curve: Curve): DetailCurve
+Set Geometry Curve
+
+DetailCurve.SetCurve (curve: Curve): void
+Get Geometry Curve
+
+DetailCurve.Curve: Curve
+Construct a Revit Dimension from at least two elements
+
+Dimension.ByElements (view: View, referenceElements: Element[], line: Line = null, suffix: string = "", prefix: string = ""): Dimension
+Set Prefix
+
+Dimension.SetPrefix (values: string[]): void
+Set Suffix
+
+Dimension.SetSuffix (values: string[]): void
+Set Value override
+
+Dimension.SetValueOverride (values: string[]): void
+Get Prefix
+
+Dimension.Prefix: string[]
+Get Suffix
+
+Dimension.Suffix: string[]
+Get Dimension Value
+
+Dimension.Value: double[]
+Get Value override
+
+Dimension.ValueOverride: string[]
+Creates new Dimension Type by duplicating an existing.
+
+DimensionType.FromExisting (dimensionType: Element, name: string): DimensionType
+Returns Dimension Style for a givent type.
+
+DimensionType.StyleType: string
+Create a Revit DirectShape given some geometry, a name for the shape, a Category, and Material. The geometry will be tessellated before being placed in the Revit model The category of a DirectShape cannot be changed after creation, so a new DirectShape will be generated if the category input is changed.
+
+DirectShape.ByGeometry (geometry: Geometry, category: Category, material: Material = Revit.Elements.DirectShape.DynamoPreviewMaterial, name: string = "DirectShape"): DirectShape
+Create a Revit DirectShape given some geometry, a name for the shape, a Category, and Material. The geometry will be tessellated before being placed in the Revit model The category of a DirectShape cannot be changed after creation, so a new DirectShape will be generated if the category input is changed.
+
+DirectShape.ByMesh (mesh: Mesh, category: Category, material: Material = Revit.Elements.DirectShape.DynamoPreviewMaterial, name: string = "DirectShape"): DirectShape
+Select a Direct Shape Room Bounding Option.
+Creates a Revit divided path on the given curve with specified amount of division
+
+DividedPath.ByCurveAndDivisions (curve: Curve, divisions: int): DividedPath
+Creates a Revit divided path on the given collection of curves with specified amount of division
+
+DividedPath.ByCurvesAndDivisions (curve: Curve[], divisions: int): DividedPath
+A spacing rule layout for calculating divided paths.
+All points along the DividedPath.
+
+DividedPath.Points: Point[]
+Create a Revit DividedSurface on a face given the face and number of divisions in u and v directon
+
+DividedSurface.ByFaceAndUVDivisions (elementFace: Surface, uDivs: int, vDivs: int): DividedSurface
+Create a Revit DividedSurface on a face given the face and number of divisions in u and v directon and the rotation of the grid lines with respect to the natural UV parameterization of the face
+
+DividedSurface.ByFaceUVDivisionsAndRotation (surface: Surface, uDivs: int, vDivs: int, gridRotation: double): DividedSurface
+Rotation of the grid lines with respect to the UV parameterization of the face
+
+DividedSurface.Rotation: double
+Number of divisions in U direction
+
+DividedSurface.UDivisions: int
+Number of divisions in V direction
+
+DividedSurface.VDivisions: int
+Get all of the Geometry associated with this object
+
+Element.Geometry ( ): var[]
+Get an exsiting element's location
+
+Element.GetLocation ( ): Geometry
+Get Material Names from a Revit Element
+
+Element.GetMaterials (paintMaterials: bool = false): Material[]
+Get the value of one of the element's parameters.
+
+Element.GetParameterValueByName (parameterName: string): var[]..[]
+Move Revit Element by Vector
+
+Element.MoveByVector (vector: Vector): void
+Override the element's color in the active view.
+
+Element.OverrideColorInView (color: Color): Element
+Override Elements Graphics Settings in Active View.
+
+Element.OverrideInView (overrides: OverrideGraphicSettings, hide: bool = false): Element
+Update an existing element's location
+
+Element.SetLocation (geometry: Geometry): void
+Set one of the element's parameters.
+
+Element.SetParameterByName (parameterName: string, value: var): Element
+A basic implementation of ToString for Elements
+
+Element.ToString (format: string, formatProvider: var): string
+Get an Axis-aligned BoundingBox of the Element
+
+Element.BoundingBox: BoundingBox
+The Curves in this Element
+
+Element.Curves: Curve[]
+The ElementCurveReference's in this Element. Useful for downstream Element creation.
+
+Element.ElementCurveReferences: ElementCurveReference[]
+The ElementFaceReference's in this Element. Useful for downstream Element creation.
+
+Element.ElementFaceReferences: ElementFaceReference[]
+Returns the FamilyType for this Element. Returns null if the Element cannot have a FamilyType assigned.
+
+Element.ElementType: Element
+The Faces in this Element
+
+Element.Faces: Surface[]
+Get Element Category
+
+Element.GetCategory: Category
+Get the Element Id for this element
+
+Element.Id: int
+Get the Name of the Element
+
+Element.Name: string
+Obtain all of the Parameters from an Element, sorted by Name.
+
+Element.Parameters: Parameter[]
+The Solids in this Element
+
+Element.Solids: Solid[]
+Get the Element Unique Id for this element
+
+Element.UniqueId: string
+The description of the message.
+
+FailureMessage.Description: string
+The Failing Elements of the message.
+
+FailureMessage.FailingElements: Element[]
+Get the failure severity.
+
+FailureMessage.Severity: string
+Obtain a Family from the current document given it's name
+
+Family.ByName (name: string): Family
+The name of this family
+
+Family.Name: string
+Obtain the FamilyTypes from this Family
+
+Family.Types: FamilyType[]
+Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space
+
+FamilyInstance.ByCoordinates (familyType: FamilyType, x: double = 0, y: double = 0, z: double = 0): FamilyInstance
+Place a Revit family instance given the FamilyType (also known as the FamilySymbol in the Revit API) on a surface derived from a backing Revit face as reference, a reference direction and a point location where to place the family. Note: The FamilyType should be workplane based and the input surface must be created from a Revit Face. The reference direction defines the rotation of the instance on the reference, and thus cannot be perpendicular to the face.
+
+FamilyInstance.ByFace (familyType: FamilyType, face: Surface, location: Point, referenceDirection: Vector): FamilyInstance
+Place a Revit family instance of the given the FamilyType (also known as the FamilySymbol in the Revit API) on a surface derived from a backing Revit face as reference and a line as reference for its position. Note: The FamilyPlacementType must be CurveBased and the input surface must be created from a Revit Face
+
+FamilyInstance.ByFace (familyType: FamilyType, face: Surface, line: Line): FamilyInstance
+Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API) and its coordinates in world space
+
+FamilyInstance.ByPoint (familyType: FamilyType, point: Point): FamilyInstance
+Place a Revit FamilyInstance given the FamilyType (also known as the FamilySymbol in the Revit API), it's coordinates in world space, and the Level
+
+FamilyInstance.ByPointAndLevel (familyType: FamilyType, point: Point, level: Level): FamilyInstance
+Obtain a collection of FamilyInstances from the Revit Document and use them in the Dynamo graph
+
+FamilyInstance.ByFamilyType (familyType: FamilyType): FamilyInstance[]
+Set the Euler angle of the family instance around its local Z-axis.
+
+FamilyInstance.SetRotation (degree: double): FamilyInstance
+Gets the FacingOrientation of the family instance
+
+FamilyInstance.FacingOrientation: Vector
+Gets the family of this family instance
+
+FamilyInstance.GetFamily: Family
+Gets the host of this fmaily instance (if any). Eg. returns the wall of a window or door family instance.
+
+FamilyInstance.GetHost: Element
+Gets the location of the specific family instance
+
+FamilyInstance.Location: Point
+Select a FamilyType given its parent Family and the FamilyType's name.
+
+FamilyType.ByFamilyAndName (family: Family, name: string): FamilyType
+Select a FamilyType give it's family name and type name.
+
+FamilyType.ByFamilyNameAndTypeName (familyName: string, typeName: string): FamilyType
+Create new Family Type from a solid geometry. This method exports the geometry to SAT and imports it into a new family document.
+
+FamilyType.ByGeometry (solidGeometry: Solid, name: string, category: Category, templatePath: string, material: Material, subcategory: string = ""): FamilyType
+Select a FamilyType given it's name. This method will return the first FamilyType it finds if there are two or more FamilyTypes with the same name.
+
+FamilyType.ByName (name: string): FamilyType
+Create a Void Family Type from a solid geometry. This method exports the solid to SAT and imports it into a new family document.
+
+FamilyType.VoidByGeometry (solidGeometry: Solid, name: string, category: Category, templatePath: string): FamilyType
+Get the parent family of this FamilyType
+
+FamilyType.Family: Family
+Get the name of this Family Type
+
+FamilyType.Name: string
+Fill Pattern Element by Name and Target Type.
+
+FillPatternElement.GetByName (name: string, fillPatternTarget: string = "Drafting"): FillPatternElement
+Construct a Revit FilledRegion element by Curves
+
+FilledRegion.ByCurves (view: View, boundary: Curve[], regionType: FilledRegionType): FilledRegion
+Select a FilledRegionType from the current document by name
+
+FilledRegionType.ByName (name: string): FilledRegionType
+Select an existing Filled Region Type from the active document.
+Get Color
+
+FilledRegionType.Color: Color
+Get FillPatternId
+
+FilledRegionType.FillPatternId: var
+Get Name
+
+FilledRegionType.Name: string
+Create a Revit Floor given its curve outline and Level
+
+Floor.ByOutlineTypeAndLevel (outlineCurves: Curve[], floorType: FloorType, level: Level): Floor
+Create a Revit Floor given its curve outline and Level
+
+Floor.ByOutlineTypeAndLevel (outline: PolyCurve, floorType: FloorType, level: Level): Floor
+Add Point to Slab Shape
+
+Floor.AddPoint (point: Point): Floor
+Move an existing point in the slab shape editor by an offset. Behaves as moving a point manually in the slab shape editor.
+
+Floor.MovePoint (point: Point, offset: double): Floor
+Get Slab Shape Points
+
+Floor.Points: Point[]
+Select a FloorType from the document given
+
+FloorType.ByName (name: string): FloorType
+The name of the FloorType
+
+FloorType.Name: string
+Creates a Form by lofting a nested list of curves
+
+Form.ByLoftCrossSections (curves: Curve[][], isSolid: bool = true): Form
+Create a new Global Parameter by Name and Type
+
+GlobalParameter.ByName (name: string, parameterType: string): GlobalParameter
+Find Global Parameter by Name
+
+GlobalParameter.FindByName (name: string): GlobalParameter
+Set Global Parameter Value
+
+GlobalParameter.SetValue (parameter: GlobalParameter, value: var): void
+Set Global Parameter Value to an Element ID from Integer
+
+GlobalParameter.SetValueToElementId (parameter: GlobalParameter, elementId: int): void
+Get Name
+
+GlobalParameter.Name: string
+Get Parameter Group
+
+GlobalParameter.ParameterGroup: string
+Get Parameter Type
+
+GlobalParameter.ParameterType: string
+Get Global Parameter Value
+
+GlobalParameter.Value: var[]..[]
+Get Parameter Visibility
+
+GlobalParameter.Visible: bool
+Create a Revit Grid Element in a project along an Arc
+
+Grid.ByArc (arc: Arc): Grid
+Create a Revit Grid Element in a Project along a Line.
+
+Grid.ByLine (line: Line): Grid
+Create a Revit Grid Element in a project between two end points
+
+Grid.ByStartPointEndPoint (start: Point, end: Point): Grid
+Get the underlying Curve geometry from this Element
+
+Grid.Curve: Curve
+Get a Reference to the underlying Curve Geometry of this Element
+
+Grid.ElementCurveReference: ElementCurveReference
+Import a collection of Geometry (Solid, Curve, Surface, etc) into Revit as an ImportInstance. This variant is much faster than ImportInstance.ByGeometry as it uses a batch method.
+
+ImportInstance.ByGeometries (geometries: Geometry[]): ImportInstance
+Import a collection of Geometry (Solid, Curve, Surface, etc) into Revit as an ImportInstance.
+
+ImportInstance.ByGeometry (geometry: Geometry): ImportInstance
+Import Geometry from a SAT file. The SAT file is assumed to be in Feet.
+
+ImportInstance.BySATFile (pathToFile: string): ImportInstance
+Gets file path of the sat file that represents the geometry of the specified ImportInstance Element
+
+ImportInstance.Path: string
+Create a Revit Level given it's elevation. The name will be whatever Revit gives it.
+
+Level.ByElevation (elevation: double): Level
+Create a Revit Level given it's elevation and name in the project
+
+Level.ByElevationAndName (elevation: double, name: string): Level
+Create a Revit Level given it's length offset from an existing level
+
+Level.ByLevelAndOffset (level: Level, offset: double): Level
+Create a Revit Level given a distance offset from an existing level and a name for the new level
+
+Level.ByLevelOffsetAndName (level: Level, offset: double, name: string): Level
+The elevation of the level above ground level
+
+Level.Elevation: double
+The name of the level
+
+Level.Name: string
+Elevation relative to the Project origin
+
+Level.ProjectElevation: double
+Line Pattern Element by name.
+
+LinePatternElement.GetByName (name: string): LinePatternElement
+All available line patterns.
+Select a material from the current document by the name
+
+Material.ByName (name: string): Material
+Get all apperance parameters
+
+Material.AppearanceParameters: Parameter[]
+Get color
+
+Material.Color: Color
+Get cut pattern color
+
+Material.CutPatternColor: Color
+Get cut pattern id
+
+Material.CutPatternId: int
+Get Material category
+
+Material.MaterialCategory: string
+Get Material Class
+
+Material.MaterialClass: string
+Get Material Name
+
+Material.Name: string
+Get Shininess
+
+Material.Shininess: int
+Get Smoothness
+
+Material.Smoothness: int
+Get all structural parameters
+
+Material.StructuralParameters: Parameter[]
+Get SurfacePatternColor
+
+Material.SurfacePatternColor: Color
+Get all thermal parameters
+
+Material.ThermalParameters: Parameter[]
+Get Transparency
+
+Material.Transparency: int
+Construct a Revit ModelCurve element from a Curve
+
+ModelCurve.ByCurve (curve: Curve): ModelCurve
+Construct a Revit ModelCurve element from a Curve
+
+ModelCurve.ReferenceCurveByCurve (curve: Curve): ModelCurve
+Create a ModelText Element in the Family Document by providing the text, SketchPlane Element host, coordinates (within the plane of the SketchPlane), the depth of the text, and the text type name
+
+ModelText.ByTextSketchPlaneAndPosition (text: string, sketchPlane: SketchPlane, xCoordinateInPlane: double, yCoordinateInPlane: double, textDepth: double, modelTextType: ModelTextType): ModelText
+The Depth of the ModelText Element
+
+ModelText.Depth: double
+The Position of the ModelText Element
+
+ModelText.Position: Point
+The Text of the ModelText Element
+
+ModelText.Text: string
+Select a ModelTextType from the current document by name
+
+ModelTextType.ByName (name: string): ModelTextType
+Returns FamilyInstance object as represented by the specified mullion
+
+Mullion.AsFamilyInstance ( ): FamilyInstance
+get all mullions of curtain wall, system or slope glazing roof
+
+Mullion.ByElement (hostingElement: Element): Mullion[]
+Returns curtain panels supported by the specified Mullion Element
+
+Mullion.SupportedPanels ( ): CurtainPanel[]
+Gets curve geometry from the specified Mullion Element
+
+Mullion.LocationCurve: Curve
+Get Element's Parameter by Name
+
+Parameter.ParameterByName (element: Element, name: string): Parameter
+Create a new Project Parameter in this current Revit document for all applicable categories
+
+Parameter.CreateProjectParameter (parameterName: string, groupName: string, type: string, group: string, instance: bool, categoryList: Category[]): void
+Create a new Project Parameter in this current Revit document for all applicable categories
+
+Parameter.CreateProjectParameterForAllCategories (parameterName: string, groupName: string, type: string, group: string, instance: bool): void
+Create a new Shared Parameter in the current Revit document for all applicable categories
+
+Parameter.CreateSharedParameter (parameterName: string, groupName: string, type: string, group: string, instance: bool, categoryList: Category[]): void
+Create a new Shared Parameter in the current Revit document for all applicable categories
+
+Parameter.CreateSharedParameterForAllCategories (parameterName: string, groupName: string, type: string, group: string, instance: bool): void
+Select a built-in parameter group.
+Select a parameter type.
+Set the value of the parameter
+
+Parameter.SetValue (parameter: Parameter, value: var): void
+Gets the path to the shared parameter file of this document
+
+Parameter.SharedParameterFile ( ): string
+Get the parameter's group
+
+Parameter.Group: string
+Check if the Parameter has a value
+
+Parameter.HasValue: bool
+Get the parameter's element Id
+
+Parameter.Id: int
+Check if the Parameter is read only
+
+Parameter.IsReadOnly: bool
+Check if the Parameter is shared
+
+Parameter.IsShared: bool
+The name of the parameter.
+
+Parameter.Name: string
+Get the parameter type
+
+Parameter.ParameterType: string
+Get Parameter Storage Type
+
+Parameter.StorageType: string
+Get the parameter's unit type
+
+Parameter.UnitType: string
+Get the value of the parameter
+
+Parameter.Value: var[]..[]
+Create Performance Adviser Rule by Id
+
+PerformanceAdviserRule.ById (guid: string): PerformanceAdviserRule
+Execute Rules
+
+PerformanceAdviserRule.Execute (rules: PerformanceAdviserRule[]): FailureMessage[]
+All Performance Adviser rules.
+The description of the rule.
+
+PerformanceAdviserRule.Description: string
+A boolean indicating if the rule is activated.
+
+PerformanceAdviserRule.Enabled: bool
+The name of the rule.
+
+PerformanceAdviserRule.Name: string
+The id of the rule.
+
+PerformanceAdviserRule.RuleId: var
+Select an existing Revit Phase from the active document.
+Form a ReferencePlane from a line in the Active view. The cut vector is the Z Axis.
+
+ReferencePlane.ByLine (line: Line): ReferencePlane
+Form a Refernece plane from two end points in the Active view. The cut vector is the Z Axis.
+
+ReferencePlane.ByStartPointEndPoint (start: Point, end: Point): ReferencePlane
+Get a reference to this plane for downstream Elements requiring it
+
+ReferencePlane.ElementPlaneReference: ElementPlaneReference
+Get the internal Geometric Plane
+
+ReferencePlane.Plane: Plane
+Create a Reference Point by x, y, and z coordinates.
+
+ReferencePoint.ByCoordinates (x: double = 0, y: double = 0, z: double = 0): ReferencePoint
+Create a Reference Point at a particular length along a curve
+
+ReferencePoint.ByLengthOnCurveReference (elementCurveReference: var, length: double): ReferencePoint
+Create a Reference Point at a parameter on an Curve. This introduces a persistent relationship between Elements in the Revit document.
+
+ReferencePoint.ByParameterOnCurveReference (elementCurveReference: var, parameter: double): ReferencePoint
+Create a Reference Point by UV coordinates on a Face. This introduces a persistent relationship between Elements in the Revit document.
+
+ReferencePoint.ByParametersOnFaceReference (elementFaceReference: var, u: double, v: double): ReferencePoint
+Create a Reference Point from a point.
+
+ReferencePoint.ByPoint (pt: Point): ReferencePoint
+Create a Reference Point Element offset from a point along a vector
+
+ReferencePoint.ByPointVectorDistance (basePoint: Point, direction: Vector, distance: double): ReferencePoint
+Gets point geometry from the specified ReferencePoint
+
+ReferencePoint.Point: Point
+Gets 'X' coordinate of the specified ReferencePoint
+
+ReferencePoint.X: double
+Gets XY plane of the specified ReferencePoint
+
+ReferencePoint.XYPlane: Plane
+Gets XZ plane of the specified ReferencePoint
+
+ReferencePoint.XZPlane: Plane
+Gets 'Y' coordinate of the specified ReferencePoint
+
+ReferencePoint.Y: double
+Gets YZ plane of the specified ReferencePoint
+
+ReferencePoint.YZPlane: Plane
+Gets 'Z' coordinate of the specified ReferencePoint
+
+ReferencePoint.Z: double
+Construct a new Revit Revision by Name
+
+Revision.ByName (name: string, revDate: string, description: string, issued: bool, issuedBy: string, issuedTo: string, visibility: string = "", numberType: string = ""): Revision
+Select an existing Revit Revision from the active document.
+Select a revision number type.
+Select an way to number the revisions.
+Select the revision visilibity type.
+Set Issued
+
+Revision.SetIssued (value: bool): void
+Set IssuedBy
+
+Revision.SetIssuedBy (value: string): void
+Set IssuedTo
+
+Revision.SetIssuedTo (value: string): void
+Set Revision Date
+
+Revision.SetRevisionDate (value: string): void
+Get Issued
+
+Revision.Issued: bool
+Get IssuedBy
+
+Revision.IssuedBy: string
+Get IssuedTo
+
+Revision.IssuedTo: string
+Get Revision Date
+
+Revision.RevisionDate: string
+Construct a Revit RevisionCloud element by curves
+
+RevisionCloud.ByCurve (view: View, curves: Curve[], revision: Element): RevisionCloud
+Get Revision cloud's curves
+
+RevisionCloud.Curves: Curve[]
+Get Revision cloud's revision
+
+RevisionCloud.Revision: Revision
+Extrude Roof by Outline, Referenceplane
+
+Roof.ByOutlineExtrusionTypeAndLevel (outline: PolyCurve, roofType: RoofType, level: Level, plane: ReferencePlane, extrusionStart: double, extrusionEnd: double): Roof
+Create a Revit Roof given its curve outline and Level
+
+Roof.ByOutlineTypeAndLevel (outline: Curve[], roofType: RoofType, level: Level): Roof
+Add Point to Slab Shape
+
+Roof.AddPoint (point: Point): void
+Move existing point by offset
+
+Roof.MovePoint (point: Point, offset: double): void
+Get Slab Shape Points
+
+Roof.Points: Point[]
+Select a RoofType from the document given
+
+RoofType.ByName (name: string): RoofType
+The name of the RoofType
+
+RoofType.Name: string
+Create a Revit Room Element
+
+Room.ByLocation (level: Level, location: Point, name: string = "", number: string = ""): Room
+Check if a point is inside of a room
+
+Room.IsInsideRoom (point: Point): bool
+Set name
+
+Room.SetName (value: string): void
+Set number
+
+Room.SetNumber (value: string): void
+Get room area
+
+Room.Area: double
+Centerline boundary
+
+Room.CenterBoundary: Curve[][]
+Core boundary
+
+Room.CoreBoundary: Curve[][]
+Core center boundary
+
+Room.CoreCenterBoundary: Curve[][]
+Finish boundary
+
+Room.FinishBoundary: Curve[][]
+Get room height
+
+Room.Height: double
+Get Room Location
+
+Room.Location: Point
+Get room name
+
+Room.Name: string
+Get room number
+
+Room.Number: string
+Get room volume
+
+Room.Volume: double
+Make a Revit SketchPlane given a plane
+
+SketchPlane.ByPlane (plane: Plane): SketchPlane
+Get an element plane reference from a specified sketch plane
+
+SketchPlane.ElementPlaneReference: ElementPlaneReference
+Gets the plane geometry of the specified sketch plane
+
+SketchPlane.Plane: Plane
+Create a beam.
+
+StructuralFraming.BeamByCurve (curve: Curve, level: Level, structuralFramingType: FamilyType): StructuralFraming
+Create a brace.
+
+StructuralFraming.BraceByCurve (curve: Curve, level: Level, structuralFramingType: FamilyType): StructuralFraming
+Create a column.
+
+StructuralFraming.ColumnByCurve (curve: Curve, level: Level, structuralColumnType: FamilyType): StructuralFraming
+Gets curve geometry from location of the specified structural element
+
+StructuralFraming.Location: Curve
+StructuralType.Beam: StructuralType
+StructuralType.Brace: StructuralType
+StructuralType.Column: StructuralType
+StructuralType.Footing: StructuralType
+StructuralType.NonStructural: StructuralType
+Extracts the Altitude.
+
+SunSettings.Altitude: double
+Extracts the Azimuth.
+
+SunSettings.Azimuth: double
+Gets the Date and Time for the current frame of the solar study given in the local time of the solar study location.
+
+SunSettings.CurrentDateTime: var
+Gets the End Date and Time of the solar study given in the local time of the solar study location.
+
+SunSettings.EndDateTime: var
+Gets the Start Date and Time of the solar study given in the local time of the solar study location.
+
+SunSettings.StartDateTime: var
+Calculates the direction of the sun.
+
+SunSettings.SunDirection: Vector
+Create a Revit Tag for a Revit Element
+
+Tag.ByElement (view: View, element: Element, horizontal: bool, addLeader: bool, horizontalAlignment: string, verticalAlignment: string, offset: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 0), isOffset: bool = true): Tag
+Create a Revit Tag for a Revit Element at a specified location point
+
+Tag.ByElementAndLocation (view: View, element: Element, location: Point, horizontal: bool = true, addLeader: bool = false): Tag
+Create a Revit Tag for a Revit Element at an offset location from the element's view extents
+
+Tag.ByElementAndOffset (view: View, element: Element, offset: Vector = Autodesk.DesignScript.Geometry.Vector.ByCoordinates(0, 0, 0), horizontalAlignment: string = "Center", verticalAlignment: string = "Middle", horizontal: bool = true, addLeader: bool = false): Tag
+Get Tagged Element
+
+Tag.TaggedElement: Element
+Get Tag's Text
+
+Tag.TagText: string
+Select the horizontal text alignment style.
+Select the vertical text alignment style.
+Construct a new Revit TextNote by Location
+
+TextNote.ByLocation (view: View, location: Point, text: string, alignment: string, type: TextNoteType = Revit.Elements.TextNoteType.Default(), keepRotatedTextReadable: bool = true, rotation: double = 0): TextNote
+Set Horizontal Text Alignment
+
+TextNote.SetHorizontalAlignment (value: string): void
+Set Keep Rotated Text Readable
+
+TextNote.SetKeepRotatedTextReadable (value: bool): void
+Set Text
+
+TextNote.SetText (value: string): void
+Get Height
+
+TextNote.Height: double
+Get Horizontal Alignment
+
+TextNote.HorizontalAlignment: string
+Get Text
+
+TextNote.Text: string
+Get Typename
+
+TextNote.Typename: string
+Get Vertical Alignment
+
+TextNote.VerticalAlignment: string
+Select a ModelTextType from the current document by name
+
+TextNoteType.ByName (name: string): TextNoteType
+Return a default TextNoteType
+
+TextNoteType.Default ( ): TextNoteType
+Create a topography surface from a list of points.
+
+Topography.ByPoints (points: Point[]): Topography
+Get the underlying triangular Mesh from the Topography
+
+Topography.Mesh: Mesh
+The set of points from which this TopographySurface is constructed.
+
+Topography.Points: Point[]
+Create a Revit Wall from a guiding Curve, height, Level, and WallType
+
+Wall.ByCurveAndHeight (curve: Curve, height: double, level: Level, wallType: WallType): Wall
+Create a Revit Wall from a guiding Curve, start Level, end Level, and WallType
+
+Wall.ByCurveAndLevels (c: Curve, startLevel: Level, endLevel: Level, wallType: WallType): Wall
+Creates a Wall following the geometry of a surface. Walls by Faces cannot be updated, any geometry change will create a new wall and delete the old one.
+
+Wall.ByFace (locationLine: string, wallType: WallType, surface: Surface): Element
+Wall locations.
+Select a walltype from the current document by name
+
+WallType.ByName (name: string): WallType
+Gets the name of the specified wall type
+
+WallType.Name: string
+Create a new Filter Rule
+
+FilterRule.ByRuleType (type: string, value: var, parameter: Parameter): FilterRule
+Create a OverrideGraphicSettings Element.
+
+OverrideGraphicSettings.ByProperties (cutFillColor: Color = null, projectionFillColor: Color = null, cutLineColor: Color = null, projectionLineColor: Color = null, cutFillPattern: FillPatternElement = null, projectionFillPattern: FillPatternElement = null, cutLinePattern: LinePatternElement = null, projectionLinePattern: LinePatternElement = null, cutLineWeight: int = -1, projectionLineWeight: int = -1, transparency: int = -1, detailLevel: string = "Undefined", halftone: bool = false): OverrideGraphicSettings
+View Detail Level
+Create a Revit Parameter Filter Element
+
+ParameterFilterElement.ByRules (name: string, categories: Category[], rules: FilterRule[]): ParameterFilterElement
+Filter Types for Revit Filters
+Returns positions and elements hit by ray bounce from the specified origin point and direction
+
+RayBounce.ByOriginDirection (origin: Point, direction: Vector, maxBounces: int, view: View3D): var[]..[]
+Name
+
+SchedulableField.Name: string
+Creates View Schedule Export Options element.
+
+ScheduleExportOptions.ByProperties (columnHeaders: string = "MultipleRows", fieldDelimiter: string = "	", headersFootersBlanks: bool = false, textQualifier: string = "DoubleQuote", title: bool = false): ScheduleExportOptions
+Name
+
+ScheduleField.Name: string
+Creates Schedule Filter by Schedule Field, Filter Type and value.
+
+ScheduleFilter.ByFieldTypeAndValue (field: ScheduleField, filterType: string, value: var): ScheduleFilter
+Related Schedule Field Id
+
+ScheduleFilter.FiledId: int
+Filter Type
+
+ScheduleFilter.FilterType: string
+Value assigned to Schedule Filter
+
+ScheduleFilter.Value: var[]..[]
+Get all the elements at the specified Level from the model.
+Get all elements of the specified category from the model.
+Get all elements of the specified family type from the model.
+All elements in the active document of a given type.
+All built-in categories.
+All element subtypes.
+All family types available in the document.
+All floor types available in the document.
+Given a Family Instance or Type allows the user to select a parameter as a string.
+Select a level in the active document
+Select a divided surface and get its family instances.
+Select an edge.
+Select multiple edges.
+Select a face.
+Select multiple faces from the Revit document.
+Select a model element from the document.
+Select multiple elements from the Revit document.
+Select a point on a face.
+Select a UV on a face.
+Select a structural column type in the active document
+Select a structural framing type in the active document
+All views available in the current document.
+All wall types available in the document.
+Ends the current Dynamo transaction, returning whatever was passed in.
+
+Transaction.End (input: var): var[]..[]
+Start a transaction if neccesssary, returning whatever was passed in.
+
+Transaction.Start (input: var): var[]..[]
+Create an Area Plan View at the given Level.
+
+AreaPlanView.ByLevelAndAreaScheme (level: Level, areaScheme: Element): AreaPlanView
+Create a Revit Axonometric (isometric) View from an eye position and a target position.
+
+AxonometricView.ByEyePointAndTarget (eyePoint: Point, target: Point, name: string = "dynamo3D"): AxonometricView
+Create a Revit Axonometric (isometric) View from an Eye position and target position and Bounding Box
+
+AxonometricView.ByEyePointTargetAndBoundingBox (eyePoint: Point, target: Point, boundingBox: BoundingBox, name: string = "dynamo3D", isolateElement: bool = false): AxonometricView
+Create a Revit Axonometric (isometric) View from an Eye position and target position and Element
+
+AxonometricView.ByEyePointTargetAndElement (eyePoint: Point, target: Point, name: string = "dynamo3D", element: Element, isolateElement: bool = false): AxonometricView
+Create a Revit Floor Plan at a given Level
+
+CeilingPlanView.ByLevel (level: Level): CeilingPlanView
+Create a Revit DraftingView given it's name
+
+DraftingView.ByName (name: string): DraftingView
+Create a Revit Floor Plan at a given Level
+
+FloorPlanView.ByLevel (level: Level): FloorPlanView
+Create a Revit Perspective View from an Eye position, a target position, and either an Element or BoundingBox.
+
+PerspectiveView.ByEyePointAndTarget (eyePoint: Point, target: Point, element: var, name: string, isolateElement: bool): PerspectiveView
+Create a Revit Perspective View from an Eye position and target position and Bounding Box
+
+PerspectiveView.ByEyePointTargetAndBoundingBox (eyePoint: Point, target: Point, boundingBox: BoundingBox, name: string, isolateElement: bool): PerspectiveView
+Create a Revit Perspective View from an Eye position and target position and Element
+
+PerspectiveView.ByEyePointTargetAndElement (eyePoint: Point, target: Point, element: Element, name: string, isolateElement: bool): PerspectiveView
+Node of type 'Unresolved' (C:\Program Files\Dynamo\Dynamo Core\2\DynamoCore.dll) cannot be resolved
+Create Schedule by Category, Type and Name.
+
+ScheduleView.CreateSchedule (category: Category, name: string, scheduleType: string): ScheduleView
+Add Field (Column) to Schedule View.
+
+ScheduleView.AddFields (fields: SchedulableField[]): ScheduleView
+Add Schedule Filters to Schedule View.
+
+ScheduleView.AddFilters (scheduleFilters: ScheduleFilter[]): ScheduleView
+Clear all Schedule Filters from Schedule View.
+
+ScheduleView.ClearAllFilters ( ): ScheduleView
+Export View Schedule to CSV, TSV etc.
+
+ScheduleView.Export (path: string, exportOptions: ScheduleExportOptions): ScheduleView
+How to export column headers. Default is MultipleRows.
+How to qualify text fields. Default is DoubleQuote.
+Remove Schedule Field from Schedule View.
+
+ScheduleView.RemoveFields (fields: ScheduleField[]): ScheduleView
+A View Schedule Filter Type.
+Select a Schedule Type.
+Schedule Fields.
+
+ScheduleView.Fields: ScheduleField[]
+Schedulable Fields.
+
+ScheduleView.SchedulableFields: SchedulableField[]
+Schedule Filters.
+
+ScheduleView.ScheduleFilters: ScheduleFilter[]
+Create a Revit ViewSection by a bounding box
+
+SectionView.ByBoundingBox (box: BoundingBox): SectionView
+Creates a Revit ViewSection by a specified corrdinate system, minPoint and maxPoint
+
+SectionView.ByCoordinateSystemMinPointMaxPoint (cs: CoordinateSystem, minPoint: Point, maxPoint: Point): SectionView
+Create a Revit Sheet by the sheet name, number, a title block FamilyType, and a collection of views. This method will automatically pack the view onto the sheet.
+
+Sheet.ByNameNumberTitleBlockAndView (sheetName: string, sheetNumber: string, titleBlockFamilyType: FamilyType, view: View): Sheet
+Create a Revit Sheet by the sheet name, number, a title block FamilyType, and a collection of views. This method will automatically pack the views onto the sheet.
+
+Sheet.ByNameNumberTitleBlockAndViews (sheetName: string, sheetNumber: string, titleBlockFamilyType: FamilyType, views: View[]): Sheet
+Get the SheetName of the Sheet
+
+Sheet.SheetName: string
+Get the SheetNumber of the Sheet
+
+Sheet.SheetNumber: string
+Get the Views on a Sheet
+
+Sheet.Views: View[]
+Create a Structural Plan View at the given Level.
+
+StructuralPlanView.ByLevel (level: Level): StructuralPlanView
+Returns the SunSettings of the current View.
+Add a Filter to a View. The Filter will be added even if View has a View Template applied, which normally would prevent user from adding Filters without first disabling or modifying the View Template.
+
+View.AddFilter (parameterFilter: ParameterFilterElement): View
+Add a Filter to a View. The Filter will be added even if View has a View Template applied, which normally would prevent user from adding Filters without first disabling or modifying the View Template.
+
+View.AddFilter (parameterFilter: ParameterFilterElement): View
+Get all the elements which are visible in the active view.
+Export the view as an image to the given path - defaults to png, but you can override the file type but supplying a path with the appropriate extension
+
+View.ExportAsImage (path: string): var
+Get Filter overrides
+
+View.FilterOverrides (parameterFilter: ParameterFilterElement): OverrideGraphicSettings
+Checks if View is a View Template.
+
+View.IsViewTemplate ( ): bool
+Set Category Overrides.
+
+View.SetCategoryOverrides (category: Category, overrides: OverrideGraphicSettings, hide: bool = false): View
+Set Filter overrides. If View doesn't have specified Filter, it will be first added to the View and then its settings will be overriden. This behavior will persist even if View has a View Template applied which normally would prevent user from adding Filters without first disabling or modifying the View Template.
+
+View.SetFilterOverrides (parameterFilter: ParameterFilterElement, overrides: OverrideGraphicSettings, hide: bool = false): View
+Set View Scale
+
+View.SetScale (scale: int = 100): View
+Get View Filters
+
+View.Filters: ParameterFilterElement[]
+Determines whether a view with the provided name already exists. If a view exists with the provided name, and new view is created with a unique name. Otherwise, the original view name is returned.
+
+View3D.CreateUniqueViewName (name: string): string
