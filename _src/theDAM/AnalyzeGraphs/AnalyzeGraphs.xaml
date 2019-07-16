@@ -7,8 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button x:Name="ButtonDirectory" Content="Button" HorizontalAlignment="Left" Height="27" Margin="495,71,0,0" VerticalAlignment="Top" Width="80" Background="White" Click="ButtonDirectory_Click"/>
-        <TextBox x:Name="TextBoxDirectory" HorizontalAlignment="Left" Height="27" Margin="74,71,0,0" TextWrapping="Wrap" Text="directory" VerticalAlignment="Top" Width="402" VerticalContentAlignment="Center"/>
+        <Button x:Name="ButtonDirectory" Content="Choose Directory" HorizontalAlignment="Left" Height="27" Margin="479,71,0,0" VerticalAlignment="Top" Width="150" Background="White" Click="ButtonDirectory_Click"/>
+        <TextBox x:Name="TextBoxDirectory" HorizontalAlignment="Left" Height="27" Margin="74,71,0,0" TextWrapping="Wrap" Text="please select a directory" VerticalAlignment="Top" Width="400" VerticalContentAlignment="Center"/>
+        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Height="165" Margin="74,135,0,0" VerticalAlignment="Top" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <CheckBox x:Name="CheckBoxSubdirectories" Content="Include Subdirectories" HorizontalAlignment="Left" Margin="479,98,0,0" VerticalAlignment="Top" Height="27" Width="150" VerticalContentAlignment="Center" IsChecked="True"/>
 
     </Grid>
 </Window>
