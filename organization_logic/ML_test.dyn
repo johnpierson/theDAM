@@ -1,0 +1,925 @@
+{
+  "Uuid": "492fe58e-fb0f-435b-a396-4999b6a9853d",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "ML_test",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Input.Directory, CoreNodeModels",
+      "HintPath": "C:\\Users\\Jason\\Documents\\GitHub\\theDAM\\organization_logic\\ML samples",
+      "InputValue": "C:\\Users\\Jason\\Documents\\GitHub\\theDAM\\organization_logic\\ML samples",
+      "NodeType": "ExtensionNode",
+      "Id": "b1288ea0d088490aa495e9bc4f1a0012",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a345645336b548779f0beb9141b125b8",
+          "Name": "",
+          "Description": "Directory",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a directory on the system to get its path"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DirectoryObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "f42e3f35a55241789c4c9620dae7cfd5",
+      "Inputs": [
+        {
+          "Id": "c9aad93c53404e71bb0527630c02bec1",
+          "Name": "path",
+          "Description": "Path to the directory.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "202ce80a392c498baa5c4eacdc5e34dd",
+          "Name": "directory",
+          "Description": "Directory object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a directory object from a path"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.ReadText@var",
+      "Id": "9e203fc3f84345b49ef1a55f14d8dcec",
+      "Inputs": [
+        {
+          "Id": "0a12d78727e340888ab96fd9463fc1f5",
+          "Name": "file",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eed9b78a16ad4e4d901d604641f87696",
+          "Name": "str",
+          "Description": "Contents of the text file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Reads a text file and returns the contents as a string.\n\nFileSystem.ReadText (file: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.GetDirectoryContents@var,string,bool",
+      "Id": "be8f236047b14898860657a2f673eeba",
+      "Inputs": [
+        {
+          "Id": "18516489a7384ed9aff1ec46b914ad40",
+          "Name": "directory",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cc847b897f664d338c425dc1b455711a",
+          "Name": "searchString",
+          "Description": "string\nDefault value : \"*.*\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "27ecc34091ce4eb2ae181e58fc4f5d4d",
+          "Name": "includeSubdirectories",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "64638f0c5a334f57bf6e96e8e2bfc5e2",
+          "Name": "files",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0dd0a5929a604358b6472489b43fe476",
+          "Name": "directories",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "FileSystem.GetDirectoryContents (directory: var, searchString: string = \"*.*\", includeSubdirectories: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Split@string,string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "eef6b1880e3d435ab8b966fcde3bd133",
+      "Inputs": [
+        {
+          "Id": "286645b901474737811e207f5f6f6f4a",
+          "Name": "str",
+          "Description": "String to split up.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6ef9aaa0f43d41268e3b303025e3334b",
+          "Name": "separator0",
+          "Description": "Strings that, if present, determine the end and start of a split.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "34f0f25a723b4d23835c337d5ad81b68",
+          "Name": "strings",
+          "Description": "List of strings made from the input string.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Divides a single string into a list of strings, with divisions determined by the given separator strings.\n\nString.Split (str: string, separators: string[]): string[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"\n\";",
+      "Id": "f48c87225e8b4ef48021d0675db44a84",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "8ba133f6b9594027820205b5bae544e8",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.FileName@string,bool",
+      "Id": "10ccd1c570d44de3a480da1284d3277f",
+      "Inputs": [
+        {
+          "Id": "2ba4824540ce497b948082fdaf0f14d9",
+          "Name": "path",
+          "Description": "Path to get the file name of.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4fcefbd7a8ed421695ef766411b6314e",
+          "Name": "withExtension",
+          "Description": "Determines whether or not the extension is included in the result, defaults to true.\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "793047cf7f2944568c50cfed61ab2051",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the file name of a file path.\n\nFileSystem.FileName (path: string, withExtension: bool = true): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.UniqueItems@var[]..[]",
+      "Id": "a63077ccefc6480797ab5bbc23d719df",
+      "Inputs": [
+        {
+          "Id": "a28953a74a8749b387bff27caa8ebb32",
+          "Name": "list",
+          "Description": "List to filter duplicates out of.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eee6deb5fad64f2faec74f47b2fe8f34",
+          "Name": "list",
+          "Description": "Filtered list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new list containing all unique items in the given list.\n\nList.UniqueItems (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DesignScript.Builtin.Dictionary.ByKeysValues@string[],var[]..[]",
+      "Id": "d4d265e054a14211ba2342d60930ef84",
+      "Inputs": [
+        {
+          "Id": "8d09ccd2a28e44f6be834440f5ef0687",
+          "Name": "keys",
+          "Description": "The string keys of the Dictionary\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9b8d5e41432f40b0bcc67f3f5e8debd7",
+          "Name": "values",
+          "Description": "The values of the Dictionary\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "640b511ca4bb47a291d9386205306b60",
+          "Name": "dictionary",
+          "Description": "The result Dictionary",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a Dictionary with the supplied keys and values. The number of entries is the shorter of keys or values.\n\nDictionary.ByKeysValues (keys: string[], values: var[]..[]): Dictionary"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Directory, CoreNodeModels",
+      "HintPath": "C:\\Users\\Jason\\Documents\\GitHub\\theDAM\\organization_logic\\ML samples",
+      "InputValue": "C:\\Users\\Jason\\Documents\\GitHub\\theDAM\\organization_logic\\ML samples",
+      "NodeType": "ExtensionNode",
+      "Id": "6d69812b4ea54ce29a7c7036ed7f9ef5",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5aa04c0f10fb43fb9de35109739bc555",
+          "Name": "",
+          "Description": "Directory",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a directory on the system to get its path"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DirectoryObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "45819a7024e846a4939f0dbbee1928b1",
+      "Inputs": [
+        {
+          "Id": "4e1b91313c764d2c9f9fa8821dae5011",
+          "Name": "path",
+          "Description": "Path to the directory.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "64d78a57e366498a8157593ef5825e02",
+          "Name": "directory",
+          "Description": "Directory object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a directory object from a path"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.FileName@string,bool",
+      "Id": "0b70c68a86924399b79e3959017d0c05",
+      "Inputs": [
+        {
+          "Id": "408f52021e444c6aa9660cd1b103debf",
+          "Name": "path",
+          "Description": "Path to get the file name of.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c3bab02ef07a49389efaa69055c7e3e3",
+          "Name": "withExtension",
+          "Description": "Determines whether or not the extension is included in the result, defaults to true.\n\nbool\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "49b384a82add4e31b1924921777b2de8",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns the file name of a file path.\n\nFileSystem.FileName (path: string, withExtension: bool = true): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.ReadText@var",
+      "Id": "5e824acb599b4df398e8f6f50646cdd7",
+      "Inputs": [
+        {
+          "Id": "fb0c225dd5e940b7b8e9209f18a5e290",
+          "Name": "file",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "96a2dd219b9a4bf6890d7e1615571726",
+          "Name": "str",
+          "Description": "Contents of the text file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Reads a text file and returns the contents as a string.\n\nFileSystem.ReadText (file: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.GetDirectoryContents@var,string,bool",
+      "Id": "90be717aed9e412886e8205854832080",
+      "Inputs": [
+        {
+          "Id": "80d6e1aa7f6a453aad9197bc810690fe",
+          "Name": "directory",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3e1822efd1824071899019d55cb53e48",
+          "Name": "searchString",
+          "Description": "string\nDefault value : \"*.*\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "04d5a3d569e447d68047d59d2d514a6f",
+          "Name": "includeSubdirectories",
+          "Description": "bool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1d75627cfd9f43f19c37af21870d0e79",
+          "Name": "files",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e4aaba9fe1f047519bb3439d49f33dfd",
+          "Name": "directories",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "FileSystem.GetDirectoryContents (directory: var, searchString: string = \"*.*\", includeSubdirectories: bool = false): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.List.UniqueItems@var[]..[]",
+      "Id": "5dcfcac861de4f14be6c116f4df9d5ec",
+      "Inputs": [
+        {
+          "Id": "43280975d6164bb3ab8a9f028cc584c3",
+          "Name": "list",
+          "Description": "List to filter duplicates out of.\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": true,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a54cb6bee6e14ff6b1340e3d70289ae8",
+          "Name": "list",
+          "Description": "Filtered list.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a new list containing all unique items in the given list.\n\nList.UniqueItems (list: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSVarArgFunction, DynamoCore",
+      "FunctionSignature": "DSCore.String.Split@string,string[]",
+      "FunctionType": "VariableArgument",
+      "NodeType": "FunctionNode",
+      "Id": "5bdcfca0186a45ed941c0fd766bddd9d",
+      "Inputs": [
+        {
+          "Id": "0815f4665ded4a2d86b2026fed2f3599",
+          "Name": "str",
+          "Description": "String to split up.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a159125944524701a33868f4096f1a6d",
+          "Name": "separator0",
+          "Description": "Strings that, if present, determine the end and start of a split.\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "70e2a7c7454546968734dccaf8e6c85d",
+          "Name": "strings",
+          "Description": "List of strings made from the input string.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Divides a single string into a list of strings, with divisions determined by the given separator strings.\n\nString.Split (str: string, separators: string[]): string[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"\n\";",
+      "Id": "be0940ffa5d74cab8d37774ed81cdbfb",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "78b685e11c1c464ebb9d3db36e107673",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DesignScript.Builtin.Dictionary.ByKeysValues@string[],var[]..[]",
+      "Id": "d76bac1fe37243219cd4abb2913b2f4f",
+      "Inputs": [
+        {
+          "Id": "6dadb72a7e514b65ace6ca702396fb50",
+          "Name": "keys",
+          "Description": "The string keys of the Dictionary\n\nstring[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d7a79eaffee047f7877e6bd439fc0780",
+          "Name": "values",
+          "Description": "The values of the Dictionary\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "d56da6101129454ab921b29d272765e0",
+          "Name": "dictionary",
+          "Description": "The result Dictionary",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Produces a Dictionary with the supplied keys and values. The number of entries is the shorter of keys or values.\n\nDictionary.ByKeysValues (keys: string[], values: var[]..[]): Dictionary"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "a345645336b548779f0beb9141b125b8",
+      "End": "c9aad93c53404e71bb0527630c02bec1",
+      "Id": "aa998738f388487b89d51535fa5a3306"
+    },
+    {
+      "Start": "202ce80a392c498baa5c4eacdc5e34dd",
+      "End": "18516489a7384ed9aff1ec46b914ad40",
+      "Id": "d8dee2619ad74023a5ee9b6418e6734f"
+    },
+    {
+      "Start": "eed9b78a16ad4e4d901d604641f87696",
+      "End": "286645b901474737811e207f5f6f6f4a",
+      "Id": "d673766e63ef4b0c96ecb3bb3509f6af"
+    },
+    {
+      "Start": "64638f0c5a334f57bf6e96e8e2bfc5e2",
+      "End": "0a12d78727e340888ab96fd9463fc1f5",
+      "Id": "98df42f0883544b6afcd87a0689140de"
+    },
+    {
+      "Start": "64638f0c5a334f57bf6e96e8e2bfc5e2",
+      "End": "2ba4824540ce497b948082fdaf0f14d9",
+      "Id": "da4044e0e3b44de6aa3f2a3ba10d9f8d"
+    },
+    {
+      "Start": "34f0f25a723b4d23835c337d5ad81b68",
+      "End": "a28953a74a8749b387bff27caa8ebb32",
+      "Id": "8eeadf7e7cdf4aba8c03c8c7ca9c2832"
+    },
+    {
+      "Start": "8ba133f6b9594027820205b5bae544e8",
+      "End": "6ef9aaa0f43d41268e3b303025e3334b",
+      "Id": "46896443c93d43b0911068741c4d779b"
+    },
+    {
+      "Start": "793047cf7f2944568c50cfed61ab2051",
+      "End": "9b8d5e41432f40b0bcc67f3f5e8debd7",
+      "Id": "1e713dfff3e84628ab5699b1b55c4286"
+    },
+    {
+      "Start": "eee6deb5fad64f2faec74f47b2fe8f34",
+      "End": "8d09ccd2a28e44f6be834440f5ef0687",
+      "Id": "5d333e91a7574454b31b1b786df275f8"
+    },
+    {
+      "Start": "5aa04c0f10fb43fb9de35109739bc555",
+      "End": "4e1b91313c764d2c9f9fa8821dae5011",
+      "Id": "5da41065427e400da17564b05017835e"
+    },
+    {
+      "Start": "64d78a57e366498a8157593ef5825e02",
+      "End": "80d6e1aa7f6a453aad9197bc810690fe",
+      "Id": "aef663ce164e4a3aab7bb47a057009e3"
+    },
+    {
+      "Start": "49b384a82add4e31b1924921777b2de8",
+      "End": "d7a79eaffee047f7877e6bd439fc0780",
+      "Id": "619b82b3b00a484ba086a7b37be54a7b"
+    },
+    {
+      "Start": "96a2dd219b9a4bf6890d7e1615571726",
+      "End": "0815f4665ded4a2d86b2026fed2f3599",
+      "Id": "e3db3dcb442b4a8580f7181cdc429435"
+    },
+    {
+      "Start": "1d75627cfd9f43f19c37af21870d0e79",
+      "End": "408f52021e444c6aa9660cd1b103debf",
+      "Id": "dfa33abac9794bd4b51eaef4255916b8"
+    },
+    {
+      "Start": "1d75627cfd9f43f19c37af21870d0e79",
+      "End": "fb0c225dd5e940b7b8e9209f18a5e290",
+      "Id": "b2c8741d30ce403ca3009078703edcb0"
+    },
+    {
+      "Start": "a54cb6bee6e14ff6b1340e3d70289ae8",
+      "End": "6dadb72a7e514b65ace6ca702396fb50",
+      "Id": "9ebd1c43c3284c5c89c0286aaa648e84"
+    },
+    {
+      "Start": "70e2a7c7454546968734dccaf8e6c85d",
+      "End": "43280975d6164bb3ab8a9f028cc584c3",
+      "Id": "afb7c6fb8fea44fe931cf949a1376407"
+    },
+    {
+      "Start": "78b685e11c1c464ebb9d3db36e107673",
+      "End": "a159125944524701a33868f4096f1a6d",
+      "Id": "ed37e34b03024e7d9fce47afd73ff5d1"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Directory Path",
+        "Id": "b1288ea0d088490aa495e9bc4f1a0012",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -87.568649532545919,
+        "Y": 988.09697138749971
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Directory From Path",
+        "Id": "f42e3f35a55241789c4c9620dae7cfd5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 229.39948222265741,
+        "Y": 1029.0984943650803
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.ReadText",
+        "Id": "9e203fc3f84345b49ef1a55f14d8dcec",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 798.82081222804163,
+        "Y": 1106.9253622248577
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.GetDirectoryContents",
+        "Id": "be8f236047b14898860657a2f673eeba",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 426.97124561600822,
+        "Y": 1064.0174268530341
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String.Split",
+        "Id": "eef6b1880e3d435ab8b966fcde3bd133",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1008.8714285604769,
+        "Y": 1146.6035668543757
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "f48c87225e8b4ef48021d0675db44a84",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 870.77895828552823,
+        "Y": 1209.7541504698681
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.FileName",
+        "Id": "10ccd1c570d44de3a480da1284d3277f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 785.476113655871,
+        "Y": 912.05671264561533
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.UniqueItems",
+        "Id": "a63077ccefc6480797ab5bbc23d719df",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1291.9096864654875,
+        "Y": 1164.2727577462801
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Dictionary.ByKeysValues",
+        "Id": "d4d265e054a14211ba2342d60930ef84",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1564.2978562361043,
+        "Y": 958.62856689937132
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Directory Path",
+        "Id": "6d69812b4ea54ce29a7c7036ed7f9ef5",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -156.08692874863584,
+        "Y": 1602.2531510621807
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Directory From Path",
+        "Id": "45819a7024e846a4939f0dbbee1928b1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 160.88120300656715,
+        "Y": 1643.2546740397606
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.FileName",
+        "Id": "0b70c68a86924399b79e3959017d0c05",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 716.957834439781,
+        "Y": 1526.2128923202956
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.ReadText",
+        "Id": "5e824acb599b4df398e8f6f50646cdd7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 730.30253301195216,
+        "Y": 1721.0815418995408
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FileSystem.GetDirectoryContents",
+        "Id": "90be717aed9e412886e8205854832080",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 358.45296639991807,
+        "Y": 1678.1736065277105
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "List.UniqueItems",
+        "Id": "5dcfcac861de4f14be6c116f4df9d5ec",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1223.3914072494,
+        "Y": 1778.4289374209607
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String.Split",
+        "Id": "5bdcfca0186a45ed941c0fd766bddd9d",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 940.3531493443902,
+        "Y": 1760.7597465290605
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "be0940ffa5d74cab8d37774ed81cdbfb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 802.26067906943808,
+        "Y": 1823.9103301445507
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Dictionary.ByKeysValues",
+        "Id": "d76bac1fe37243219cd4abb2913b2f4f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1495.77957702001,
+        "Y": 1572.7847465740515
+      }
+    ],
+    "Annotations": [],
+    "X": 277.50904933189787,
+    "Y": -348.29166953590277,
+    "Zoom": 0.52922986498813618
+  }
+}

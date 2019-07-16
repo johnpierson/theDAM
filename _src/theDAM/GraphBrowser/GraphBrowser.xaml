@@ -20,9 +20,9 @@
             </ListView.View>
         </ListView>
         <TextBox x:Name="TextBoxSearchBar" HorizontalAlignment="Left" Height="35" Margin="40,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" VerticalContentAlignment="Center" TextChanged="TextBoxSearchBar_TextChanged"/>
-        <CheckBox x:Name="CheckBoxGraphName" Content="Graph Name" HorizontalAlignment="Left" Height="17" Margin="135,231,0,0" VerticalAlignment="Top" Width="99" IsChecked="True" Checked="CheckBoxGraphName_Checked" Unchecked="CheckBoxGraphName_UnChecked"/>
-        <CheckBox x:Name="CheckBoxGraphPurpose" Content="Graph Purpose" HorizontalAlignment="Left" Height="17" Margin="233,231,0,0" VerticalAlignment="Top" Width="118" Checked="CheckBoxGraphPurpose_Checked" Unchecked="CheckBoxGraphPurpose_UnChecked"/>
-        <CheckBox x:Name="CheckBoxNodes" Content="Nodes" HorizontalAlignment="Left" Height="17" Margin="346,231,0,0" VerticalAlignment="Top" Width="118" Checked="CheckBoxNodes_Checked" Unchecked="CheckBoxNodes_UnChecked"/>
+        <CheckBox x:Name="CheckBoxGraphName" Content="Graph Name" HorizontalAlignment="Left" Height="17" Margin="135,231,0,0" VerticalAlignment="Top" Width="99" Checked="CheckBoxGraphName_Checked" Unchecked="CheckBoxGraphName_UnChecked" IsChecked="True"/>
+        <CheckBox x:Name="CheckBoxGraphPurpose" Content="Graph Purpose" HorizontalAlignment="Left" Height="17" Margin="233,231,0,0" VerticalAlignment="Top" Width="118" Checked="CheckBoxGraphPurpose_Checked" Unchecked="CheckBoxGraphPurpose_UnChecked" IsChecked="True"/>
+        <CheckBox x:Name="CheckBoxNodes" Content="Nodes" HorizontalAlignment="Left" Height="17" Margin="346,231,0,0" VerticalAlignment="Top" Width="118" Checked="CheckBoxNodes_Checked" Unchecked="CheckBoxNodes_UnChecked" IsChecked="True"/>
         <Label Content="Search Scope:" HorizontalAlignment="Left" Height="27" Margin="40,225,0,0" VerticalAlignment="Top" Width="113" VerticalContentAlignment="Center"/>
 
     </Grid>

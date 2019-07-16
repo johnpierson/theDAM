@@ -31,7 +31,6 @@ namespace theDAM.GraphBrowser
         private int check = 1;
         public GraphBrowser()
         {
-            
             InitializeComponent();
         }
 
@@ -110,6 +109,7 @@ namespace theDAM.GraphBrowser
 
         private void TextBoxSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
         }
         private bool UserFilter(object item)
@@ -138,12 +138,12 @@ namespace theDAM.GraphBrowser
                            || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
                 case 9:
                     return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())||
-                        simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
+                        simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
                            || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+                default:
+                    return true;
             }
 
-            return (simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ","").ToLower())
-                    || simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower()));
         }
 
         private void CheckBoxGraphName_Checked(object sender, RoutedEventArgs e)
