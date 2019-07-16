@@ -50,7 +50,7 @@ namespace theDAM
             _theDAMMenuItem.Click += (sender, args) =>
             {
 
-                MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+                MessageBox.Show(NodeDescriptions.nodedesc.GetNODECOUNT().ToString());
 
 
             };
