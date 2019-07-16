@@ -121,7 +121,8 @@ namespace theDAM.GraphBrowser
 
 
             return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
-                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase));
+                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase))
+                   || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text);
 
         }
 
