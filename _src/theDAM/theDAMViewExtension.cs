@@ -47,14 +47,16 @@ namespace theDAM
 
 
             _theDAMMenuItem = new MenuItem { Header = "theDAM" };
-            _theDAMMenuItem.Click += (sender, args) =>
+
+            MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
+            nodeCount.Click += (sender, args) =>
             {
 
                 MessageBox.Show(NodeDescriptions.nodedesc.GetNODECOUNT().ToString());
 
-
             };
-            
+            _theDAMMenuItem.Items.Add(nodeCount);
+
 
 
             //change the menu font color and add it to the dynamo ribbon

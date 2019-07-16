@@ -24,5 +24,13 @@ namespace theDAM.NodeDescriptions
            return theDAM.DynView.HomeSpace.Nodes.First().Description;
 
         }
+
+        public static string GetNODEName()
+        {
+
+
+           return theDAM.DynView.HomeSpace.Nodes.First().Name;
+
+        }
     }
 }
