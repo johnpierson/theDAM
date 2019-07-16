@@ -1,0 +1,255 @@
+{
+  "Uuid": "d1c30ed6-42b3-4bf7-9bdb-ce19e5305d5a",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "QueriesRevit",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "dtDynamo.Workspace.Current",
+      "Id": "4ec1d61a912946c393b6510355fc8524",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "5fdfd2d0f3e14afbbce3b33971c74998",
+          "Name": "workspace",
+          "Description": "Dynamo.Graph.Workspaces.WorkspaceModel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the current Dynamo workspace model.\n\nWorkspace.Current ( ): var"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "dtDynamo.Node.Name@var",
+      "Id": "1f3d2ad3fc9846909dda7c6d313ca652",
+      "Inputs": [
+        {
+          "Id": "a71c9af81f5d466592081c0f13d987fb",
+          "Name": "node",
+          "Description": "Dynamo.Graph.Nodes.NodeModel\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "57822ae724fa4970b40db281a3479e46",
+          "Name": "name",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the name of the node\n\nNode.Name (node: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "dtDynamo.Workspace.Name@var",
+      "Id": "438c55e799494ab5ae996c4824d9a20e",
+      "Inputs": [
+        {
+          "Id": "ab708568a07345d2828b98c66923983c",
+          "Name": "workspace",
+          "Description": "Dynamo.Graph.Workspaces.WorkspaceModel\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "bc4cac1c7b9d4a33909360079d80cd97",
+          "Name": "name",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Tells you the Dynamo Graphs Name.\n\nWorkspace.Name (workspace: var): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "dtDynamo.Group.Nodes@var",
+      "Id": "03a9d08f6b544c15ba3e407ec0941a33",
+      "Inputs": [
+        {
+          "Id": "4299df89e09f4aeda0c254b847dd00f3",
+          "Name": "group",
+          "Description": "Dynamo.Graph.Annotations.AnnotationModel\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9b0a8aefdef84a5082f20f9c2a75f2e5",
+          "Name": "title",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the title of the group\n\nGroup.Nodes (group: var): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "dtDynamo.Workspace.Groups@var",
+      "Id": "d0450b46a47b44738e54af1cddc5915e",
+      "Inputs": [
+        {
+          "Id": "2af20ec17e3c455b816d50438a71c364",
+          "Name": "workspace",
+          "Description": "Dynamo.Graph.NodeGraphl\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "9bc0a3785e9245c795fb57327f6e81df",
+          "Name": "groups",
+          "Description": "Dynamo.Graph.Annotations.AnnotationModel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Retrieves the groups/annotations from the workspace\n\nWorkspace.Groups (workspace: var): var[]"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "5fdfd2d0f3e14afbbce3b33971c74998",
+      "End": "ab708568a07345d2828b98c66923983c",
+      "Id": "339bd49b3d87402a8e59c1ba31e2cc85"
+    },
+    {
+      "Start": "5fdfd2d0f3e14afbbce3b33971c74998",
+      "End": "2af20ec17e3c455b816d50438a71c364",
+      "Id": "6c20a4b9b6d24044ba9ea3933f73df2c"
+    },
+    {
+      "Start": "9b0a8aefdef84a5082f20f9c2a75f2e5",
+      "End": "a71c9af81f5d466592081c0f13d987fb",
+      "Id": "7eacbe07ffc3408489c1fb0d20126981"
+    },
+    {
+      "Start": "9bc0a3785e9245c795fb57327f6e81df",
+      "End": "4299df89e09f4aeda0c254b847dd00f3",
+      "Id": "6f3ef46f5bf1488d8e8936b32b6bd7be"
+    }
+  ],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Workspace.Current",
+        "Id": "4ec1d61a912946c393b6510355fc8524",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 795.86650360958993,
+        "Y": 267.5792518063725
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Node.Name",
+        "Id": "1f3d2ad3fc9846909dda7c6d313ca652",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1526.0717898768976,
+        "Y": 178.33223122040033
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Workspace.Name",
+        "Id": "438c55e799494ab5ae996c4824d9a20e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1008.0809550857689,
+        "Y": 322.63516136189423
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Group.Nodes",
+        "Id": "03a9d08f6b544c15ba3e407ec0941a33",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1283.8868565721252,
+        "Y": 175.44997930820969
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Workspace.Groups",
+        "Id": "d0450b46a47b44738e54af1cddc5915e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1005.32964247826,
+        "Y": 199.21001067554602
+      }
+    ],
+    "Annotations": [],
+    "X": -456.2516107084607,
+    "Y": 363.65966226357295,
+    "Zoom": 0.80407540184620285
+  }
+}
