@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Dynamo.Graph.Workspaces;
+using CheckBox = System.Windows.Controls.CheckBox;
 
 namespace theDAM.GraphBrowser
 {
@@ -22,10 +23,12 @@ namespace theDAM.GraphBrowser
             public string GraphName { get; set; }
             public string Description { get; set; }
             public string FilePath { get; set; }
+            public string Nodes { get; set; }
         }
 
         private List<string> _filePaths;
         private List<SimpleGraph> graphList = new List<SimpleGraph>();
+        private int check = 1;
         public GraphBrowser()
         {
             
@@ -94,11 +97,10 @@ namespace theDAM.GraphBrowser
                 sGraph.WorkspaceModel = workspaceModel;
                 sGraph.GraphName = workspaceModel.Name;
                 sGraph.FilePath = file;
-
+                sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name));
                 sGraph.Description = " " + workspaceModel.Description;
 
                 graphList.Add(sGraph);
-                //TODO: Figure out how to filter on the fly.
             }
             this.ListViewDynamoInfo.ItemsSource = graphList;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
@@ -117,10 +119,58 @@ namespace theDAM.GraphBrowser
 
             var simpleGraph = (SimpleGraph)item;
 
+
+            switch (check)
+            {
+                case 1:
+                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+
+                case 3:
+                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
+                           || simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+                case 5:
+                    return simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+                case 6:
+                    return simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
+                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+                case 8:
+                    return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
+                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+                case 9:
+                    return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())||
+                        simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
+                           || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
+            }
+
             return (simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ","").ToLower())
                     || simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower()));
         }
 
+        private void CheckBoxGraphName_Checked(object sender, RoutedEventArgs e)
+        {
+            check += 1;
+        }
+        private void CheckBoxGraphName_UnChecked(object sender, RoutedEventArgs e)
+        {
+            check += 1;
+        }
 
+        private void CheckBoxGraphPurpose_Checked(object sender, RoutedEventArgs e)
+        {
+            check += 3;
+        }
+        private void CheckBoxGraphPurpose_UnChecked(object sender, RoutedEventArgs e)
+        {
+            check -= 3;
+        }
+
+        private void CheckBoxNodes_Checked(object sender, RoutedEventArgs e)
+        {
+            check += 5;
+        }
+        private void CheckBoxNodes_UnChecked(object sender, RoutedEventArgs e)
+        {
+            check -= 5;
+        }
     }
 }
