@@ -18,6 +18,8 @@ using Dynamo.Controls;
 using Dynamo.Engine;
 using Dynamo.Graph.Workspaces;
 using Dynamo.UI;
+using Dynamo.ViewModels;
+using Newtonsoft.Json;
 
 namespace theDAM.AnalyzeGraphs
 {
@@ -84,13 +86,24 @@ namespace theDAM.AnalyzeGraphs
             foreach (string file in _filePaths)
             {
                 FileInfo fInfo = new FileInfo(file);
-                this.ListViewDynamoInfo.Items.Add(new TheDamGraph() {GraphName = fInfo.Name, NodeCount = 1});
+                this.ListViewDynamoInfo.Items.Add(new TheDamGraph() {GraphName = fInfo.Name, NodeCount = CountNodes(file)});
             }
         }
 
         private int CountNodes(string file)
         {
-            return 1;
+            string alltext = File.ReadAllText(file);
+            try
+            {
+                var dynJson = JsonConvert.DeserializeObject<WorkspaceViewModel>(alltext);
+                return dynJson.Nodes.Count;
+            }
+            catch (Exception e)
+            {
+                string messageNotes = e.Message;
+                return 0;
+            }
+            
         }
 
     }
