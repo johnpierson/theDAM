@@ -138,7 +138,7 @@ namespace theDAM.GraphBrowser
                            || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
                 case 9:
                     return simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())||
-                        simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
+                        simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower())
                            || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower());
             }
 
