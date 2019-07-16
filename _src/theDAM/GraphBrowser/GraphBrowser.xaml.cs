@@ -48,7 +48,7 @@ namespace theDAM.GraphBrowser
                     _filePaths = Directory.EnumerateFiles(fbd.SelectedPath, "*.*", searchOption)
                         .Where(s => s.EndsWith(".dyn")).ToList();
                     PackLists();
-   
+
                 }
             }
         }
@@ -56,47 +56,42 @@ namespace theDAM.GraphBrowser
         {
             // System.Windows.DataTemplate celltemplate = new DataTemplate(typeof(TextBox));
 
-            ////grid view to add the dynamo info to the list
-            //GridView grid = new GridView();
-            ////column to contain graph names
-            //GridViewColumn col0 = new GridViewColumn();
-            //col0.Width = 200;
-            //col0.Header = "Graph Name";
-            //col0.DisplayMemberBinding = new System.Windows.Data.Binding("GraphName");
-            //grid.Columns.Add(col0);
-            ////column to add node counts to
-            //GridViewColumn col1 = new GridViewColumn();
-            //col1.Width = 200;
-            ////col1.CellTemplate = celltemplate;
-            //col1.Header = "Graph Purpose";
-            //col1.DisplayMemberBinding = new System.Windows.Data.Binding("Description");
-            //grid.Columns.Add(col1);
+            //grid view to add the dynamo info to the list
+            GridView grid = new GridView();
+            //column to contain graph names
+            GridViewColumn col0 = new GridViewColumn();
+            col0.Width = 200;
+            col0.Header = "Graph Name";
+            col0.DisplayMemberBinding = new System.Windows.Data.Binding("GraphName");
+            grid.Columns.Add(col0);
+            //column to add node counts to
+            GridViewColumn col1 = new GridViewColumn();
+            col1.Width = 200;
+            //col1.CellTemplate = celltemplate;
+            col1.Header = "Graph Purpose";
+            col1.DisplayMemberBinding = new System.Windows.Data.Binding("Description");
+            grid.Columns.Add(col1);
 
             //bind the list view to the grid
-            //this.ListViewDynamoInfo.View = grid;
-           
+            this.ListViewDynamoInfo.View = grid;
+            graphList.Clear();
             //iterate through the file paths to get the info
             foreach (string file in _filePaths)
             {
                 WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
+                
+                SimpleGraph sGraph = new SimpleGraph();
+                sGraph.WorkspaceModel = workspaceModel;
+                sGraph.GraphName = workspaceModel.Name;
 
-                //this.ListViewDynamoInfo.Items.Add(new SimpleGraph()
-                //{
-                //    WorkspaceModel = workspaceModel,
-                //    GraphName = workspaceModel.Name,
-                //    Description = workspaceModel.Description
-                //});
-                graphList.Add(new SimpleGraph()
-                {
-                    WorkspaceModel = workspaceModel,
-                    GraphName = workspaceModel.Name,
-                    Description = workspaceModel.Description
-                }); 
+                sGraph.Description = " " + workspaceModel.Description;
+
+                graphList.Add(sGraph);
                 //TODO: Figure out how to filter on the fly.
             }
-this.ListViewDynamoInfo.ItemsSource = graphList;
+            this.ListViewDynamoInfo.ItemsSource = graphList;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
-            
+
         }
 
         private void TextBoxSearchBar_TextChanged(object sender, TextChangedEventArgs e)
