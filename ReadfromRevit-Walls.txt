@@ -1,0 +1,3 @@
+Wall.ByFace
+Wall Location
+Wall Types
