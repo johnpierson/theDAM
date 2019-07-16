@@ -8,7 +8,7 @@ namespace theDAM.NodeDescriptions
 {
     public class nodedesc
     {
-
+        public static string myPublicFileName; 
         public static int GetNODECOUNT()
         {
            return theDAM.DynView.HomeSpace.Nodes.Count();
@@ -34,6 +34,8 @@ namespace theDAM.NodeDescriptions
         {
             int myNodeCount = theDAM.DynView.HomeSpace.Nodes.Count();
 
+            myPublicFileName = theDAM.DynView.HomeSpace.FileName;
+
             string[] stringArrayName = new string[myNodeCount];
             //create loop herenthru all count
             //start..end..step
@@ -42,8 +44,13 @@ namespace theDAM.NodeDescriptions
                 stringArrayName[i] = theDAM.DynView.HomeSpace.Nodes.ElementAt(i).Name;
             }
             return stringArrayName;
-            
-
+                     
         }
+
+        //public static string[] GetGraphPreview()
+        //{
+
+        //    theDAM.DynView.
+        //}
     }
 }
