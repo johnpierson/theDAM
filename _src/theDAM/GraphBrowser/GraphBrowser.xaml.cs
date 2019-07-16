@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Dynamo.Graph.Workspaces;
+using Dynamo.Models;
 using theDAM.Utilities;
 using CheckBox = System.Windows.Controls.CheckBox;
 
@@ -40,7 +41,11 @@ namespace theDAM.GraphBrowser
             SimpleGraph simpleGraph = ListViewDynamoInfo.SelectedItem as SimpleGraph;
             //display the dialog
             theDAM.DynView.OpenCommand.Execute(simpleGraph.FilePath);
+            theDAM.DynView.CurrentSpaceViewModel.RunSettingsViewModel.Model.RunType = RunType.Manual;
+            this.Close();
         }
+
+
 
         private void ButtonDirectory_Click(object sender, RoutedEventArgs e)
         {

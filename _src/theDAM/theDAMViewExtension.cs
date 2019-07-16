@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using Dynamo.Controls;
+using Dynamo.Graph.Workspaces;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 using theDAM.About;
@@ -122,6 +123,10 @@ namespace theDAM
             //change the menu font color and add it to the dynamo ribbon
             p.dynamoMenu.Items.Add(_theDamMenuItem);
         }
+
+
+
+        
 
         public void Shutdown()
         {
