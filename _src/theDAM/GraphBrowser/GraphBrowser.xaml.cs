@@ -8,6 +8,7 @@ using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using Dynamo.Graph.Workspaces;
+using theDAM.Utilities;
 using CheckBox = System.Windows.Controls.CheckBox;
 
 namespace theDAM.GraphBrowser
@@ -83,7 +84,13 @@ namespace theDAM.GraphBrowser
             col1.Header = "Graph Purpose";
             col1.DisplayMemberBinding = new System.Windows.Data.Binding("Description");
             grid.Columns.Add(col1);
-
+            //column to add node counts to
+            GridViewColumn col2= new GridViewColumn();
+            col2.Width = 200;
+            //col1.CellTemplate = celltemplate;
+            col2.Header = "Node List";
+            col2.DisplayMemberBinding = new System.Windows.Data.Binding("Nodes");
+            grid.Columns.Add(col2);
             //bind the list view to the grid
             this.ListViewDynamoInfo.View = grid;
             graphList.Clear();
@@ -96,7 +103,7 @@ namespace theDAM.GraphBrowser
                 sGraph.WorkspaceModel = workspaceModel;
                 sGraph.GraphName = workspaceModel.Name;
                 sGraph.FilePath = file;
-                sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name));
+                sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name).Where(n => n != "").Distinct());
                 sGraph.Description = workspaceModel.Description + " ";
 
                 graphList.Add(sGraph);
@@ -122,7 +129,7 @@ namespace theDAM.GraphBrowser
 
             return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
                     || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase))
-                   || simpleGraph.Nodes.Contains(TextBoxSearchBar.Text);
+                   || simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text);
 
         }
 
