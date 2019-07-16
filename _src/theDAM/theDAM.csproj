@@ -136,11 +136,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About\frmAbout.cs">
+    <Compile Include="About\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About\frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <Compile Include="About\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="AnalyzeGraphs\AnalyzeGraphs.xaml.cs">
       <DependentUpon>AnalyzeGraphs.xaml</DependentUpon>
@@ -180,8 +180,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="About\frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
+    <EmbeddedResource Include="About\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
