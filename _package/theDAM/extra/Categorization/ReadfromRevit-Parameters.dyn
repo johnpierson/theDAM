@@ -1,0 +1,244 @@
+{
+  "Uuid": "d1c30ed6-42b3-4bf7-9bdb-ce19e5305d5a",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "ReadfromRevit-Parameters",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Parameter.Group",
+      "Id": "17333e2e0a7e40d19ba3ef0c235108fb",
+      "Inputs": [
+        {
+          "Id": "a7b40ff8ed8f4335a43992dd7c2be643",
+          "Name": "parameter",
+          "Description": "Revit.Elements.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5a1f35682f49435488fdff9f0fde7601",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the parameter's group\n\nParameter.Group: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Parameter.HasValue",
+      "Id": "aa74906170c74861af6d3e61a0c45ba8",
+      "Inputs": [
+        {
+          "Id": "14b56cb22e6f4bfabd3a192583f81120",
+          "Name": "parameter",
+          "Description": "Revit.Elements.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7fe5fe7dd3914f2795e705a846ec366b",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Check if the Parameter has a value\n\nParameter.HasValue: bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Parameter.Id",
+      "Id": "a40d1ab60f974100b8c86bfc1430fede",
+      "Inputs": [
+        {
+          "Id": "86e1bf7d8a744a8f8e5f4069ed910568",
+          "Name": "parameter",
+          "Description": "Revit.Elements.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7fd412ca4d9e4860b374d18edf0387bd",
+          "Name": "int",
+          "Description": "int",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the parameter's element Id\n\nParameter.Id: int"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Parameter.IsReadOnly",
+      "Id": "1b72d579a4ef45cb8a70d945e62ed05a",
+      "Inputs": [
+        {
+          "Id": "51fed7aeafa34589be137698682355d4",
+          "Name": "parameter",
+          "Description": "Revit.Elements.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "91892a0e1d5e4f8db3486d50405055dd",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Check if the Parameter is read only\n\nParameter.IsReadOnly: bool"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Parameter.IsShared",
+      "Id": "bfec859e40f043809256a03d37384c54",
+      "Inputs": [
+        {
+          "Id": "6f950a6ef8e0451b8fe2abf187e91f03",
+          "Name": "parameter",
+          "Description": "Revit.Elements.Parameter",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fcf6cde1ffe9466fa1f273d60ac58b57",
+          "Name": "bool",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Check if the Parameter is shared\n\nParameter.IsShared: bool"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.Group",
+        "Id": "17333e2e0a7e40d19ba3ef0c235108fb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1932.7657103851557,
+        "Y": -475.81719610096008
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.HasValue",
+        "Id": "aa74906170c74861af6d3e61a0c45ba8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1932.7657103851557,
+        "Y": -361.21512451157452
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.Id",
+        "Id": "a40d1ab60f974100b8c86bfc1430fede",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1932.7657103851557,
+        "Y": -17.408909743417723
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.IsReadOnly",
+        "Id": "1b72d579a4ef45cb8a70d945e62ed05a",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1932.7657103851557,
+        "Y": -132.01098133280328
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Parameter.IsShared",
+        "Id": "bfec859e40f043809256a03d37384c54",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1932.7657103851557,
+        "Y": -246.6130529221889
+      }
+    ],
+    "Annotations": [],
+    "X": -1963.4138560775991,
+    "Y": 652.70416053981467,
+    "Zoom": 1.3087046152230442
+  }
+}

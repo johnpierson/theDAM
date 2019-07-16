@@ -1,0 +1,1076 @@
+{
+  "Uuid": "d1c30ed6-42b3-4bf7-9bdb-ce19e5305d5a",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "WritetoRevit-Views",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.AreaPlanView.ByLevelAndAreaScheme@Revit.Elements.Level,Revit.Elements.Element",
+      "Id": "3264028964ff4624a2e2293bc661c765",
+      "Inputs": [
+        {
+          "Id": "41784c9dcff3422c9f02adf2101d1e9f",
+          "Name": "level",
+          "Description": "The Level on which the AreaPlanView is based.\n\nLevel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "eae247bccf7f40a8b817d31df0897332",
+          "Name": "areaScheme",
+          "Description": "Area Scheme to be applied to plan view.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c4d0ae9f7eb44eddb4f13fb96d938cc6",
+          "Name": "AreaPlanView",
+          "Description": "An Area Plan View if successful.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create an Area Plan View at the given Level.\n\nAreaPlanView.ByLevelAndAreaScheme (level: Level, areaScheme: Element): AreaPlanView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.AxonometricView.ByEyePointAndTarget@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,string",
+      "Id": "0cfc0dad6a8646cdabbcb1f33350c01f",
+      "Inputs": [
+        {
+          "Id": "e76e737af1794d42af415d0fc95a5960",
+          "Name": "eyePoint",
+          "Description": "A Point representing the eye point in meters.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f26f9fdbf7e04fbc8379e6d3f29f4b93",
+          "Name": "target",
+          "Description": "A Point representing the target of view in meters.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "69b02c10d7f3473db6a131e5b1a50e1d",
+          "Name": "name",
+          "Description": "The name of the view.\n\nstring\nDefault value : \"dynamo3D\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "3afd277bb33a43d49b349527b0322bef",
+          "Name": "AxonometricView",
+          "Description": "An AxonometricView object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Axonometric (isometric) View from an eye position and a target position.\n\nAxonometricView.ByEyePointAndTarget (eyePoint: Point, target: Point, name: string = \"dynamo3D\"): AxonometricView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.AxonometricView.ByEyePointTargetAndBoundingBox@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.BoundingBox,string,bool",
+      "Id": "ecf3cf97b31e453c8c3e5754aacaf395",
+      "Inputs": [
+        {
+          "Id": "35c061510ac445ab8bf9350733350da0",
+          "Name": "eyePoint",
+          "Description": "A Point representing the eye point.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fb8ac104c6ca4f18b20c2d151e71e826",
+          "Name": "target",
+          "Description": "A Point representing the target of view.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "eb67771840e64c938141c637b4cdf2bc",
+          "Name": "boundingBox",
+          "Description": "A BoundingBox. The view will be cropped to this bounding box\n\nBoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ab16dea4d23148ca9d481db2471b0abe",
+          "Name": "name",
+          "Description": "The name of the view.\n\nstring\nDefault value : \"dynamo3D\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "511e1d6543124efbb9d137a76b2fe11a",
+          "Name": "isolateElement",
+          "Description": "If this argument is set to true, the element or bounding box will be isolated in the current view by creating a minimum size crop box around it.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eea3f31c04154b6ba6b795d7e850cdfd",
+          "Name": "AxonometricView",
+          "Description": "An AxonometricView object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Axonometric (isometric) View from an Eye position and target position and Bounding Box\n\nAxonometricView.ByEyePointTargetAndBoundingBox (eyePoint: Point, target: Point, boundingBox: BoundingBox, name: string = \"dynamo3D\", isolateElement: bool = false): AxonometricView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.AxonometricView.ByEyePointTargetAndElement@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,string,Revit.Elements.Element,bool",
+      "Id": "aa705ca1aa414508a4bc51518b1e5e11",
+      "Inputs": [
+        {
+          "Id": "71c17f2b74b1401b89a0aa537545d178",
+          "Name": "eyePoint",
+          "Description": "A Point representing the eye point.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "86145dea18094bcba2c8763f1e3da58f",
+          "Name": "target",
+          "Description": "A Point representing the target of view.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5d2bc58948644d77b9dd10c58c8aa592",
+          "Name": "name",
+          "Description": "The name of the view.\n\nstring\nDefault value : \"dynamo3D\"",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2b00c3e9d65c4677b5cd4b8bc37293e9",
+          "Name": "element",
+          "Description": "This argument cannot be null, and it has to be either a Revit.Elements.Element or Revit.GeometryObjectsBoundingBox.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0a70dc4631d54d2d9b99cb48fc4d5d2f",
+          "Name": "isolateElement",
+          "Description": "If this argument is set to true, the element or bounding box will be isolated in the current view by creating a minimum size crop box around it.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "889128594d79403b8232c5a36ff1df6f",
+          "Name": "AxonometricView",
+          "Description": "An AxonometricView object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Axonometric (isometric) View from an Eye position and target position and Element\n\nAxonometricView.ByEyePointTargetAndElement (eyePoint: Point, target: Point, name: string = \"dynamo3D\", element: Element, isolateElement: bool = false): AxonometricView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.CeilingPlanView.ByLevel@Revit.Elements.Level",
+      "Id": "c7349a20edd44714826f59e10e481702",
+      "Inputs": [
+        {
+          "Id": "cbd72439291e4fa38f1a03abdb553f1d",
+          "Name": "level",
+          "Description": "Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f992aca3e744438e9bbab0903d7fb949",
+          "Name": "CeilingPlanView",
+          "Description": "CeilingPlanView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Floor Plan at a given Level\n\nCeilingPlanView.ByLevel (level: Level): CeilingPlanView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.DraftingView.ByName@string",
+      "Id": "16b74724d86742b6b6256e36c0acb5d6",
+      "Inputs": [
+        {
+          "Id": "d97cc8a6690a4020ab7286803df4df91",
+          "Name": "name",
+          "Description": "Name of the view\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "25cc255a954243a2b5d4b831b6504397",
+          "Name": "DraftingView",
+          "Description": "The view",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit DraftingView given it's name\n\nDraftingView.ByName (name: string): DraftingView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.FloorPlanView.ByLevel@Revit.Elements.Level",
+      "Id": "bf37965bc34342adb321d9372c132695",
+      "Inputs": [
+        {
+          "Id": "f5d80e3c585c40eebb4089340297c9ff",
+          "Name": "level",
+          "Description": "Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "91a7774dff0b409c9d01a0e9e33d6ed8",
+          "Name": "FloorPlanView",
+          "Description": "FloorPlanView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Floor Plan at a given Level\n\nFloorPlanView.ByLevel (level: Level): FloorPlanView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.PerspectiveView.ByEyePointAndTarget@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,var,string,bool",
+      "Id": "f2dd359798264ebeab9e8c4fbc0022e6",
+      "Inputs": [
+        {
+          "Id": "089d8c1800d14ae7a86f184871d15c0b",
+          "Name": "eyePoint",
+          "Description": "A Point representing the eye point.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3d18176100c149398d54c86176a2ea4b",
+          "Name": "target",
+          "Description": "A Point representing the target of view.\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "32a188b1edc14af38f7e6a8762645a86",
+          "Name": "element",
+          "Description": "This argument cannot be null, and it has to be either a Revit.Elements.Element or Revit.GeometryObjectsBoundingBox.\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2f0ef7b7ca984dbb8b2c53791600df7d",
+          "Name": "name",
+          "Description": "The name of the view.\n\nstring",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d3b595d1aeb24b908635e0b56ec02c40",
+          "Name": "isolateElement",
+          "Description": "If this argument is set to true, the element or bounding box will be isolated in the current view by creating a minimum size crop box around it.\n\nbool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4c8a2a0c400147688b44a7e8298c7dca",
+          "Name": "PerspectiveView",
+          "Description": "Returns the resulting PerspectiveView object.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Perspective View from an Eye position, a target position, and either an Element or BoundingBox.\n\nPerspectiveView.ByEyePointAndTarget (eyePoint: Point, target: Point, element: var, name: string, isolateElement: bool): PerspectiveView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.PerspectiveView.ByEyePointTargetAndBoundingBox@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.BoundingBox,string,bool",
+      "Id": "1d7ab1ee5d3b4b568c3cb38c1007e527",
+      "Inputs": [
+        {
+          "Id": "60543eed2f134563a921ab111adb2200",
+          "Name": "eyePoint",
+          "Description": "Eye point in meters\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fd088c6e6b114fb9b3b971619b188373",
+          "Name": "target",
+          "Description": "Target of view in meters\n\nPoint",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2c8984c44e6445b69c1d79b09d2bf3bf",
+          "Name": "boundingBox",
+          "Description": "Bounding box represented in meters\n\nBoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b710ad95259641faa521cfc29581712e",
+          "Name": "name",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "93a2b970f36d4a70819360ad97d9cdb6",
+          "Name": "isolateElement",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "18bccfb9ce3a48d9b1e0ff4b4860cb68",
+          "Name": "PerspectiveView",
+          "Description": "PerspectiveView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Perspective View from an Eye position and target position and Bounding Box\n\nPerspectiveView.ByEyePointTargetAndBoundingBox (eyePoint: Point, target: Point, boundingBox: BoundingBox, name: string, isolateElement: bool): PerspectiveView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.PerspectiveView.ByEyePointTargetAndElement@Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point,Revit.Elements.Element,string,bool",
+      "Id": "033ddb9d9f3f404081b13142d4c4ac2b",
+      "Inputs": [
+        {
+          "Id": "c7d31ea0a4d845eb81fb88712ff3cd36",
+          "Name": "eyePoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5c108a72d759410bbd417f5673094552",
+          "Name": "target",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "30d496acf450400da47880cd0b832894",
+          "Name": "element",
+          "Description": "Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4d297933a1aa4c26ad2d616af70bdbcf",
+          "Name": "name",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4e4d36fcd6d24ebaba5426557dc277bc",
+          "Name": "isolateElement",
+          "Description": "bool",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7efbcd9fc506461db46a8f878f2b04a1",
+          "Name": "PerspectiveView",
+          "Description": "PerspectiveView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit Perspective View from an Eye position and target position and Element\n\nPerspectiveView.ByEyePointTargetAndElement (eyePoint: Point, target: Point, element: Element, name: string, isolateElement: bool): PerspectiveView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.SectionView.ByBoundingBox@Autodesk.DesignScript.Geometry.BoundingBox",
+      "Id": "781520ee127a40caa92c5e9e34f39012",
+      "Inputs": [
+        {
+          "Id": "540f7138f9f7470d98e59baf1e4756d3",
+          "Name": "box",
+          "Description": "The bounding box of the view in meters\n\nBoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c03afe35e8ab4ee0a27ffe83ac5e2c74",
+          "Name": "SectionView",
+          "Description": "SectionView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Revit ViewSection by a bounding box\n\nSectionView.ByBoundingBox (box: BoundingBox): SectionView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.SectionView.ByCoordinateSystemMinPointMaxPoint@Autodesk.DesignScript.Geometry.CoordinateSystem,Autodesk.DesignScript.Geometry.Point,Autodesk.DesignScript.Geometry.Point",
+      "Id": "46b04a41a44e4871a83e188ecf4befc8",
+      "Inputs": [
+        {
+          "Id": "f5be9484c3d2473eb9ad67b56857f745",
+          "Name": "cs",
+          "Description": "CoordinateSystem",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "87d24b701f254046bf315067730d238d",
+          "Name": "minPoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "86720230cecd4a8896daee75568cb4de",
+          "Name": "maxPoint",
+          "Description": "Point",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2eb8aa0012f34d4ab28fb75a3f410830",
+          "Name": "SectionView",
+          "Description": "SectionView",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Creates a Revit ViewSection by a specified corrdinate system, minPoint and maxPoint\n\nSectionView.ByCoordinateSystemMinPointMaxPoint (cs: CoordinateSystem, minPoint: Point, maxPoint: Point): SectionView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.StructuralPlanView.ByLevel@Revit.Elements.Level",
+      "Id": "f9e81c00248b488597690fbd5df0d8f7",
+      "Inputs": [
+        {
+          "Id": "8c6d8f85594a405e8d9c97418bdbc41c",
+          "Name": "level",
+          "Description": "The Level on which the StructuralPlanView is based.\n\nLevel",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "61c15c87bcd34d318cfd218fc8d20e34",
+          "Name": "StructuralPlanView",
+          "Description": "A StructuralPlanView if successful.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Structural Plan View at the given Level.\n\nStructuralPlanView.ByLevel (level: Level): StructuralPlanView"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.View3D.CreateUniqueViewName@string",
+      "Id": "7ee41da73d784b0a917fd73cc889fabf",
+      "Inputs": [
+        {
+          "Id": "b77a4fcbc6d14fdcb35e595bea281c70",
+          "Name": "name",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6bf8a5a5a8ae4c3395ed44bddcc165d7",
+          "Name": "string",
+          "Description": "The original name if it is already unique, or a unique version of the name.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Determines whether a view with the provided name already exists. If a view exists with the provided name, and new view is created with a unique name. Otherwise, the original view name is returned.\n\nView3D.CreateUniqueViewName (name: string): string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.View.AddFilter@Revit.Filter.ParameterFilterElement",
+      "Id": "8314d4f61a764299a2d5bb556270e357",
+      "Inputs": [
+        {
+          "Id": "b7a10f4653b44807b261ec9e7658f6c6",
+          "Name": "view",
+          "Description": "Revit.Elements.Views.View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "303107173f9a4eee8b678719d8cc2825",
+          "Name": "parameterFilter",
+          "Description": "Parameter filter\n\nParameterFilterElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "befd81b6aca74f7191dd6d5ed88870d1",
+          "Name": "view",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Add a Filter to a View. The Filter will be added even if View has a View Template applied, which normally would prevent user from adding Filters without first disabling or modifying the View Template.\n\nView.AddFilter (parameterFilter: ParameterFilterElement): View"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.View.SetCategoryOverrides@Revit.Elements.Category,Revit.Filter.OverrideGraphicSettings,bool",
+      "Id": "556029c49f2346458b3f1a47849821f2",
+      "Inputs": [
+        {
+          "Id": "b7130c55b5ca450d988a67df2e60126e",
+          "Name": "view",
+          "Description": "Revit.Elements.Views.View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2a706c78cfd14b34967736ce8e38b005",
+          "Name": "category",
+          "Description": "Category\n\nCategory",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "9cf30d3b4fb94a4db74327ca90ab563b",
+          "Name": "overrides",
+          "Description": "Graphics Overrides Settings.\n\nOverrideGraphicSettings",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "541e6469346b4ae791fbbac8e3237cf1",
+          "Name": "hide",
+          "Description": "If True givent Category will be hidden.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "ef0216a33f204b16b6d5b4a602ab1a43",
+          "Name": "view",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Category Overrides.\n\nView.SetCategoryOverrides (category: Category, overrides: OverrideGraphicSettings, hide: bool = false): View"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.View.SetFilterOverrides@Revit.Filter.ParameterFilterElement,Revit.Filter.OverrideGraphicSettings,bool",
+      "Id": "692dd6f28f3349a785083644c7940908",
+      "Inputs": [
+        {
+          "Id": "e0bb51fdbbf04e8b80fc4edc1a25c4d0",
+          "Name": "view",
+          "Description": "Revit.Elements.Views.View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "cf3329a5744d441496dada29505d47ba",
+          "Name": "parameterFilter",
+          "Description": "Parameter Filter\n\nParameterFilterElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "4853e316a46b4e9d930cd6272ce5ef47",
+          "Name": "overrides",
+          "Description": "Graphic Overrides Settings\n\nOverrideGraphicSettings",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "929d4a5302304818ae8e9de17dd81a35",
+          "Name": "hide",
+          "Description": "If True given Filter will be hidden.\n\nbool\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a9e7863139e2421d8b440ec51881423a",
+          "Name": "view",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set Filter overrides. If View doesn't have specified Filter, it will be first added to the View and then its settings will be overriden. This behavior will persist even if View has a View Template applied which normally would prevent user from adding Filters without first disabling or modifying the View Template.\n\nView.SetFilterOverrides (parameterFilter: ParameterFilterElement, overrides: OverrideGraphicSettings, hide: bool = false): View"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Views.View.SetScale@int",
+      "Id": "3e7aa6951ee3462b8ca16a8af0633351",
+      "Inputs": [
+        {
+          "Id": "57ffa32d18c44ad28a9fa3d738fd1fd5",
+          "Name": "view",
+          "Description": "Revit.Elements.Views.View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d09745364c304a8cb28a0a9d7196adee",
+          "Name": "scale",
+          "Description": "View scale is the ration of true model size to paper size.\n\nint\nDefault value : 100",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8595d76e07114e92b604e9682854c532",
+          "Name": "view",
+          "Description": "View",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Set View Scale\n\nView.SetScale (scale: int = 100): View"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": false,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "AreaPlanView.ByLevelAndAreaScheme",
+        "Id": "3264028964ff4624a2e2293bc661c765",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": -561.57152996453544
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "AxonometricView.ByEyePointAndTarget",
+        "Id": "0cfc0dad6a8646cdabbcb1f33350c01f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": -41.571529964535443
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "AxonometricView.ByEyePointTargetAndBoundingBox",
+        "Id": "ecf3cf97b31e453c8c3e5754aacaf395",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 374.42847003546456
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "AxonometricView.ByEyePointTargetAndElement",
+        "Id": "aa705ca1aa414508a4bc51518b1e5e11",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 816.42847003546456
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "CeilingPlanView.ByLevel",
+        "Id": "c7349a20edd44714826f59e10e481702",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": -457.57152996453544
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "DraftingView.ByName",
+        "Id": "16b74724d86742b6b6256e36c0acb5d6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": -197.57152996453544
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "FloorPlanView.ByLevel",
+        "Id": "bf37965bc34342adb321d9372c132695",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 88.428470035464557
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "PerspectiveView.ByEyePointAndTarget",
+        "Id": "f2dd359798264ebeab9e8c4fbc0022e6",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 556.42847003546478
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "PerspectiveView.ByEyePointTargetAndBoundingBox",
+        "Id": "1d7ab1ee5d3b4b568c3cb38c1007e527",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 998.42847003546456
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "PerspectiveView.ByEyePointTargetAndElement",
+        "Id": "033ddb9d9f3f404081b13142d4c4ac2b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": -379.57152996453544
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SectionView.ByBoundingBox",
+        "Id": "781520ee127a40caa92c5e9e34f39012",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": -119.57152996453544
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "SectionView.ByCoordinateSystemMinPointMaxPoint",
+        "Id": "46b04a41a44e4871a83e188ecf4befc8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 166.42847003546456
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "StructuralPlanView.ByLevel",
+        "Id": "f9e81c00248b488597690fbd5df0d8f7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 296.42847003546456
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "View3D.CreateUniqueViewName",
+        "Id": "7ee41da73d784b0a917fd73cc889fabf",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4017.1338938076624,
+        "Y": 738.42847003546478
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "View.AddFilter",
+        "Id": "8314d4f61a764299a2d5bb556270e357",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4496.0729070716989,
+        "Y": -171.46167854063242
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "View.SetCategoryOverrides",
+        "Id": "556029c49f2346458b3f1a47849821f2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4491.3750593699569,
+        "Y": -514.75477318569574
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "View.SetFilterOverrides",
+        "Id": "692dd6f28f3349a785083644c7940908",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4491.9681215795672,
+        "Y": -341.33246028105054
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "View.SetScale",
+        "Id": "3e7aa6951ee3462b8ca16a8af0633351",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 4489.3493715820314,
+        "Y": -42.390783133799459
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "308ae260dbf447a4a2059290894bfa77",
+        "Title": "Write to Revit: Create views",
+        "Nodes": [],
+        "Left": 4007.1338938076624,
+        "Top": -77.571529964535216,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": -1053.8924151025578,
+    "Y": 256.30494491108141,
+    "Zoom": 0.40298507462686567
+  }
+}

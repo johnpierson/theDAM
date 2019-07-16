@@ -1,0 +1,195 @@
+{
+  "Uuid": "d1c30ed6-42b3-4bf7-9bdb-ce19e5305d5a",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "ReadfromRevit-Levels",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Level.Elevation",
+      "Id": "42c2a92991ae4f53b77c764363fe52d9",
+      "Inputs": [
+        {
+          "Id": "4ab7deb0a78f437d952ab4bba201dbb2",
+          "Name": "level",
+          "Description": "Revit.Elements.Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "eb9fac7fc06b4b5e81a6a98a9e09e137",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The elevation of the level above ground level\n\nLevel.Elevation: double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Level.Name",
+      "Id": "dcf0f90b63d94023bab5768b776e7d5c",
+      "Inputs": [
+        {
+          "Id": "e132eea72cb54992abe04caaef9cbec8",
+          "Name": "level",
+          "Description": "Revit.Elements.Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b6d519a8831c40e5a54a1615ee3c2e1b",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "The name of the level\n\nLevel.Name: string"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Level.ProjectElevation",
+      "Id": "cf4ed53ddd32420bab85a567466e700b",
+      "Inputs": [
+        {
+          "Id": "c2ad50327c4e405283bd5b648c7478f5",
+          "Name": "level",
+          "Description": "Revit.Elements.Level",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b65d707ece7048cebe19c41f61c3cdaa",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Elevation relative to the Project origin\n\nLevel.ProjectElevation: double"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Levels, DSRevitNodesUI",
+      "SelectedIndex": -1,
+      "SelectedString": "",
+      "NodeType": "ExtensionNode",
+      "Id": "3d6b869a2bd24d89872da0f6c88d807e",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "db428d44baa7422b83198227a288f43b",
+          "Name": "Levels",
+          "Description": "The selected Levels",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a level in the active document"
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.1.0.7500",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Level.Elevation",
+        "Id": "42c2a92991ae4f53b77c764363fe52d9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1359.70855990098,
+        "Y": -427.38623305443974
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Level.Name",
+        "Id": "dcf0f90b63d94023bab5768b776e7d5c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1371.52937175698,
+        "Y": -331.77094128113072
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Level.ProjectElevation",
+        "Id": "cf4ed53ddd32420bab85a567466e700b",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1364.26736847256,
+        "Y": -522.88053483187173
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Levels",
+        "Id": "3d6b869a2bd24d89872da0f6c88d807e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": true,
+        "X": 1382.0845469551848,
+        "Y": -223.19358331884712
+      }
+    ],
+    "Annotations": [],
+    "X": -1999.1481997541368,
+    "Y": 1001.868723506366,
+    "Zoom": 1.8586821630659152
+  }
+}
