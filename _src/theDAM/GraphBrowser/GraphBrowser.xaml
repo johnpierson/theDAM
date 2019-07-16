@@ -12,7 +12,7 @@
         <Image HorizontalAlignment="Left" Height="106" Margin="40,22,0,0" VerticalAlignment="Top" Width="177" Source="/theDAM;component/AnalyzeGraphs/DAM-Logo _Small.png"/>
         <Label Content="GRAPH BROWSER" HorizontalAlignment="Left" Margin="222,38,0,0" VerticalAlignment="Top" FontSize="24" Foreground="SteelBlue" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="55" Margin="238,73,0,0" TextWrapping="Wrap" Text="This module will allow you to search your library by graph purpose or nodes within." VerticalAlignment="Top" Width="357" FontStyle="Italic" BorderBrush="{x:Null}"/>
-        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Margin="40,241,0,33.6" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible">
+        <ListView x:Name="ListViewDynamoInfo" HorizontalAlignment="Left" Margin="40,241,0,33.6" Width="555" ScrollViewer.VerticalScrollBarVisibility="Visible" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Forms;
+using System.Windows.Input;
 using Dynamo.Graph.Workspaces;
 
 namespace theDAM.GraphBrowser
@@ -20,13 +21,22 @@ namespace theDAM.GraphBrowser
             public WorkspaceModel WorkspaceModel { get; set; }
             public string GraphName { get; set; }
             public string Description { get; set; }
+            public string FilePath { get; set; }
         }
 
         private List<string> _filePaths;
         private List<SimpleGraph> graphList = new List<SimpleGraph>();
         public GraphBrowser()
         {
+            
             InitializeComponent();
+        }
+
+        private void ListViewDynamoInfoOnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SimpleGraph simpleGraph = ListViewDynamoInfo.SelectedItem as SimpleGraph;
+            //display the dialog
+            theDAM.DynView.OpenCommand.Execute(simpleGraph.FilePath);
         }
 
         private void ButtonDirectory_Click(object sender, RoutedEventArgs e)
@@ -83,6 +93,7 @@ namespace theDAM.GraphBrowser
                 SimpleGraph sGraph = new SimpleGraph();
                 sGraph.WorkspaceModel = workspaceModel;
                 sGraph.GraphName = workspaceModel.Name;
+                sGraph.FilePath = file;
 
                 sGraph.Description = " " + workspaceModel.Description;
 
@@ -91,6 +102,7 @@ namespace theDAM.GraphBrowser
             }
             this.ListViewDynamoInfo.ItemsSource = graphList;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
+            ListViewDynamoInfo.MouseDoubleClick += ListViewDynamoInfoOnMouseDoubleClick;
 
         }
 
@@ -105,9 +117,10 @@ namespace theDAM.GraphBrowser
 
             var simpleGraph = (SimpleGraph)item;
 
-            return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
-                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase));
+            return (simpleGraph.GraphName.Contains(TextBoxSearchBar.Text.Replace(" ","").ToLower())
+                    || simpleGraph.Description.Contains(TextBoxSearchBar.Text.Replace(" ", "").ToLower()));
         }
+
 
     }
 }
