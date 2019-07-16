@@ -51,12 +51,25 @@ namespace theDAM
             MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
             nodeCount.Click += (sender, args) =>
             {
-
                 MessageBox.Show(NodeDescriptions.nodedesc.GetNODECOUNT().ToString());
-
             };
             _theDAMMenuItem.Items.Add(nodeCount);
 
+
+            MenuItem nodeDesciption = new MenuItem { Header = "Node Description" };
+            nodeDesciption.Click += (sender, args) =>
+            {
+                MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+            };
+            _theDAMMenuItem.Items.Add(nodeDesciption);
+
+
+            MenuItem nodeName = new MenuItem { Header = "Node Name" };
+            nodeName.Click += (sender, args) =>
+            {
+                MessageBox.Show(NodeDescriptions.nodedesc.GetNODEName());
+            };
+            _theDAMMenuItem.Items.Add(nodeName);
 
 
             //change the menu font color and add it to the dynamo ribbon
