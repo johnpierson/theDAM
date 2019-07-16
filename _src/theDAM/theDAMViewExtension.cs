@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using Dynamo.Controls;
@@ -24,7 +25,7 @@ namespace theDAM
     public class theDAM : IViewExtension
     {
         private MenuItem _theDAMMenuItem;
-
+        public static string _executingPath;
         public void Dispose()
         {
         }
@@ -37,7 +38,8 @@ namespace theDAM
 
         public void Loaded(ViewLoadedParams p)
         {
-
+            _executingPath = Assembly.GetExecutingAssembly().Location;
+           
             // Save a reference to your loaded parameters.
             // You'll need these later when you want to use
             // the supplied workspaces

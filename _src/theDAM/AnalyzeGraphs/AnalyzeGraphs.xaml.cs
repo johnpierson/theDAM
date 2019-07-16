@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Dynamo.Controls;
 using Dynamo.Engine;
+using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
 using Dynamo.UI;
 using Dynamo.ViewModels;
@@ -33,13 +34,15 @@ namespace theDAM.AnalyzeGraphs
         public class TheDamGraph
         {
             public string GraphName { get; set; }
+            public string GraphPurpose { get; set; }
             public int NodeCount { get; set; }
         }
 
         private List<string> _filePaths;
-
+        private Dictionary<string, string> _categoryDictionary = new Dictionary<string, string>();
         public AnalyzeGraphs()
         {
+            LoadCategorizationGraphs();
             InitializeComponent();
         }
 
@@ -79,20 +82,42 @@ namespace theDAM.AnalyzeGraphs
             //column to add node counts to
             GridViewColumn col1 = new GridViewColumn();
             col1.Width = 200;
-            col1.Header = "Node Count";
-            col1.DisplayMemberBinding = new System.Windows.Data.Binding("NodeCount");
+            col1.Header = "Graph Purpose";
+            col1.DisplayMemberBinding = new System.Windows.Data.Binding("GraphPurpose");
             grid.Columns.Add(col1);
+            //column to add node counts to
+            GridViewColumn col2 = new GridViewColumn();
+            col2.Width = 200;
+            col2.Header = "Node Count";
+            col2.DisplayMemberBinding = new System.Windows.Data.Binding("NodeCount");
+            grid.Columns.Add(col2);
+
             //bind the list view to the grid
             this.ListViewDynamoInfo.View = grid;
             //iterate through the file paths to get the info
             foreach (string file in _filePaths)
             {
-                FileInfo fInfo = new FileInfo(file);
-                this.ListViewDynamoInfo.Items.Add(new TheDamGraph() {GraphName = fInfo.Name, NodeCount = CountNodes(file)});
+                WorkspaceModel workspaceModel = WorkspaceFromJSON(file);
+
+                string graphType = string.Empty;
+                foreach (NodeModel node in workspaceModel.Nodes)
+                {
+                    string returnValue;
+                    _categoryDictionary.TryGetValue(node.Name, out returnValue);
+                    graphType = returnValue;
+                }
+
+                this.ListViewDynamoInfo.Items.Add(new TheDamGraph()
+                {
+                    GraphName = workspaceModel.Name,
+                    GraphPurpose = graphType,
+                    NodeCount = workspaceModel.Nodes.Count(),
+                });
+                
             }
         }
 
-        private int CountNodes(string file)
+        private WorkspaceModel WorkspaceFromJSON(string file)
         {
             string json = File.ReadAllText(file);
             //this amazing little portion constructs a DYN from JSON.
@@ -103,9 +128,39 @@ namespace theDAM.AnalyzeGraphs
                 true,
                 true,
                 theDAM.DynView.Model.CustomNodeManager);
-            
-            return wm.Nodes.Count();  
+
+            return wm;
         }
-        
+
+        //private string GraphPurpose(List<NodeModel> nodes)
+        //{
+
+        //}
+
+        private Dictionary<string, string> LoadCategorizationGraphs()
+        {
+            _categoryDictionary.Clear();
+            string extraPath = theDAM._executingPath.Replace("bin\\theDAM.dll", "extra\\Categorization\\");
+
+            foreach (var dyn in Directory.GetFiles(extraPath))
+            {
+                var ws = WorkspaceFromJSON(dyn);
+                foreach (NodeModel node in ws.Nodes)
+                {
+                    try
+                    {
+                        _categoryDictionary.Add(node.Name, ws.FileName);
+                    }
+                    catch (Exception)
+                    {
+                        // do nothing
+                    }
+                    
+                }
+               
+            }
+            
+            return _categoryDictionary;
+        }
     }
 }

@@ -181,7 +181,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)bin\Debug\theDAM.dll" "C:\Users\johnpierson\AppData\Roaming\Dynamo\Dynamo Core\2.0\packages\theDAM\bin" /Y /I</PostBuildEvent>
   </PropertyGroup>
 </Project>
