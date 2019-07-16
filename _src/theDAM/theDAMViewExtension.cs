@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using Dynamo.Controls;
 using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
-using SampleViewExtension;
 
 namespace theDAM
 {
@@ -44,9 +43,18 @@ namespace theDAM
             // You'll need these later when you want to use
             // the supplied workspaces
             view = p.DynamoWindow as DynamoView;
-
-
             _theDAMMenuItem = new MenuItem { Header = "theDAM" };
+
+
+            MenuItem AnalyzeGraphs = new MenuItem { Header = "Analyze Graphs" };
+            AnalyzeGraphs.Click += (sender, args) =>
+            {
+                AnalyzeGraphs.AnalyzeGraphs aGraphs = new AnalyzeGraphs.AnalyzeGraphs();
+                aGraphs.Show();
+            };
+            _theDAMMenuItem.Items.Add(AnalyzeGraphs);
+
+            
 
             MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
             nodeCount.Click += (sender, args) =>
