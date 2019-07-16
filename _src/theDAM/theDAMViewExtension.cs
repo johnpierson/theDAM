@@ -109,9 +109,12 @@ namespace theDAM
             MenuItem nodeName = new MenuItem { Header = "Node Name" };
             nodeName.Click += (sender, args) =>
             {
-                //MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
+                
                 string[] my_local_arrayName = NodeDescriptions.nodedesc.GetNODEName();
-                System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Names.txt", my_local_arrayName);
+                //string totalFileName = @"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\" + NodeDescriptions.nodedesc.myPublicFileName + ".txt";
+                string totalFileName = @"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\" + "NODE" + ".txt";
+                System.IO.File.WriteAllLines(totalFileName, my_local_arrayName);
+                MessageBox.Show(NodeDescriptions.nodedesc.myPublicFileName);
             };
             prototyping.Items.Add(nodeName);
             #endregion
