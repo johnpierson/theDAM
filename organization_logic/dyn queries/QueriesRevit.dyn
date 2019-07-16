@@ -12,146 +12,6 @@
     {
       "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
       "NodeType": "FunctionNode",
-      "FunctionSignature": "dtDynamo.Workspace.Current",
-      "Id": "4ec1d61a912946c393b6510355fc8524",
-      "Inputs": [],
-      "Outputs": [
-        {
-          "Id": "5fdfd2d0f3e14afbbce3b33971c74998",
-          "Name": "workspace",
-          "Description": "Dynamo.Graph.Workspaces.WorkspaceModel",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Retrieves the current Dynamo workspace model.\n\nWorkspace.Current ( ): var"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "dtDynamo.Node.Name@var",
-      "Id": "1f3d2ad3fc9846909dda7c6d313ca652",
-      "Inputs": [
-        {
-          "Id": "a71c9af81f5d466592081c0f13d987fb",
-          "Name": "node",
-          "Description": "Dynamo.Graph.Nodes.NodeModel\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "57822ae724fa4970b40db281a3479e46",
-          "Name": "name",
-          "Description": "string",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Retrieves the name of the node\n\nNode.Name (node: var): string"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "dtDynamo.Workspace.Name@var",
-      "Id": "438c55e799494ab5ae996c4824d9a20e",
-      "Inputs": [
-        {
-          "Id": "ab708568a07345d2828b98c66923983c",
-          "Name": "workspace",
-          "Description": "Dynamo.Graph.Workspaces.WorkspaceModel\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "bc4cac1c7b9d4a33909360079d80cd97",
-          "Name": "name",
-          "Description": "string",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Tells you the Dynamo Graphs Name.\n\nWorkspace.Name (workspace: var): string"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "dtDynamo.Group.Nodes@var",
-      "Id": "03a9d08f6b544c15ba3e407ec0941a33",
-      "Inputs": [
-        {
-          "Id": "4299df89e09f4aeda0c254b847dd00f3",
-          "Name": "group",
-          "Description": "Dynamo.Graph.Annotations.AnnotationModel\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "9b0a8aefdef84a5082f20f9c2a75f2e5",
-          "Name": "title",
-          "Description": "string",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Retrieves the title of the group\n\nGroup.Nodes (group: var): var[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "dtDynamo.Workspace.Groups@var",
-      "Id": "d0450b46a47b44738e54af1cddc5915e",
-      "Inputs": [
-        {
-          "Id": "2af20ec17e3c455b816d50438a71c364",
-          "Name": "workspace",
-          "Description": "Dynamo.Graph.NodeGraphl\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "9bc0a3785e9245c795fb57327f6e81df",
-          "Name": "groups",
-          "Description": "Dynamo.Graph.Annotations.AnnotationModel",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Retrieves the groups/annotations from the workspace\n\nWorkspace.Groups (workspace: var): var[]"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
       "FunctionSignature": "Revit.Elements.Element.GetParameterValueByName@string",
       "Id": "50b6d61bc09143a7916b7fa2c4904339",
       "Inputs": [
@@ -3522,74 +3382,18 @@
       ],
       "Replication": "Auto",
       "Description": "Set View Scale\n\nView.SetScale (scale: int = 100): View"
-    },
-    {
-      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
-      "NodeType": "FunctionNode",
-      "FunctionSignature": "dtDynamo.Group.Title@var",
-      "Id": "1dbc2a62859d41dca03ed3e16a53aecf",
-      "Inputs": [
-        {
-          "Id": "4399e95432ec44e490e8694c3f8d2616",
-          "Name": "group",
-          "Description": "Dynamo.Graph.Annotations.AnnotationModel\n\nvar",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Outputs": [
-        {
-          "Id": "75606015f223405b9652b4a9679f0e63",
-          "Name": "title",
-          "Description": "string",
-          "UsingDefaultValue": false,
-          "Level": 2,
-          "UseLevels": false,
-          "KeepListStructure": false
-        }
-      ],
-      "Replication": "Auto",
-      "Description": "Retrieves the title of the group\n\nGroup.Title (group: var): string"
     }
   ],
-  "Connectors": [
-    {
-      "Start": "5fdfd2d0f3e14afbbce3b33971c74998",
-      "End": "ab708568a07345d2828b98c66923983c",
-      "Id": "339bd49b3d87402a8e59c1ba31e2cc85"
-    },
-    {
-      "Start": "5fdfd2d0f3e14afbbce3b33971c74998",
-      "End": "2af20ec17e3c455b816d50438a71c364",
-      "Id": "6b97da5993c4455ab940b1d455226b02"
-    },
-    {
-      "Start": "9b0a8aefdef84a5082f20f9c2a75f2e5",
-      "End": "a71c9af81f5d466592081c0f13d987fb",
-      "Id": "7eacbe07ffc3408489c1fb0d20126981"
-    },
-    {
-      "Start": "9bc0a3785e9245c795fb57327f6e81df",
-      "End": "4299df89e09f4aeda0c254b847dd00f3",
-      "Id": "6f3ef46f5bf1488d8e8936b32b6bd7be"
-    },
-    {
-      "Start": "9bc0a3785e9245c795fb57327f6e81df",
-      "End": "4399e95432ec44e490e8694c3f8d2616",
-      "Id": "d96a4ce5151143e492200cec9e193baa"
-    }
-  ],
+  "Connectors": [],
   "Dependencies": [],
   "Bindings": [],
   "View": {
     "Dynamo": {
       "ScaleFactor": 1.0,
-      "HasRunWithoutCrash": true,
+      "HasRunWithoutCrash": false,
       "IsVisibleInDynamoLibrary": true,
       "Version": "2.1.0.7500",
-      "RunType": "Automatic",
+      "RunType": "Manual",
       "RunPeriod": "1000"
     },
     "Camera": {
@@ -3605,56 +3409,6 @@
       "UpZ": 0.0
     },
     "NodeViews": [
-      {
-        "ShowGeometry": true,
-        "Name": "Workspace.Current",
-        "Id": "4ec1d61a912946c393b6510355fc8524",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1043.6437913678237,
-        "Y": -928.21548476597354
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Node.Name",
-        "Id": "1f3d2ad3fc9846909dda7c6d313ca652",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1773.8490776351314,
-        "Y": -1017.4625053519457
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Workspace.Name",
-        "Id": "438c55e799494ab5ae996c4824d9a20e",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1255.8582428440027,
-        "Y": -873.15957521045175
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Group.Nodes",
-        "Id": "03a9d08f6b544c15ba3e407ec0941a33",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1531.664144330359,
-        "Y": -1020.3447572641363
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Workspace.Groups",
-        "Id": "d0450b46a47b44738e54af1cddc5915e",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1205.7879658444003,
-        "Y": -1027.144890400027
-      },
       {
         "ShowGeometry": true,
         "Name": "Element.GetParameterValueByName",
@@ -4524,395 +4278,40 @@
         "Excluded": true,
         "X": 4489.3493715820314,
         "Y": -42.390783133799459
-      },
-      {
-        "ShowGeometry": true,
-        "Name": "Group.Title",
-        "Id": "1dbc2a62859d41dca03ed3e16a53aecf",
-        "IsSetAsInput": false,
-        "IsSetAsOutput": false,
-        "Excluded": false,
-        "X": 1434.8550763377532,
-        "Y": -1240.3735958667507
       }
     ],
     "Annotations": [
       {
-        "Id": "843fb77d196f4a8293496af2e8ee7b31",
-        "Title": "Read from Revit: Get Revit parameters",
-        "Nodes": [],
-        "Left": 998.77231688333245,
-        "Top": -1594.9995660255652,
-        "Width": 0.0,
-        "Height": 0.0,
-        "FontSize": 24.0,
-        "InitialTop": -518.99956602556517,
-        "InitialHeight": 253.139642338617,
-        "TextblockHeight": 1066.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "a2d0224eb0d54c9eadaccc9fc847407c",
-        "Title": "Write to Revit: Create levels",
-        "Nodes": [],
-        "Left": 3217.8944455976566,
-        "Top": -974.631783492681,
-        "Width": 0.0,
-        "Height": 0.0,
-        "FontSize": 24.0,
-        "InitialTop": -129.63178349268105,
-        "InitialHeight": 539.51317666238219,
-        "TextblockHeight": 835.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "f82da484a3da4cea95d1df67c7d2b227",
-        "Title": "Write to Revit: Create rooms",
-        "Nodes": [],
-        "Left": 3515.1774091826283,
-        "Top": -1353.39467920356,
-        "Width": 0.0,
-        "Height": 0.0,
-        "FontSize": 24.0,
-        "InitialTop": -537.39467920356,
-        "InitialHeight": 201.0,
-        "TextblockHeight": 806.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "732d165e25f348f09131cd16adc77a27",
-        "Title": "Write to Revit: Set room information",
-        "Nodes": [],
-        "Left": 2953.5781711491472,
-        "Top": -1239.4687736894134,
-        "Width": 0.0,
-        "Height": 0.0,
-        "FontSize": 24.0,
-        "InitialTop": -192.46877368941352,
-        "InitialHeight": 271.89685317860943,
-        "TextblockHeight": 1037.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "341e1bd37a3d4583a04c53e9e05c8d30",
-        "Title": "Read from Revit: Room information",
-        "Nodes": [
-          "8c0ec47976a04a489a5bd98b753f1e0c",
-          "fff47e05382646df9f5707cec0cc6e3b",
-          "660bf457ac0b4ed686c2ce6bc8076b62",
-          "616820737edc40ef88118b7fb00465d3",
-          "799e57220b094c6f9cd641e15ef63cd9",
-          "e7969c9090e643f4a8081f974d0637a9",
-          "a8b2e31752c34e49a7923c7763d9b314",
-          "dcb89af2cc094c87afa82381a436f980",
-          "18432663f54f4879aef2f17813a168fe",
-          "ca9802d6a5c8433abe5775d6a1819ff6"
-        ],
-        "Left": 1630.1905975366,
-        "Top": -587.385418895639,
-        "Width": 214.0,
-        "Height": 863.0,
-        "FontSize": 24.0,
-        "InitialTop": -519.385418895639,
-        "InitialHeight": 825.0,
-        "TextblockHeight": 58.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
         "Id": "4ca78d82de474456bfab1342e7586eee",
         "Title": "Write to Revit: Create parameters",
-        "Nodes": [
-          "4dfb48d0881642bc95f07f8d5257a0bb",
-          "1d23aac1c6d64936822a1a479e223b1f",
-          "8347ac530a7e4e85b82ed5a57246e6db",
-          "d9c9b5ee127c4b81aec6c09ba663b07c",
-          "e71598c943bc4ebda6bed47d77b96e74"
-        ],
+        "Nodes": [],
         "Left": 3541.56060399574,
-        "Top": -292.91433578399187,
-        "Width": 356.0,
-        "Height": 938.0,
-        "FontSize": 24.0,
-        "InitialTop": -253.91433578399187,
-        "InitialHeight": 929.0,
-        "TextblockHeight": 29.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "5ea957eb00f04483af65c1033b7bb69e",
-        "Title": "Write to Revit: Set Revit parameter",
-        "Nodes": [
-          "91cce361e63c4cd48af57e7a5bdfafcf"
-        ],
-        "Left": 2925.620912708795,
-        "Top": -477.56144479514319,
-        "Width": 229.0,
-        "Height": 187.0,
-        "FontSize": 24.0,
-        "InitialTop": -409.56144479514319,
-        "InitialHeight": 299.7805481801073,
-        "TextblockHeight": 58.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "11cb62d6df84410e8b3cfb3ea5271563",
-        "Title": "Read from Revit: Get parameter information",
-        "Nodes": [
-          "17333e2e0a7e40d19ba3ef0c235108fb",
-          "aa74906170c74861af6d3e61a0c45ba8",
-          "a40d1ab60f974100b8c86bfc1430fede",
-          "1b72d579a4ef45cb8a70d945e62ed05a",
-          "bfec859e40f043809256a03d37384c54"
-        ],
-        "Left": 1922.7657103851557,
-        "Top": -571.81719610096,
-        "Width": 230.0,
-        "Height": 647.40828635754224,
-        "FontSize": 24.0,
-        "InitialTop": -475.81719610096008,
-        "InitialHeight": 581.40828635754235,
-        "TextblockHeight": 86.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "e60a5c92c5084309b4bb4c3edc6fef9f",
-        "Title": "Write to Revit: Create walls",
-        "Nodes": [
-          "beae8d060eda4bf481c32f18ad8a03eb",
-          "53dccb613363435da79f33b702f9a6e8"
-        ],
-        "Left": 3212.8172037851773,
-        "Top": 11.329278632943897,
-        "Width": 218.23033070656629,
-        "Height": 427.00561687486152,
-        "FontSize": 24.0,
-        "InitialTop": 79.3292786329439,
-        "InitialHeight": 389.00561687486152,
-        "TextblockHeight": 58.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "cb32e2ffde75463aa39b9f59b2d7259a",
-        "Title": "",
-        "Nodes": [
-          "dccad69fbfbb478c865dd123c0b3cb59",
-          "5668fc486f034b35a628fff40fd383fd"
-        ],
-        "Left": 1916.3884129936109,
-        "Top": 156.32416638697612,
-        "Width": 263.0,
-        "Height": 284.23067785919955,
-        "FontSize": 24.0,
-        "InitialTop": 195.32416638697612,
-        "InitialHeight": 275.23067785919955,
-        "TextblockHeight": 29.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "7eaac230484449b5b0d184cdda6d44d6",
-        "Title": "Read from external database",
-        "Nodes": [
-          "7159aa0e335d4d88822411e03b629301",
-          "4855303fd06a49b3ba2a67947b464691",
-          "5e04988c6f7447ee86f74c93f5a4fa9f",
-          "311fb103282944ce88fec149b1c3f18e",
-          "41423ddf1bbe47838d3d128543b52322",
-          "de7a1db342e34f718321e9ef9926711b"
-        ],
-        "Left": 1925.9584120204051,
-        "Top": 1167.466539004108,
-        "Width": 607.655167203581,
-        "Height": 465.09053294316004,
-        "FontSize": 24.0,
-        "InitialTop": 1206.466539004108,
-        "InitialHeight": 456.09053294316004,
-        "TextblockHeight": 29.0,
-        "Background": "#FF848484"
-      },
-      {
-        "Id": "876cbd1fb33e47f3bf29bb646b021979",
-        "Title": "Write to external database",
-        "Nodes": [
-          "c9ce849775ab415382290a8c4236f1b8",
-          "c96b9e4d082d41ce973e2e322c0ef6b7",
-          "0567af3eaed24c1aa4d17faef856baaa",
-          "e649919f7bb34c6380fb7170533f6375",
-          "7637179d45f54439ab96da210e551e7c",
-          "665edad3ced74eb0b71a18b9af312256"
-        ],
-        "Left": 2710.0932321725586,
-        "Top": 1129.7591847337058,
-        "Width": 503.42447175577172,
-        "Height": 583.82573012141074,
-        "FontSize": 24.0,
-        "InitialTop": 1168.7591847337058,
-        "InitialHeight": 574.82573012141074,
-        "TextblockHeight": 29.0,
-        "Background": "#FFA4E1FF"
-      },
-      {
-        "Id": "95be2943fe95496793d353de41de28f3",
-        "Title": "Read from Revit: Level information",
-        "Nodes": [
-          "3d6b869a2bd24d89872da0f6c88d807e"
-        ],
-        "Left": 1394.0845469551848,
-        "Top": -310.19358331884712,
-        "Width": 169.0,
-        "Height": 189.0,
-        "FontSize": 24.0,
-        "InitialTop": -214.19358331884712,
-        "InitialHeight": 431.68695151302461,
-        "TextblockHeight": 86.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "42878acbdf6b4ca9987f737c64016405",
-        "Title": "Read from Revit: Select Revit elements",
-        "Nodes": [
-          "7887078cb1ed4579ad7f171599421004",
-          "46d18962b8964a1ea071eb4563e059d8",
-          "18162a755e594c488c8cb9a49a6a1b52",
-          "492813e565d34fc1a47a8350227a8cd1",
-          "002576c7202f44ccab0a8812367476b2",
-          "673c9da1db6f4948ba69c4a294a63098",
-          "a8ab639b82ff4643bef0fcbb0acc9d55",
-          "0cd6bd23c78b4eb5b5541a13b06fc820"
-        ],
-        "Left": 889.145927498714,
-        "Top": -335.7762613956628,
-        "Width": 418.10024619093269,
-        "Height": 497.90525521563438,
-        "FontSize": 24.0,
-        "InitialTop": -296.7762613956628,
-        "InitialHeight": 488.90525521563438,
-        "TextblockHeight": 29.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "fd340021fc754e428631f6573696deba",
-        "Title": "Read from Revit: Wall information",
-        "Nodes": [
-          "dccad69fbfbb478c865dd123c0b3cb59",
-          "5668fc486f034b35a628fff40fd383fd",
-          "42a117ee18c2451a989c60f1acdb4a4b"
-        ],
-        "Left": 1916.3884129936109,
-        "Top": 127.32416638697612,
-        "Width": 263.0,
-        "Height": 417.32628965752417,
-        "FontSize": 24.0,
-        "InitialTop": 195.32416638697612,
-        "InitialHeight": 379.32628965752417,
-        "TextblockHeight": 58.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "460b4c0863034c9a9df8f32f1948bba5",
-        "Title": "Read from Revit: Sheet information",
-        "Nodes": [
-          "f854f2c38fb54e36ae9169994c03e672",
-          "8edebad129694c749066d1bc39eb4a3f",
-          "6b2635a830e343b28af4ed6389084567"
-        ],
-        "Left": 2238.9226999402877,
-        "Top": 86.305148857928657,
-        "Width": 213.91873111586983,
-        "Height": 358.73299085797385,
-        "FontSize": 24.0,
-        "InitialTop": 154.30514885792866,
-        "InitialHeight": 320.73299085797385,
-        "TextblockHeight": 58.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "8ee4022990824cb58e5baa702f124a01",
-        "Title": "Write to Revit: Create sheets",
-        "Nodes": [
-          "0fcea3e831214deeae8ff01e8c132302",
-          "b0767bb0d4f5475d8ac16647e35f7804"
-        ],
-        "Left": 2863.3583996266825,
-        "Top": 102.58875460288817,
-        "Width": 298.32331017250544,
-        "Height": 409.70701225326047,
-        "FontSize": 24.0,
-        "InitialTop": 170.58875460288817,
-        "InitialHeight": 371.70701225326047,
-        "TextblockHeight": 58.0,
-        "Background": "#FFB0C4DE"
+        "Top": -511.91433578399187,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
       },
       {
         "Id": "308ae260dbf447a4a2059290894bfa77",
         "Title": "Write to Revit: Create views",
-        "Nodes": [
-          "3264028964ff4624a2e2293bc661c765",
-          "0cfc0dad6a8646cdabbcb1f33350c01f",
-          "ecf3cf97b31e453c8c3e5754aacaf395",
-          "aa705ca1aa414508a4bc51518b1e5e11",
-          "c7349a20edd44714826f59e10e481702",
-          "16b74724d86742b6b6256e36c0acb5d6",
-          "bf37965bc34342adb321d9372c132695",
-          "f2dd359798264ebeab9e8c4fbc0022e6",
-          "1d7ab1ee5d3b4b568c3cb38c1007e527",
-          "033ddb9d9f3f404081b13142d4c4ac2b",
-          "781520ee127a40caa92c5e9e34f39012",
-          "46b04a41a44e4871a83e188ecf4befc8",
-          "f9e81c00248b488597690fbd5df0d8f7",
-          "7ee41da73d784b0a917fd73cc889fabf"
-        ],
+        "Nodes": [],
         "Left": 4007.1338938076624,
-        "Top": -600.57152996453544,
-        "Width": 363.0,
-        "Height": 1796.0,
-        "FontSize": 24.0,
-        "InitialTop": -561.57152996453544,
-        "InitialHeight": 1787.0,
-        "TextblockHeight": 29.0,
-        "Background": "#FFB0C4DE"
-      },
-      {
-        "Id": "278aff52e7014e35a60c8ffa3feb01dc",
-        "Title": "Read from Revit: Get view information",
-        "Nodes": [
-          "226e8704ac0d40c4a4f996e6c6da30cd",
-          "f345c0456d5b41e48efa754bce25b00b",
-          "593486c911d646ee92c94799831d07b7",
-          "3b3841fd57594b10b6bcd408b646f211",
-          "7de7ff054cff49ea9892a4277ce45953"
-        ],
-        "Left": 2228.444526437388,
-        "Top": -568.54417082763371,
-        "Width": 291.0,
-        "Height": 571.93745438010819,
-        "FontSize": 24.0,
-        "InitialTop": -500.54417082763365,
-        "InitialHeight": 533.93745438010819,
-        "TextblockHeight": 58.0,
-        "Background": "#FFD3D3D3"
-      },
-      {
-        "Id": "0c6d2cdcc9b5427f893aaeb355d06d52",
-        "Title": "Write to Revit: Set view information",
-        "Nodes": [
-          "8314d4f61a764299a2d5bb556270e357",
-          "556029c49f2346458b3f1a47849821f2",
-          "692dd6f28f3349a785083644c7940908",
-          "3e7aa6951ee3462b8ca16a8af0633351"
-        ],
-        "Left": 4479.3493715820314,
-        "Top": -582.75477318569574,
-        "Width": 267.72353548966748,
-        "Height": 659.36399005189628,
-        "FontSize": 24.0,
-        "InitialTop": -514.75477318569574,
-        "InitialHeight": 621.36399005189628,
-        "TextblockHeight": 58.0,
-        "Background": "#FFB0C4DE"
+        "Top": -77.571529964535216,
+        "Width": 0.0,
+        "Height": 0.0,
+        "FontSize": 36.0,
+        "InitialTop": 0.0,
+        "InitialHeight": 0.0,
+        "TextblockHeight": 0.0,
+        "Background": "#FFC1D676"
       }
     ],
-    "X": -565.23931018957774,
-    "Y": 511.6158398215025,
-    "Zoom": 0.46154908614020457
+    "X": -130.94703929021193,
+    "Y": 226.33376271333861,
+    "Zoom": 0.29769853297548748
   }
 }
