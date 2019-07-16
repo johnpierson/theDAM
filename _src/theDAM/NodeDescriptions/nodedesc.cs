@@ -47,10 +47,21 @@ namespace theDAM.NodeDescriptions
                      
         }
 
-        //public static string[] GetGraphPreview()
+        //public static string[] GetNODEIMAGES()
         //{
 
-        //    theDAM.DynView.
+
+        //    myPublicFileName = theDAM.DynView.HomeSpaceViewModel.
+
+        //    string[] stringArrayName = new string[myNodeCount];
+        //    //create loop herenthru all count
+        //    //start..end..step
+        //    for (int i = 0; i < myNodeCount; i = i + 1)
+        //    {
+        //        stringArrayName[i] = theDAM.DynView.HomeSpace.Nodes.ElementAt(i).Name;
+        //    }
+        //    return stringArrayName;
+
         //}
     }
 }
