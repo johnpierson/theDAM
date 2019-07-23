@@ -42,7 +42,7 @@ namespace theDAM
         {
             //get our executing path for usage throughout
             ExecutingPath = Assembly.GetExecutingAssembly().Location;
-           
+
             // Save a reference to your loaded parameters.
             // You'll need these later when you want to use
             // the supplied workspaces
@@ -52,20 +52,12 @@ namespace theDAM
             view = p.DynamoWindow as DynamoView;
             //this is our main menu item
             _theDamMenuItem = new MenuItem { Header = "theDAM" };
-
-            #region About
-            MenuItem about = new MenuItem { Header = "About" };
-            _theDamMenuItem.Items.Add(about);
-            about.Click += (sender, args) =>
-            {
-                About.About aboutDam = new About.About();
-                aboutDam.Show();
-            };
-            #endregion
+            
+            
 
             #region graph Analysis
-            MenuItem analyzeGraphs = new MenuItem { Header = "Analyze Graphs" };
-            _theDamMenuItem.Items.Add(analyzeGraphs);
+            MenuItem analyzeGraphs = new MenuItem { Header = "Better DYN Browser" };
+            //_theDamMenuItem.Items.Add(analyzeGraphs);
             MenuItem analyzegraphPurpose = new MenuItem { Header = "00 | Set Graph Purpose" };
             analyzegraphPurpose.Click += (sender, args) =>
             {
@@ -82,51 +74,61 @@ namespace theDAM
             };
             analyzeGraphs.Items.Add(graphBrowser);
             #endregion
-
-
-
-            #region MarcelloPrototyping
-            //this menu now allows a flyout
-            MenuItem prototyping = new MenuItem { Header = "Prototyping" };
-            _theDamMenuItem.Items.Add(prototyping);
-
-            MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
-            nodeCount.Click += (sender, args) =>
+            #region About
+            MenuItem about = new MenuItem { Header = "About" };
+            analyzeGraphs.Items.Add(about);
+            about.Click += (sender, args) =>
             {
-                MessageBox.Show(NodeDescriptions.nodedesc.GetNODECOUNT().ToString());
+                About.About aboutDam = new About.About();
+                aboutDam.Show();
             };
-            prototyping.Items.Add(nodeCount);
+            #endregion
+            #region MarcelloPrototyping
+            //this enables this portion for just marcello
+            if (Environment.UserName.ToLower().Contains("Marcello"))
+            { 
+                //this menu now allows a flyout
+                MenuItem prototyping = new MenuItem { Header = "Prototyping" };
+                _theDamMenuItem.Items.Add(prototyping);
 
-            MenuItem nodeDesciption = new MenuItem { Header = "Node Description" };
-            nodeDesciption.Click += (sender, args) =>
-            {
+                MenuItem nodeCount = new MenuItem { Header = "CountNodes" };
+                nodeCount.Click += (sender, args) =>
+                {
+                    MessageBox.Show(NodeDescriptions.nodedesc.GetNODECOUNT().ToString());
+                };
+                prototyping.Items.Add(nodeCount);
+
+                MenuItem nodeDesciption = new MenuItem { Header = "Node Description" };
+                nodeDesciption.Click += (sender, args) =>
+                {
                 //MessageBox.Show(NodeDescriptions.nodedesc.GetNODEdesc());
                 string[] my_local_arraydesc = NodeDescriptions.nodedesc.GetNODEdesc();
-                System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Descriptions.txt", my_local_arraydesc);
-            };
-            prototyping.Items.Add(nodeDesciption);
+                    System.IO.File.WriteAllLines(@"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\Descriptions.txt", my_local_arraydesc);
+                };
+                prototyping.Items.Add(nodeDesciption);
 
 
-            MenuItem nodeName = new MenuItem { Header = "Node Name" };
-            nodeName.Click += (sender, args) =>
-            {
-                
-                string[] my_local_arrayName = NodeDescriptions.nodedesc.GetNODEName();
+                MenuItem nodeName = new MenuItem { Header = "Node Name" };
+                nodeName.Click += (sender, args) =>
+                {
+
+                    string[] my_local_arrayName = NodeDescriptions.nodedesc.GetNODEName();
                 //string totalFileName = @"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\" + NodeDescriptions.nodedesc.myPublicFileName + ".txt";
                 string totalFileName = @"D:\working_revit_organics\dynamo\HACKAthon02\theDAM\" + "NODE" + ".txt";
-                System.IO.File.WriteAllLines(totalFileName, my_local_arrayName);
-                MessageBox.Show(NodeDescriptions.nodedesc.myPublicFileName);
-            };
-            prototyping.Items.Add(nodeName);
-            #endregion
-
-            //change the menu font color and add it to the dynamo ribbon
-            p.dynamoMenu.Items.Add(_theDamMenuItem);
+                    System.IO.File.WriteAllLines(totalFileName, my_local_arrayName);
+                    MessageBox.Show(NodeDescriptions.nodedesc.myPublicFileName);
+                };
+                prototyping.Items.Add(nodeName);
+                #endregion
+            }
+            p.AddMenuItem(MenuBarType.File, analyzeGraphs,3);
+            //on its own menu
+            //p.dynamoMenu.Items.Add(_theDamMenuItem);
         }
 
 
 
-        
+
 
         public void Shutdown()
         {
