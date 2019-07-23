@@ -15,11 +15,11 @@ This repository houses the code for the, theDAM View Extension.
 This view extension was made at the DBEIhackathon at BILT North America 2019.
 
 ## Team
-- Jason Boehning
-- John Pierson
-- Marcello Sgambelluri
-- Carl Storms
-- Adam Thomas
+- [Jason Boehning](https://github.com/jboehning)
+- [John Pierson](https://github.com/johnpierson)
+- [Marcello Sgambelluri](https://github.com/marcellosgamb)
+- [Carl Storms](https://github.com/TheBIMsider)
+- [Adam Thomas](https://twitter.com/jadamthomas)
 
 ## License
 This project is licensed under the [MIT](https://github.com/johnpierson/theDAM/blob/master/LICENSE) License. By using this project you agree to the terms and conditions of the license. A simplified summary of this license is available at [TLDR Legal](https://tldrlegal.com/license/mit-license).
