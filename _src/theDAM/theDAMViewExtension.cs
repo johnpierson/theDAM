@@ -57,16 +57,16 @@ namespace theDAM
 
             #region graph Analysis
             MenuItem analyzeGraphs = new MenuItem { Header = "Better DYN Browser" };
-            //_theDamMenuItem.Items.Add(analyzeGraphs);
-            MenuItem analyzegraphPurpose = new MenuItem { Header = "00 | Set Graph Purpose" };
-            analyzegraphPurpose.Click += (sender, args) =>
-            {
-                AnalyzeGraphs.AnalyzeGraphs aGraphs = new AnalyzeGraphs.AnalyzeGraphs();
-                aGraphs.Show();
-            };
-            analyzeGraphs.Items.Add(analyzegraphPurpose);
+            ////_theDamMenuItem.Items.Add(analyzeGraphs);
+            //MenuItem analyzegraphPurpose = new MenuItem { Header = "Set Graph Purpose" };
+            //analyzegraphPurpose.Click += (sender, args) =>
+            //{
+            //    AnalyzeGraphs.AnalyzeGraphs aGraphs = new AnalyzeGraphs.AnalyzeGraphs();
+            //    aGraphs.Show();
+            //};
+            //analyzeGraphs.Items.Add(analyzegraphPurpose);
 
-            MenuItem graphBrowser = new MenuItem { Header = "01 | Browse Graphs" };
+            MenuItem graphBrowser = new MenuItem { Header = "Browse Graphs" };
             graphBrowser.Click += (sender, args) =>
             {
                 GraphBrowser.GraphBrowser graphBrowserWindow = new GraphBrowser.GraphBrowser();

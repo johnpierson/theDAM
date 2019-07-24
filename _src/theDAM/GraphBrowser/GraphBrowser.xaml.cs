@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
+using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
 using Dynamo.Models;
 using theDAM.Utilities;
@@ -29,10 +30,12 @@ namespace theDAM.GraphBrowser
         }
 
         private List<string> _filePaths;
+        private Dictionary<string, string> _categoryDictionary = new Dictionary<string, string>();
         private List<SimpleGraph> graphList = new List<SimpleGraph>();
         private int check = 1;
         public GraphBrowser()
         {
+            LoadCategorizationGraphs();
             InitializeComponent();
         }
 
@@ -109,8 +112,17 @@ namespace theDAM.GraphBrowser
                 sGraph.GraphName = workspaceModel.Name;
                 sGraph.FilePath = file;
                 sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name).Where(n => n != "").Distinct());
-                sGraph.Description = workspaceModel.Description + " ";
+                List<string> graphType = new List<string>();
+                foreach (NodeModel node in workspaceModel.Nodes)
+                {
+                    _categoryDictionary.TryGetValue(node.Name, out var returnValue);
+                    if (returnValue != null)
+                    {
+                        graphType.Add(returnValue);
+                    }
+                }
 
+                sGraph.Description = string.Join(",", graphType.Distinct());
                 graphList.Add(sGraph);
             }
             this.ListViewDynamoInfo.ItemsSource = graphList;
@@ -131,12 +143,39 @@ namespace theDAM.GraphBrowser
 
             var simpleGraph = (SimpleGraph)item;
 
-
-            return (simpleGraph.GraphName.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase)
-                    || simpleGraph.Description.StartsWith(TextBoxSearchBar.Text, StringComparison.OrdinalIgnoreCase))
-                   || simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text);
+            return (simpleGraph.GraphName.CaseInsensitiveContains(TextBoxSearchBar.Text)
+                    || simpleGraph.Description.CaseInsensitiveContains(TextBoxSearchBar.Text)
+                   || simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text));
 
         }
+        private Dictionary<string, string> LoadCategorizationGraphs()
+        {
+            _categoryDictionary.Clear();
+            string extraPath = theDAM.ExecutingPath.Replace("bin\\theDAM.dll", "extra\\Categorization\\");
 
+            foreach (var dyn in Directory.GetFiles(extraPath))
+            {
+                var ws = Utilities.Utilities.WorkspaceFromJSON(dyn);
+                foreach (NodeModel node in ws.Nodes)
+                {
+                    try
+                    {
+                        _categoryDictionary.Add(node.Name, ws.Name);
+                    }
+                    catch (Exception)
+                    {
+                        // do nothing
+                    }
+                }
+            }
+
+            return _categoryDictionary;
+        }
+
+        private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+        }
     }
 }
