@@ -21,5 +21,8 @@ This view extension was made at the DBEIhackathon at BILT North America 2019.
 - [Carl Storms](https://github.com/TheBIMsider)
 - [Adam Thomas](https://twitter.com/jadamthomas)
 
+## In Action
+<img src="https://github.com/johnpierson/theDAM/blob/master/resources/20190724-theDAM-Revisions.gif" alt="theDAM" width="200">
+
 ## License
 This project is licensed under the [MIT](https://github.com/johnpierson/theDAM/blob/master/LICENSE) License. By using this project you agree to the terms and conditions of the license. A simplified summary of this license is available at [TLDR Legal](https://tldrlegal.com/license/mit-license).
