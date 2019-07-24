@@ -32,12 +32,13 @@ namespace theDAM.GraphBrowser
         private List<string> _filePaths;
         private Dictionary<string, string> _categoryDictionary = new Dictionary<string, string>();
         private List<SimpleGraph> graphList = new List<SimpleGraph>();
-        private int check = 1;
+        private int check = 0;
         public GraphBrowser()
         {
             LoadCategorizationGraphs();
             InitializeComponent();
         }
+
 
         private void ListViewDynamoInfoOnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -105,36 +106,50 @@ namespace theDAM.GraphBrowser
             //iterate through the file paths to get the info
             foreach (string file in _filePaths)
             {
-                WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
-
-                SimpleGraph sGraph = new SimpleGraph();
-                sGraph.WorkspaceModel = workspaceModel;
-                sGraph.GraphName = workspaceModel.Name;
-                sGraph.FilePath = file;
-                sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name).Where(n => n != "").Distinct());
-                List<string> graphType = new List<string>();
-                foreach (NodeModel node in workspaceModel.Nodes)
+                try
                 {
-                    _categoryDictionary.TryGetValue(node.Name, out var returnValue);
-                    if (returnValue != null)
+                    WorkspaceModel workspaceModel = Utilities.Utilities.WorkspaceFromJSON(file);
+                    SimpleGraph sGraph = new SimpleGraph();
+                    sGraph.WorkspaceModel = workspaceModel;
+                    sGraph.GraphName = workspaceModel.Name;
+                    sGraph.FilePath = file;
+                    sGraph.Nodes = string.Join(", ", workspaceModel.Nodes.Select(n => n.Name).Where(n => n != "").Distinct());
+                    List<string> graphType = new List<string>();
+                    foreach (NodeModel node in workspaceModel.Nodes)
                     {
-                        graphType.Add(returnValue);
+                        _categoryDictionary.TryGetValue(node.Name, out var returnValue);
+                        if (returnValue != null)
+                        {
+                            graphType.Add(returnValue);
+                        }
                     }
-                }
 
-                sGraph.Description = string.Join(",", graphType.Distinct());
-                graphList.Add(sGraph);
+                    sGraph.Description = string.Join(",", graphType.Distinct());
+                    graphList.Add(sGraph);
+                }
+                catch (Exception)
+                {
+                    //ignore if the graph is 1.3.x
+                }
+                
             }
             this.ListViewDynamoInfo.ItemsSource = graphList;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
             ListViewDynamoInfo.MouseDoubleClick += ListViewDynamoInfoOnMouseDoubleClick;
 
+            //check the graph name box so something is searchable
+            CheckBoxGraphName.IsChecked = true;
+            //turn on the count label
+            LabelCountOfDyns.Visibility = Visibility.Visible;
+            LabelCountOfDyns.Content = graphList.Count + " DYNs available.";
         }
 
         private void TextBoxSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBlockPlaceholderText.Visibility = Visibility.Hidden;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+            LabelCountOfDyns.Content = ListViewDynamoInfo.Items.Count + " DYNs available.";
         }
         private bool UserFilter(object item)
         {
@@ -143,9 +158,30 @@ namespace theDAM.GraphBrowser
 
             var simpleGraph = (SimpleGraph)item;
 
-            return (simpleGraph.GraphName.CaseInsensitiveContains(TextBoxSearchBar.Text)
-                    || simpleGraph.Description.CaseInsensitiveContains(TextBoxSearchBar.Text)
-                   || simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text));
+            switch (check)
+            {
+                case 1:
+                    return simpleGraph.GraphName.CaseInsensitiveContains(TextBoxSearchBar.Text);
+                case 3:
+                    return simpleGraph.Description.CaseInsensitiveContains(TextBoxSearchBar.Text);
+                case 4:
+                    return (simpleGraph.GraphName.CaseInsensitiveContains(TextBoxSearchBar.Text) ||
+                           simpleGraph.Description.CaseInsensitiveContains(TextBoxSearchBar.Text));
+                case 5:
+                    return simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text);
+                case 6:
+                    return (simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text) ||
+                           simpleGraph.GraphName.CaseInsensitiveContains(TextBoxSearchBar.Text));
+                case 8:
+                    return (simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text) ||
+                           simpleGraph.Description.CaseInsensitiveContains(TextBoxSearchBar.Text));
+                case 9:
+                    return (simpleGraph.GraphName.CaseInsensitiveContains(TextBoxSearchBar.Text)
+                            || simpleGraph.Description.CaseInsensitiveContains(TextBoxSearchBar.Text)
+                            || simpleGraph.Nodes.CaseInsensitiveContains(TextBoxSearchBar.Text));
+                default:
+                    return true;
+            }
 
         }
         private Dictionary<string, string> LoadCategorizationGraphs()
@@ -174,8 +210,48 @@ namespace theDAM.GraphBrowser
 
         private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
         {
+            CheckBox cBox = sender as CheckBox;
+            string cBoxValue = cBox.Content.ToString();
+
+            switch (cBoxValue)
+            {
+                case "Graph Name":
+                    check += 1;
+                    break;
+                case "Graph Purpose":
+                    check += 3;
+                    break;
+                case "Nodes Within":
+                    check += 5;
+                    break;
+            }
+
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
             CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+            LabelCountOfDyns.Content = ListViewDynamoInfo.Items.Count + " DYNs available.";
+        }
+
+        private void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
+        {
+            CheckBox cBox = sender as CheckBox;
+            string cBoxValue = cBox.Content.ToString();
+
+            switch (cBoxValue)
+            {
+                case "Graph Name":
+                    check -= 1;
+                    break;
+                case "Graph Purpose":
+                    check -= 3;
+                    break;
+                case "Nodes Within":
+                    check -= 5;
+                    break;
+            }
+
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Filter = UserFilter;
+            CollectionViewSource.GetDefaultView(ListViewDynamoInfo.ItemsSource).Refresh();
+            LabelCountOfDyns.Content = ListViewDynamoInfo.Items.Count + " DYNs available.";
         }
     }
 }
