@@ -158,7 +158,6 @@ namespace theDAM
         {
             get { return view.DataContext as DynamoViewModel; }
         }
-
         public string[] ListDesc { get; private set; }
     }
 }
